@@ -1,0 +1,5146 @@
+html,button,h1,h2,h3,h4,h5,h6 {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    color: #0f3b89;
+}
+b,strong {
+    font-weight: bold;
+}
+a {
+    color: #0f3b89;
+}
+em {
+    color: #0f3b89;
+}
+
+.redbutton {
+    display: inline-block;
+    background: #ff0033;
+    padding: 10px;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+}
+.redbutton span {
+    display: inline-block;
+    color: #ffffff;
+}
+.redbutton:hover {
+    background: #e30031;
+}
+
+.redbordbutton {
+    display: inline-block;
+    border: 1px solid #ff0033;
+    color: #ff0033;
+    white-space: nowrap;
+    padding: 8px;
+}
+.redbordbutton span {
+    display: inline-block;
+}
+.redbordbutton:hover {
+    background: #e30031;
+    color: #ffffff;
+}
+
+.uk-form input[type=radio], .uk-form input[type=checkbox] {border-color: #ff0033;margin-right: 10px;vertical-align: text-bottom}
+.uk-form input[type=checkbox]:checked:before, .uk-form input[type=checkbox]:indeterminate:before {color: #0f3b89;}
+
+.uk-pagination>.uk-active>span {
+    background: #0f3b89;
+}
+.uk-pagination>li>a {
+    color: #0f3b89;
+}
+
+#maincont {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: -20px;
+}
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#top-panel {
+    position: relative;
+    color: #ffffff;
+    background: #0f3b89;
+}
+#top-panel .logo-mobile {
+    height: 37px;
+    margin: 5px 10px;
+}
+#top-panel.uk-active {
+    border-bottom: 1px solid #ff0033;
+}
+#top-panel .title-label {
+    display: none;
+}
+#top-panel .open-schedule {
+    color: #3159b0;
+    margin-left: 5px;
+}
+#top-panel .open-schedule .uk-icon-calendar {
+    font-size: 20px;
+    vertical-align: middle;
+}
+#top-panel .open-schedule span {
+    display: none;
+}
+#top-panel .open-schedule:hover {
+    color: #ff0033;
+    text-decoration: none;
+}
+#top-panel .select-club,
+.topphone .select-club,
+footer .footer-left .footer-left-top .select-club {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #ff0033;
+}
+.topphone .select-club {
+    color: #0f3b89;
+}
+#top-panel .select-club .select:before,
+.topphone .select-club .select:before,
+footer .footer-left .footer-left-top .select-club .select:before {
+    content: '\f107';
+    font-size: 14px;
+    font-family: FontAwesome;
+    float: left;
+    margin-right: 10px;
+}
+.topphone .select-club .select:before {
+    float: right;
+    margin-right: 0;
+    margin-left: 5px;
+}
+#top-panel .select-club .another-clubs,
+.topphone .select-club .another-clubs,
+footer .footer-left .footer-left-top .select-club .another-clubs {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #003366;
+    color: #a3b2cf;
+    box-shadow: 0 0 10px -6px;
+    text-decoration: none;
+}
+.topphone .select-club .another-clubs {
+    left: auto;
+    right: 0;
+    margin-top: 0;
+}
+footer .footer-left .footer-left-top .select-club .another-clubs {
+    left: 0;
+    margin-top: 0;
+}
+#top-panel .select-club .another-clubs .another-club,
+.topphone .select-club .another-clubs .another-club,
+footer .footer-left .footer-left-top .select-club .another-clubs .another-club {
+    padding: 5px 0;
+    white-space: nowrap;
+    letter-spacing: 2px;
+}
+#top-panel .select-club .another-clubs .another-club:hover,
+.topphone .select-club .another-clubs .another-club:hover,
+footer .footer-left .footer-left-top .select-club .another-clubs .another-club:hover {
+    color: #ffffff;
+}
+#top-panel .select-open .select:before,
+.topphone .select-open .select:before,
+footer .footer-left .footer-left-top .select-open .select:before {
+    content: '\f106'
+}
+#top-panel .select-open,
+.topphone .select-open,
+footer .footer-left .footer-left-top .select-open {
+    z-index: 2;
+}
+#top-panel .select-open .another-clubs,
+.topphone .select-open .another-clubs,
+footer .footer-left .footer-left-top .select-open .another-clubs {
+    display: block;
+}
+
+.menu-trigger, .close-trigger {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    display: block;
+    width: 30px;
+    height: 20px;
+    z-index: 333;
+}
+.menu-trigger {
+    margin-top: -25px;
+    padding-top: 20px;
+}
+/*
+.menu-trigger:hover .menu-trigger-bar:before, .close-trigger:hover .menu-trigger-bar:before {
+    width: 100%;
+}
+.menu-trigger:hover .close-trigger-bar:before, .close-trigger:hover .close-trigger-bar:before {
+    width: 100%;
+}
+*/
+
+.close-trigger {
+    z-index: 5;
+    top: 13px;
+    padding-top: 15px;
+}
+
+.menu-trigger-bar {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    margin-bottom: 0;
+    transform: rotate(-66deg);
+    position: relative;
+}
+.menu-trigger-bar:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all, 0.3s, cubic-bezier(0.55, 0, 0.1, 1);
+}
+.menu-trigger-bar.top {
+    width: 50%;
+    margin-left: -8%;
+}
+.menu-trigger-bar.middle:before {
+    left: auto;
+    right: 0;
+}
+.menu-trigger-bar.bottom {
+    width: 50%;
+    margin-left: 55%;
+}
+
+.close-trigger-bar {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #0f3b89;
+    position: relative;
+}
+.close-trigger-bar:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all, 0.3s, cubic-bezier(0.55, 0, 0.1, 1);
+}
+.close-trigger-bar.left {
+    transform: translateX(100px) translateY(-100px) rotate(-45deg);
+}
+.close-trigger-bar.right {
+    transform: translateX(-100px) translateY(-100px) rotate(45deg);
+    top: -3px;
+}
+
+.inner-container, .menu-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.inner-container {
+    z-index: 999;
+    visibility: hidden;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+}
+
+.menu {
+    display: block;
+    width: 100%;
+    padding: 19%;
+}
+.menu li {
+    text-align: left;
+    display: block;
+    padding: 15px 0;
+}
+.menu a {
+    text-decoration: none;
+    color: #0f3b89;
+    display: inline-block;
+    padding: 10px 0;
+    position: relative;
+}
+.menu li a.phone {
+    color: #ff0033;
+}
+.menu a:hover:before {
+    opacity: 1;
+    transform: translateX(0px);
+}
+.menu a:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 18px;
+    height: 4px;
+    opacity: 0;
+    background-color: #0f3b89;
+    transform: translateX(100px);
+    transition: all, 0.3s, cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.menu-bg {
+    position: absolute;
+    display: block;
+    width: 90%;
+    left: -53%;
+    top: -25%;
+    height: 200%;
+    background-color: white;
+}
+.menu-bg.top {
+    left: -100%;
+    top: -60%;
+    transform: rotate(24deg) translateX(-50%);
+}
+.menu-bg.bottom {
+    top: -80%;
+    transform: rotate(24deg) translateX(110%);
+    left: 100%;
+}
+.menu-bg.middle {
+    top: -35%;
+    left: 0;
+    transform: rotate(24deg) scaleX(0);
+}
+
+#theme-switch-cont {
+    display: none;
+}
+
+#main-slider {
+    position: relative;
+}
+#main-slider .slider-inner {
+    position: relative;
+    height: 100%;
+}
+/*
+#main-slider .slider-inner:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: -moz-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    opacity: 0.569;
+    content: '';
+}
+*/
+#main-slider .uk-overlay-background {
+    background: none;
+}
+#main-slider .uk-overlay-background:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    opacity: 0.902;
+    /*
+    background: -moz-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    background: -webkit-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    background: -ms-linear-gradient( 90deg, rgb(0,0,0) 0%, rgba(247,248,249,0.36) 64%, rgb(247,248,249) 100%);
+    opacity: 0.569;
+    */
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    /*
+    background: rgb(3,70,148);
+     */
+    transition: all 0.2s;
+}
+#main-slider .slider-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#main-slider .slider-text b {
+    font-size: 20px;
+}
+#main-slider .slider-text a.redbutton, #main-slider .slider-text a.redbordbutton {
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+#main-slider .slider-text a.more {
+    color: #ff0033;
+    text-decoration: none;
+    letter-spacing: normal;
+    text-transform: lowercase;
+}
+#main-slider .slider-text a.more:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 10px;
+    background: url(../images/arrow-right.svg) no-repeat center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#main-slider .slider-text a.more:hover:before {
+    width: 30px;
+}
+#main-slider .uk-slideshow-prev, #main-slider .uk-slideshow-next {
+    display: none;
+    position: absolute;
+    top: 20px;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    overflow: hidden;
+}
+#main-slider .uk-slideshow-prev b, #main-slider .uk-slideshow-next b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+}
+#main-slider .uk-slideshow-prev {
+    left: 15px;
+}
+#main-slider .uk-slideshow-next {
+    right: 15px;
+}
+#main-slider .uk-slideshow-prev b {
+    background: url(/images/arrow-left.svg) no-repeat left;
+}
+#main-slider .uk-slideshow-next b {
+    background: url(/images/arrow-right.svg) no-repeat left;
+}
+#main-slider .slideshow-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+}
+#main-slider .slideshow-nav li.uk-active {
+    background: #ff0033;
+}
+
+#pagehead {
+    position: relative;
+    height: 212px;
+    background: #0f3b89;
+}
+#pagehead .container {
+    height: 100%;
+}
+#pagehead h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    color: #ff0033;
+    letter-spacing: 2px;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+#pagehead h1 span {
+    font-weight: 100;
+}
+#pagehead .uk-breadcrumb {
+    position: absolute;
+    bottom: 20px;
+    margin: 0 20px;
+    color: #ffffff;
+}
+#pagehead .uk-breadcrumb>li>span {
+    display: inline;
+}
+#pagehead .uk-breadcrumb a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#main-events {
+}
+#main-events .main-events-cont {
+    width: 100%;
+    margin-left: 2px;
+}
+#main-events .events-top {
+    overflow-x: hidden;
+}
+#main-events .events-top>div {
+    margin-right: 10%;
+}
+#main-events .events-top .uk-slider-container {
+    overflow: visible;
+}
+#main-events .events-top .event-date {
+    color: #ff0033;
+    height: 40px;
+    margin: 10px 0 0;
+    padding-left: 20px;
+}
+#main-events .events-top .event-date b {
+    float: left;
+    margin-top: 9px;
+    font-size: 30px;
+    font-weight: normal;
+}
+#main-events .events-top .event-date span {
+    margin-left: 6px;
+    text-transform: uppercase;
+    line-height: 28px;
+}
+#main-events .events-top .event-image-text {
+    position: relative;
+    width: 100%;
+    background: #0f3b89;
+}
+#main-events .events-top .event-image-text:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    opacity: 0.902;
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    transition: all 0.2s;
+}
+#main-events .events-top .event-image-text .imageoverlay {
+    display: none;
+}
+#main-events .events-top .uk-slide-after .event-image-text .imageoverlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-blend-mode: multiply;
+}
+#main-events .events-top .event-image-text .event-text {
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+#main-events .events-top .event-image-text .event-text a {
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+#main-events .events-top .uk-slide-after {
+    margin-left: -15px;
+    margin-top: -20px;
+    z-index: -1;
+    cursor: pointer;
+}
+#main-events .events-top .uk-slide-after .event-date {
+    color: #0f3b89;
+    margin: 30px 0 -20px 0;
+    padding-left: 0;
+}
+#main-events .events-top .uk-slide-after .event-date b {
+    float: none;
+    position: absolute;
+    right: 100%;
+    margin-right: 3px;
+}
+#main-events .events-top .uk-slide-after .event-date span {
+    margin-left: 3px;
+}
+#main-events .events-top .uk-slide-after .event-image-text {
+    background: #04193e;
+}
+#main-events .events-top .uk-slide-after .event-image-text .event-text {
+    color: #809bbb;
+}
+
+#main-events .events-bottom {
+    width: 100%;
+    margin-top: 40px;
+}
+#main-events .events-bottom .uk-slidenav-position {
+    margin: 0 42px;
+}
+#main-events .events-bottom .event-bottom {
+    padding: 0;
+    border: 2px solid transparent;
+    color: #0f3b89;
+    text-align: center;
+}
+#main-events .events-bottom li.uk-active .event-bottom {
+    border-color: #ff0033;
+}
+/*
+#main-events .events-bottom li:hover .event-bottom {
+    border-color: #ff0033;
+}*/
+#main-events .events-bottom li .event-bottom .event-date {
+    position: relative;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+#main-events .events-bottom li .event-bottom .event-date b {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+#main-events .events-bottom .event-bottom .event-image-text {
+    display: none;
+}
+#main-events .events-bottom .event-bottom a  {
+    color: #0f3b89;
+    display: block;
+    margin-top: 20px;
+}
+#main-events .events-bottom .event-bottom a:before {
+    width: 0;
+    height: 10px;
+    display: inline-block;
+    content: '';
+    background: url(../images/arrow-right.svg) no-repeat center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#main-events .events-bottom .event-bottom a:hover:before {
+    width: 30px;
+}
+#main-events .events-bottom li.uk-active .event-bottom .event-date, #main-events .events-bottom li.uk-active .event-bottom a  {
+    color: #ff0033;
+}
+#main-events .events-bottom li .event-past,#main-events .events-bottom li .event-past a {
+    color: #8399c0;
+}
+#main-events .events-bottom li.uk-slide-after:hover .event-bottom,#main-events .events-bottom li.uk-slide-before:hover .event-bottom {
+    cursor: pointer;
+}
+#main-events .events-bottom li:hover .event-bottom .event-date, #main-events .events-bottom li:hover .event-bottom a  {
+    color: #ff0033;
+}
+#main-events .events-bottom .slidenav {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    top: -20px;
+    overflow: hidden;
+}
+#main-events .events-bottom .slidenav-previous {
+    left: -40px;
+}
+#main-events .events-bottom .slidenav-previous b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(../images/arrow-blue-left.svg) no-repeat center;
+}
+#main-events .events-bottom .slidenav-next {
+    right: -40px;
+}
+#main-events .events-bottom .slidenav-next b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(../images/arrow-blue-right.svg) no-repeat center;
+}
+
+#main-schedule {
+    color: #0f3b89;
+}
+#main-schedule p,
+#main-schedule .schedule-cont li,
+#main-schedule .select-club {
+    margin: 0 0 20px 20px;
+}
+#main-schedule .schedule-cont li {
+    font-size: 16px;
+}
+#main-schedule .caption,
+#main-schedule .select-club,
+#schedulecont .select-club {
+    color: #ff0033;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+#main-schedule .caption b {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+#main-schedule .subcaption,
+#main-schedule .select-club {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: none;
+}
+#main-schedule select {
+    height: 20px;
+    margin-bottom: 20px;
+    visibility: hidden;
+}
+#schedulecont .select-club {
+    margin: 20px auto 10px;
+    text-align: left;
+    letter-spacing: 1px;
+}
+#main-schedule .select-club,
+#schedulecont .select-club {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+}
+#main-schedule .select-club .select:after,
+#schedulecont .select-club .select:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 8px;
+    border: 5px solid transparent;
+    border-top: 5px solid #ff0033;
+}
+#main-schedule .select-club .another-clubs,
+#schedulecont .select-club .another-clubs {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: #003366;
+    color: #a3b2cf;
+    box-shadow: 0 0 10px -6px;
+    text-decoration: none;
+}
+#main-schedule .select-club .another-clubs .another-club,
+#schedulecont .select-club .another-clubs .another-club {
+    display: block;
+    padding: 5px 0;
+    color: #a3b2cf;
+    white-space: nowrap;
+}
+#main-schedule .select-club .another-clubs .another-club:hover,
+#schedulecont .select-club .another-clubs .another-club:hover {
+    color: #ffffff;
+}
+#main-schedule .select-open,
+#schedulecont .select-open {
+    z-index: 2;
+}
+#main-schedule .select-open .another-clubs,
+#schedulecont .select-open .another-clubs {
+    display: block;
+}
+#main-schedule .select-open .select:after,
+#schedulecont .select-open .select:after {
+    top: 2px;
+    border: 5px solid transparent;
+    border-bottom: 5px solid #ff0033;
+}
+
+#main-schedule .schedule-cont {
+    height: 360px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+#main-schedule ul {
+    margin: 0 0 20px 0;
+    padding: 0;
+    list-style: none;
+}
+#main-schedule .schedule-cont li .text {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+#main-schedule .schedule-cont li .text a {
+    font-weight: bold;
+}
+#main-schedule .schedule-cont li.schedule-past,#main-schedule .schedule-cont li.schedule-past a {
+    color: #a3b2cf;
+    font-weight: normal;
+}
+
+#main-events-schedule .schedule-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+#main-events-schedule .schedule-buttons a {
+    color: #ff0033;
+    text-transform: uppercase;
+    position: absolute;
+    right: 20px;
+}
+#main-events-schedule .schedule-buttons .button-up, #main-events-schedule .schedule-buttons .button-down {
+    height: 36px;
+    width: 15px;
+    overflow: hidden;
+}
+#main-events-schedule .schedule-buttons .button-up b, #main-events-schedule .schedule-buttons .button-down b {
+    display: block;
+    position: absolute;
+    height: 36px;
+    width: 15px;
+    transition: transform .3s ease;
+}
+#main-events-schedule .schedule-buttons .button-up {
+    top: -420px;
+}
+#main-events-schedule .schedule-buttons .button-up b {
+    background: url(/images/arrow-up.svg) no-repeat right top;
+}
+#main-events-schedule .schedule-buttons .button-down {
+    bottom: 80px;
+}
+#main-events-schedule .schedule-buttons .button-down b {
+    background: url(/images/arrow-down.svg) no-repeat right top;
+}
+#main-events-schedule .schedule-buttons .button-all {
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: #ff0033;
+    padding: 10px;
+}
+#main-events-schedule .schedule-buttons img {
+    width: 15px;
+    vertical-align: text-bottom;
+}
+#main-events-schedule .schedule-buttons img:first-child {
+    margin-left: 10px;
+}
+
+/*
+#main-banner {
+    position: relative;
+    left: -7%;
+    width: 114%;
+    height: 400px;
+    border: 3px solid #ff0033;
+    -webkit-transform: skew(-24deg);
+    -moz-transform: skew(-24deg);
+    -o-transform: skew(-24deg);
+    overflow: hidden;
+}
+#main-banner .banner-inner {
+    position: relative;
+    width: 112%;
+    left: -6%;
+    height: 100%;
+    background-blend-mode: multiply;
+    -webkit-transform: skew(24deg);
+    -moz-transform: skew(24deg);
+    -o-transform: skew(24deg);
+}
+*/
+#main-banner {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-top: 3px solid #ff0033;
+    background-blend-mode: multiply;
+}
+#main-banner .banner-text {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 150px;
+}
+
+#main-advantages {
+    position: relative;
+    border-top: 2px solid #ff0033;
+    background: url("/images/bg-advantages.jpg") no-repeat center;
+    background-size: cover;
+    color: #ffffff;
+    padding: 20px 0 40px;
+}
+#main-advantages .container {
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+#main-advantages .head {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.form-modal .uk-modal-header {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.redhr {
+    border-top: 3px solid #ff0033;
+}
+
+footer {
+    font-size: 12px;
+    background: #0f3b89;
+    color: #ffffff;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+footer a {
+    color: #ffffff;
+}
+footer a:hover {
+    color: #5877ad;
+}
+footer i.notactivehref {
+    color: #5877ad;
+    font-style: normal;
+}
+footer hr {
+    border-top: 2px solid #ffffff;
+    width: 20px;
+    margin: 20px 0;
+}
+footer .footer-left {
+    position: relative;
+}
+footer .footer-left .footer-header {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+footer .footer-left .footer-left-top {
+    padding: 70px 20px;
+}
+footer .footer-left .footer-left-top .select-club {
+    margin-top: 20px
+}
+footer .footer-left .footer-left-top .club-contacts a {
+    display: inline-block;
+    color: #ff0033;
+}
+footer .footer-left .footer-left-top .club-contacts a.phone {
+    color: #fff;
+}
+footer .footer-left .footer-left-top .gotosite:before {
+    width: 30px;
+    height: 10px;
+    display: inline-block;
+    content: '';
+    background: url(../images/arrow-right.svg) no-repeat center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+footer .footer-left .footer-left-top .club-contacts {
+    display: none;
+    color: #ffffff;
+    margin: 20px 0;
+}
+footer .footer-left .footer-left-top p.uk-active {
+    display: block;
+}
+footer .footer-left .footer-left-top .club-contacts a {
+    visibility: hidden;
+}
+footer .footer-left .footer-left-top p.uk-active a {
+    visibility: visible;
+}
+footer .footer-left .footer-left-top .uk-grid {
+    margin-top: -20px;
+}
+footer .footer-left .socials {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+footer .footer-left .socials a {
+    color: #ffffff;
+}
+footer .footer-left .socials a:hover {
+    color: #ff0033;
+}
+footer .footer-map {
+    display: none;
+    /*
+    width: 100%;
+    height: 150px;
+    border-top: 3px solid #ff0033;
+    border-bottom: 3px solid #ff0033;
+    */
+}
+#googlemap {
+    width: 100%;
+    height: 100%;
+}
+footer .footer-right {
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+footer .footer-right .uk-grid>div {
+    position: relative;
+}
+footer .footer-right .footer-header {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+footer .footer-right .socialscont .instalink {
+    color: #ff0033;
+}
+footer .footer-right .madeby {
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+footer .footer-right .socialscont {
+    margin-top: 20px;
+}
+footer .footer-right .instacont {
+    width: 385px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+footer .footer-right .instacont .uk-grid {
+    margin-left: -2px;
+}
+footer .footer-right .instacont .uk-grid>div {
+    padding-left: 2px;
+}
+footer .footer-right .instacont .uk-grid>div a {
+    display: block;
+    position: relative;
+    transition: transform 0.2s;
+}
+footer .footer-right .instacont .uk-grid>div a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15,59,137,0.5);
+}
+footer .footer-right .instacont .uk-grid>div a:hover {
+    transform: scale(1.1);
+}
+footer .footer-right .instacont .uk-grid>div a:hover:after {
+    visibility: hidden;
+}
+footer .copyright {
+    position: relative;
+    text-transform: uppercase;
+    margin-top: -15px;
+    padding: 20px;
+    line-height: 14px;
+}
+footer .copyright a {
+    text-transform: lowercase;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+#switchdesign {
+    float: left;
+}
+
+#stickymenu {
+    /*
+    position: fixed;
+    bottom: 0;
+    */
+    width: 100%;
+    z-index: 33;
+    height: 59px;
+}
+#stickymenu ul {
+    padding: 0;
+    list-style: none;
+}
+#stickymenu>ul>li {
+    float: left;
+    width: 20%;
+    height: 59px;
+    background: #ff0033;
+    text-align: center;
+    padding: 10px 0 5px;
+    border-left: 1px solid #ffffff;
+    box-sizing: border-box;
+}
+#stickymenu>ul>li:first-child {
+    border-left: none;
+}
+#stickymenu>ul>li a {
+    color: #ffffff;
+}
+#stickymenu>ul>li a .mobile-text {
+    font-size: 10px;
+}
+#stickymenu>ul>li ul {
+    display: none;
+}
+
+.pagenav-mobile {
+    padding: 10px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.pagenav-mobile .uk-navbar-toggle {
+    height: auto;
+    padding: 0 10px 0 20px;
+}
+.pagenav-left {
+    border-bottom: 1px solid #eeeeee;
+}
+.pagenav-left li {
+    border-top: 1px solid #eeeeee;
+}
+.pagenav-left li a {
+    color: #0f3b89;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 45px;
+    transition: all 0.2s;
+}
+.pagenav-left li a:before {
+    content: "/ ";
+    display: block;
+    width: 0;
+    overflow: hidden;
+    float: left;
+    color: #ff0033;
+    transition: all 0.2s;
+}
+/*.pagenav-left li.uk-active a, .pagenav-left li a:focus, .pagenav-left li a:hover {*/
+    /*color: #ff0033;*/
+    /*background: none;*/
+    /*font-weight: bold;*/
+/*}*/
+/*.pagenav-left li.uk-active a:before, .pagenav-left li a:focus:before, .pagenav-left li a:hover:before {*/
+    /*width: 12px;*/
+/*}*/
+
+
+.pagenav-left li.uk-active a, .pagenav-left li a:hover {
+color: #ff0033;
+background: none;
+font-weight: bold;
+}
+.pagenav-left li.uk-active a:before, .pagenav-left li a:hover:before {
+width: 12px;
+}
+
+
+
+
+
+
+
+.pagecontent {
+    margin: 0 20px;
+}
+.pagecontent .vacancies-photos>div {
+    position: relative;
+}
+.pagecontent .vacancies-photos>div img {
+    width: 100%;
+}
+.pagecontent .vacancies-photos>div b {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    text-transform: uppercase;
+}
+@media only screen and (min-width: 420px) {
+    .pagecontent .vacancies-photos>div {
+        width: 50%;
+    }
+}
+.pagecontent .vacancies-application {
+    margin-top: 20px;
+    border-top: 1px solid #ff0033;
+    border-bottom: 1px solid #ff0033;
+    padding: 20px 0;
+}
+.pagecontent .vacancies-application .uk-width-medium-1-3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.pagecontent .vacancies-application .uk-width-medium-1-3 .redbutton {
+    padding: 10px;
+    width: 140px;
+}
+.pagecontent .vacancies-privilege ol, .card-privilege ol {
+    counter-reset:li;
+    margin-left: -10px;
+}
+.pagecontent .vacancies-privilege ol > li, .card-privilege ol > li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+}
+.card-privilege ol > li {
+    padding-left: 40px;
+}
+.pagecontent .vacancies-privilege ol > li:before, .card-privilege ol > li:before {
+    content:counter(li)' /';
+    counter-increment:li;
+    position: absolute;
+    left: 10px;
+    color: #ff0033;
+    font-weight: bold;
+}
+.pagecontent .vacancies-privilege .privilege-head {
+    color: #ff0033;
+    text-transform: uppercase;
+}
+ol.secondol {
+    counter-reset: li 1;
+}
+
+.pagecontent .boss .boss-photo img {
+    width: 100%;
+}
+.pagecontent .boss .boss-name {
+    color: #ff0033;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.pagecontent .boss hr {
+    width: 30px;
+    border-top: 2px solid #ff0033;
+}
+.pagecontent .boss .boss-link {
+    text-align: center;
+}
+.pagecontent .boss .boss-link .redbutton {
+    display: inline-block;
+    padding: 10px;
+    width: 140px;
+    color: #ffffff;
+}
+.pagecontent .pageh2 {
+    color: #ff0033;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.pagecontent .corporate-banner {
+    width: 100%;
+}
+.pagecontent .corporate-logos {
+    text-align: center;
+    margin-top: 0;
+}
+.pagecontent .corporate-logos>div:nth-child(2) {
+    margin-top: 20px;
+}
+.pagecontent .corporate-card {
+    text-align: center;
+}
+
+.pagecontent .rates {
+    font-size: 15px;
+    line-height: 22px;
+}
+.pagecontent .rates .uk-grid {
+    margin-right: -20px;
+}
+.pagecontent .rates .odd {
+    background: #edf1f6;
+}
+.pagecontent .rates .uk-width-medium-6-10 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.pagecontent .rates .uk-width-medium-6-10 div {
+    border-bottom: 1px solid #eeeeee;
+}
+.pagecontent .rates .uk-width-medium-4-10 span {
+    font-size: 18px;
+}
+.pagecontent .rates .uk-width-medium-6-10 div,
+.pagecontent .rates .uk-width-medium-4-10 div {
+    padding: 8px 0;
+    margin-right: 25px;
+}
+.pagecontent .rates .notes {
+    margin-top: 40px;
+}
+
+.franchise table {
+    width: 100%;
+}
+.franchise table td {
+    padding: 10px;
+}
+.franchise a {
+    color: #ff0033;
+}
+.franchise img {
+    width: 200px;
+}
+
+.franchise-requisites table {
+    width: 100%;
+}
+.franchise-requisites table td {
+    padding: 0 10px;
+}
+
+.join-head {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #ff0033;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px 0;
+    line-height: 24px;
+}
+.contact-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+.contact-form .form-group .help-block {
+    color: #ff0033;
+    font-size: 12px;
+    height: 0;
+}
+.contact-form .form-group.required label:after {
+    content: ' *';
+    color: #ff0033;
+}
+.contact-form .form-group input[type="text"],
+.contact-form .form-group input[type="tel"],
+.contact-form .form-group textarea {
+    background: #f9f9fb;
+    border: none;
+    border-top: 2px solid #0f3b89;
+    padding: 10px;
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #0f3b89;
+}
+.contact-form .selectric {
+    border: none;
+    border-top: 2px solid #0f3b89;
+}
+.contact-form .selectric-open .selectric, .contact-form .selectric-focus .selectric {
+    border-color: #0f3b89;
+}
+.contact-form .selectric-items li.highlighted, .contact-form .selectric-items li.selected, .contact-form .selectric-items li:hover {
+    color: #0f3b89;
+}
+.contact-form .selectric-hover .selectric {
+    border-color: #0f3b89;
+}
+.contact-form .selectric .label {
+    height: 44px;
+    font-size: 18px;
+    line-height: 46px;
+    color: #ff0033;
+}
+.contact-form .selectric-items ul, .contact-form .selectric-items li {
+    font-size: 18px;
+    line-height: 26px;
+    color: #0f3b89;
+}
+.contact-form .form-group textarea {
+    height: 140px;
+}
+.contact-form .field-contactform-agree {
+    text-align: center;
+    margin-top: 55px;
+}
+.contact-form .field-contactform-agree a {
+    color: #ff0033;
+}
+.contact-form .field-contactform-attach {
+    display: none;
+}
+.contact-form .form-buttons {
+    margin-top: 40px;
+}
+.contact-form .form-buttons button {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    font-size: 13px;
+    max-width: 200px;
+}
+.contact-form .form-buttons .attach-button {
+    border: 1px solid #ff0033;
+    background: white;
+    color: #ff0033;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 9px;
+}
+.contact-form .form-buttons .attach-button span {
+    display: inline-block;
+}
+.contact-form .form-buttons .attach-button:hover {
+    color: #ffffff;
+    background: #ff0033;
+    padding: 10px;
+    border: none;
+}
+
+#clubs-list {
+    margin: 50px 0;
+}
+#clubs-list h2 {
+    text-align: center;
+    color: #ff0033;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#clubs-list p.big-text {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 30px;
+}
+#clubs-list .clubcont .clubtext {
+    margin-top: 40px;
+    border-top: 1px solid;
+    border-color: #dfe3e8;
+    padding: 20px;
+    font-weight: bold;
+}
+#clubs-list .clubcont .clubtext .clubname a {
+    color: #ff0033;
+    font-size: 18px;
+}
+#clubs-list .clubcont .clubtext table {
+    width: 100%;
+}
+#clubs-list .clubcont .clubtext table td {
+    padding-top: 10px;
+}
+#clubs-list .clubcont [class*=uk-icon-] {
+    color: #d7d7d7;
+    font-size: 24px;
+    vertical-align: middle;
+    width: 30px;
+}
+#clubs-list .clubcont .showmapcont {
+    vertical-align: top;
+    text-align: right;
+}
+#clubs-list .clubcont .showmap {
+    display: block;
+    margin-top: 5px;
+    color: #ff0033;
+    line-height: 14px;
+}
+#clubs-list .clubcont .clublinks {
+    background: #0f3b89;
+    text-align: center;
+}
+#clubs-list .clubcont .clublinks a {
+    display: block;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#clubs-list .clubcont .clublinks a:hover {
+    text-decoration: none;
+    background: #ff0033;
+}
+#club-map-modal .uk-modal-dialog {
+    min-height: 300px;
+}
+#club-map-modal .uk-position-cover .uk-align-center {
+    width: 50px;
+    margin-top: 150px;
+}
+
+#clubsmapcont {
+    height: 200px;
+}
+#clubsmap .select-club .clubcont {
+    display: block;
+    padding: 10px;
+    background: #f8f7f7;
+    height: 140px;
+}
+#clubsmap .select-club .clubcont.withborder {
+    border-right: 1px solid #ffffff;
+}
+#clubsmap .select-club .clubcont .uk-icon-circle {
+    float: left;
+    margin: 38px 10px 70px 0
+}
+#clubsmap .select-club .clubcont .clubname {
+    margin-top: 7px;
+}
+#clubsmap .select-club .clubcont .clublinks a {
+    color: #ff0033;
+}
+#clubsmap .select-club .clubcont:hover {
+    text-decoration: none;
+}
+#clubsmap .select-club .clubcont.active {
+    background: #0f3b89;
+    color: #ffffff;
+    text-decoration: none;
+}
+#clubsmap .select-club .clubcont.active .uk-icon-circle {
+    color: #ff0033;
+}
+#clubsmap .select-club .clubcont .gotosite {
+    color: #ff0033;
+    visibility: hidden;
+}
+#clubsmap .select-club .clubcont.active .gotosite {
+    visibility: visible;
+}
+@media only screen and (min-width: 370px) {
+    #clubsmap .select-club .clubcont {
+        height: 120px;
+    }
+}
+@media only screen and (min-width: 420px) {
+    #clubsmap .select-club .clubcont {
+        height: 105px;
+    }
+}
+
+.clubtext h2 {
+    margin: 50px 0 0;
+    font-weight: bold;
+    color: #ff0033;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.clubtext .head-links {
+    word-spacing: 10px;
+    margin: 0;
+}
+.clubtext .head-links a {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.clubtext .morelink {
+    color: #ff0033;
+}
+.clubtext .subhead {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.clubtext hr {
+    border-top: 2px solid #ff0033;
+    width: 35px;
+    margin: 20px 0;
+}
+.clubtext .showmap {
+    color: #ff0033;
+}
+
+#clubs-interior {
+    position: relative;
+    min-height: 100px;
+}
+#clubs-interior .more-close {
+    display: none;
+}
+#clubs-interior .uk-position-cover {
+    background-size: contain;
+    background-position-y: top;
+}
+#clubs-interior .uk-overlay-panel {
+    background: rgba(15, 59, 137, 0.9);
+    position: relative;
+}
+#clubs-interior .slider-heading {
+    color: #ff0033;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+#clubs-interior .slider-heading b {
+    font-size: 18px;
+}
+#clubs-interior .slider-text .moretext {
+    display: none;
+}
+#clubs-interior.more .slider-text .moretext {
+    display: inline;
+}
+#clubs-interior .slider-text .morelink {
+    color: #ff0033;
+}
+#clubs-interior.more .slider-text .morelink {
+    display: none;
+}
+#clubs-interior .order-tour {
+    text-align: center;
+}
+#clubs-interior .slider-text .uk-modal {
+    color: #0f3b89;
+}
+#clubs-interior .more-photos {
+    display: none;
+}
+#clubs-interior .uk-slideshow-next {
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    width: 40px;
+    height: 15px;
+    margin-top: -8px;
+    background: url(../images/arrow-right.svg) no-repeat center;
+}
+#clubs-interior .uk-slideshow-prev {
+    position: absolute;
+    top: 80px;
+    left: 15px;
+    width: 40px;
+    height: 15px;
+    margin-top: -8px;
+    background: url(../images/arrow-left.svg) no-repeat left;
+}
+
+#clubs-interior-new .slider-heading {
+    color: #ff0033;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#clubs-interior-new .slider-heading b {
+    font-size: 18px;
+}
+#clubs-interior-new .bigpics {
+    position: relative;
+}
+#clubs-interior-new .uk-slideshow-prev {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    overflow: hidden;
+}
+#clubs-interior-new .uk-slideshow-prev b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(/images/arrow-left.svg) no-repeat left;
+}
+#clubs-interior-new .uk-slideshow-next {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    overflow: hidden;
+}
+#clubs-interior-new .uk-slideshow-next b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(/images/arrow-right.svg) no-repeat left;
+}
+#clubs-interior-new .thumbs {
+    position: relative;
+    top: -30px;
+    margin: 0 20px;
+}
+#clubs-interior-new .thumbs li {
+    box-sizing: border-box;
+}
+#clubs-interior-new .thumbs li div {
+    position: relative;
+}
+#clubs-interior-new .thumbs li img {
+    height: 60px;
+}
+#clubs-interior-new .thumbs li div:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: .6;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: opacity .3s ease-out;
+}
+#clubs-interior-new .thumbs li div:hover:after {
+    opacity: 0;
+    cursor: pointer;
+}
+#clubs-interior-new .thumbs li.uk-active div:after {
+    opacity: 0;
+    cursor: default;
+}
+#clubs-interior-new .texts {
+    position: relative;
+    top: -15px;
+}
+#clubs-interior-new .texts li {
+    text-align: center;
+}
+#clubs-interior-new .texts li a {
+    color: #ff0033;
+}
+#clubs-interior-new .texts li .form-link {
+    color: #ff0033;
+    cursor: pointer;
+}
+#clubs-interior-new .texts li .form-link:hover {
+    text-decoration: underline;
+}
+
+.clubnews h3 {
+    margin: 50px 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff0033;
+    font-size: 18px;
+}
+.clubnews .subhead {
+    color: #ff0033;
+}
+.clubnews .newsall {
+    text-align: right;
+}
+.clubnews .newsall a {
+    color: #ff0033;
+}
+
+.clubpromos h3 {
+    margin: 50px 0 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff0033;
+    font-size: 18px;
+}
+.clubpromos .uk-slider-container {
+    overflow: visible;
+    margin-left: -20px;
+}
+.clubpromos .uk-slider-container .uk-slider li>div {
+    background: #0f3b89;
+    color: #ffffff;
+    padding: 20px;
+}
+.clubpromos .uk-slider-container .uk-slider li .clubname {
+    color: #ff0033;
+    font-size: 11px;
+}
+.clubpromos .uk-slider-container .uk-slider li .promoname {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-top: 25px;
+}
+.clubpromos .uk-slider-container .uk-slider li .promotime {
+    font-size: 11px;
+    margin-top: 40px;
+}
+
+.contactmanager h3 {
+    margin: 50px 0 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff0033;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.contactmanager .manager-who .manager-name {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.clubs-bottom-menu {
+    background: #f9f9fb;
+}
+.clubs-bottom-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 -30px;
+}
+.clubs-bottom-menu ul li {
+    float: left;
+    padding: 10px 0 10px 30px;
+}
+.clubs-bottom-menu ul li a {
+    color: #ff0033;
+    font-weight: bold;
+}
+
+.fitnes-programs .programs-head {
+    color: #ff0033;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 20px;
+}
+.fitnes-programs .programs-head b {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.fitnes-programs .programs-filters {
+    color: #bcbcbc;
+}
+
+.fitnes-programs .programs-cats .program-cat-photo {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.fitnes-programs .programs-cats .program-cat-photo p {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 3px;
+}
+.fitnes-programs .programs-cats .program-cat-photo .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+}
+
+.fitnes-programs .programs-filters .uk-form-select {
+    background: none;
+    color: #bcbcbc;
+}
+
+.fitnes-programs .programs-breadcrumbs {
+    color: #bcbcbc;
+    margin-top: 10px;
+}
+.fitnes-programs .programs-breadcrumbs a {
+    color: #bcbcbc;
+    font-weight: bold;
+}
+.fitnes-programs .programs-breadcrumbs a.firstlink {
+    display: inline-block;
+}
+.fitnes-programs .programs-breadcrumbs a.firstlink:before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 10px;
+    background: url(../images/arrow-grey-left.svg) no-repeat left center;
+}
+.fitnes-programs .programs>div {
+    margin-top: 10px;
+}
+.fitnes-programs .programs .program-block {
+    position: relative;
+}
+.fitnes-programs .programs .program-photo {
+    display: block;
+    position: relative;
+}
+.fitnes-programs .programs .program-photo p {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 3px;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+.fitnes-programs .programs .program-photo .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+}
+.fitnes-programs .programs .program-text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    background: #ff0033;
+    color: #ffffff;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    transition: all 1s ease;
+    overflow: hidden;
+}
+.fitnes-programs .programs .program-text p {
+    margin: 20px;
+}
+.fitnes-programs .programs .program-text.active {
+    top: 0;
+}
+.fitnes-programs .programs .program-text .program-name {
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+.fitnes-programs .programs .program-text .program-name a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.fitnes-programs .programs .program-bottom {
+    position: relative;
+    height: 40px;
+    background: #ff0033;
+    color: #ffffff;
+    text-align: center;
+}
+.fitnes-programs .programs .program-bottom:before {
+    content: '';
+    float: right;
+    width: 30px;
+    height: 30px;
+    background: url("../images/sec.svg") no-repeat left top;
+    margin: 5px 20px;
+}
+.fitnes-programs .programs .program-bottom .program-time {
+    float: left;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+.fitnes-programs .programs .program-bottom a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 35px;
+    height: 40px;
+    margin-left: -17px;
+    margin-top: -20px;
+    color: #ffffff;
+    font-size: 40px;
+    text-decoration: none;
+    background: url("../images/three-dots.svg") no-repeat left center;
+}
+
+.block-head {
+    color: #ff0033;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+}
+.block-head b {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.block-head a {
+    color: #ff0033;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.interior-small {
+    background: #f9f9f9;
+    padding: 20px 0 10px;
+}
+.interior-small .uk-slider-container {
+    overflow: visible;
+    margin-left: -10px;
+}
+.interior-small .uk-slider-container li div {
+    display: none;
+}
+.interior-small .uk-slider-container li a {
+    display: block;
+}
+.interior-small .uk-slide-after img, .interior-small .uk-slide-before img {
+    opacity: 0.5;
+}
+
+.fitnes-uslugi-trenery .block-head {
+    margin-left: 20px;
+}
+.fitnes-uslugi-trenery .trener .trener-name {
+    color: #ff0033;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 2px;
+}
+.fitnes-uslugi-trenery .trener hr.underhead {
+    border-top: 2px solid #ff0033;
+    width: 35px;
+    margin: 20px 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .fitronlife-events {
+        margin: 0;
+    }
+}
+.fitronlife-events h2 {
+    margin: 50px 20px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ff0033;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title {
+    color: #0f3b89;
+}
+.fitronlife-events .tl-text .tl-headline-date, .fitronlife-events .tl-text h3.tl-headline-date {
+    color: #ff0033;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.fitronlife-events .tl-timeline h2 {
+    margin: 0 0 30px;
+    color: #0f3b89;
+    font-size: 20px;
+    line-height: 24px;
+}
+.fitronlife-events .tl-skinny .tl-text h2.tl-headline, .fitronlife-events .tl-skinny .tl-text h2.tl-headline-title {
+    font-size: 20px;
+    line-height: 24px;
+}
+.fitronlife-events .tl-skinny .tl-slide .tl-slide-content-container .tl-slide-content .tl-media {
+    padding-bottom: 20px;
+}
+.fitronlife-events .tl-text p {
+    color: #0f3b89;
+}
+.fitronlife-events .tl-timeline a {
+    color: #ff0033;
+}
+.fitronlife-events .tl-timeline a:hover {
+    color: #ff0033;
+}
+.fitronlife-events .tl-timeline a.more:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 10px;
+    background: url(../images/arrow-right.svg) no-repeat center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.fitronlife-events .tl-timeline a.more:hover:before {
+    width: 30px;
+}
+.tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline, .tl-timemarker .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline p {
+    letter-spacing: normal;
+}
+
+
+.fitronlife-events .uk-slidenav-position {
+    position: relative;
+    margin: 30px -10px 0;
+}
+.fitronlife-events .event {
+    padding: 10px;
+}
+.fitronlife-events .event-date {
+    text-align: center;
+    word-spacing: 3px;
+    line-height: 38px;
+}
+.fitronlife-events .event-date b {
+    font-size: 30px;
+    font-weight: normal;
+}
+.fitronlife-events .event-date span {
+    text-transform: uppercase;
+}
+.fitronlife-events .event-image-text {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #0f3b89;
+}
+.fitronlife-events .event-past .event-image-text {
+    opacity: 0.6;
+}
+.fitronlife-events .event-past:hover .event-image-text {
+    opacity: 1;
+}
+.fitronlife-events .event-image-text:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    opacity: 0.902;
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    transition: all 0.2s;
+}
+.fitronlife-events .event-image-text .imageoverlay {
+    display: none;
+}
+/*
+.fitronlife-events .uk-slide-after .event-image-text .imageoverlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-blend-mode: multiply;
+}
+*/
+.fitronlife-events .event-image-text .event-text {
+    position: absolute;
+    bottom: 0;
+    margin: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+.fitronlife-events .event-image-text .event-text b {
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.fitronlife-events .event-past .event-date {
+    color: #b8b8b8;
+    opacity: 0.6;
+}
+.fitronlife-events .event-past:hover .event-date {
+    opacity: 1;
+}
+.fitronlife-events .slidenav {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    top: 22px;
+    overflow: hidden;
+}
+.fitronlife-events .slidenav-previous {
+    left: 20px;
+}
+.fitronlife-events .slidenav-previous b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(../images/arrow-blue-left.svg) no-repeat center;
+}
+.fitronlife-events .slidenav-next {
+    right: 20px;
+}
+.fitronlife-events .slidenav-next b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+    background: url(../images/arrow-blue-right.svg) no-repeat center;
+}
+
+
+/*
+.fitronlife-events .uk-slide-after {
+    margin-left: -15px;
+    margin-top: -20px;
+    z-index: -1;
+    cursor: pointer;
+}
+.fitronlife-events .uk-slide-after .event-date {
+    color: #0f3b89;
+    margin: 30px 0 -20px 0;
+    padding-left: 0;
+}
+.fitronlife-events .uk-slide-after .event-date b {
+    float: none;
+    position: absolute;
+    right: 100%;
+    margin-right: 3px;
+}
+.fitronlife-events .uk-slide-after .event-date span {
+    margin-left: 3px;
+}
+.fitronlife-events .uk-slide-after .event-image-text {
+    background: #04193e;
+}
+.fitronlife-events .uk-slide-after .event-image-text .event-text {
+    color: #809bbb;
+}
+*/
+
+
+#fitronlife-news {
+    margin-left: 0;
+    margin-right: 0;
+}
+#fitronlife-news .block-head, .fitronlife-blog .block-head {
+    margin-left: 20px;
+}
+#fitronlife-news ul {
+    padding: 0;
+}
+#fitronlife-news ul li {
+    list-style: none;
+    border-top: 1px solid #eeeeee;
+    padding: 20px 20px 0 20px;
+}
+#fitronlife-news ul li .date {
+    color: #ff0033;
+}
+#fitronlife-news .show-all {
+    border-top: 1px solid #eeeeee;
+    padding: 20px;
+}
+#fitronlife-news .show-all a {
+    color: #ff0033;
+}
+
+.news-post-left p {
+    margin: 0 20px;
+    text-align: right;
+}
+.news-post-left .date {
+    color: #ff0033;
+}
+.fitron-news-back a {
+    color: #bcbcbc;
+}
+.fitron-news-back .backpict {
+    width: 35px;
+    margin-right: 20px;
+    vertical-align: sub;
+}
+
+#fitronlife-blog .blog-post, #fitron-blog .blog-post {
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+#fitronlife-blog .category, #fitron-blog .blog-post .category {
+    margin-top: 15px;
+}
+#fitronlife-blog .category span, #fitron-blog .blog-post .category span {
+    padding: 5px 20px;
+    background: #0f3b89;
+    color: #ffffff;
+}
+#fitronlife-blog .head, #fitron-blog .blog-post .head {
+    font-size: 18px;
+}
+#fitronlife-blog .date, #fitron-blog .blog-post .date {
+    color: #ff0033;
+    margin-right: 10px;
+}
+#fitronlife-blog .who, #fitron-blog .blog-post .who {
+    color: #ff0033;
+    margin-left: 10px;
+}
+#fitronlife-blog .show-all, #fitron-blog .blog-post .show-all {
+    margin: 20px 0;
+}
+#fitronlife-blog .show-all a, #fitron-blog .blog-post .show-all a {
+    color: #ff0033;
+}
+
+#fitronlife-news .show-all a:before, #fitronlife-blog .show-all a:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 10px;
+    background: url(../images/arrow-right.svg) no-repeat center;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#fitronlife-news .show-all a:hover:before, #fitronlife-blog .show-all a:hover:before {
+    width: 30px;
+}
+
+.clubproducts {
+    position: relative;
+}
+.clubproducts h3 {
+    color: #ff0033;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bold;
+}
+.clubproducts .uk-slider-container {
+    margin-left: -10px;
+    margin-top: 20px;
+}
+.clubproducts .uk-slider-container ul li div {
+    text-align: center;
+}
+.clubproducts .uk-slider-container ul li div .productname {
+    margin-top: 30px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+.clubproducts .uk-slider-container ul li div .price {
+    margin-top: 0;
+}
+.clubproducts .uk-slidenav-next {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 15px;
+    margin-top: -8px;
+    background: url(../images/arrow-blue-right.svg) no-repeat center;
+}
+.clubproducts .uk-slidenav-previous {
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    margin-top: -8px;
+    background: url(../images/arrow-blue-left.svg) no-repeat left;
+}
+
+#fitron-news .date {
+    color: #ff0033;
+}
+#fitron-news .newscont {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 15px;
+}
+
+#fitron-blog .block-head {
+    margin-left: 20px;
+}
+
+
+#schedulecont {
+    margin: 0 60px;
+}
+#schedulecont .schedule-filters {
+    margin: 20px -80px 0;
+    color: #bcbcbc;
+    text-align: center;
+}
+#schedulecont .schedule-filters b.filter-name {
+    color: #0f3b89;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#schedulecont .schedule-filters .ages a {
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+#schedulecont .schedule-filters .ages b.active {
+    margin-left: 10px;
+    text-transform: uppercase;
+    color: #ff0033;
+}
+#schedulecont .schedule-filters .uk-form-select {
+    background: none;
+    color: #bcbcbc;
+}
+#schedulecont .schedule-filters .redbutton {
+    margin-top: 15px;
+}
+#schedulecont .schedule-table {
+    position: relative;
+    margin-top: 20px;
+}
+#schedulecont .schedule-table .table-viewport {
+    overflow-x: scroll;
+}
+#schedulecont .schedule-table table {
+    border-collapse: collapse;
+}
+#schedulecont .schedule-table th, #schedulecont .schedule-table td {
+    border: 1px solid #eeeeee;
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    vertical-align: top;
+}
+#schedulecont .schedule-table tr.not-first-in-hour td {
+    border-top-color: transparent;
+}
+#schedulecont .schedule-table .headtablecont {
+    z-index: 0;
+}
+#schedulecont .schedule-table .headtablecont table {
+    position: relative;
+}
+#schedulecont .schedule-table .headtablecont:not(.uk-active) table {
+    left: 0!important;
+}
+#schedulecont .schedule-table .headtablecont.uk-active .headtable-viewport {
+    overflow: hidden;
+    border-bottom: 1px solid #eeeeee;
+}
+#schedulecont .schedule-table th {
+    background: #fafafa;
+}
+#schedulecont .schedule-table th div {
+    font-size: 18px;
+}
+#schedulecont .schedule-table th div, #schedulecont .schedule-table .event {
+    width: 168px;
+    padding: 10px 15px;
+}
+#schedulecont .schedule-table th .weekday {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+}
+#schedulecont .schedule-table th.curday {
+    color: #ffffff;
+    background: #ff0033;
+}
+#schedulecont .schedule-table td {
+    height: 100%;
+}
+/*
+#schedulecont .schedule-table tr:hover td:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 190px;
+    background: rgba(255,255,255,0.6);
+    z-index: 1;
+}
+#schedulecont .schedule-table tr td:hover:after {
+    background: none;
+    z-index: -1;
+}
+*/
+#schedulecont .schedule-table .leftcol, #schedulecont .schedule-table .rightcol {
+    position: absolute;
+    margin-top: -8px;
+    border: none;
+    padding: 0;
+    color: #bcbcbc;
+    height: auto;
+    z-index: -1;
+}
+#schedulecont .schedule-table .leftcol {
+    right: 100%;
+    margin-right: 10px;
+}
+#schedulecont .schedule-table .rightcol {
+    left: 100%;
+    margin-left: 10px;
+}
+#schedulecont .schedule-table .event .intensity, #schedulecont .schedule-table .event .place {
+    font-size: 12px;
+    color: #bcbcbc;
+}
+#schedulecont .schedule-table .event .time {
+    color: #bcbcbc;
+}
+#schedulecont .schedule-table .event .time .time-from {
+    font-weight: bold;
+    color: #0f3b89;
+}
+#schedulecont .schedule-table .event .name {
+    text-transform: uppercase;
+    color: #ff0033;
+    font-weight: bold;
+}
+#schedulecont .schedule-table .event .uk-icon-circle {
+    color: #bcbcbc;
+    font-size: 18px;
+}
+#schedulecont .schedule-table .event.water:hover .uk-icon-circle {
+    color: #83bbff;
+}
+#schedulecont .schedule-table .event.ageteen:hover .uk-icon-circle {
+    color: #ffce80;
+}
+#schedulecont .schedule-table .event .icons i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
+}
+#schedulecont .schedule-table .event .icon-paid {
+    display: inline-block;
+    width: 20px;
+    height: 17px;
+    vertical-align: text-bottom;
+    background: url(/images/money-grey.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event:hover .icon-paid {
+    background: url(/images/money.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event .icons .icon-rocket {
+    background: url(/images/rocket-grey.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event:hover .icons .icon-rocket {
+    background: url(/images/rocket.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event .icons .icon-star {
+    background: url(/images/star-grey.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event:hover .icons .icon-star {
+    background: url(/images/star.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event .icons .icon-sputnik {
+    background: url(/images/sputnik-grey.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event:hover .icons .icon-sputnik {
+    background: url(/images/sputnik.svg) no-repeat left top;
+}
+#schedulecont .schedule-table .event:hover {
+    background: #fafafa;
+}
+#schedulecont .schedule-table .event:hover .time {
+    font-weight: bold;
+    color: #0f3b89;
+}
+#schedulecont .schedule-table .event:hover .intensity .low {
+    color: #00ab2d;
+}
+#schedulecont .schedule-table .event:hover .intensity .middle {
+    color: #efa93c;
+}
+#schedulecont .schedule-table .event:hover .intensity .high {
+    color: #ff0033;
+}
+#schedulecont .schedule-table .event .pre_entry {
+    margin: 5px -15px -10px -15px;
+    padding: 3px;
+    background: #bcbcbc;
+    color: #ffffff;
+    text-align: center;
+}
+#schedulecont .schedule-table .schedule-left, #schedulecont .schedule-table .schedule-right {
+    display: block;
+    position: absolute;
+    top: 20px;
+    width: 36px;
+    height: 15px;
+    margin-top: -8px;
+    overflow: hidden;
+}
+#schedulecont .schedule-table .schedule-left b, #schedulecont .schedule-table .schedule-right b {
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 15px;
+    transition: transform .3s ease;
+}
+#schedulecont .schedule-table .schedule-left {
+    right: 100%;
+    margin-right: 10px;
+}
+#schedulecont .schedule-table .schedule-right {
+    left: 100%;
+    margin-left: 10px;
+}
+#schedulecont .schedule-table .schedule-left b {
+    background: url(/images/arrow-left.svg) no-repeat left;
+}
+#schedulecont .schedule-table .schedule-right b {
+    background: url(/images/arrow-right.svg) no-repeat left;
+}
+
+.club-card-container {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    -webkit-transition: -webkit-transform ease 400ms;
+    transition: all ease 400ms;
+}
+.club-card-container .image-cont, .club-card-container .description-cont {
+    margin: 40px 0 20px;
+}
+.club-card-container .card-image {
+    position: relative;
+    margin: 0 auto;
+    width: 280px;
+    height: 176px;
+    border-radius: 10px;
+}
+.club-card-container .card-image div {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.3);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: box-shadow .5s ease,-webkit-transform .5s ease;
+    transition: box-shadow .5s ease,-webkit-transform .5s ease;
+    transition: box-shadow .5s ease,transform .5s ease;
+    transition: box-shadow .5s ease,transform .5s ease,-webkit-transform .5s ease;
+}
+.club-card-container.opened .card-image div, .club-card-container:hover .card-image div {
+    box-shadow: none;
+    -webkit-transform: translate3d(0,-5px,0);
+    transform: translate3d(0,-5px,0);
+}
+.club-card-container .card-image:before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+    border-radius: inherit;
+    -webkit-transform: translate3d(15px,-15px,0);
+    transform: translate3d(15px,-15px,0);
+    -webkit-transition: box-shadow .5s ease,-webkit-transform .5s ease;
+    transition: box-shadow .5s ease,-webkit-transform .5s ease;
+    transition: box-shadow .5s ease,transform .5s ease;
+    transition: box-shadow .5s ease,transform .5s ease,-webkit-transform .5s ease;
+}
+.club-card-container.opened .card-image:before, .club-card-container:hover .card-image:before {
+    box-shadow: -30px 30px 25px 0 rgba(0,0,0,.75);
+    -webkit-transform: translate3d(0,-5px,0);
+    transform: translate3d(0,-5px,0);
+}
+.club-card-container .card-image .image-individual {
+    background: url(/images/card-individual.png) no-repeat center;
+    background-size: cover;
+}
+.club-card-container .card-image .image-vip {
+    background: url(/images/card-vip.png) no-repeat center;
+    background-size: cover;
+}
+.club-card-container .card-image .image-allinone {
+    background: url(/images/card-allinone.png) no-repeat center;
+    background-size: cover;
+}
+.club-card-container .card-image .image-kids {
+    background: url(/images/card-kids.png) no-repeat center;
+    background-size: cover;
+}
+.club-card-container .showprivilege {
+    display: inline-block;
+    margin: 0 20px 20px;
+    color: #ff0033;
+}
+.club-card-container .redbutton {
+    width: 120px;
+    margin: 0 20px;
+}
+.club-card-container .card-privilege {
+    display: none;
+    visibility: hidden;
+}
+.club-card-container .card-privilege .uk-text-small {
+    color: #5877ad;
+}
+.club-card-container.opened, .club-card-container:hover {
+    background: #0f3b89;
+    color: #ffffff;
+}
+.club-card-container.opened .card-privilege {
+    display: block;
+    visibility: visible;
+}
+
+.plus-to-minus {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform ease 400ms;
+    transition: -webkit-transform ease 400ms;
+    transition: transform ease 400ms;
+    transition: transform ease 400ms, -webkit-transform ease 400ms;
+}
+.plus-to-minus:before, .plus-to-minus:after {
+    content: '';
+    position: absolute;
+    background-color: #ff0033;
+}
+.plus-to-minus:before {
+    left: 50%;
+    margin-left: -2px;
+    width: 4px;
+    height: 18px;
+}
+.plus-to-minus:after {
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+    height: 4px;
+    width: 18px;
+    -webkit-transition: -webkit-transform ease 400ms;
+    transition: -webkit-transform ease 400ms;
+    transition: transform ease 400ms;
+    transition: transform ease 400ms, -webkit-transform ease 400ms;
+}
+.club-card-container.opened .plus-to-minus {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.club-card-container.opened .plus-to-minus:after {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#promos-widget {
+    margin: 100px 0 80px;
+}
+#promos-widget .uk-slideshow {
+    overflow: visible;
+}
+#promos-widget .uk-slidenav-position {
+    position: relative;
+}
+#promos-widget .uk-slidenav-position .uk-position-relative {
+    margin-bottom: 150px;
+}
+#promos-widget .image-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-blend-mode: multiply;
+}
+#promos-widget .uk-overlay-panel {
+    color: #ff0033;
+}
+#promos-widget .uk-overlay-panel .textblock {
+}
+#promos-widget .uk-overlay-panel .textblock .bigtext {
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+#promos-widget .uk-overlay-panel .textblock .mediumtext {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+#promos-widget .uk-overlay-panel .club-duration {
+    position: absolute;
+    top: -50px;
+    color: #0f3b89;
+}
+#promos-widget .uk-overlay-panel .club-duration b {
+    letter-spacing: 2px;
+}
+#promos-widget .uk-overlay-panel .buttons {
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    left: 50%;
+    margin-left: -135px;
+}
+#promos-widget .uk-overlay-panel .buttons .redbutton {
+    margin-left: 5px;
+    padding: 5px 5px;
+    width: 120px;
+    text-align: center;
+}
+#promos-widget .uk-overlay-panel .buttons .redbordbutton {
+    padding: 4px 5px;
+    width: 120px;
+    text-align: center;
+}
+#promos-widget .uk-overlay-panel .rightbottom {
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    color: #0f3b89;
+    font-size: 16px;
+}
+#promos-widget .uk-slideshow-prev {
+    display: none;
+}
+#promos-widget .uk-slideshow-next {
+    display: none;
+}
+
+.promotexthead {
+    color: #ff0033;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.page404 {
+    max-width: 500px;
+    margin: 0 auto 50px;
+}
+.page404 .pict404 {
+    margin: 50px auto;
+    display: block;
+}
+.page404 .uk-grid {
+    text-align: center;
+}
+.page404 .bigtext {
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+.page404 .uk-width-medium-1-3 {
+    padding-top: 20px;
+}
+.page404 .gohome .uk-icon {
+    margin-right: 10px;
+}
+.page404 .gohome span {
+    color: #ff0033;
+}
+
+.fitnes-uslugi-trenery .trainers>div {
+    margin-top: 10px;
+}
+.fitnes-uslugi-trenery .trainers .trainer-block {
+    position: relative;
+}
+.fitnes-uslugi-trenery .trainers .trainer-photo {
+    display: block;
+    position: relative;
+}
+.fitnes-uslugi-trenery .trainers .trainer-photo img {
+    width: 100%;
+}
+.fitnes-uslugi-trenery .trainers .trainer-photo p {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 3px;
+}
+.fitnes-uslugi-trenery .trainers .trainer-photo .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: -moz-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+    background-image: -ms-linear-gradient( 90deg, rgb(3,70,148) 0%, transparent 52%);
+}
+
+.privacy-policy h3 {
+    text-align: center;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .redbutton {
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+    }
+    .redbutton span {
+        transform: skew(24deg);
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+
+    .redbutton label {
+        transform: skew(24deg);
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        color: white;
+        display: block;
+        cursor: pointer;
+    }
+
+    .redbordbutton {
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+    }
+    .redbordbutton span {
+        transform: skew(24deg);
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+
+    .container {
+        width: 768px;
+    }
+
+    #top-panel {
+        background: #102f7a;
+        padding: 10px;
+    }
+    #top-panel .title-label {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    #top-panel .open-schedule span {
+        display: inline;
+        margin-left: 10px;
+    }
+    #top-panel.uk-active {
+        border-bottom: none;
+        z-index: 981;
+    }
+
+    header {
+        background: #ffffff;
+    }
+
+    #topnav {
+        position: relative;
+    }
+    #topnav::after {
+        content: '';
+        clear: both;
+    }
+    #topnav .navtitle {
+        float: left;
+        padding: 13px 60px 13px 9px;
+        margin-right: -30px;
+        text-transform: uppercase;
+        font-size: 18px;
+        color: #fff;
+        background: #0f3b89;
+        letter-spacing: 3px;
+        height: 46px;
+        box-sizing: border-box;
+        width: 192px;
+    }
+    #topnav .navtitle a,
+    #topnav .navtitle div {
+        position: relative;
+        float: left;
+        width: 78px;
+        height: 161px;
+        background: url(/images/fitron-logo.svg) no-repeat top;
+        z-index: 2;
+    }
+    header.uk-active #topnav .navtitle a,
+    header.uk-active #topnav .navtitle div {
+        background: url(/images/fitron-logo-mobile.svg) no-repeat top;
+        height: 46px;
+        margin-top: -13px;
+    }
+    #topnav .navtitle div:after {
+        content: '';
+        width: 25px;
+        margin-left: 4px;
+        margin-right: 5px;
+        height: 16px;
+        float: right;
+        background: url(../images/menu_fit.svg) no-repeat center;
+    }
+    #topnav.menuopened .navtitle div:after {
+        background: url(../images/unmenu_fit.svg) no-repeat center;
+    }
+    #topnav .clubnamecont {
+        float: left;
+        background: #0f3b89;
+        font-weight: bold;
+        width: 376px;
+        height: 32px;
+        text-shadow: 1.5px 2.6px 27px rgba(0, 18, 51, 0.23);
+        color: #0f3b89;
+        font-size: 45px;
+        line-height: 38px;
+        letter-spacing: 12px;
+        padding: 7px;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+    }
+    #topnav .clubnamecont .clubname {
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        text-align: center;
+    }
+    #topnav ul  {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 83px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        z-index: 5;
+    }
+    #topnav.menuopened ul {
+        display: block;
+    }
+    #topnav ul li a {
+        display: block;
+        background: #0f3b89;
+        padding: 11px 30px;
+        width: 363px;
+        color: #fff;
+        text-decoration: none;
+    }
+    #topnav ul li a i {
+        font-style: normal;
+    }
+    #topnav ul li:first-child a {
+        padding: 13px 30px;
+        background: none;
+    }
+    #topnav ul li:nth-child(2) a {
+        padding: 12px 30px;
+    }
+    #topnav ul li a span {
+        display: block;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    #topnav ul li.active a,#topnav ul li:hover a {
+        color: #ff0033;
+    }
+    #topnav ul li:last-child a {
+        background-color: #ff0033;
+        color: #ffffff;
+    }
+
+    #topnav .topphone {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 5px 0 5px 66px;
+        float: left;
+        color: #0f3b89;
+        letter-spacing: 1px;
+        text-align: left;
+        max-width: 195px;
+        white-space: nowrap;
+    }
+    #topnav .topphone .callme {
+        font-size: 12px;
+        letter-spacing: 0;
+        color: #ff0033;
+    }
+    #topnav .topphone .phone {
+        color: #ff0033;
+        font-weight: bold;
+    }
+    #topnav .topsearch {
+        padding: 13px 0 13px 10px;
+        float: left;
+        color: #0f3b89;
+    }
+    header.uk-active {
+        width: 100%!important;
+        height: auto;
+        top: 40px!important;
+        left: 0;
+        border-bottom: 1px solid #ff0033;
+    }
+    header.uk-active #topnav {
+        width: 768px;
+        margin: 0 auto;
+    }
+    header.uk-active #topnav .navtitle {
+        margin-left: -3000px;
+        position: relative;
+        width: 3192px;
+    }
+    header.uk-active #topnav .navtitle a,
+    header.uk-active #topnav .navtitle div {
+        float: right;
+        margin-right: 15px;
+    }
+    header.uk-active #topnav .navtitle div:after {
+        margin-right: 5px;
+    }
+    header.uk-active #topnav ul {
+        height: auto;
+    }
+
+    #theme-switch-cont {
+        display: block;
+        float: left;
+        padding: 13px 0 13px 36px;
+    }
+    #theme-switch-cont .switchery-small {
+        height: 11px;
+        width: 23px;
+    }
+    #theme-switch-cont .switchery-small>small {
+        height: 11px;
+        width: 11px;
+    }
+
+    .middle-menu-trigger, .middle-close-trigger {
+        float: right;
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 333;
+        margin-right: 5px;
+    }
+    .middle-menu-trigger {
+        margin-top: -5px;
+        padding-top: 10px;
+        margin-right: 3px;
+    }
+
+    .middle-close-trigger {
+        z-index: 5;
+        padding-top: 15px;
+        margin-top: -5px;
+    }
+
+    .middle-menu-trigger .menu-trigger-bar {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: white;
+        margin-bottom: 0;
+        transform: rotate(-66deg);
+        position: relative;
+    }
+    .middle-menu-trigger .menu-trigger-bar:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        transition: all, 0.3s, cubic-bezier(0.55, 0, 0.1, 1);
+    }
+    .middle-menu-trigger .menu-trigger-bar.top {
+        width: 50%;
+        margin-left: -8%;
+    }
+    .middle-menu-trigger .menu-trigger-bar.middle:before {
+        left: auto;
+        right: 0;
+    }
+    .middle-menu-trigger .menu-trigger-bar.bottom {
+        width: 50%;
+        margin-left: 55%;
+    }
+
+    .middle-close-trigger .close-trigger-bar {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: #ff0033;
+        position: relative;
+    }
+    .middle-close-trigger .close-trigger-bar:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: all, 0.3s, cubic-bezier(0.55, 0, 0.1, 1);
+    }
+    .middle-close-trigger .close-trigger-bar.left {
+        transform: translateX(100px) translateY(-100px) rotate(-45deg);
+    }
+    .middle-close-trigger .close-trigger-bar.right {
+        transform: translateX(-100px) translateY(-100px) rotate(45deg);
+        top: -3px;
+    }
+    .menu-trigger-hide {
+        visibility: hidden;
+        width: 0;
+    }
+
+    #main-slider {
+        position: relative;
+        height: 350px;
+    }
+    #main-slider .slider-inner {
+        margin: 0 92px 0 26px;
+        position: relative;
+        height: 100%;
+    }
+    #main-slider .uk-overlay-background:before {
+        background: none;
+        background-image: linear-gradient(90deg, rgb(3, 70, 148) 0%, transparent 52%);
+        background-image: -moz-linear-gradient(90deg, rgb(3, 70, 148) 0%, transparent 52%);
+        background-image: -webkit-linear-gradient(90deg, rgb(3, 70, 148) 0%, transparent 52%);
+        background-image: -ms-linear-gradient(90deg, rgb(3, 70, 148) 0%, transparent 52%);
+    }
+    #main-slider .uk-slideshow-prev, #main-slider .uk-slideshow-next {
+        display: block;
+    }
+
+    #topleftcont {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 412px;
+        width: 0;
+        z-index: 1;
+    }
+    #topleftcont .toplefttop {
+        position: relative;
+        background: #0f3b89;
+        height: 46px;
+        width: 3001px;
+        left: -3000px;
+    }
+    #topleftblock {
+        /*
+        background-image: -moz-linear-gradient( 90deg, rgb(71,162,255) 0%, rgb(15,59,137) 100%);
+        background-image: -webkit-linear-gradient( 90deg, rgb(71,162,255) 0%, rgb(15,59,137) 100%);
+        background-image: -ms-linear-gradient( 90deg, rgb(71,162,255) 0%, rgb(15,59,137) 100%);
+        */
+        background: #0f3b89;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        width: 3000px;
+        height: 100%;
+        position: absolute;
+        right: -29px;
+        margin-top: -2px;
+    }
+    #topleftblock .navtitle {
+        float: left;
+        padding: 29px 60px 29px 60px;
+        text-transform: uppercase;
+        font-size: 18px;
+        color: #fff;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    #topleftblock .bottomwhite {
+        position: absolute;
+        bottom: -2801px;
+        right: 2px;
+        background: #fff;
+        height: 2999px;
+        width: 100%;
+    }
+    #topleftcont .blueline {
+        position: absolute;
+        top: 455px;
+        left: -732px;
+        height: 3000px;
+        width: 2px;
+        /*background: rgb(71,162,255);*/
+        background: #0f3b89;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        z-index: 0;
+    }
+
+    #main-slider .slider-inner {
+        height: 100%;
+    }
+    #main-slider .uk-slideshow, #main-slider .uk-slideshow>li {
+        height: 100% !important;
+    }
+    .bottomright {
+        position: absolute;
+        top: 223px;
+        right: -3020px;
+        width: 3240px;
+        height: 184px;
+        z-index: 3;
+    }
+    .bottomright .bottomright-inner {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        padding-top: 25px;
+        background: #0f3b89;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+    }
+    .bottomright .select-club-cont {
+        margin: 40px;
+    }
+    .bottomright .select-club-cont .title-label {
+        color: #2b69b2;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    .bottomright .select-club {
+        position: relative;
+        width: 170px;
+        margin-top: 15px;
+        cursor: pointer;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    .bottomright .select-club .select {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: 20px;
+        user-select: none;
+    }
+    .bottomright .select-club .select:before {
+        content: '\f107';
+        font-size: 14px;
+        font-family: FontAwesome;
+        float: left;
+        margin: 0 15px 20px 0;
+    }
+    .bottomright .select-club .select:hover {
+        color: #ff0033;
+    }
+    .bottomright .select-club .another-clubs {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 5px;
+        padding: 5px 10px;
+        background: #003366;
+        color: #a3b2cf;
+        box-shadow: 0 0 10px -6px;
+        text-decoration: none;
+    }
+    .bottomright .select-club .another-clubs .another-club {
+        padding: 5px 0;
+        white-space: nowrap;
+        letter-spacing: 2px;
+    }
+    .bottomright .select-club .another-clubs .another-club:hover {
+        color: #ffffff;
+    }
+    .bottomright .select-open {
+        z-index: 2;
+    }
+    .bottomright .select-open .another-clubs {
+        display: block;
+    }
+    .bottomright .select-open .select:before {
+        content: '\f106'
+    }
+
+
+    .bottomright .club {
+        border-left: 1px solid transparent;
+        width: 120px;
+        height: 50px;
+        font-size: 16px;
+        margin-left: 60px;
+        padding-top: 15px;
+        padding-left: 20px;
+        letter-spacing: 2px;
+    }
+    #bottomright-millenium {
+        margin-top: 10px;
+    }
+    .bottomright .club span {
+        font-size: 10px;
+        letter-spacing: normal;
+        text-transform: uppercase;
+    }
+    .bottomright .club div {
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        color: #02214f;
+    }
+    .bottomright .activeclub, .bottomright .club:hover {
+        border-color: #ff0033;
+    }
+    .bottomright .club:hover {
+        cursor: pointer;
+    }
+    .bottomright .activeclub div {
+        color: #ffffff;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    .bottomright img {
+        height: 80%;
+        margin: 18px 45px;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    #main-slider .slider-text {
+        bottom: 20px;
+        left: 20px;
+        right: 160px;
+        padding: 0;
+    }
+    #main-slider .uk-slideshow-next, #main-slider .uk-slideshow-prev {
+        width: 48px;
+        height: 20px;
+    }
+    #main-slider .uk-slideshow-next {
+        top: 100px;
+        right: -70px;
+    }
+    #main-slider .uk-slideshow-prev {
+        top: auto;
+        bottom: 140px;
+        left: 10px;
+    }
+    #main-slider .uk-slideshow-prev b, #main-slider .uk-slideshow-next b {
+        width: 48px;
+        height: 20px;
+    }
+    #main-slider .uk-slideshow-prev b {
+        left: 10px;
+    }
+    #main-slider .uk-slideshow-prev:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    #main-slider .uk-slideshow-next b {
+        left: -10px;
+    }
+    #main-slider .uk-slideshow-next:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    #pagehead h1 {
+        left: auto;
+        top: auto;
+        bottom: 45%;
+        right: 18px;
+        padding-left: 90px;
+        text-align: right;
+    }
+    #pagehead .uk-breadcrumb {
+        right: 21px;
+        top: 61%;
+        bottom: auto;
+        margin: 0;
+        letter-spacing: 1px;
+        text-align: right;
+        margin-left: 70px;
+    }
+
+    .container>.uk-alert {
+        max-width: 500px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    #main-events-schedule {
+        height: 400px;
+    }
+    #main-events {
+        float: left;
+        margin-left: 26px;
+        width: 486px;
+        height: 100%;
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        overflow: hidden;
+        background: #ffffff;
+        -webkit-font-smoothing: subpixel-antialiased;
+        transform-origin: 0 0;
+    }
+    #main-events .main-events-cont {
+        width: 700px;
+        margin-left: 0;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        transform-origin: 0 0;
+    }
+    #main-events .events-top>div {
+        width: 350px;
+        margin-right: 0;
+    }
+
+    #main-events .events-bottom {
+        width: 250px;
+        margin-left: 40px;
+    }
+    #main-events .events-bottom .event-bottom {
+        padding: 15px 0;
+    }
+    #main-events .events-bottom .uk-slidenav-position {
+        margin: 0;
+    }
+    #main-events .events-bottom .slidenav {
+        width: 48px;
+        height: 20px;
+    }
+    #main-events .events-bottom .slidenav-previous {
+        left: -50px;
+    }
+    #main-events .events-bottom .slidenav-next {
+        right: -50px;
+    }
+    #main-events .events-bottom .slidenav-previous b, #main-events .events-bottom .slidenav-next b {
+        width: 48px;
+        height: 20px;
+    }
+    #main-events .events-bottom .slidenav-previous b {
+        left: 10px;
+    }
+    #main-events .events-bottom .slidenav-previous:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    #main-events .events-bottom .slidenav-next b {
+        left: -10px;
+    }
+    #main-events .events-bottom .slidenav-next:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    #main-schedule {
+        float: right;
+        width: 284px;
+        margin-right: -30px;
+        height: 100%;
+        border-left: 2px solid #0f3b89;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        transform-origin: 0 0;
+    }
+    #main-schedule p,
+    #main-schedule .schedule-cont li,
+    #main-schedule .select-club {
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        margin: 0 0 20px 50px;
+        transform-origin: 0 0;
+    }
+    #schedulecont .select-club {
+        margin-left: 0;
+    }
+    #main-schedule .schedule-cont li .text {
+        max-width: 167px;
+    }
+    #main-schedule .caption {
+        margin-top: 40px;
+    }
+    #main-schedule .subcaption {
+        margin-top: 0;
+    }
+    #main-schedule .schedule-cont {
+        height: 320px;
+        margin-top: 0;
+    }
+
+    #main-events-schedule .schedule-buttons {
+        bottom: 20px;
+        right: 20px;
+        width: 100px;
+        height: auto;
+        text-align: left;
+    }
+    #main-events-schedule .schedule-buttons a {
+        right: auto;
+    }
+    #main-events-schedule .schedule-buttons .button-up, #main-events-schedule .schedule-buttons .button-down {
+        bottom: auto;
+    }
+    #main-events-schedule .schedule-buttons .button-up {
+        top: -51px;
+        left: 21px;
+    }
+    #main-events-schedule .schedule-buttons .button-down {
+        top: -41px;
+        left: 65px;
+    }
+    #main-events-schedule .schedule-buttons .button-up b {
+        top: 10px;
+    }
+    #main-events-schedule .schedule-buttons .button-up:hover b {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    #main-events-schedule .schedule-buttons .button-down b {
+        top: -10px;
+    }
+    #main-events-schedule .schedule-buttons .button-down:hover b {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+    }
+    #main-events-schedule .schedule-buttons .button-all {
+        display: block;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        padding: 0;
+        color: #ff0033;
+        background-color: transparent;
+    }
+
+    #main-banner {
+        display: block;
+        z-index: 1;
+    }
+
+    footer {
+        letter-spacing: 2px;
+        padding-bottom: 20px;
+    }
+    footer .footer-left {
+        float: left;
+    }
+    footer .footer-left .footer-left-top {
+        padding: 70px 40px 0;
+        width: 202px;
+    }
+    footer .footer-left .footer-left-top .select-club:nth-child(2){
+        margin-top: 0;
+    }
+    footer .footer-left .socials {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    /*
+    footer .footer-map {
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        float: left;
+        width: 150%;
+        margin-right: -100%;
+        height: 287px;
+        overflow: hidden;
+        border-left: 3px solid #ff0033;
+        border-top: none;
+    }
+    #googlemap {
+        width: 63%;
+        height: 100%;
+        margin-left: -115px;
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    */
+    footer .footer-right {
+        position: relative;
+        margin-left: 242px;
+        padding: 70px 40px 20px;
+        margin-bottom: 0;
+    }
+    footer .footer-right a {
+        display: inline-block;
+        white-space: nowrap;
+    }
+    footer .footer-right .contacts .club-phones {
+        letter-spacing: 2px;
+    }
+    footer .footer-right .uk-margin-top {
+        margin-top: 40px!important;
+    }
+    footer .footer-right .madeby {
+        margin-top: 40px;
+    }
+    footer .copyright {
+        position: absolute;
+        padding: 20px 40px;
+        margin-top: -60px;
+    }
+
+    .pagenav-left {
+        margin-top: 15px;
+        margin-left: 25px;
+    }
+    .pagenav-left li a {
+        padding: 10px 0 10px 20px;
+    }
+    .pagecontent .vacancies-photos>div {
+        width: 33.333%;
+    }
+    .pagecontent .vacancies-application .uk-width-medium-1-3 {
+        margin-bottom: 0;
+    }
+    .pagecontent .vacancies-application .uk-width-medium-1-3 .redbutton {
+        margin-top: 20px;
+    }
+
+    .pagecontent .boss .boss-link {
+        text-align: left;
+    }
+    .pagecontent .boss .boss-link a {
+        text-align: center;
+    }
+
+    .pagecontent .corporate-logos {
+        text-align: left;
+        margin-top: 25px;
+    }
+    .pagecontent .corporate-logos>div:nth-child(2) {
+        margin-top: 0;
+    }
+    .pagecontent .corporate-logos>div:nth-child(2) {
+        text-align: center;
+    }
+    .pagecontent .corporate-logos>div:nth-child(3) {
+        text-align: right;
+    }
+    .pagecontent .corporate-card {
+        text-align: left;
+    }
+
+    .pagecontent .rates {
+        margin-bottom: 200px;
+    }
+    .pagecontent .rates .uk-grid {
+        margin-right: 0;
+    }
+    .pagecontent .rates .uk-width-medium-6-10 div,
+    .pagecontent .rates .uk-width-medium-4-10 div {
+        padding: 0;
+        margin: 8px 0;
+    }
+    .pagecontent .rates .uk-width-medium-6-10 div {
+        border-bottom: none;
+        border-right: 1px solid #eeeeee;
+    }
+
+    .join-head {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    .contact-form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .contact-form .form-buttons button {
+        font-size: 14px;
+    }
+
+    .contact-form .form-buttons .attach-button {
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+    }
+    .contact-form .form-buttons .attach-button span {
+        transform: skew(24deg);
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+
+
+    #clubs-list {
+        margin: 80px 30px;
+    }
+    #clubs-list h2 {
+        font-size: 40px;
+        font-weight: 200;
+    }
+    #clubs-list .clubcont .clubtext {
+        border-width: 1px;
+        border-style: solid;
+        border-bottom: none;
+    }
+    #clubs-list .clubcont .showmap {
+        white-space: nowrap;
+    }
+
+    #clubsmap {
+        transform: skew(-24deg);
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        transform-origin: 0 0;
+    }
+    #clubsmap .mapcont {
+        overflow: hidden;
+        width: 504px;
+        float: left;
+        margin-left: 26px;
+    }
+    #clubsmapcont {
+        height: 360px;
+    }
+    #clubsmap .select-club {
+        float: left;
+        width: 238px;
+        transform-origin: 0 0;
+    }
+    #clubsmap .select-club .clubcont {
+        height: 180px;
+        box-sizing: border-box;
+        padding: 40px;
+        margin-right: -3000px;
+    }
+    #clubsmap .select-club .clubcont.withborder {
+        border-right: none;
+        border-bottom: 1px solid #ffffff;
+    }
+    #clubsmap .select-club .clubcont .club-inner {
+        transform: skew(24deg);
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+    }
+    #clubsmap .select-club .clubcont .uk-icon-circle {
+        padding-right: 20px;
+    }
+
+    #clubs-interior.more .more-close {
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 45px;
+        z-index: 2;
+        opacity: 1;
+        font-size: 20px;
+    }
+    #clubs-interior.more .more-close:after {
+        color: #ff0033;
+    }
+    #clubs-interior .slider-heading {
+        z-index: 2;
+        position: absolute;
+        left: 5%;
+        top: 45px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    #clubs-interior .uk-position-cover {
+        background-size: cover;
+        background-position-y: center;
+    }
+    #clubs-interior .uk-overlay-panel {
+        position: absolute;
+        right: 50%;
+        background: url(../images/clubs-slider-back.svg) no-repeat left top;
+        padding: 45px 5%;
+    }
+    #clubs-interior .uk-overlay-panel .slider-text {
+        position: absolute;
+        bottom: 40%;
+        width: 58%;
+    }
+    #clubs-interior .order-tour {
+        position: absolute;
+        bottom: 15%;
+        left: 5%;
+        text-align: left;
+    }
+    #clubs-interior .order-tour .redbutton {
+        transform-origin: 0 0;
+        width: 160px;
+        text-align: center;
+    }
+    #clubs-interior.more .uk-overlay-panel {
+        right: 0;
+        background: rgba(15, 59, 137, 0.9);
+    }
+    #clubs-interior.more .order-tour {
+        bottom: 20px;
+    }
+    #clubs-interior.more .uk-overlay-panel .slider-text {
+        bottom: auto;
+        top: 100px;
+        width: 45%;
+    }
+    #clubs-interior.more .more-photos {
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: 55%;
+        right: 5%;
+    }
+    #clubs-interior .uk-slideshow-next {
+        top: 50%;
+        right: 0.1%;
+    }
+    #clubs-interior .uk-slideshow-prev {
+        top: 50%;
+        left: 0.1%;
+    }
+
+    #clubs-interior-new .uk-slideshow-prev,#clubs-interior-new .uk-slideshow-next {
+        width: 60px;
+        height: 25px;
+        margin-top: -13px;
+    }
+    #clubs-interior-new .uk-slideshow-prev b,#clubs-interior-new .uk-slideshow-next b {
+        width: 60px;
+        height: 25px;
+    }
+    #clubs-interior-new .uk-slideshow-prev b {
+        left: 10px;
+    }
+    #clubs-interior-new .uk-slideshow-prev:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    #clubs-interior-new .uk-slideshow-next b {
+        left: -10px;
+    }
+    #clubs-interior-new .uk-slideshow-next:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    #clubs-interior-new .thumbs {
+        top: -45px;
+    }
+    #clubs-interior-new .thumbs li img {
+        height: 90px;
+    }
+    #clubs-interior-new .texts {
+        top: -20px;
+    }
+
+    .fitnes-programs .programs-head {
+        margin-left: 45px;
+    }
+
+    .interior-small .pagecontent {
+        margin: 0 45px;
+    }
+    .interior-small .uk-slider-container {
+        position: relative;
+    }
+    .interior-small .uk-slidenav-next {
+        position: absolute;
+        top: 50%;
+        right: -25px;
+        width: 40px;
+        height: 15px;
+        margin-top: -8px;
+        background: url(../images/arrow-blue-right.svg) no-repeat center;
+    }
+    .interior-small .uk-slidenav-previous {
+        position: absolute;
+        top: 50%;
+        left: -25px;
+        width: 40px;
+        height: 15px;
+        margin-top: -8px;
+        background: url(../images/arrow-blue-left.svg) no-repeat left;
+    }
+
+    .trener .contact-form {
+        max-width: none;
+    }
+    .trener .contact-form .form-group textarea {
+        height: 240px;
+    }
+    .trener .contact-form .uk-grid .form-group .help-block {
+        height: 20px;
+        overflow: hidden;
+    }
+    .trener .contact-form .uk-grid .form-group label {
+        margin-top: 0;
+    }
+
+    .fitnes-uslugi-trenery .block-head {
+        margin-left: 45px;
+    }
+
+    .fitronlife-events li:before {
+        content: '';
+        position: absolute;
+        top: 23px;
+        right: -50px;
+        width: 100px;
+        height: 2px;
+        background: #b8b8b8;
+        opacity: 0.6;
+    }
+    .fitronlife-events li:last-child:before {
+        display: none;
+    }
+    .fitronlife-events .slidenav {
+        width: 48px;
+        height: 23px;
+        top: 19px;
+        background: #ffffff;
+    }
+    .fitronlife-events .slidenav-previous {
+        left: 0;
+    }
+    .fitronlife-events .slidenav-next {
+        right: 0;
+    }
+    .fitronlife-events .slidenav-previous b, .fitronlife-events .slidenav-next b {
+        width: 48px;
+        height: 20px;
+        top: 3px;
+    }
+    .fitronlife-events .slidenav-previous b {
+        left: 10px;
+    }
+    .fitronlife-events .slidenav-previous:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    .fitronlife-events .slidenav-next b {
+        left: -10px;
+    }
+    .fitronlife-events .slidenav-next:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    #fitronlife-news {
+        margin-left: 20px;
+    }
+    #fitronlife-news .block-head, .fitronlife-blog .block-head {
+        margin-left: 0;
+    }
+    #fitronlife-news ul li {
+        padding: 20px 0 0 0;
+    }
+    #fitronlife-news .show-all {
+        padding: 20px 0;
+    }
+    .news-post-left p {
+        margin: 0;
+    }
+
+    #fitronlife-blog {
+        margin-left: 20px;
+    }
+    #fitronlife-blog .category, #fitron-blog .blog-post .category {
+        margin-top: 0;
+    }
+
+    .clubproducts .uk-slider-container {
+        margin: 20px 60px 0 50px;
+    }
+    .clubproducts .uk-slidenav-previous {
+        top: 50%;
+    }
+    .clubproducts .uk-slidenav-next {
+        top: 50%;
+    }
+
+    #fitron-news {
+        width: 500px;
+    }
+    #fitron-news .date {
+        position: absolute;
+        left: -170px;
+    }
+
+    #fitron-blog .block-head {
+        margin-left: 45px;
+    }
+
+
+    #schedulecont {
+        margin: 0 80px;
+    }
+    #schedulecont .schedule-filters {
+        text-align: left;
+        margin: 20px 0 0;
+    }
+    #schedulecont .schedule-filters .redbutton {
+        text-align: center;
+        white-space: nowrap;
+        margin-top: 0;
+        float: right;
+    }
+    #schedulecont .schedule-table th div,#schedulecont .schedule-table .event {
+        width: 171px;
+    }
+    #schedulecont .schedule-table .schedule-left, #schedulecont .schedule-table .schedule-right {
+        width: 48px;
+        height: 20px;
+    }
+    #schedulecont .schedule-table .schedule-left b, #schedulecont .schedule-table .schedule-right b {
+        width: 48px;
+        height: 20px;
+    }
+    #schedulecont .schedule-table .schedule-left b {
+        left: 10px;
+    }
+    #schedulecont .schedule-table .schedule-left:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    #schedulecont .schedule-table .schedule-right b {
+        left: -10px;
+    }
+    #schedulecont .schedule-table .schedule-right:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    .club-card-container .card-image {
+        width: 226px;
+        height: 142px;
+    }
+    .club-card-container .card-privilege {
+        padding-top: 30px;
+    }
+
+    #promos-widget {
+        margin: 50px 20px;
+    }
+    #promos-widget .uk-slideshow {
+        overflow: hidden;
+    }
+    #promos-widget .uk-slidenav-position {
+        padding: 0 50px;
+    }
+    #promos-widget .uk-slidenav-position .uk-position-relative {
+        margin-bottom: 50px;
+    }
+    #promos-widget .image-overlay {
+        display: none;
+    }
+    #promos-widget .uk-overlay-panel .textblock {
+        position: absolute;
+        bottom: 78px;
+        width: 63%;
+    }
+    #promos-widget .uk-overlay-panel .textblock .bigtext {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    #promos-widget .uk-overlay-panel .textblock .mediumtext {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    #promos-widget .uk-overlay-panel .club-duration {
+        bottom: auto;
+        top: 20px;
+        right: 20px;
+        text-align: right;
+        color: #ffffff;
+    }
+    #promos-widget .uk-overlay-panel .rightbottom {
+        color: #ffffff;
+        top: auto;
+        bottom: 20px;
+    }
+    #promos-widget .uk-overlay-panel .buttons {
+        position: absolute;
+        top: auto;
+        left: 30px;
+        bottom: 20px;
+        margin-left: 0;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbutton {
+        margin-left: 15px;
+        padding: 9px 20px;
+        width: auto;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbordbutton {
+        padding: 8px 20px;
+        width: auto;
+    }
+
+    #promos-widget .uk-slideshow-prev,#promos-widget .uk-slideshow-next {
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 48px;
+        height: 20px;
+        margin-top: -8px;
+        overflow: hidden;
+    }
+    #promos-widget .uk-slideshow-prev b,#promos-widget .uk-slideshow-next b {
+        display: block;
+        position: absolute;
+        width: 48px;
+        height: 20px;
+        transition: transform .3s ease;
+    }
+    #promos-widget .uk-slideshow-prev {
+        left: -10px;
+    }
+    #promos-widget .uk-slideshow-prev b {
+        left: 10px;
+        background: url(/images/arrow-left.svg) no-repeat left;
+    }
+    #promos-widget .uk-slideshow-next {
+        right: -10px;
+    }
+    #promos-widget .uk-slideshow-next b {
+        left: -10px;
+        background: url(/images/arrow-right.svg) no-repeat left;
+    }
+    #promos-widget .uk-slideshow-prev:hover b {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    #promos-widget .uk-slideshow-next:hover b {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+
+    .event-page .event-date {
+        text-align: right;
+    }
+
+    .page404 {
+        max-width: 700px;
+    }
+    .page404 .uk-width-medium-2-3 {
+        text-align: left;
+    }
+    .page404 .uk-width-medium-1-3 {
+        padding-top: 0;
+        text-align: right;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    /*
+    header.uk-active #topnav ul li a {
+        width: 382px;
+    }
+    header.uk-active #topnav ul li {
+        position: relative;
+    }
+    header.uk-active #topnav ul li:before {
+        content: '';
+        position: absolute;
+        background: #0f3b89;
+        height: 100%;
+        margin-left: -500px;
+        width: 501px;
+    }
+    header.uk-active #topnav ul li:first-child:before {
+        display: none;
+    }
+    #topnav ul.middle-menu-hide {
+        left: -300px;
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+    #topnav ul.middle-menu-show {
+        left: 82px;
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+    #topnav ul.middle-menu-halfhide {
+        left: -300px;
+        opacity: 0;
+    }
+    */
+
+    #topnav ul {
+        left: 131px;
+        font-size: 12px;
+    }
+    #topnav.nomainpagenav .navtitle:after {
+        background: none;
+    }
+    #topnav.nomainpagenav ul {
+        display: block;
+    }
+    #topnav ul li {
+        float: left;
+        margin-left: -1px;
+    }
+    #topnav ul li a {
+        padding: 13px 2px;
+        width: auto;
+        background: none;
+    }
+    #topnav ul li:first-child a {
+        padding: 13px 0px;
+    }
+    #topnav ul li:nth-child(2) a {
+        padding: 13px 5px;
+    }
+    #topnav .navtitle a img {
+        width: 70px;
+    }
+    #topnav .navtitle div:after {
+        display: none;
+    }
+    /*
+    #topnav .topphone {
+        padding: 3px 20px 2px 75px;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    */
+    #topnav .topsearch {
+        padding: 28px 10px 28px 10px;
+        font-size: 18px;
+    }
+    header.uk-active #topnav ul li a {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+
+    .pagenav-left li a {
+        font-size: 12px;
+    }
+    .fitnes-programs .programs-cats .program-cat-photo p {
+        font-size: 15px;
+    }
+}
+@media only screen and (min-width: 960px) {
+    #maincont {
+        margin: 0;
+    }
+
+    .container-large {
+        position: relative;
+        margin: 0 auto;
+    }
+    .container,.container-large {
+        width: 960px;
+    }
+
+    #topnav .clubnamecont {
+        width: 570px;
+    }
+    #topnav ul {
+        left: 131px;
+        font-size: 12px;
+    }
+    #topnav.nomainpagenav .navtitle:after {
+        background: none;
+    }
+    #topnav.nomainpagenav ul {
+        display: block;
+    }
+    #topnav ul li {
+        float: left;
+        margin-left: -1px;
+    }
+    #topnav ul li a {
+        padding: 13px 11px;
+        width: auto;
+        background: none;
+    }
+    #topnav ul li:first-child a {
+        padding: 13px 19px;
+    }
+    #topnav ul li:nth-child(2) a {
+        padding: 13px 18px;
+    }
+    #topnav .navtitle a img {
+        width: 70px;
+    }
+    #topnav .navtitle div:after {
+        display: none;
+    }
+    /*
+    #topnav .topphone {
+        padding: 3px 20px 2px 14px;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    */
+    #topnav .topphone {
+        padding: 5px 0 0 18px;
+        font-size: 13px;
+        line-height: 18px;
+    }
+    #topnav .topsearch {
+        padding: 28px 10px 28px 10px;
+        font-size: 18px;
+    }
+    header.uk-active #topnav {
+        width: 960px;
+    }
+    header.uk-active #topnav .navtitle {
+        height: 46px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        width: 3137px;
+        padding-right: 10px;
+    }
+    header.uk-active #topnav .navtitle a,
+    header.uk-active #topnav .navtitle div {
+        margin-right: 46px;
+    }
+    header.uk-active #topnav .navtitle div:after {
+        margin-right: 0;
+    }
+    header.uk-active #topnav .clubnamecont {
+        width: 625px;
+        height: 32px;
+        font-size: 45px;
+        line-height: 38px;
+        padding: 7px;
+    }
+    header.uk-active #topnav ul li a {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+
+    #theme-switch-cont {
+        padding-left: 14px;
+    }
+
+    .middle-menu-trigger, .middle-close-trigger {
+        display: none;
+    }
+
+    .bottomright {
+        width: 3276px;
+        height: 260px;
+        top: 275px;
+    }
+    .bottomright .bottomright-inner {
+        padding-top: 40px;
+    }
+    .bottomright .select-club-cont {
+        margin: 60px;
+    }
+    .bottomright img {
+        height: 77%;
+        margin: 30px 59px;
+    }
+    .bottomright .club {
+        font-size: 18px;
+        margin-left: 80px;
+    }
+    #bottomright-millenium {
+        margin-top: 40px;
+    }
+
+    #main-slider {
+        height: 473px;
+    }
+    #main-slider .slider-inner {
+        margin-right: 82px;
+    }
+    #main-slider .slider-text {
+        right: 220px;
+    }
+
+    #main-events-schedule {
+        height: 460px;
+    }
+    #main-events {
+        margin-left: 28px;
+        width: 625px;
+    }
+    #main-events .main-events-cont {
+        width: 700px;
+    }
+    #main-events .events-top>div {
+        width: 400px;
+    }
+
+    #main-events .events-bottom {
+        width: 365px;
+    }
+
+    #main-schedule .schedule-cont {
+        height: 340px;
+    }
+    #main-schedule ul {
+        margin: 0;
+    }
+    #main-events-schedule .schedule-buttons {
+        right: 60px;
+    }
+    #main-schedule {
+        width: 325px;
+        margin-right: -20px;
+    }
+    #main-schedule .schedule-cont li .text {
+        max-width: 192px;
+    }
+
+    #schedulecont .select-club {
+        margin: 0;
+    }
+
+    #clubsmap .mapcont {
+        width: 670px;
+    }
+
+    footer {
+        padding-bottom: 0;
+    }
+
+    #stickymenu {
+        position: fixed;
+        top: 525px !important;
+        bottom: auto !important;
+        right: 0 !important;
+        width: auto !important;
+        height: 254px !important;
+        margin-top: -127px !important;
+    }
+    #stickymenu>ul {
+    }
+    #stickymenu>ul>li {
+        position: relative;
+        float: none;
+        /*width: 50px;*/
+        width: 60px;
+        height: 50px;
+        border-left: none;
+        margin-top: 1px;
+        background: none;
+        padding: 0;
+    }
+    #stickymenu>ul>li:first-child {
+        margin-top: 0;
+    }
+    #stickymenu ul li a {
+        color: #ffffff;
+    }
+    #stickymenu ul li label {
+        color: #ffffff;
+    }
+    #stickymenu>ul>li>a {
+        display: block;
+        padding: 15px;
+        background: #ff0033;
+        box-sizing: border-box;
+        height: 50px;
+        text-decoration: none;
+    }
+    #stickymenu>ul>li>label {
+        display: block;
+        padding: 15px;
+        background: #ff0033;
+        box-sizing: border-box;
+        height: 50px;
+        text-decoration: none;
+    }
+    #stickymenu>ul>li a .mobile-text {
+        display: none;
+    }
+    #stickymenu>ul>li label .mobile-text {
+        display: none;
+    }
+    #stickymenu>ul>li ul {
+        display: block;
+        position: absolute;
+        right: 100%;
+        top: 0;
+        width: 205px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
+    }
+    #stickymenu>ul>li ul li {
+        height: 50px;
+        color: white;
+        box-sizing: border-box;
+        padding-right: 1px;
+        width: 205px;
+        text-align: left;
+    }
+    #stickymenu>ul>li ul li a,
+    #stickymenu>ul>li ul li label {
+        display: block;
+        padding: 15px;
+        background: #ff0033;
+        text-decoration: none;
+    }
+    #stickymenu>ul>li:hover ul {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+    }
+    #stickymenu>ul>li:hover ul li {
+    }
+
+    .club-card-container .card-image {
+        width: 290px;
+        height: 183px;
+    }
+
+    #promos-widget {
+        margin: 50px 30px;
+    }
+    #promos-widget .uk-overlay-panel .textblock .bigtext {
+        font-size: 33px;
+        line-height: 40px;
+    }
+    #promos-widget .uk-overlay-panel .textblock .mediumtext {
+        font-size: 21px;
+        line-height: 23px;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbutton {
+        padding: 9px 30px;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbordbutton {
+        padding: 8px 30px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .container,.container-large {
+        width: 1200px;
+    }
+
+    #topnav .clubnamecont {
+        width: 780px;
+        height: 54px;
+        text-shadow: 1.5px 2.6px 27px rgba(0, 18, 51, 0.3);
+        font-size: 74px;
+        line-height: 64px;
+        padding: 12px;
+    }
+    #topnav ul {
+        left: 141px;
+        font-size: 14px;
+        max-width: 802px;
+        height: 78px;
+        overflow: hidden;
+    }
+    #topnav ul li a {
+        /*padding: 29px 14px;*/
+        padding: 29px 19px;
+    }
+    #topnav ul li:first-child a {
+        /*padding: 29px 12px;*/
+        padding: 29px 29px;
+    }
+    #topnav ul li:nth-child(2) a {
+        /*padding: 29px 12px;*/
+        padding: 29px 28px;
+    }
+    #topnav .navtitle {
+        box-sizing: border-box;
+        width: 165px;
+        height: 78px;
+        padding: 29px 28px 29px 9px;
+    }
+    /*
+    Это когда был один телефон и кнопка "перезвоните мне"
+    #topnav .topphone {
+        padding: 17px 20px 16px 40px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    */
+    #topnav .topphone {
+        padding: 19px 0 18px 25px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    #topnav .topphone .callme {
+        letter-spacing: 1px;
+    }
+    #topnav .topsearch {
+        padding: 28px 10px 28px 10px;
+        font-size: 18px;
+    }
+    header {
+        height: 78px;
+    }
+    header.uk-active #topnav {
+        width: 1200px;
+    }
+    header.uk-active #topnav .navtitle {
+        width: 3156px;
+        padding-right: 10px;
+    }
+    header.uk-active #topnav .navtitle a,
+    header.uk-active #topnav .navtitle div {
+        margin-right: 61px;
+    }
+    header.uk-active #topnav .clubnamecont {
+        width: 791px;
+    }
+    /*
+    Это когда был один телефон и кнопка "перезвоните мне"
+    header.uk-active #topnav .topphone {
+        padding: 0px 20px 1px 40px;
+    }
+    */
+    header.uk-active #topnav .topphone {
+        padding: 4px 0 0 33px;
+    }
+
+
+    #theme-switch-cont {
+        padding: 29px 0 29px 10px;
+    }
+    header.uk-active #theme-switch-cont {
+        padding: 13px 0 13px 10px;
+    }
+
+    .bottomright {
+        width: 3293px;
+        height: 300px;
+        top: 373px;
+        left: 893px;
+    }
+    .bottomright .bottomright-inner {
+        padding-top: 65px;
+    }
+    .bottomright .select-club-cont {
+        margin: 60px 110px;
+    }
+    .bottomright img {
+        height: 65%;
+        margin: 53px 71px;
+    }
+    .bottomright .club {
+        font-size: 20px;
+    }
+
+    #main-slider {
+        height: 576px;
+    }
+    #main-slider .slider-inner {
+        margin: 0 96px 0 28px;
+    }
+    #main-slider .slider-text {
+        right: 230px;
+    }
+
+    #topleftblock {
+        right: -32px;
+    }
+    #topleftcont .toplefttop {
+        height: 78px;
+    }
+
+    #topleftcont .blueline {
+        left: -729px;
+        /*top: 487px;*/
+        top: 409px;
+    }
+
+    #pagehead h1 {
+        right: 27px;
+        padding-left: 100px;
+    }
+    #pagehead .uk-breadcrumb {
+        right: 30px;
+    }
+
+    .container>.uk-alert {
+        max-width: 726px;
+    }
+
+    #main-events-schedule {
+        height: 640px;
+    }
+    #main-events {
+        margin-left: 28px;
+        width: 840px;
+    }
+    #main-events .main-events-cont {
+        width: 1000px;
+    }
+    #main-events .events-top>div {
+        width: 500px;
+    }
+
+    #main-events .events-bottom {
+        width: 590px;
+        margin-left: 0;
+    }
+    #main-events .events-bottom .event-bottom {
+        padding: 20px;
+        text-align: left;
+    }
+    #main-events .events-bottom .event-bottom .event-image-text {
+        display: block;
+    }
+    #main-events .events-bottom li .event-bottom .event-date {
+        text-align: right;
+        line-height: 16px;
+    }
+    #main-events .events-bottom li .event-bottom .event-date b {
+        float: left;
+        position: relative;
+        top: auto;
+        width: auto;
+    }
+    #main-events .events-bottom .slidenav-previous {
+        top: -15px;
+        left: -10px;
+    }
+    #main-events .events-bottom .slidenav-next {
+        top: -15px;
+        right: -50px;
+    }
+
+    #main-schedule {
+        width: 380px;
+        margin-right: -50px;
+    }
+    #main-schedule .schedule-cont {
+        height: 495px;
+        margin-top: 0;
+    }
+    #main-schedule .caption {
+        margin-top: 50px;
+    }
+    #main-schedule .subcaption {
+        margin-top: 0;
+    }
+    #main-schedule p,
+    #main-schedule .schedule-cont li,
+    #main-schedule .select-club {
+        margin: 0 0 25px 120px;
+    }
+    #main-schedule .schedule-cont li .text {
+        max-width: 190px;
+    }
+
+    #main-events-schedule .schedule-buttons {
+        bottom: 25px;
+        right: 75px;
+    }
+
+    #main-banner {
+        height: 400px;
+    }
+
+    footer .footer-left {
+        float: left;
+        margin-bottom: 50px;
+        border-bottom: none;
+    }
+    footer .footer-left .footer-left-top {
+        padding: 70px 80px 0 30px;
+        width: 213px;
+    }
+    footer .footer-left .footer-left-top .club-contacts .showmap {
+        display: none;
+    }
+    footer .footer-left .footer-left-top .gotosite:before {
+        width: 0;
+    }
+    footer .footer-left .footer-left-top .gotosite:hover:before {
+        width: 30px;
+    }
+    footer .footer-left .socials {
+        margin-top: 20px;
+    }
+    footer .footer-map {
+        display: block;
+        float: left;
+        -webkit-transform: skew(-24deg);
+        -moz-transform: skew(-24deg);
+        -o-transform: skew(-24deg);
+        height: 442px;
+        width: 265px;
+        overflow: hidden;
+        border-left: 3px solid #ff0033;
+        border-right: 3px solid #ff0033;
+        border-bottom: none;
+    }
+    #googlemap {
+        -webkit-transform: skew(24deg);
+        -moz-transform: skew(24deg);
+        -o-transform: skew(24deg);
+        width: 189%;
+        margin-left: -45%;
+    }
+    footer .footer-right {
+        width: 385px;
+        margin-left: 0;
+        float: right;
+        margin-right: 30px;
+        padding: 70px 0 20px;
+        clear: none;
+    }
+    footer .footer-right .madeby {
+        margin-top: 35px;
+    }
+    footer .copyright {
+        padding-left: 30px;
+    }
+    .pagecontent {
+        margin: 20px 30px;
+    }
+    .uk-width-medium-7-10>.pagecontent {
+        margin: 0 60px;
+    }
+    .pagenav-left {
+        margin-left: 30px;
+        margin-bottom: 40px;
+    }
+    .pagecontent .vacancies-application .uk-width-medium-1-3 .redbutton {
+        margin-top: 0;
+        width: 160px;
+    }
+    .contact-form {
+        max-width: 726px;
+    }
+
+    #clubsmap .mapcont {
+        margin-left: 28px;
+        width: 962px;
+    }
+    #clubsmap .select-club {
+        width: 210px;
+    }
+
+    #clubs-interior .slider-heading {
+        left: 110px;
+    }
+    #clubs-interior .uk-overlay-panel {
+        padding: 45px 110px;
+    }
+    #clubs-interior .uk-overlay-panel .slider-text {
+        width: 310px;
+    }
+    #clubs-interior .order-tour {
+        left: 110px;
+        bottom: 15%;
+    }
+    #clubs-interior .order-tour .redbutton {
+        width: 200px;
+    }
+    #clubs-interior .uk-slideshow-next {
+        right: 35px;
+    }
+    #clubs-interior .uk-slideshow-prev {
+        left: 35px;
+    }
+
+    #clubs-interior-new .thumbs {
+        top: -60px;
+    }
+    #clubs-interior-new .thumbs li img {
+        height: 120px;
+    }
+    #clubs-interior-new .texts {
+        top: -30px;
+    }
+
+    .fitnes-programs .programs-head {
+        margin-left: 50px;
+    }
+    .fitnes-programs .programs-cats .program-cat-photo p {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .interior-small .pagecontent {
+        margin: 0 50px;
+    }
+
+    .fitnes-uslugi-trenery .block-head {
+        margin-left: 50px;
+    }
+
+    #fitronlife-news {
+        margin-left: 30px;
+    }
+
+    #fitron-blog .block-head {
+        margin-left: 50px;
+    }
+
+    #schedulecont {
+        margin: 0 80px;
+    }
+    #schedulecont .schedule-filters {
+        margin-left: 0;
+    }
+    #schedulecont .schedule-table th div,#schedulecont .schedule-table .event {
+        width: 142px
+    }
+
+    .club-card-container .card-image {
+        width: 320px;
+        height: 201px;
+    }
+
+    #promos-widget {
+        margin: 50px 30px;
+    }
+    #promos-widget .uk-overlay-panel .textblock {
+        bottom: 98px;
+    }
+    #promos-widget .uk-overlay-panel .textblock .bigtext {
+        font-size: 44px;
+        line-height: 54px;
+        margin-bottom: 30px;
+    }
+    #promos-widget .uk-overlay-panel .textblock .mediumtext {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    #promos-widget .uk-overlay-panel .buttons {
+        bottom: 30px;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbutton {
+        padding: 9px 50px;
+    }
+    #promos-widget .uk-overlay-panel .buttons .redbordbutton {
+        padding: 8px 50px;
+    }
+}
+
+
+
+
+
+
+.radio_buttons div{
+    height: 44px;
+}
+.radio_buttons div {
+    float: left;
+    height: auto;
+    padding-top: 10px;
+}
+.radio_buttons input {
+    position: absolute;
+    left: -9999px;
+}
+.radio_buttons label {
+    width: 523px;
+    display: block;
+    margin: 0 0 0 -1px;
+    padding: 8px 10px;
+    border: 1px solid #0f3b89;
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+    cursor: pointer;
+}
+.radio_buttons input:checked + label {
+    background: white;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, .2);
+}
+.radio_buttons div:first-child label {
+    margin-left: 0;
+    /*border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;*/
+}
+.radio_buttons div:last-child label {
+    /*border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    */
+}
+
+#form .error{
+    border: 2px solid #ff0000 !important;
+}

@@ -1,0 +1,118 @@
+.menu-container{
+    top:-1000px;
+    left:0;
+    margin:auto;
+    position:fixed;
+    right:0;
+    transition:top .5s ease .5s;
+    z-index: 1001;
+}
+
+@media (max-width: 767px){
+    #modal_menu:checked~.menu-container {
+        background-color:#f9f9fb;
+        left:0;
+        margin:auto;
+        position:fixed;
+        right:0;
+        transition:top .5s ease .5s;
+        z-index: 1001;
+        top:0;
+    }
+}
+
+#modal_close_delta_all{
+    position:absolute;
+    top:-200px
+}
+#modal_menu:checked~#modal_close_delta_all{
+    color:rgba(51,51,51,.4);
+    font-size:22px;
+    position:absolute;
+    right:30px;
+    top:12px;
+    transition:color .2s,transform .5s;
+    z-index: 1002;
+}
+#modal_menu:checked~#modal_close_delta_all:focus,
+#modal_menu:checked~#modal_close_delta_all:hover{
+    color:#333;
+    transform:rotate(1turn);
+    z-index: 1002;
+}
+#modal_background_delta_0,
+#modal_background_delta_1,
+#modal_background_delta_2,
+#modal_background_delta_3,
+#modal_background_delta_4,
+#modal_background_delta_5,
+#modal_background_delta_6,
+#modal_background_delta_7,
+#modal_background_delta_8,
+#modal_background_delta_9{
+    background-color:#fff;
+    height:100%;
+    position:absolute;
+    top:0;
+    transition:width 1s ease;
+    width:0;
+    z-index: 1000;
+}
+#modal_background_delta_0{
+    left:0
+}
+#modal_background_delta_1{
+    left:10%
+}
+#modal_background_delta_2{
+    left:20%
+}
+#modal_background_delta_3{
+    left:30%
+}
+#modal_background_delta_4{
+    left:40%
+}
+#modal_background_delta_5{
+    left:50%
+}
+#modal_background_delta_6{
+    left:60%
+}
+#modal_background_delta_7{
+    left:70%
+}
+#modal_background_delta_8{
+    left:80%
+}
+#modal_background_delta_9{
+    left:90%
+}
+#modal_menu:checked~#modal_background_delta_0,
+#modal_menu:checked~#modal_background_delta_1,
+#modal_menu:checked~#modal_background_delta_2,
+#modal_menu:checked~#modal_background_delta_3,
+#modal_menu:checked~#modal_background_delta_4,
+#modal_menu:checked~#modal_background_delta_5,
+#modal_menu:checked~#modal_background_delta_6,
+#modal_menu:checked~#modal_background_delta_7,
+#modal_menu:checked~#modal_background_delta_8,
+#modal_menu:checked~#modal_background_delta_9{
+    transition:width 1s ease;
+    width:12%;
+    z-index: 1000;
+}
+
+/*#modal_menu:checked~.container {*/
+    /*z-index: 1000;*/
+/*}*/
+#modal_menu:checked~.container #main-slider {
+    display: none;
+}
+
+#modal_menu:checked~.container #main-events-schedule {
+    display: none;
+}
+/*#modal_menu:checked~.container .uk-sticky-placeholder {*/
+    /*height: 78px;*/
+/*}*/

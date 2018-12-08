@@ -1,0 +1,674 @@
+.header {
+    width: 100%;
+    color: white;
+}
+.header_top_fon {
+    width: 100%;
+    background-color: rgb(16, 47, 122);
+}
+.header_top{
+    display: flex;
+    align-items: center;
+}
+.header_top_block {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.header_top_block:first-child {
+    margin-right: 10px;
+    /*border-right: 1px solid white;*/
+    padding-right: 25px;
+}
+.header_top_block:last-child {
+    margin-left: auto;
+}
+.header_top_block_select_label {
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-top: 4px;
+}
+.header_top_block_div_image {
+    height: 65px;
+    position: relative;
+    overflow: hidden;
+}
+.header_top_block_logo {
+    height: 65px;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: -15px;*/
+    /*right: 0;*/
+    /*margin: auto;*/
+}
+.header_top_block_div_text {
+    text-transform: uppercase;
+    font-size: 7px;
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    padding-left: 5px;
+}
+.header_top_block_select_club {
+    cursor: pointer;
+    color: red;
+    white-space: nowrap;
+    letter-spacing: 2px;
+}
+.header_top_block_select_club .select {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+}
+.header_top_block_select_club .select:before {
+    content: '\f107';
+    font-size: 14px;
+    font-family: FontAwesome;
+    float: left;
+    margin-right: 10px;
+}
+.header_top_block_select_club .another-clubs {
+    display: none;
+    position: absolute;
+    /*top: 100%;*/
+    /*left: -10px;*/
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #003366;
+    color: #a3b2cf;
+    box-shadow: 0 0 10px -6px;
+    text-decoration: none;
+    z-index: 10;
+}
+.header_top_block_select_club.select-club.select-open .another-clubs {
+    display: block;
+}
+.header_top_block_select_club .another-clubs .another-club {
+    padding: 5px 0;
+}
+.header_top_block_select_club .another-clubs .another-club:hover {
+    color: white;
+}
+.header_top_block_phone a{
+    font-weight: bold;
+    color: white;
+}
+.header_top_block_add {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 14px;
+    background-color: red;
+    text-transform: uppercase;
+    transform: skew(-24deg)
+}
+.header_top_block_add a {
+    color: white;
+    text-decoration: none;
+}
+.header_top_block_add a span {
+    transform: skew(24deg);
+    display: block;
+    margin: 0 10px;
+}
+@media (min-width: 768px){
+    .header_top, .header_nav{
+        width: 95%;
+        margin: auto;
+    }
+    .header_top {
+        padding-top: 15px;
+    }
+}
+@media (min-width: 1200px) {
+    .header_top, .header_nav{
+        width: 1200px;
+        margin: auto;
+    }
+    .header_top {
+        padding-top: 15px;
+    }
+}
+.header_nav_fon {
+    width: 100%;
+    background-color: rgb(16, 47, 122);
+}
+.header_nav{
+    display: flex;
+    align-items: center;
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    text-transform: uppercase;
+}
+.header_nav_ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 60px;
+}
+.header_nav_ul_li {
+    list-style-type: none;
+    transform: skew(-24deg);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(16, 47, 122);
+}
+.header_nav_ul_li:hover {
+    border-color: white;
+    transition: border .5s linear;
+}
+.header_nav_ul_li.active {
+    border-color: white;
+    transition: border .5s linear;
+}
+.header_nav_ul_li a.header_nav_ul_li_a {
+    text-decoration: none;
+    color: white;
+    transform: skew(24deg);
+    display: block;
+    width: 150px;
+    text-align: center;
+}
+/*.header_nav_ul_li:hover a.header_nav_ul_li_a {*/
+    /*text-decoration: none;*/
+    /*color: white;*/
+    /*transform: skew(-24deg);*/
+    /*display: block;*/
+    /*width: 150px;*/
+    /*text-align: center;*/
+    /*transition: transform .5s ease;*/
+/*}*/
+.header_nav_ul_li_a span {
+    word-wrap: normal;
+}
+/*.header_nav_ul_li a.header_nav_ul_li_a:hover {*/
+    /*color: #ff0033;*/
+/*}*/
+
+.header_top_block a.header_top_block_a {
+    text-decoration: none;
+    color: white;
+}
+.header_nav_ul_li.header_nav_cabinet {
+    /*height: 100%;*/
+    transform: skew(-24deg);
+    align-items: center;
+    display: flex;
+    background-color: red;
+    border: 0;
+}
+.header_nav_ul_li.header_nav_cabinet a.header_nav_ul_li_a.header_nav_cabinet_a {
+    transform: skew(24deg);
+    margin: 0 20px;
+}
+
+.special_main {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.special_main_head {
+    background-color: red;
+    height: 105px;
+}
+.special_main_head_name {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 23px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    letter-spacing: 3px;
+    line-height: 40px;
+    padding-top: 10px;
+    margin: 0;
+    transform: skew(24deg);
+}
+.special_main_head_desc {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    margin: 0;
+    transform: skew(24deg);
+}
+.special_main_first,
+.special_main_second {
+    width: 400px;
+    transform: skew(-24deg);
+}
+.special_main_price {
+    background-color: #1e3b89;
+    padding-bottom: 30px;
+}
+.special_main_text_price_1{
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 50px;
+    line-height: 90px;
+    color: white;
+}
+.special_main_text_price_2 {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 35px;
+    color: white;
+}
+.special_main_ru_price_1 {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 30px;
+    color: white;
+    margin-left: 20px;
+}
+.special_main_ru_price_2 {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 20px;
+    color: white;
+    margin-left: 15px;
+}
+.special_main_price_1 {
+    text-align: center;
+    transform: skew(24deg);
+}
+.special_main_price_2 {
+    text-align: center;
+    text-decoration-color: red;
+    text-decoration-style: solid;
+    text-decoration-line: line-through;
+    transform: skew(24deg);
+}
+.special_main_icon_price_2 {
+    text-decoration-color: red;
+    text-decoration-style: solid;
+    text-decoration-line: line-through;
+    font-size: 80%;
+}
+.special_main_price_2_r {
+    text-align: center;
+    /*text-decoration-color: red;*/
+    /*text-decoration-style: solid;*/
+    /*text-decoration-line: line-through;*/
+    transform: skew(24deg);
+}
+.special_main_icon_price_2_r {
+    /*text-decoration-color: red;*/
+    /*text-decoration-style: solid;*/
+    /*text-decoration-line: line-through;*/
+    font-size: 80%;
+}
+.special_main_icon_price_1 {
+    font-size: 80%;
+}
+.special_main_footer {
+    background-color: red;
+    text-align: center;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.special_main_footer_button {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-size: 17px;
+    color: white;
+    background-color: red;
+    border: 0;
+    text-transform: uppercase;
+    transform: skew(24deg);
+}
+.special_main_line {
+    height: 10px;
+}
+
+.schedule_download_btn{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+}
+
+.schedule_download_btn_a {
+    display: inline-block;
+    background: #ff0033;
+    padding: 10px;
+    user-select: none;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    transform: skew(-24deg);
+}
+.schedule_download_btn_a:hover {
+    background: #e30031;
+    color: white;
+}
+.schedule_download_btn_a_span {
+    display: inline-block;
+    transform: skew(24deg);
+}
+
+.schedule_download_btn_fitnes {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+.trainers_group_clubs {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+.trainers_group_clubs_label {
+    line-height: 40px;
+}
+.trainers_group_clubs_label {
+    cursor: pointer;
+}
+.trainers_group_clubs_input {
+    cursor: pointer;
+}
+.trainers {
+    margin-bottom: 30px;
+}
+.contacts {
+    margin-top: 30px;
+}
+.contacts_content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.contacts_content_phone {
+    background-color: red;
+    transform: skew(-24deg);
+    color: white;
+    text-transform: uppercase;
+}
+.contacts_content_phone_txt{
+    transform: skew(24deg);
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+}
+.contacts_content_phone_number{
+    transform: skew(24deg);
+    text-align: center;
+    font-size: 40px;
+    line-height: 70px;
+    font-weight: 800;
+}
+
+.contacts_content_work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 45px;
+}
+.contacts_content_work_head {
+    color: blue;
+    width: 450px;
+}
+.contacts_content_work_label {
+    color: blue;
+
+}
+.contacts_content_work_txt {
+    color: red;
+    margin-left: 30px;
+}
+.contacts_content_work_start {
+    display: flex;
+    width: 450px;
+}
+.contacts_content_work_end {
+    display: flex;
+    width: 450px;
+}
+.club-card-container .card-image div.card_akchii {
+    color: white;
+    transform: skewY(-36deg);
+    background-color: red;
+    width: 59px;
+    height: 21px;
+    border-radius: 0;
+    position: absolute;
+    top: 21px;
+}
+.club-card-container .card-image div.card_akchii a {
+    color: white;
+    text-decoration: none;
+}
+.toplefttop {
+    display: none;
+}
+
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input{
+     /*width:285px;*/
+     font-family: "Gotham SSm A", "Gotham SSm B";
+ }
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input .error {
+    color: red;
+    font-size: 10px;
+    line-height: 10px;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input label{
+    display:block;
+    font-weight:700;
+    margin:5px 0 10px;
+    color: #0f3b89;
+    text-align: left;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input label:after{
+    color:red;
+    content:"*"
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input input{
+    color:#0f3b89;
+    padding:10px
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input input{
+    background-color:#f9f9fb;
+    border:none;
+    border-top:2px solid #0f3b89;
+    box-sizing:border-box;
+    font-size:18px;
+    height:46px;
+    outline:none;
+    width: 100%;
+}
+.form_trainer_fdbc .group_tag .group_tag_row.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input.flex_width {
+    width: 48%;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_input textarea{
+    background-color:#f9f9fb;
+    border:none;
+    border-top:2px solid #0f3b89;
+    box-sizing:border-box;
+    font-size:18px;
+    /*height:46px;*/
+    outline:none;
+    width: 100%;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_checkbox{
+    align-self:center;
+    display:flex;
+    margin:5px 0;
+    flex-direction: column;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_checkbox .error {
+    color: red;
+    font-size: 10px;
+    line-height: 10px;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_checkbox span{
+    color: #0f3b89;
+    margin-right: 5px;
+}
+.form_trainer_fdbc .group_tag .group_tag_row .group_tag_checkbox a{
+    color:red;
+    text-decoration: none;
+}
+.form_trainer_fdbc .group_tag .button_submit{
+    background:#f03;
+    border:none;
+    cursor:pointer;
+    display:inline-block;
+    padding:10px;
+    text-align:center;
+    transform:skew(-24deg);
+    width:200px;
+    outline: none;
+}
+.form_trainer_fdbc .group_tag .button_submit span{
+    color:#fff;
+    display:block;
+    transform:skew(24deg)
+}
+.form_trainer_fdbc .group_tag .group_captcha {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.form_join_fdbc_content {
+    display: flex;
+    justify-content: center;
+}
+.form_join_fdbc {
+    width: 65vw;
+}
+.form_join_fdbc .form_of_back{
+    color: red;
+    background-color: #eff5f9;
+    margin-top: 5px;
+    line-height: 40px;
+    font-size: 17px;
+    text-align: center;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input{
+    /*width:285px;*/
+    font-family: "Gotham SSm A", "Gotham SSm B";
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input label{
+    display:block;
+    font-weight:700;
+    margin:5px 0 10px;
+    color: #0f3b89;
+    text-align: left;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input label:after{
+    color:red;
+    content:"*"
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input input{
+    color:#0f3b89;
+    padding:10px
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input input{
+    background-color:#f9f9fb;
+    border:none;
+    border-top:2px solid #0f3b89;
+    box-sizing:border-box;
+    font-size:18px;
+    height:46px;
+    outline:none;
+    width: 100%;
+}
+.form_join_fdbc .group_tag .group_tag_row .error {
+    color: red;
+    font-size: 10px;
+    line-height: 10px;
+}
+.form_join_fdbc .group_tag .group_tag_row.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input.flex_width {
+    width: 48%;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input textarea{
+    background-color:#f9f9fb;
+    border:none;
+    border-top:2px solid #0f3b89;
+    box-sizing:border-box;
+    font-size:18px;
+    /*height:46px;*/
+    outline:none;
+    width: 100%;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_checkbox{
+    align-self:center;
+    display:flex;
+    margin:5px 0;
+    flex-direction: column;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_checkbox span{
+    color: #0f3b89;
+    margin-right: 5px;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_checkbox a{
+    color:red;
+    text-decoration: none;
+}
+.form_join_fdbc .group_tag .button_submit{
+    background:#f03;
+    border:none;
+    cursor:pointer;
+    display:inline-block;
+    padding:10px;
+    text-align:center;
+    transform:skew(-24deg);
+    width:200px;
+    outline: none;
+}
+.form_join_fdbc .group_tag .button_submit span{
+    color:#fff;
+    display:block;
+    transform:skew(24deg)
+}
+.form_join_fdbc .group_tag .group_captcha {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input select{
+    background-color:#f9f9fb;
+    border:none;
+    border-top:2px solid #0f3b89;
+    box-sizing:border-box;
+    font-size:18px;
+    height:46px;
+    outline:none;
+    width:100%;
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input select{
+    color:#f03
+}
+.form_join_fdbc .group_tag .group_tag_row .group_tag_input select option{
+    color:#0f3b89
+}
+
+.form_trainer_fdbc .title_header {
+    color: red;
+    background-color: #eff5f9;
+    margin-top: 5px;
+    line-height: 40px;
+    font-size: 17px;
+    text-align: center;
+}

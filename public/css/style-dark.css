@@ -1,0 +1,606 @@
+html {
+    background: #001233;
+}
+
+html, a, em {
+    color: #ffffff;
+}
+
+a:hover {
+    color: #5c6172;
+}
+
+#maincont, .uk-modal-dialog, .menu-bg {
+    background: #001233;
+}
+
+.close-trigger-bar {
+    background-color: #ffffff;
+}
+.menu a {
+    color: #ffffff;
+}
+
+#top-panel .select-club, .topphone .select-club,
+footer .footer-left .footer-left-top .select-club,
+#top-panel .open-schedule:hover {
+    color: #ed1941;
+}
+header.uk-active {
+    border-color: #ed1941;
+}
+
+.topphone .select-club {
+    color: #ffffff;
+}
+
+#main-slider .uk-slideshow-prev b {
+    background: url(/images/arrow-left-dark.svg) no-repeat left;
+}
+#main-slider .uk-slideshow-next b {
+    background: url(/images/arrow-right-dark.svg) no-repeat left;
+}
+#main-slider .slideshow-nav li.uk-active {
+    background: #ed1941;
+}
+#main-slider .slider-text a.more {
+    color: #ed1941;
+}
+
+#main-events {
+    background: #001233;
+}
+#main-events .events-top .event-date {
+    color: #ed1941;
+}
+#main-events .events-top .uk-slide-after .event-date {
+    color: #ffffff;
+}
+#main-events .events-bottom .event-bottom {
+    color: #ffffff;
+}
+#main-events .events-bottom li.uk-active .event-bottom {
+    border-color: #ed1941;
+}
+#main-events .events-bottom li.uk-active .event-bottom .event-date {
+    color: #ffffff;
+}
+#main-events .events-bottom li.uk-active .event-bottom a {
+    color: #ed1941;
+}
+#main-events .events-bottom li .event-past, #main-events .events-bottom li .event-past a {
+    color: #034694;
+}
+#main-events .events-bottom li:hover .event-bottom .event-date {
+    color: #ffffff;
+}
+#main-events .events-bottom .slidenav-previous b {
+    background: url(../images/arrow-left-dark.svg) no-repeat center;
+}
+#main-events .events-bottom .slidenav-next b {
+    background: url(../images/arrow-right-dark.svg) no-repeat center;
+}
+#main-events .events-bottom .event-bottom a:before {
+    background: url(../images/arrow-right-dark.svg) no-repeat center;
+}
+
+#main-schedule .caption,
+#main-schedule .select-club,
+#schedulecont .select-club {
+    color: #ed1941;
+}
+#main-schedule li .time, #main-schedule li a {
+    color: #ffffff;
+}
+#main-schedule .schedule-cont li.schedule-past,
+#main-schedule .schedule-cont li.schedule-past .time,
+#main-schedule .schedule-cont li.schedule-past a {
+    color: #034694;
+}
+#main-events-schedule .schedule-buttons .button-up b {
+    background: url(/images/arrow-up-dark.svg) no-repeat right top;
+}
+#main-events-schedule .schedule-buttons .button-down b {
+    background: url(/images/arrow-down-dark.svg) no-repeat right top;
+}
+#main-events-schedule .schedule-buttons .button-all {
+    background-color: #ed1941;
+}
+#main-events .events-bottom li .event-past, #main-events .events-bottom li .event-past a {
+    color: #5c6172;
+}
+
+#main-advantages, .redhr {
+    border-color: #ed1941;
+}
+
+footer {
+    background: #001233;
+    background: -moz-linear-gradient(top, #034694 0%, #ed1941 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #034694 0%,#ed1941 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #034694 0%,#ed1941 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#034694', endColorstr='#ed1941',GradientType=0 ); /* IE6-9 */
+}
+footer .footer-left .footer-left-top .select-club a {
+    color: #7fd421;
+}
+footer .footer-right .socialscont .instalink {
+    color: #ffffff;
+}
+
+.redbutton {
+    background-color: #ed1941;
+}
+.redbordbutton {
+    border-color: #ed1941;
+    color: #ed1941;
+}
+.redbordbutton:hover {
+    background: #ed1941;
+}
+
+.block-head,
+.block-head a {
+    color: #ed1941;
+}
+
+.contact-form .form-group input[type="text"],
+.contact-form .form-group input[type="tel"],
+.contact-form .form-group textarea {
+    background: #01204d;
+    border-color: #ed1941;
+    color: #ffffff;
+}
+.contact-form .form-buttons .attach-button {
+    background: #001233;
+    border-color: #ed1941;
+    color: #ed1941;
+}
+.contact-form .form-buttons .attach-button:hover {
+    background: #ed1941;
+}
+.uk-form input[type=radio], .uk-form input[type=checkbox] {
+    border-color: #ed1941;
+}
+.contact-form .selectric {
+    border-color: #ed1941;
+    background: #01204d;
+}
+.contact-form .selectric-hover .selectric {
+    border-color: #ed1941;
+}
+.contact-form .selectric .label {
+    color: #ed1941;
+}
+.contact-form .selectric-items {
+    border-color: #034694;
+}
+.contact-form .selectric-items ul, .contact-form .selectric-items li {
+    color: #ffffff;
+    background: #01204d;
+}
+.contact-form .selectric-items li.highlighted, .contact-form .selectric-items li:hover {
+    background: #034694;
+}
+.contact-form .selectric-open .selectric, .contact-form .selectric-focus .selectric {
+    border-color: #ed1941;
+}
+.contact-form .selectric-items li.highlighted, .contact-form .selectric-items li.selected, .contact-form .selectric-items li:hover {
+    color: #ffffff;
+}
+.uk-form input[type=checkbox]:checked:before, .uk-form input[type=checkbox]:indeterminate:before {
+    color: #ffffff;
+}
+
+#stickymenu>ul>li {
+    background: #ed1941;
+}
+
+.pagenav-left li a {
+    color: #ffffff;
+}
+
+#clubs-list h2 {
+    color: #ed1941;
+}
+#clubs-list .clubcont .clubtext {
+    border-color: #034694;
+}
+#clubs-list .clubcont .clubtext .clubname a,
+#clubs-list .clubcont .showmap {
+    color: #ed1941;
+}
+#clubs-list .clubcont .clublinks {
+    background: #034694;
+}
+#clubs-list .clubcont .clublinks a:hover {
+    background: #ed1941;
+}
+
+#clubsmap .select-club .clubcont {
+    color: #ffffff;
+    background: #01204d;
+}
+#clubsmap .select-club .clubcont.active {
+    background: #034694;
+}
+#clubsmap .select-club .clubcont.active .uk-icon-circle,
+#clubsmap .select-club .clubcont .clublinks a {
+    color: #ed1941;
+}
+
+.clubtext h2 {
+    color: #ed1941;
+}
+.clubtext hr {
+    border-color: #ed1941;
+}
+.clubtext .showmap {
+    color: #ed1941;
+}
+.contactmanager h3 {
+    color: #ed1941;
+}
+
+#clubs-interior-new .slider-heading {
+    color: #ed1941;
+}
+#clubs-interior-new .uk-slideshow-prev b {
+    background: url(/images/arrow-left-dark.svg) no-repeat left;
+}
+#clubs-interior-new .uk-slideshow-next b {
+    background: url(/images/arrow-right-dark.svg) no-repeat left;
+}
+#clubs-interior-new .texts li a,
+#clubs-interior-new .texts li .form-link {
+    color: #ed1941;
+}
+
+#promos-widget .uk-overlay-panel {
+    color: #ed1941;
+}
+
+.pagecontent .pageh2 {
+    color: #ed1941;
+}
+
+.franchise a {
+    color: #ed1941;
+}
+
+.club-card-container .showprivilege {
+    color: #ed1941;
+}
+.pagecontent .vacancies-privilege ol > li:before, .card-privilege ol > li:before {
+    color: #ed1941;
+}
+
+.pagecontent .rates .odd {
+    background: rgba(237, 241, 246, 0.1);
+}
+
+.promotexthead {
+    color: #ed1941;
+}
+
+.fitnes-programs .programs-head {
+    color: #ed1941;
+}
+.pagenav-left, .pagenav-left li {
+    border-color: #034694;
+}
+.pagenav-left li.uk-active a, .pagenav-left li a:focus, .pagenav-left li a:hover {
+    color: #ed1941;
+}
+
+.fitronlife-events h2 {
+    color: #ed1941;
+}
+.fitronlife-events .tl-timeline, .fitronlife-events .tl-storyslider .tl-slider-container-mask, .fitronlife-events .tl-message-full, .fitronlife-events .tl-timeaxis-background, .fitronlife-events .tl-timenav .tl-attribution {
+    background: #001233;
+    border-color: #034694;
+}
+.fitronlife-events .tl-message-full .tl-message-container .tl-message-content {
+    color: #001233;
+}
+.fitronlife-events .tl-timeline h2, .fitronlife-events .tl-text p {
+    color: #ffffff;
+}
+.fitronlife-events .tl-timeline a {
+    color: #ed1941;
+}
+.fitronlife-events .tl-timeline a.more:before {
+    background: url(../images/arrow-right-dark.svg) no-repeat center;
+}
+.fitronlife-events .tl-text .tl-headline-date, .fitronlife-events .tl-text h3.tl-headline-date {
+    color: #ed1941;
+}
+.fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title {
+    text-shadow: 1px 1px 1px #001233;
+}
+.fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-next .tl-slidenav-content-container .tl-slidenav-title, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-description, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-icon, .fitronlife-events .tl-slidenav-previous .tl-slidenav-content-container .tl-slidenav-title {
+    color: #034694;
+}
+.fitronlife-events .tl-timenav {
+    background: #01204d;
+}
+.fitronlife-events .tl-timemarker .tl-timemarker-content-container, .fitronlife-events .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container {
+    background: #034694;
+    border: none;
+    box-shadow: none;
+}
+.fitronlife-events .tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline {
+    color: #ffffff;
+}
+.fitronlife-events .tl-menubar-button {
+    background: rgba(10,72,146,.9);
+}
+.fitronlife-events .tl-timemarker {
+    background: #001233;
+}
+.fitronlife-events .tl-timemarker.tl-timemarker-active .tl-timemarker-timespan {
+    background: transparent;
+}
+.fitronlife-events .tl-timemarker .tl-timemarker-line-left,
+.fitronlife-events .tl-timemarker .tl-timemarker-line-right,
+.fitronlife-events .tl-timemarker.tl-timemarker-active .tl-timemarker-line-left,
+.fitronlife-events .tl-timemarker.tl-timemarker-active .tl-timemarker-line-right {
+    border-color: rgba(10,72,146,.9);
+    box-shadow: none;
+}
+.fitronlife-events .tl-timemarker .tl-timemarker-line-left:after,
+.fitronlife-events .tl-timemarker .tl-timemarker-line-right:after,
+.fitronlife-events .tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-left:after,
+.fitronlife-events .tl-timemarker.tl-timemarker-with-end.tl-timemarker-active .tl-timemarker-line-right:after {
+    background-color: #034694!important;
+}
+.fitronlife-events .tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-left,
+.fitronlife-events .tl-timemarker:hover.tl-timemarker-active .tl-timemarker-line-right,
+.fitronlife-events .tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-left,
+.fitronlife-events .tl-timemarker:hover .tl-timemarker-timespan .tl-timemarker-line-right {
+    border-color: rgba(12,78,158,.9)
+}
+.fitronlife-events .tl-timemarker:hover .tl-timemarker-content-container {
+    background-color: #0c4e9e;
+    border: none;
+}
+.fitronlife-events .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick,
+.fitronlife-events .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick {
+    color: #ffffff;
+}
+.fitronlife-events .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before,
+.fitronlife-events .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-minor .tl-timeaxis-tick:before,
+.fitronlife-events .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major .tl-timeaxis-tick:before {
+    color: #034694;
+    border-color: #034694;
+}
+.fitronlife-events .tl-menubar-button {
+    color: #ffffff;
+}
+
+.fitronlife-events .slidenav-previous b {
+    background: url(../images/arrow-blue-left-dark.svg) no-repeat center;
+}
+.fitronlife-events .slidenav-next b {
+    background: url(../images/arrow-blue-right-dark.svg) no-repeat center;
+}
+.fitronlife-events .event-past .event-date {
+    color: #034694;
+}
+.fitronlife-events .event-image-text {
+    background: #034694;
+}
+
+#fitronlife-news ul li,
+#fitronlife-blog .blog-post,
+#fitron-blog .blog-post,
+#fitron-news .newscont {
+    border-color: #034694;
+}
+#fitronlife-news ul li .date,
+#fitronlife-news .show-all a,
+#fitronlife-blog .show-all a,
+#fitron-blog .blog-post .show-all a,
+#fitronlife-blog .date,
+#fitron-blog .blog-post .date,
+#fitronlife-blog .who,
+#fitron-blog .blog-post .who{
+    color: #ed1941;
+}
+#fitronlife-blog .category span,
+#fitron-blog .blog-post .category span {
+    background: #034694;
+}
+#fitronlife-news .show-all {
+    border-color: #034694;
+}
+#fitronlife-news .show-all a:before,
+#fitronlife-blog .show-all a:before {
+    background: url(../images/arrow-right-dark.svg) no-repeat center;
+}
+#fitronlife-news .text,
+#fitronlife-blog .text,
+#fitron-blog .text,
+#fitron-news .newscont,
+.fitron-news-back a {
+    color: #a3a7af;
+}
+
+#fitron-news .date,
+.news-post-left .date {
+    color: #ed1941;
+}
+
+.uk-pagination>.uk-active>span {
+    background: #034694;
+}
+
+.join-head {
+    color: #ed1941;
+}
+
+.pagecontent .boss .boss-name {
+    color: #ed1941;
+}
+.pagecontent .boss hr {
+    border-color: #ed1941;
+}
+.pagecontent .vacancies-application {
+    border-color: #ed1941;
+}
+
+#schedulecont .schedule-filters b.filter-name {
+    color: #ffffff;
+}
+#schedulecont .schedule-table th, #schedulecont .schedule-table td {
+    border-color: #034694;
+}
+#schedulecont .schedule-table th {
+    background: #01204d;
+}
+#schedulecont .schedule-table th.curday {
+    background: #ed1941;
+}
+#schedulecont .schedule-table .event .time {
+    color: #034694;
+}
+#schedulecont .schedule-table .event .time .time-from, #schedulecont .schedule-table .event:hover .time {
+    color: #ffffff;
+}
+#schedulecont .schedule-table .event .name {
+    color: #ed1941;
+}
+#schedulecont .schedule-table .event:hover .intensity .high {
+    color: #ed1941;
+}
+#schedulecont .schedule-table .event .pre_entry {
+    background: #034694;
+}
+#schedulecont .schedule-table .event:hover {
+    background: #01204d;
+}
+#schedulecont .schedule-table .schedule-left b {
+    background: url(/images/arrow-left-dark.svg) no-repeat left;
+}
+#schedulecont .schedule-table .schedule-right b {
+    background: url(/images/arrow-right-dark.svg) no-repeat left;
+}
+#schedulecont .schedule-table .headtablecont.uk-active .headtable-viewport {
+    border-color: #034694;
+}
+
+#promos-widget .uk-overlay-panel .club-duration,
+#promos-widget .uk-overlay-panel .rightbottom {
+    color: #ffffff;
+}
+
+.privacy-policy h3 {
+    color: #ffffff;
+}
+
+@media only screen and (min-width: 768px){
+    header {
+        background: #001233;
+    }
+
+    #topnav .navtitle {
+        background: #034694;
+    }
+    #topnav .clubnamecont {
+        background: #034694;
+    }
+    #topnav ul li.active a, #topnav ul li:hover a {
+        color: #ed1941;
+    }
+    #topnav ul li:last-child a {
+        color: #ffffff;
+        background-color: #ed1941;
+    }
+    #topnav .topphone, #topnav .topphone a {
+        color: #ffffff;
+    }
+    #topnav .topphone .phone {
+        color: #ed1941;
+    }
+
+    #topleftcont .toplefttop {
+        background: #034694;
+    }
+
+    #topleftblock {
+        background: #034694; /* Old browsers */
+        background: -moz-linear-gradient(top, #034694 0%, #f02569 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #034694 0%,#f02569 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #034694 0%,#f02569 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#034694', endColorstr='#f02569',GradientType=0 ); /* IE6-9 */
+    }
+    #topleftblock .bottomwhite {
+        background: #001233;
+    }
+    #topleftcont .blueline {
+        background: #f02569;
+    }
+
+    .bottomright .bottomright-inner {
+        background: #034694; /* Old browsers */
+        background: -moz-linear-gradient(top, #034694 0%, #573a85 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #034694 0%,#573a85 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #034694 0%,#573a85 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#034694', endColorstr='#f02569',GradientType=0 ); /* IE6-9 */
+    }
+    .bottomright .activeclub {
+        border-color: #ed1941;
+    }
+
+    #main-schedule {
+        position: relative;
+        border: none;
+        padding-left: 2px;
+    }
+    #main-schedule:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        background: -moz-linear-gradient(top, #573a85 0%, #ed1941 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #573a85 0%,#ed1941 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #573a85 0%,#ed1941 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#573a85', endColorstr='#ed1941',GradientType=0 ); /* IE6-9 */
+    }
+    #main-events-schedule .schedule-buttons .button-all {
+        color: #ed1941;
+        background-color: transparent;
+    }
+
+    #pagehead h1 {
+        color: #ed1941;
+    }
+
+    #promos-widget .uk-slideshow-prev b {
+        background: url(/images/arrow-left-dark.svg) no-repeat left;
+    }
+    #promos-widget .uk-slideshow-next b {
+        background: url(/images/arrow-right-dark.svg) no-repeat left;
+    }
+
+    .fitronlife-events li:before {
+        background: #034694;
+    }
+    .fitronlife-events .slidenav {
+        background: #001233;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    #stickymenu>ul>li>a, #stickymenu>ul>li ul li a {
+        background: #ed1941;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    footer .footer-map {
+        border-color: #ed1941;
+    }
+}

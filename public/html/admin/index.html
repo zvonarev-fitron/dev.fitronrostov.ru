@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Административная панель</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/html/admin/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/html/admin/css/jPushMenu.css">
+
+</head>
+<body>
+
+<!-- Left menu element-->
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+    <div class="div_cbp-spmenu-vertical">
+        <div class="navbar-brand navbar-brand-center head-left_panel">
+            <a class="a_menu-left_panel" href="#"><img class="navbar-brand-logo" src="/images/fitron-logo-mobile.svg" title="Fitron"></a>
+        </div>
+        <button class="toggle-menu menu-left menu-left_panel" title="Убрать левое меню"><i class="fa fa-times-circle fa-lg" aria-hidden="true" style="color:white;"></i></button>
+    </div>
+    <ul class="nav flex-column first-menu_panel">
+        <li class="nav-item">
+            <a class="nav-link" id="menu_clubs" href="javascript:void(0)">Клубы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_pages" href="javascript:void(0)">Страницы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_sliders" href="javascript:void(0)">Слайдеры</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_fitnes" href="javascript:void(0)">Фитнес-программы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_events" href="javascript:void(0)">События</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_blogs" href="javascript:void(0)">Блог</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_news" href="javascript:void(0)">Новости</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_stoks" href="javascript:void(0)">Акции</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="javascript:void(0)">Инфраструктура</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="javascript:void(0)">Тренеры</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed disabled" id="aaa" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_baner">Расписание</a>
+            <div class="collapse" id="sub_menu_baner" aria-expanded="false">
+                <ul class="flex-column pl-2 nav">
+                    <li class="nav-item">
+                        <a class="nav-link py-0 disabled" id="ffff" href="javascript:void(0)">Банеры</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!--<li class="nav-item">-->
+            <!--<a class="nav-link collapsed" href="javascript:void(0)" data-toggle="collapse" data-target="#submenu1">Reports</a>-->
+            <!--<div class="collapse" id="submenu1" aria-expanded="false">-->
+                <!--<ul class="flex-column pl-2 nav">-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link py-0" href="javascript:void(0)">Orders</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link collapsed py-0" href="javascript:void(0)" data-toggle="collapse" data-target="#submenu1sub1">Customers</a>-->
+                        <!--<div class="collapse small" id="submenu1sub1" aria-expanded="false">-->
+                            <!--<ul class="flex-column nav pl-4">-->
+                                <!--<li class="nav-item">-->
+                                    <!--<a class="nav-link p-0" href="javascript:void(0)">-->
+                                        <!--<i class="fa fa-fw fa-clock-o"></i> Daily-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--<li class="nav-item">-->
+                                    <!--<a class="nav-link p-0" href="javascript:void(0)">-->
+                                        <!--<i class="fa fa-fw fa-dashboard"></i> Dashboard-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--<li class="nav-item">-->
+                                    <!--<a class="nav-link p-0 active" href="javascript:void(0)">-->
+                                        <!--<i class="fa fa-fw fa-bar-chart"></i> Charts-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--<li class="nav-item">-->
+                                    <!--<a class="nav-link p-0" href="javascript:void(0)">-->
+                                        <!--<i class="fa fa-fw fa-compass"></i> Areas-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</li>-->
+
+    </ul>
+</nav>
+
+<!-- Right menu element-->
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right">
+    <h3>Menu</h3>
+    <a href="#">Celery seakale</a>
+    <a href="#">Dulse daikon</a>
+    <a href="#">Zucchini garlic</a>
+    <a href="#">Catsear azuki bean</a>
+    <a href="#">Dandelion bunya</a>
+    <a href="#">Rutabaga</a>
+</nav>
+<!-- Top menu element-->
+<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top">
+    <h3>Menu</h3>
+    <a href="#">Celery seakale</a>
+    <a href="#">Dulse daikon</a>
+    <a href="#">Zucchini garlic</a>
+    <a href="#">Catsear azuki bean</a>
+    <a href="#">Dandelion bunya</a>
+    <a href="#">Rutabaga</a>
+    <a href="#">Celery seakale</a>
+    <a href="#">Dulse daikon</a>
+    <a href="#">Zucchini garlic</a>
+    <a href="#">Catsear azuki bean</a>
+    <a href="#">Dandelion bunya</a>
+    <a href="#">Rutabaga</a>
+</nav>
+<!-- Bottom menu element-->
+<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom">
+    <h3>Menu</h3>
+    <a href="#">Celery seakale</a>
+    <a href="#">Dulse daikon</a>
+    <a href="#">Zucchini garlic</a>
+    <a href="#">Catsear azuki bean</a>
+    <a href="#">Dandelion bunya</a>
+    <a href="#">Rutabaga</a>
+    <a href="#">Celery seakale</a>
+    <a href="#">Dulse daikon</a>
+    <a href="#">Zucchini garlic</a>
+    <a href="#">Catsear azuki bean</a>
+    <a href="#">Dandelion bunya</a>
+    <a href="#">Rutabaga</a>
+</nav>
+
+
+<div class="container-fluid div-container">
+    <header class="navbar navbar-expand-sm navbar-light bg-light header-navbar">
+        <div class="main">
+            <section class="collapse navbar-collapse justify-content-between">
+                <ul class="nav navbar-toolbar navbar-nav">
+                    <li>
+                <button class="toggle-menu menu-left" title="Показать левое меню"><i class="fa fa-indent" aria-hidden="true"></i></i></button>
+                    </li>
+                    <li>
+                <button class="toggle-menu menu-left push-body" title="Зафиксировать левое меню"><i class="fa fa-list"  aria-hidden="true"></i></button>
+                    </li>
+                    <li class="li_dropdown">
+                        <select class="header-select_navbar_panel">
+                            <option>Выберите клуб</option>
+                            <option>Fitron Газетный</option>
+                            <option>Fitron Милениум</option>
+                            <option>Fitron Орбита</option>
+                        </select>
+                    </li>
+                </ul>
+                <ul class="nav navbar-toolbar navbar-nav">
+                    <a class="nav-item" href="#">Выйти</a>
+                </ul>
+            </section>
+        </div>
+    </header>
+
+
+
+
+    <div id="content" class="main">
+        <section>
+            <h2>Для начала работы необходимо выбрать клуб</h2>
+
+            <h2>Здесь вы можете провести все необходимые работы по администрированию сайта</h2>
+            <ul>
+                <li>1.1.1 : Add <code>return false;</code> on button/link.</li>
+                <li>1.1 : Add <code>closeOnClickOutside</code> parameter.</li>
+                <li>1.0 : Initial release</li>
+            </ul>
+
+            <h2>How to use?</h2>
+            <h3>Include required style</h3>
+
+            <h3>Include required script</h3>
+
+            <h3>Make button or link</h3>
+            <p>The class names are self explained.</p>
+
+
+            <h3>Make menu element</h3>
+        </section>
+    </div>
+
+    <footer id="footer" class="footer navbar-fixed-bottom bg-light">
+        &copy; 2013 -  <a target="_blank" href="https://fitron.club">fitron</a>
+    </footer>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="/html/admin/js/jPushMenu.js"></script>
+<!--call jPushMenu, required-->
+<script src="/html/admin/js/admin.js"></script>
+</body>
+</html>
