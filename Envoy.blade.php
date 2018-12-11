@@ -32,6 +32,7 @@
     artisan
     npm
     symlink
+    copy
 @endstory
 
 @task('git', ['on' => 'web'])
@@ -85,4 +86,8 @@
     php artisan env:set DB_USERNAME={{ $db_user }}
     php artisan env:set DB_PASSWORD={{ $db_password }}
     php artisan env:set APP_URL={{ 'http://' . $site }}
+@endtask
+
+@task('copy', ['on' => 'web'])
+    cp -r {{ $current }}/storage/app/public/FTUploads/ {{ $release }}/storage/app/public/
 @endtask
