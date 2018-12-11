@@ -54,7 +54,7 @@
 @task('db', ['on' => 'web'])
     cd {{ $release }}
     PGPASSWORD="{{ $db_password }}" createdb {{ $db_name }}_{{ $new_dir }} -D {{ $db_tablespace }} -U {{ $db_user }}
-    PGPASSWORD="{{ $db_password }}" pg_restore -U {{ $db_user }} -c -n {{ $db_schema }} -d {{ $db_name }}_{{ $new_dir }}  {{ $db_name }}_{{ $new_dir }}.dump
+    PGPASSWORD="{{ $db_password }}" pg_restore -U {{ $db_user }} -c -d {{ $db_name }}_{{ $new_dir }}  {{ $db_name }}_{{ $new_dir }}.dump
 @endtask
 
 @task('composer', ['on' => 'web'])
