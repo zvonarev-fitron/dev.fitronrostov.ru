@@ -78,7 +78,7 @@
                     </div>
                     </a>
                 </div>
-                <div class="header_top_block">
+                <div class="header_top_block" id="select_club">
                     <div class="header_top_block_select_label">Выберите клуб</div>
                     <div class="header_top_block_select_club select-club">
                         <div class="select">

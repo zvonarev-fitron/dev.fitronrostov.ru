@@ -45,7 +45,7 @@
 }
 .header_top_block_div_text {
     text-transform: uppercase;
-    font-size: 7px;
+    font-size: 8px;
     font-family: "Gotham SSm A", "Gotham SSm B";
     padding-left: 5px;
 }
@@ -151,13 +151,15 @@
     border-style: solid;
     border-color: rgb(16, 47, 122);
 }
-.header_nav_ul_li:hover {
-    border-color: white;
-    transition: border .5s linear;
+.header_nav_ul_li:hover .header_nav_ul_li_a {
+    color: red;
+    /*border-color: white;*/
+    transition: color .5s linear;
 }
-.header_nav_ul_li.active {
-    border-color: white;
-    transition: border .5s linear;
+.header_nav_ul_li.active .header_nav_ul_li_a{
+    color: red;
+    /*border-color: white;*/
+    transition: color .5s linear;
 }
 .header_nav_ul_li a.header_nav_ul_li_a {
     text-decoration: none;
@@ -183,6 +185,9 @@
     /*color: #ff0033;*/
 /*}*/
 
+#select_club.header_top_block {
+    cursor: pointer;
+}
 .header_top_block a.header_top_block_a {
     text-decoration: none;
     color: white;
@@ -192,7 +197,7 @@
     transform: skew(-24deg);
     align-items: center;
     display: flex;
-    background-color: red;
+    /*background-color: red;*/
     border: 0;
 }
 .header_nav_ul_li.header_nav_cabinet a.header_nav_ul_li_a.header_nav_cabinet_a {

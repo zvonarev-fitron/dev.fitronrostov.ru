@@ -107,15 +107,29 @@ $(function() {
             }
         });
     }
-    $(".select-club .select").on('click', function () {
-        var $thiscont = $(this).closest('.select-club');
-        if ($thiscont.hasClass('select-open')){
-            $('.select-club').removeClass("select-open");
-        } else {
-            $('.select-club').removeClass("select-open");
-            $thiscont.addClass('select-open');
+
+    document.getElementById('select_club').addEventListener('click', function(event){
+        var $thiscont = this.querySelector('.select-club');
+        if($thiscont.classList.contains('select-open')){
+            $thiscont.classList.remove('select-open');
+        }
+        else {
+            $thiscont.classList.add('select-open');
         }
     });
+
+
+    // $(".select-club .select").on('click', function () {
+    //     var $thiscont = $(this).closest('.select-club');
+    //     if ($thiscont.hasClass('select-open')){
+    //         $('.select-club').removeClass("select-open");
+    //     } else {
+    //         $('.select-club').removeClass("select-open");
+    //         $thiscont.addClass('select-open');
+    //     }
+    // });
+
+
     $(document).mouseup(function (e) {
         var container = $(".select-club");
         if (container.has(e.target).length === 0){
