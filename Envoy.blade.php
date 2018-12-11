@@ -43,7 +43,7 @@
 
 @task('dump', ['on' => 'web'])
     cd {{ $current }}
-    PGPASSWORD="{{ $db_password }}" pg_dump -U {{ $db_user }} -FC dev_fr > {{ $db_name }}_{{ $new_dir }}.dump
+    PGPASSWORD="{{ $db_password }}" pg_dump -U {{ $db_user }} -n {{ $db_schema }} dev_fr > {{ $db_name }}_{{ $new_dir }}.sql
 @endtask
 
 @task('clone', ['on' => 'web'])
@@ -54,7 +54,8 @@
 @task('db', ['on' => 'web'])
     cd {{ $release }}
     PGPASSWORD="{{ $db_password }}" createdb {{ $db_name }}_{{ $new_dir }} -D {{ $db_tablespace }} -U {{ $db_user }}
-    PGPASSWORD="{{ $db_password }}" pg_restore -U {{ $db_user }} -c -d {{ $db_name }}_{{ $new_dir }}  {{ $db_name }}_{{ $new_dir }}.dump
+    PGPASSWORD="{{ $db_password }}" psql --single-transaction -U {{ $db_user }} {{ $db_name }}_{{ $new_dir }} < {{ $db_name }}_{{ $new_dir }}.sql
+    {{--PGPASSWORD="{{ $db_password }}" pg_restore -U {{ $db_user }} -c -d {{ $db_name }}_{{ $new_dir }}  {{ $db_name }}_{{ $new_dir }}.dump--}}
 @endtask
 
 @task('composer', ['on' => 'web'])
