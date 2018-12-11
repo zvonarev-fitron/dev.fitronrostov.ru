@@ -44,7 +44,7 @@
 
 @task('dump', ['on' => 'web'])
     cd {{ $current }}
-    PGPASSWORD="{{ $db_password }}" pg_dump -U {{ $db_user }} -n {{ $db_schema }} dev_fr > {{ $db_name }}_{{ $new_dir }}.sql
+    PGPASSWORD="{{ $db_password }}" pg_dump -U {{ $db_user }} -n {{ $db_schema }} {{ $db_name }}_{{ $to_dir }} > {{ $db_name }}_{{ $new_dir }}.sql
 @endtask
 
 @task('clone', ['on' => 'web'])
