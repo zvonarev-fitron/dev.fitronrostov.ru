@@ -60,7 +60,7 @@
                     <a href="{{0 < strlen($page->trek) ? $page->trek : url($page->code)}}"><span>{{$page->menu}}</span></a>
                 </li>
             @endforeach
-            <li><a href="javascript:;" data-href="https://fitron.club/ajax-form/?id=24&amp;title=%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9+%D0%B7%D0%B2%D0%BE%D0%BD%D0%BE%D0%BA" data-contact-ajax="" style="color: #ff0033;">Перезвоните мне</a></li>
+            <li><a href="javascript:;" style="color: #ff0033;">Перезвоните мне</a></li>
             <li><a href="tel:+78633109571" class="phone comagic_phone2">+7 (863) 310-9571</a></li>
         </ul>
     </div>
@@ -91,13 +91,35 @@
                         </div>
                     </div>
                 </div>
+                <label for="modal_menu" class="menu-trigger uk-hidden-medium uk-hidden-large header_menu_trigger_label">
+                    <i class="menu-trigger-bar top"></i>
+                    <i class="menu-trigger-bar middle"></i>
+                    <i class="menu-trigger-bar bottom"></i>
+                </label>
                 <div class="header_top_block">
-                    <div class="header_top_block_phone"><a href="tel:+78633109571">+7&nbsp;(8&nbsp;6&nbsp;3)&nbsp;3&nbsp;1&nbsp;0&nbsp;-&nbsp;9&nbsp;5&nbsp;-&nbsp;7&nbsp;1</a></div>
-                    <div class="header_top_block_add"><a href="{{ route('join') }}"><span>Вступить в FITRON</span></a></div>
+                    @auth
+                        <div class="cabinet_user">
+                            <div class="cabinet_user_img">
+                                <i class="far fa-angry" style="font-size: 80px;"></i>
+                                {{--<img src="###" alt="">--}}
+                            </div>
+                            <div class="cabinet_user_fio">
+                                <div>Иван Иванов</div>
+                                <div>
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button>Выйти</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="header_top_block_phone"><a href="tel:+78633109571">+7&nbsp;(8&nbsp;6&nbsp;3)&nbsp;3&nbsp;1&nbsp;0&nbsp;-&nbsp;9&nbsp;5&nbsp;-&nbsp;7&nbsp;1</a></div>
+                        <div class="header_top_block_add"><a href="{{ route('join') }}"><span>Вступить в FITRON</span></a></div>
+                    @endauth
                 </div>
             </div>
         </div>
-
 
         <div class="header_nav_fon" id="header_nav_menu">
             <div class="header_nav">
@@ -107,15 +129,14 @@
                         <a href="{{0 < strlen($page->trek) ? $page->trek : url($page->code)}}" class="header_nav_ul_li_a"><span>{{$page->menu}}</span></a>
                     </li>
                 @endforeach
-                    <li class="header_nav_ul_li header_nav_cabinet">
-                        <a href="{{ route('admin') }}" class="header_nav_ul_li_a header_nav_cabinet_a"><span>Личный кабинет</span></a>
-                    </li>
+                    {{--<li class="header_nav_ul_li header_nav_cabinet">--}}
+                        {{--<a href="{{ route('admin') }}" class="header_nav_ul_li_a header_nav_cabinet_a"><span>Личный кабинет</span></a>--}}
+                    {{--</li>--}}
                 </ul>
             </div>
         </div>
-
-
     </div>
+    <div class="redhr header_redhr"></div>
     <div class="uk-sticky-placeholder" style="height: 41px; margin: 0px; display: none;">
         <div id="top-panel" data-uk-sticky="{media: '(max-width:767px) and (orientation: portrait), (min-width:768px)'}" style="position: fixed; top: 0px; width: 100%;" class="uk-sticky-init uk-active">
             <div class="container">
@@ -200,16 +221,20 @@
                 <div class="footer-left-top">
                     <b class="footer-header">Контакты</b>
                     <hr>
-                    <div class="select-club">
-                        <div class="select">
-                            <span class="label" data-id="{{$params['select_club']->id}}" data-code="{{$params['select_club']->code}}">{{$params['select_club']->name}}</span>
-                        </div>
-                        <div class="another-clubs">
-                            @foreach($params['clubs'] as $club)
-                                <div class="another-club" data-id="{{$club->id}}" data-code="{{$club->code}}">{{$club->name}}</div>
-                            @endforeach
+
+                    <div id="footer_select_club">
+                        <div class="select-club">
+                            <div class="select">
+                                <span class="label" data-id="{{$params['select_club']->id}}" data-code="{{$params['select_club']->code}}">{{$params['select_club']->name}}</span>
+                            </div>
+                            <div class="another-clubs">
+                                @foreach($params['clubs'] as $club)
+                                    <div class="another-club" data-id="{{$club->id}}" data-code="{{$club->code}}">{{$club->name}}</div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+
                     <p id="footer-contact-set-{{$params['select_club']->code}}" class="club-contacts uk-active">{{$params['select_club']->address}}
                         <br><a class="phone comagic_phone2" href="tel:+78633109571">{{$params['select_club']->phone}}</a>
                         <span class="showmap"><br><a href="https://goo.gl/maps/YKxj7vnJrH62" target="_blank">показать на карте</a></span>

@@ -16,7 +16,7 @@ class ContactsController extends Controller
 
     public function index()
     {
-//        dump($this->params);
+        dump($this->params);
         return view('contacts.index', ['params' => $this->params]);
     }
 }

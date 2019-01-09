@@ -86,6 +86,8 @@
     php artisan env:set DB_USERNAME={{ $db_user }}
     php artisan env:set DB_PASSWORD={{ $db_password }}
     php artisan env:set APP_URL={{ 'http://' . $site }}
+    cat NOCAPTCHA_SECRET=6LclVH8UAAAAAIpO8isyOiyZ0qkLGu2yeJw_TKBx >> .env
+    cat NOCAPTCHA_SITEKEY=6LclVH8UAAAAAD65E-FQC9fUdoijUQ--fdQk6k2I >> .env
 @endtask
 
 @task('copy', ['on' => 'web'])

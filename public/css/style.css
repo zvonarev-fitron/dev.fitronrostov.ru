@@ -172,17 +172,17 @@ footer .footer-left .footer-left-top .select-open .another-clubs {
 }
 
 .menu-trigger, .close-trigger {
-    position: absolute;
-    top: 24px;
-    right: 10px;
-    display: block;
+    /*position: absolute;*/
+    /*top: 24px;*/
+    /*right: 10px;*/
+    /*display: block;*/
     width: 30px;
     height: 20px;
-    z-index: 333;
+    /*z-index: 333;*/
 }
 .menu-trigger {
-    margin-top: -25px;
-    padding-top: 20px;
+    /*margin-top: -25px;*/
+    /*padding-top: 20px;*/
 }
 /*
 .menu-trigger:hover .menu-trigger-bar:before, .close-trigger:hover .menu-trigger-bar:before {

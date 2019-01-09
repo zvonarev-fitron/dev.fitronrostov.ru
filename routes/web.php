@@ -99,6 +99,7 @@ Route::prefix('join')->group(function(){
     Route::post('trainer', 'JoinController@trainer')->name('join_trainer');
     Route::post('join', 'JoinController@join')->name('join_join');
     Route::post('corporate', 'JoinController@corporate')->name('join_corporate');
+    Route::post('special', 'JoinController@special')->name('join_special');
 });
 
 //ПОЛИТИКА ЗАЩИТЫ И ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ
@@ -107,6 +108,34 @@ Route::get('/policy/', 'PolicyController@index')->name('policy');
 Route::get('proba', 'HomeController@proba')->name('ppp');
 
 Auth::routes();
+
+//Личный кабинет
+Route::prefix('cabinet')->middleware(['web', 'auth'])->group(function(){
+    Route::get('/', 'CabinetController@index')->name('cabinet.index');
+    Route::prefix('cart')->group(function(){
+        Route::get('/', 'CabinetController@cart')->name('cabinet.cart');
+        Route::prefix('extend')->group(function(){
+            Route::get('/', 'CabinetController@cart_extend')->name('cabinet.cart.extend');
+            Route::get('buy', 'CabinetController@cart_extend_buy')->name('cabinet.cart.extend.buy');
+        });
+        Route::prefix('buy')->group(function(){
+            Route::get('/', 'CabinetController@cart_buy')->name('cabinet.cart.buy');
+            Route::get('new', 'CabinetController@cart_buy_new')->name('cabinet.cart.buy.new');
+        });
+    });
+
+
+
+    Route::get('/schedule', 'CabinetController@schedule')->name('cabinet.schedule');
+    Route::get('/calendar', 'CabinetController@calendar')->name('cabinet.calendar');
+    Route::get('/active', 'CabinetController@active')->name('cabinet.active');
+    Route::get('/deposit', 'CabinetController@deposit')->name('cabinet.deposit');
+    Route::get('/service', 'CabinetController@service')->name('cabinet.service');
+    Route::get('/bonus', 'CabinetController@bonus')->name('cabinet.bonus');
+    Route::get('/trainer', 'CabinetController@trainer')->name('cabinet.trainer');
+    Route::get('/messages', 'CabinetController@messages')->name('cabinet.messages');
+    Route::get('/feedback', 'CabinetController@feedback')->name('cabinet.feedback');
+});
 
 //Административная панель
 Route::prefix('/admin/')->middleware(['web', 'auth', 'can:admin'])->group(function(){

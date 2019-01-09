@@ -309,6 +309,53 @@ class JoinController extends Controller
         return json_encode($responce);
     }
 
+    public function special(Request $request)  //Купить в рассрочку или Уточнить
+    {
+        $request->form_special_phone = preg_replace('/[^0-9]/', '', $request->form_special_phone);
+        $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha',
+            'form_special_id' => 'required|integer|not_in:0',
+
+//            'form_special_id_name' => 'required|string|max:250',
+
+            'form_special_club' => 'required|string|max:250',
+            'form_special_email' => 'required|string|email|max:250',
+            'form_special_phone' => 'required|string|max:16',
+            'form_special_name' => 'required|string|max:250',
+            'form_special_text' => 'required|string|max:2500',
+            'form_special_agree' => 'required|integer|not_in:0',
+        ]);
+        if($validator->fails()) return json_encode([ 'error' => $validator->errors() ]);
+
+
+        $special = \App\Special::find($request->form_special_id);
+        $type_card = $special->type_card;
+
+        $send = [
+            'id_send' => $special->rassrochka ? 'bay' : 'specify',
+            'id_special' => $request->form_special_id,
+            'name_special' => $special->name,
+            'id_type_card' => $type_card->id,
+            'name_type_card' => $type_card->name,
+            'price' => $special->price_2,
+            'discount' => $special->price_1,
+            'id_club' => explode('#', $request->form_special_club)[0],
+            'name_club' => explode('#', $request->form_special_club)[1],
+            'name' => $request->form_special_name,
+            'mail' => $request->form_special_email,
+            'phone' => $request->form_special_phone,
+            'text' => $special->name . ' '
+                . $special->description . ' '
+                . $special->price_2 . ' '
+                . $special->price_1 . ', '
+                . $request->form_special_text,
+        ];
+        $this->setFirstVisit($request, $send);
+        $out = $this->sendPostQuery($send);
+        $responce = ['ok' => 'Ваша заявка скоро пойдет в обработку', 'out' => $out ];
+        return json_encode($responce);
+    }
+
     public function trainer(Request $request)  //Задать вопрос тренеру
     {
         $request->form_trainer_phone = preg_replace('/[^0-9]/', '', $request->form_trainer_phone);

@@ -34,23 +34,25 @@
             <div class="special_main_first">
                 <div class="special_main_head">
                     @if(!is_null($params['special_1']->name))
-                    <p class="special_main_head_name">{!! $params['special_1']->name !!}</p>
+                    <p id="name_special_1" class="special_main_head_name">{!! $params['special_1']->name !!}</p>
                     @endif
                     @if(!is_null($params['special_1']->description))
-                    <p class="special_main_head_desc">{!! $params['special_1']->description !!}</p>
+                    <p id="description_special_1" class="special_main_head_desc">{!! $params['special_1']->description !!}</p>
                     @endif
                 </div>
                 <div class="special_main_price">
                     <div class="special_main_price_1">
-                        <span class="special_main_text_price_1">{{ $params['special_1']->price_1 }}</span><span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
+                        <span id="price_1_special_1" class="special_main_text_price_1">{{ $params['special_1']->price_1 }}</span>
+                        <span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
                     </div>
                     <div class="special_main_price_2">
-                        <span class="special_main_text_price_2">{{ $params['special_1']->price_2 }}</span><span class="special_main_ru_price_2"><i class="fas fa-ruble-sign special_main_icon_price_2"></i>/мес.</span>
+                        <span id="price_2_special_1" class="special_main_text_price_2">{{ $params['special_1']->price_2 }}</span>
+                        <span class="special_main_ru_price_2"><i class="fas fa-ruble-sign special_main_icon_price_2"></i>/мес.</span>
                     </div>
                 </div>
                 <div class="special_main_line"></div>
                 <div class="special_main_footer">
-                    <button class="special_main_footer_button">Уточнить подробности акции</button>
+                    <label data-id="{{ $params['special_1']->id }}" id="special_1" for="modal_special" class="special_main_footer_button">Уточнить подробности акции</label>
                 </div>
             </div>
             @endif
@@ -58,23 +60,25 @@
             <div class="special_main_second">
                 <div class="special_main_head">
                     @if(!is_null($params['special_2']->name))
-                    <p class="special_main_head_name">{!! $params['special_2']->name !!}</p>
+                    <p id="name_special_2" class="special_main_head_name">{!! $params['special_2']->name !!}</p>
                     @endif
                     @if(!is_null($params['special_2']->description))
-                        <p class="special_main_head_desc">{!! $params['special_2']->description !!}</p>
+                        <p id="description_special_2" class="special_main_head_desc">{!! $params['special_2']->description !!}</p>
                     @endif
                 </div>
                 <div class="special_main_price">
                     <div class="special_main_price_1">
-                        <span class="special_main_text_price_1">{{ $params['special_2']->price_1 }}</span><span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
+                        <span id="price_1_special_2" class="special_main_text_price_1">{{ $params['special_2']->price_1 }}</span>
+                        <span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
                     </div>
                     <div class="special_main_price_2">
-                        <span class="special_main_text_price_2">{{ $params['special_2']->price_2 }}</span><span class="special_main_ru_price_2"><i class="fas fa-ruble-sign special_main_icon_price_2"></i>/мес.</span>
+                        <span id="price_2_special_2" class="special_main_text_price_2">{{ $params['special_2']->price_2 }}</span>
+                        <span class="special_main_ru_price_2"><i class="fas fa-ruble-sign special_main_icon_price_2"></i>/мес.</span>
                     </div>
                 </div>
                 <div class="special_main_line"></div>
                 <div class="special_main_footer">
-                    <button class="special_main_footer_button">Уточнить подробности акции</button>
+                    <label data-id="{{ $params['special_2']->id }}" id="special_2" for="modal_special" class="special_main_footer_button">Уточнить подробности акции</label>
                 </div>
             </div>
             @endif
@@ -87,23 +91,27 @@
             <div class="special_main_first">
                 <div class="special_main_head">
                     @if(!is_null($params['special_r_1']->name))
-                        <p class="special_main_head_name">{!! $params['special_r_1']->name !!}</p>
+                        <p id="name_special_r_1" class="special_main_head_name">{!! $params['special_r_1']->name !!}</p>
                     @endif
                     @if(!is_null($params['special_r_1']->description))
-                        <p class="special_main_head_desc">{!! $params['special_r_1']->description !!}</p>
+                        <p id="description_special_r_1" class="special_main_head_desc">{!! $params['special_r_1']->description !!}</p>
                     @endif
                 </div>
                 <div class="special_main_price">
                     <div class="special_main_price_1">
-                        <span class="special_main_text_price_1">{{ $params['special_r_1']->price_1 }}</span><span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
+                        <span id="price_1_special_r_1" class="special_main_text_price_1">{{ $params['special_r_1']->price_1 }}</span>
+                        <span class="special_main_ru_price_1">
+                            <i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.
+                        </span>
                     </div>
                     <div class="special_main_price_2_r">
-                        <span class="special_main_text_price_2">&nbsp;</span><span class="special_main_ru_price_2">&nbsp;</span>
+                        <span class="special_main_text_price_2">&nbsp;</span>
+                        <span class="special_main_ru_price_2">&nbsp;</span>
                     </div>
                 </div>
                 <div class="special_main_line"></div>
                 <div class="special_main_footer">
-                    <button class="special_main_footer_button">Купить в рассрочку</button>
+                    <label data-id="{{ $params['special_r_1']->id }}" id="special_r_1" for="modal_special" class="special_main_footer_button">Купить в рассрочку</label>
                 </div>
             </div>
         @endif
@@ -111,15 +119,16 @@
             <div class="special_main_second">
                 <div class="special_main_head">
                     @if(!is_null($params['special_r_2']->name))
-                        <p class="special_main_head_name">{!! $params['special_r_2']->name !!}</p>
+                        <p id="name_special_r_2" class="special_main_head_name">{!! $params['special_r_2']->name !!}</p>
                     @endif
                     @if(!is_null($params['special_r_2']->description))
-                        <p class="special_main_head_desc">{!! $params['special_r_2']->description !!}</p>
+                        <p id="description_special_r_2" class="special_main_head_desc">{!! $params['special_r_2']->description !!}</p>
                     @endif
                 </div>
                 <div class="special_main_price">
                     <div class="special_main_price_1">
-                        <span class="special_main_text_price_1">{{ $params['special_r_2']->price_1 }}</span><span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
+                        <span id="price_1_special_r_2" class="special_main_text_price_1">{{ $params['special_r_2']->price_1 }}</span>
+                        <span class="special_main_ru_price_1"><i class="fas fa-ruble-sign special_main_icon_price_1"></i>/мес.</span>
                     </div>
                     <div class="special_main_price_2_r">
                         <span class="special_main_text_price_2">&nbsp;</span><span class="special_main_ru_price_2">&nbsp;</span>
@@ -127,7 +136,7 @@
                 </div>
                 <div class="special_main_line"></div>
                 <div class="special_main_footer">
-                    <button class="special_main_footer_button">Купить в рассрочку</button>
+                    <label data-id="{{ $params['special_r_2']->id }}" id="special_r_2" for="modal_special" class="special_main_footer_button">Купить в рассрочку</label>
                 </div>
             </div>
         @endif
@@ -135,4 +144,17 @@
 @endif
     </div>
     <div class="redhr"></div>
+@endsection
+
+@push('modal')
+@includeIf('include.modal.special')
+@endpush
+
+@section('script')
+    <script>
+        var onloadCaptcha = function(){
+            window.feedback_modal_form_captcha = feedback_modal_form();
+            window.special_modal_form_captcha = special_modal_form();
+        };
+    </script>
 @endsection

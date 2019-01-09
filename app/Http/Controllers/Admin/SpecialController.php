@@ -25,7 +25,6 @@ class SpecialController extends Controller
         $this->params['special'] = \App\Special::all();
         $this->params['type_card'] = \App\TypeCard::where('active', true)->get();
 
-
         return view('admin.special.index', ['params' => $this->params]);
     }
 

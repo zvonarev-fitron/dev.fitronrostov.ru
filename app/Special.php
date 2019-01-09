@@ -12,7 +12,6 @@ class Special extends Model
 
     public function type_card()
     {
-        return $this->hasMany('App\TypeCard', 'type_card_id', 'id');
+        return $this->belongsTo('App\TypeCard', 'type_card_id', 'id');
     }
-
 }

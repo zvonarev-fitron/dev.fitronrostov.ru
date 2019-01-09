@@ -35,6 +35,7 @@ class LoadHeader
                     return $image->active && $start && $end;
                 });
                 break;
+//            case 21:    //Личный кабинет
             case 6:     //Вступить в фитрон
             case 14:    //Галлерея
             case 13:    // Авторизация
@@ -51,6 +52,7 @@ class LoadHeader
             case 8:     // Клубные карты
                 self::$params['page'] = self::$params['pages']->only(['id' => self::$params['main_page_id']])->first();
                 break;
+            case 21:    //Личный кабинет
             case 7:     // Клубы
                 self::$params['all_clubs'] = $clubs;
                 self::$params['page'] = \App\Page::where(['id' => self::$params['main_page_id']])->first();

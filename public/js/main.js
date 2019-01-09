@@ -118,6 +118,15 @@ $(function() {
         }
     });
 
+    document.getElementById('footer_select_club').addEventListener('click', function(event){
+        var $thiscont = this.querySelector('.select-club');
+        if($thiscont.classList.contains('select-open')){
+            $thiscont.classList.remove('select-open');
+        }
+        else {
+            $thiscont.classList.add('select-open');
+        }
+    });
 
     // $(".select-club .select").on('click', function () {
     //     var $thiscont = $(this).closest('.select-club');
