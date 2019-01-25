@@ -174,7 +174,7 @@ else{
         },
 
         LeftMenuActive: function(el, act){
-            var result = false;
+            var result = true;      //false;
             if(!el.classList.contains(act)) {
                 FTAdmin.LeftMenuActiveClearAll(el);
                 result = true;

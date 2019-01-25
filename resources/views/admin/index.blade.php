@@ -25,17 +25,19 @@
 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
     <div class="div_cbp-spmenu-vertical">
         <div class="navbar-brand navbar-brand-center head-left_panel">
-            <a class="a_menu-left_panel" href="#"><img class="navbar-brand-logo" src="/images/fitron-logo-mobile.svg" title="Fitron"></a>
+            <a class="a_menu-left_panel" href="/"><img class="navbar-brand-logo" src="/images/fitron-logo-mobile.svg" title="Fitron"></a>
         </div>
         <button class="toggle-menu menu-left menu-left_panel" title="Убрать левое меню"><i class="fa fa-times-circle fa-lg" aria-hidden="true" style="color:white;"></i></button>
     </div>
     <ul class="nav flex-column first-menu_panel">
+        @can('admin')
         <li class="nav-item">
             <a class="nav-link" id="menu_users" href="javascript:void(0)">Пользователи</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="menu_roles" href="javascript:void(0)">Роли</a>
         </li>
+        @endcan
         <li class="nav-item">
             <a class="nav-link" id="menu_clubs" href="javascript:void(0)">Клубы</a>
         </li>

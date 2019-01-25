@@ -112,6 +112,7 @@ Auth::routes();
 //Личный кабинет
 Route::prefix('cabinet')->middleware(['web', 'auth'])->group(function(){
     Route::get('/', 'CabinetController@index')->name('cabinet.index');
+
     Route::prefix('cart')->group(function(){
         Route::get('/', 'CabinetController@cart')->name('cabinet.cart');
         Route::prefix('extend')->group(function(){
@@ -124,21 +125,47 @@ Route::prefix('cabinet')->middleware(['web', 'auth'])->group(function(){
         });
     });
 
+    Route::prefix('schedule')->group(function(){
+        Route::get('/', 'CabinetController@schedule')->name('cabinet.schedule');
+        Route::get('{id_trainer}', 'CabinetController@schedule_trainer')->name('cabinet.schedule.trainer');
 
 
-    Route::get('/schedule', 'CabinetController@schedule')->name('cabinet.schedule');
-    Route::get('/calendar', 'CabinetController@calendar')->name('cabinet.calendar');
+    });
+
+    Route::prefix('calendar')->group(function(){
+        Route::get('/', 'CabinetController@calendar')->name('cabinet.calendar');
+    });
+
     Route::get('/active', 'CabinetController@active')->name('cabinet.active');
-    Route::get('/deposit', 'CabinetController@deposit')->name('cabinet.deposit');
-    Route::get('/service', 'CabinetController@service')->name('cabinet.service');
-    Route::get('/bonus', 'CabinetController@bonus')->name('cabinet.bonus');
+    Route::prefix('deposit')->group(function(){
+        Route::get('/', 'CabinetController@deposit')->name('cabinet.deposit');
+        Route::get('replenish', 'CabinetController@deposit_replenish')->name('cabinet.deposit.replenish');
+        Route::get('payment_from_deposit', 'CabinetController@deposit_payment_from')->name('cabinet.deposit.payment_from_deposit');
+    });
+
+    Route::prefix('service')->group(function(){
+        Route::get('/', 'CabinetController@service')->name('cabinet.service');
+    });
+
+    Route::prefix('bonus')->group(function(){
+        Route::get('/', 'CabinetController@bonus')->name('cabinet.bonus');
+    });
+
     Route::get('/trainer', 'CabinetController@trainer')->name('cabinet.trainer');
+
+    Route::prefix('news')->group(function(){
+        Route::get('/', 'CabinetController@news')->name('cabinet.news');
+    });
+
     Route::get('/messages', 'CabinetController@messages')->name('cabinet.messages');
-    Route::get('/feedback', 'CabinetController@feedback')->name('cabinet.feedback');
+
+    Route::prefix('feedback')->group(function() {
+        Route::get('/', 'CabinetController@feedback')->name('cabinet.feedback');
+    });
 });
 
 //Административная панель
-Route::prefix('/admin/')->middleware(['web', 'auth', 'can:admin'])->group(function(){
+Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(function(){
 //Route::prefix('/admin/')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin');
     Route::get('/slider/', 'Admin\AdminController@slider')->name('slider');

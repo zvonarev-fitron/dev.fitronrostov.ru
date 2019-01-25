@@ -24,11 +24,19 @@
         <li class="{{ 'trainer' == $params['active_menu'] ?  'cabinet_container_content_menu_active' : ''}}">
             <a href="{{ route('cabinet.trainer') }}" class="cabinet_container_content_menu_a">Тренеры</a>
         </li>
+        <li class="{{ 'news' == $params['active_menu'] ?  'cabinet_container_content_menu_active' : ''}}">
+            <a href="{{ route('cabinet.news') }}" class="cabinet_container_content_menu_a">Новости</a>
+        </li>
         <li class="{{ 'messages' == $params['active_menu'] ?  'cabinet_container_content_menu_active' : ''}}">
             <a href="{{ route('cabinet.messages') }}" class="cabinet_container_content_menu_a">Сообщения (2)</a>
         </li>
         <li class="{{ 'feedback' == $params['active_menu'] ?  'cabinet_container_content_menu_active' : ''}}">
             <a href="{{ route('cabinet.feedback') }}" class="cabinet_container_content_menu_a">Обратная связь</a>
         </li>
+        @can('admin')
+            <li>
+                <a href="{{ route('admin') }}" class="cabinet_container_content_menu_a">Административная панель</a>
+            </li>
+        @endcan
     </ul>
 </div>

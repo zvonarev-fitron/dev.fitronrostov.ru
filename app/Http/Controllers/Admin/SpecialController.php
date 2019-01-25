@@ -6,6 +6,7 @@ use App\Special;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class SpecialController extends Controller
 {
@@ -106,6 +107,10 @@ class SpecialController extends Controller
      */
     public function update(Request $request, Special $special)
     {
+        if($request->hasFile('image')) {
+            Storage::delete($special->image);
+            $special->image = Storage::url($request->file('image')->store('/FTUploads'));
+        }
         $special->name = $request->name;
         $special->description = $request->description;
         $special->price_1 = $request->price_1;

@@ -2711,10 +2711,19 @@ ol.secondol {
     background: url(/images/card-allinone.png) no-repeat center;
     background-size: cover;
 }
+.club-card-container .card-image .image-teen {
+    background: url(/images/card-teen.png) no-repeat center;
+    background-size: cover;
+}
 .club-card-container .card-image .image-kids {
     background: url(/images/card-kids.png) no-repeat center;
     background-size: cover;
 }
+.club-card-container .card-image .image-corporate {
+    background: url(/images/card-corporate.png) no-repeat center;
+    background-size: cover;
+}
+
 .club-card-container .showprivilege {
     display: inline-block;
     margin: 0 20px 20px;

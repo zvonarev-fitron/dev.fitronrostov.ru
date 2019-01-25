@@ -36,7 +36,7 @@
                         <div class="card-image">
                             <div class="image-individual">
                                 @if(in_array(8, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="image-cont uk-width-medium-1-3">
                         <div class="card-image"><div class="image-vip">
                                 @if(in_array(9, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                     <div class="image-cont uk-width-medium-1-3">
                         <div class="card-image"><div class="image-allinone">
                                 @if(in_array(10, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>
@@ -174,9 +174,9 @@
             <div class="pagecontent">
                 <div class="uk-grid uk-grid-width-1-1">
                     <div class="image-cont uk-width-medium-1-3">
-                        <div class="card-image"><div class="image-allinone">
+                        <div class="card-image"><div class="image-teen">
                                 @if(in_array(11, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>
@@ -224,7 +224,7 @@
                         <div class="card-image">
                             <div class="image-kids">
                                 @if(in_array(12, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>
@@ -268,9 +268,9 @@
                 <div class="uk-grid uk-grid-width-1-1">
                     <div class="image-cont uk-width-medium-1-3">
                         <div class="card-image">
-                            <div class="image-allinone">
+                            <div class="image-corporate">
                                 @if(in_array(13, $params['special_type_cards_ids']))
-                                <div class="card_akchii"><a href="/special">АКЦИЯ</a></div>
+                                    <a href="/special"><div class="card_akchii"></div></a>
                                 @endif
                             </div>
                         </div>

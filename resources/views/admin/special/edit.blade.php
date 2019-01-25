@@ -9,6 +9,7 @@
             @include('include.alerts.danger', ['errors' => $errors, 'slot' => 'name'])
             @include('include.input.text', ['name' => 'description', 'slot' => 'Описание', 'value' => $params['special']->description])
             @include('include.alerts.danger', ['errors' => $errors, 'slot' => 'description'])
+            @include('include.input.preview_file', ['name' => 'image', 'slot' => 'Фон', 'value' => $params['special']->image])
             @include('include.input.number', ['name' => 'price_1', 'slot' => 'Цена 1', 'style' => 'width:150px;height:40px;margin-right:30px;', 'min' => '1', 'value' => $params['special']->price_1])
             @include('include.input.number', ['name' => 'price_2', 'slot' => 'Цена 2', 'style' => 'width:150px;height:40px;margin-right:30px;', 'min' => '1', 'value' => $params['special']->price_2])
             @include('include.input.oneselect',['name' => 'type_card_id', 'slot' => 'Тип карты', 'select' => $params['special']->id, 'list' => $params['type_card']])

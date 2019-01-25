@@ -146,7 +146,7 @@
             <div class="pagecontent">
                 <div class="uk-grid uk-grid-width-1-1">
                     <div class="image-cont uk-width-medium-1-3">
-                        <div class="card-image"><div class="image-allinone"></div></div>
+                        <div class="card-image"><div class="image-teen"></div></div>
                     </div>
                     <div class="description-cont uk-width-medium-2-3">
                         <div class="pagecontent uk-text-center">

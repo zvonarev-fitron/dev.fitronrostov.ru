@@ -65,6 +65,7 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
         else{
+            dd('Requests1CFitron');         //Удаленная регистрация через 1с
             dd(Requests1CFitron::Send([]));
         }
 

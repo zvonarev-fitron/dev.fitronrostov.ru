@@ -5,7 +5,13 @@
 @endpush
 
 @section('script')
-<script>jQuery(function($){$("#form_login_phone").mask("+7(999) 999-9999");});</script>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+    //    jQuery(function($){$("#form_login_phone").mask("+7(999) 999-9999");});
+        var el = document.getElementById('form_login_phone');
+        var mkOp = { mask: '+{7}(000)000-00-00' };
+        var mask = new IMask(el, mkOp);
+    </script>
 @endsection
 
 @section('logo')

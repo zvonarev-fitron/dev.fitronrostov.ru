@@ -34,7 +34,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
-    {!! NoCaptcha::renderJs('ru', true, 'onloadCaptcha') !!}
+    {{--{!! NoCaptcha::renderJs('ru', true, 'onloadCaptcha') !!}--}}
 
 </head>
 <body>
@@ -264,14 +264,11 @@
                     </a>
                 </div>
             </div>
-
             <div class="footer-map">
                 <div id="googlemap" style="position: relative; overflow: hidden;">
 
                 </div>
             </div>
-
-
             <div class="footer-right">
                 <div class="uk-grid uk-grid-width-1-2">
                     <div>
@@ -289,7 +286,8 @@
                         <hr>
                         {{--<i class="notactivehref">Партнёры</i><br>--}}
                         <a href="{{route('franchise')}}">Франчайзинг</a>
-                        <br><a href="/FTUploads/pdf/Indoor-поверхности.pdf" target="_blank">Рекламодателям</a>
+                        <br>
+                        <a href="/FTUploads/pdf/Indoor-поверхности.pdf" target="_blank">Рекламодателям</a>
                         {{--<br><i class="notactivehref">Рекламодателям</i>--}}
                         <br><a href="{{route('corporate')}}">Корпоративным клиентам</a>
                         <br><a href="{{route('payment')}}">Способы оплаты</a>
@@ -452,7 +450,7 @@
     });
 </script>
 
-@if(17 != $params['main_page_id'])
+
 <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD26YUuv-fjY4NmUXuFK88na-ZGQVe5Ddk&amp;callback=initialize"></script>
 <script type="text/javascript">
     function initialize(){
@@ -552,7 +550,7 @@
         })();
     }
 </script>
-@endif
+
 
 <script src="{{ asset('js/main.js') }}" defer></script>
 

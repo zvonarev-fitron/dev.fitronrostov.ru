@@ -20,6 +20,33 @@ class UserController extends Controller
     public function index()
     {
         $this->params['users'] = \App\User::all();
+        $this->params['users']->transform(function($user, $key){
+            $user->phone = preg_replace('/[^0-9]/', '', $user->phone);
+            $phone = '';
+            for($i=0; $i<strlen($user->phone); $i++ ){
+                switch($i){
+                    case 0:
+                        $phone .= '+';
+                        break;
+                    case 1:
+                        $phone .= '(';
+                        break;
+                    case 4:
+                        $phone .= ')';
+                        break;
+                    case 1:
+                        $phone .= '(';
+                        break;
+                    case 7:
+                    case 9:
+                        $phone .= '-';
+                        break;
+                }
+                $phone .= mb_substr($user->phone, $i, 1, 'UTF-8');
+            }
+            $user->phone = $phone;
+            return $user;
+        });
         return view('admin.users.index', ['params' => $this->params]);
     }
 
@@ -41,7 +68,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->phone = preg_replace('/[^0-9]/', '', $request->phone);
+//        $request->phone = preg_replace('/[^0-9]/', '', $request->phone);
         $validator = Validator::make($request->all(), [
             'login' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
@@ -53,6 +80,8 @@ class UserController extends Controller
             ]
         );
 
+  //      dd($request);
+
         if($validator->fails()){
             return view('admin.users.create')->withErrors($validator)->with('old', $request);
         }
@@ -60,7 +89,7 @@ class UserController extends Controller
             \App\User::create([
                 'login' => $request->login,
                 'email' => $request->email,
-                'phone' => $request->phone,
+                'phone' => preg_replace('/[^0-9]/', '', $request->phone),
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'lastname' => $request->lastname,
@@ -124,8 +153,8 @@ class UserController extends Controller
                 $rules['email'] = 'required|string|email|max:255|unique:users';
                 continue;
             }
-            if('phone' == $key && $user->$key != preg_replace('/\s+/', '', $value)) {
-                $user->$key = $request->$key = preg_replace('/\s+/', '', $value);
+            if('phone' == $key && $user->$key != preg_replace('/[^0-9]/', '', $value)) {
+                $user->$key = $request->$key = preg_replace('/[^0-9]/', '', $value);
                 $rules['phone'] = 'required|string|max:255|unique:users';
                 continue;
             }

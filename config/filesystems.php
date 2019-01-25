@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+//    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'FTUploads'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,6 +54,12 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+        ],
+        'FTUploads' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => '/',
+//            'visibility' => 'public',
         ],
 
         's3' => [

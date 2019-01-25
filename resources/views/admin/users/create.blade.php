@@ -23,6 +23,7 @@
         <button id="user-page_b_canchel" class="btn btn-default">Отменить</button>
     </div>
 </form>
+<script src="https://unpkg.com/imask"></script>
 <script>
     (function(){
         var phoneMask = new IMask(

@@ -1,390 +1,243 @@
-@extends('layouts.layout')
-
-@section('logo')
-    <div id="topleftcont" class="uk-hidden-small">
-        <div class="toplefttop"></div>
-        <div id="topleftblock">
-            <div class="bottomwhite"></div>
+<div class="cabinet_page_schedule">
+    <div class="cabinet_page_schedule_clubs title">
+        <div class="cabinet_page_schedule_clubs_title">
+            <span class="cabinet_page_schedule_clubs_title_txt">Расписание клуба</span>
         </div>
-        <div class="blueline"></div>
-    </div>
-@endsection
-
-@section('pagehead')
-    <div id="pagehead" style="background: url(/images/bg2.jpg) no-repeat center;background-size: cover;">
-        <div class="container">
-            <h1>Личный кабинет</h1>
-            <ul class="uk-breadcrumb">
-                <li>
-                    <a href="/" itemprop="url"><span itemprop="name">Главная</span></a>
-                </li>
-                <li class="uk-active">
-                    <span itemprop="name">Личный кабинет</span>
-                </li>
-            </ul>
+        <div class="cabinet_page_schedule_clubs_title_s">
+            <select name="aaa" id="" class="cabinet_page_schedule_clubs_title_ss">
+                <option value="q1">FITRON Орбита</option>
+                <option value="q1">FITRON Газетный</option>
+                <option value="q1">Fitron Милениум</option>
+                <option value="q1">Cycle-студия Cyclon</option>
+            </select>
         </div>
     </div>
-@endsection
+    <div class="cabinet_page_schedule_clubs">
+        <button class="cabinet_page_schedule_clubs"><<</button>
+        <span class="cabinet_page_schedule_clubs_width">c</span>
+        <span class="cabinet_page_schedule_clubs_with_date">08.10.2018</span>
+        <span class="cabinet_page_schedule_clubs_width">по</span>
+        <span class="cabinet_page_schedule_clubs_with_date">14.10.2018</span>
+        <button class="cabinet_page_schedule_clubs">>></button>
+    </div>
 
-@section('main')
-    <div class="cabinet_container">
-        <div class="cabinet_container_content">
-            <div class="cabinet_container_content_menu">
-                <ul>
-                    <li>
-                        <select size="1">
-                            <option value="1">Fitron-орбита</option>
-                            <option value="2">Fitron-millenium</option>
-                        </select>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="###" alt="">
-                        </div>
-                        <div>
-                            <div>Иван Иванов</div>
-                            <div>Баланс: 10 000 р.</div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.index') }}">Клубная карта</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.schedule') }}">Расписание</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.calendar') }}">Календарь</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.active') }}">Активность</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.deposit') }}">Депозит</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.service') }}">Мои услуги</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.bonus') }}">Бонус</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.trainer') }}">Тренеры</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.messages') }}">Сообщения (2)</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cabinet.feedback') }}">Обратная связь</a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="cabinet_container_content_page">
-                Расписание клуба
-                <select size="1">
-                    <option value="1">Fitron-орбита</option>
-                    <option value="2">Fitron-millenium</option>
+    <div class="cabinet_page_schedule_clubs filter">
+        {{--<div class="cabinet_page_schedule_clubs_filter">--}}
+            <div class="cabinet_page_schedule_clubs_filter_s">
+                <select name="aaa" id="" class="cabinet_page_schedule_clubs_filters_select">
+                    <option value="q1" selected disabled hidden>Направления</option>
+                    <option value="q1">Все</option>
+                    <option value="q1" disabled>------------------------</option>
+                    <option value="q1" disabled>Групповые программы</option>
+                    <option value="q1">&nbsp;&nbsp;Фнкциональные тренировки</option>
+                    <option value="q1">&nbsp;&nbsp;Кардиотренировки</option>
+                    <option value="q1">&nbsp;&nbsp;Боевые искусства</option>
+                    <option value="q1">&nbsp;&nbsp;Майден боди</option>
+                    <option value="q1">Водные</option>
+                    <option value="q1">Сайкл</option>
                 </select>
             </div>
-
-        </div>
+            <div class="cabinet_page_schedule_clubs_filter_s">
+                <select name="aaa" id="" class="cabinet_page_schedule_clubs_filters_select">
+                    <option value="q1" selected disabled hidden>Возраст</option>
+                    <option value="q1">Все</option>
+                    <option value="q1" disabled>------------------------</option>
+                    <option value="q1">От 5 до 10</option>
+                    <option value="q1">От 10 до 15</option>
+                    <option value="q1">От 15 до 18</option>
+                    <option value="q1">От 18 до 50</option>
+                    <option value="q1">От 50</option>
+                </select>
+            </div>
+            <div class="cabinet_page_schedule_clubs_filter_s">
+                <select name="aaa" id="" class="cabinet_page_schedule_clubs_filters_select">
+                    <option value="q1" selected disabled hidden>Уровень</option>
+                    <option value="q1">Все</option>
+                    <option value="q1" disabled>------------------------</option>
+                    <option value="q1">Начальный</option>
+                    <option value="q1">Средний</option>
+                    <option value="q1">Продвинутый</option>
+                </select>
+            </div>
+            <div class="cabinet_page_schedule_clubs_filter_s">
+                <select name="aaa" id="" class="cabinet_page_schedule_clubs_filters_select">
+                    <option value="q1" selected disabled hidden>Тренеры</option>
+                    <option value="q1">Все</option>
+                    <option value="q1" disabled>------------------------</option>
+                    <option value="q1">Иванов И.И.</option>
+                    <option value="q1">Петров П.П.</option>
+                    <option value="q1">Пушкин А.С.</option>
+                    <option value="q1">Печкин Вл. И.</option>
+                </select>
+            </div>
+        {{--</div>--}}
     </div>
-@endsection
 
-
-
-
-{{--@section('main')--}}
-{{--<div class="container"></div>--}}
-{{--<div id="card-individual" class="club-card-container uk-margin-large-top">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image">--}}
-{{--<div class="image-individual">--}}
-{{--@if(in_array(8, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>Индивидуальные</b></p>--}}
-{{--<p>Индивидуальные клубные карты открывают доступ в космические фитнес клубы в любое удобное для Вас время в Часы работы клуба. Они включают в себя неограниченное пользование возможностями клуба. Посещение более 50 специально разработанных групповых программ. Доступ к насыщенной спортивной жизни сети FITRON, занятиям Outdoor.</p>--}}
-{{--<p>--}}
-{{--<a class="showprivilege" data-uk-toggle="{target:'#card-individual', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="8" class="cards_fdbc">узнать цену</span></span>--}}
-{{--</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<div>--}}
-{{--<ol class="uk-grid uk-grid-width-1-1">--}}
-{{--<li><b>Содоступ в 4 клуба РФГ FITRON</b><br>возможность посещения 2-х клубов сети FITRON и 2-х клубов сети ФизКульт в г. Ростове-на-Дону</li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--<div class="uk-width-medium-2-3">--}}
-{{--<ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">--}}
-{{--<li><b>Персональные вводные тренировки (3 шт.)</b></li>--}}
-{{--<li><b>Секция на выбор&nbsp;(1 шт.)</b></li>--}}
-{{--<li><b>Гостевые визиты (3 шт.)</b></li>--}}
-{{--<li><b>Полотенце</b></li>--}}
-{{--<li><b>Привилегии от партнёров.</b></li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div id="card-vip" class="club-card-container">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image"><div class="image-vip">--}}
-{{--@if(in_array(9, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>VIP</b></p>--}}
-{{--<p>Дополнительно ко всем привилегиям FITRON данный вид карты даёт возможность пользоваться специально выделенными раздевалками, а также может включать в себя бесплатные дополнительные услуги в клубах, скидки на дополнительные услуги, доступы в другие клубы РФГ FITRON, заморозку на более длительный срок и прочие приятные мелочи.</p>--}}
-{{--<p><a class="showprivilege" data-uk-toggle="{target:'#card-vip', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="9" class="cards_fdbc">узнать цену</span></span></p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<div>--}}
-{{--<ol class="uk-grid uk-grid-width-1-1">--}}
-{{--<li><b>Содоступ в 4 клуба РФГ FITRON</b><br>возможность посещения 2-х клубов сети FITRON и 2-х клубов сети ФизКульт в г. Ростове-на-Дону</li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--<div class="uk-width-medium-2-3">--}}
-{{--<ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">--}}
-{{--<li><b>Персональные вводные тренировки (3 шт.)</b></li>--}}
-{{--<li><b>Персональные тренировки на выбор (5 шт.)</b></li>--}}
-{{--<li><b>Секция на выбор&nbsp;(1 шт.)</b></li>--}}
-{{--<li><b>10% скидка на персональные тренировки</b></li>--}}
-{{--<li><b>10% скидка на услуги массажных студий</b></li>--}}
-{{--<li><b>10% скидка на продление Вашей клубной карты</b></li>--}}
-{{--<li><b>Банный халат</b></li>--}}
-{{--<li><b>2&nbsp;Полотенца: банное и лицевое</b></li>--}}
-{{--<li><b>Отдельная VIP раздевалка с финской сауной</b></li>--}}
-{{--<li><b>Гостевые визиты (5 шт.)</b></li>--}}
-{{--<li><b>Заморозка (30 дней)</b></li>--}}
-{{--<li><b>Привилегии от партнёров.</b></li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div id="card-comfort" class="club-card-container">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image"><div class="image-allinone">--}}
-{{--@if(in_array(10, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>Comfort ( off peak )</b></p>--}}
-{{--<p>Клубная карта comfort (off peak) позволяет пользоваться всеми возможностями фитнес-клубов FITRON с 07:00 до 17:00 и с 21:00 до 23:00 в любой день недели. выходные и праздничные дни без ограничений по времени.</p>--}}
-{{--<p><a class="showprivilege" data-uk-toggle="{target:'#card-comfort', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="10" class="cards_fdbc">узнать цену</span></span></p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<div>--}}
-{{--<ol class="uk-grid uk-grid-width-1-1">--}}
-{{--<li><b>Содоступ в 2 клуба</b><br>возможность посещения 2-х клубов сети FITRON</li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--<div class="uk-width-medium-2-3">--}}
-{{--<ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">--}}
-{{--<li><b>Персональные вводные тренировки (3 шт.)</b></li>--}}
-{{--<li><b>Секция на выбор&nbsp;(1 шт.)</b></li>--}}
-{{--<li><b>Гостевые визиты (3 шт.)</b></li>--}}
-{{--<li><b>Привилегии от партнёров.</b></li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div id="card-teen" class="club-card-container">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image"><div class="image-allinone">--}}
-{{--@if(in_array(11, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>Teen</b></p>--}}
-{{--<p>Клубные карты открывают двери в мир фитнеса и здорового образа жизни детям &nbsp;от 12 до 16 лет.&nbsp;--}}
-{{--Teen клуб FITRON — это всестороннее развитие, учитывая возраст и особенности Вашего ребёнка.--}}
-{{--Отдельное&nbsp;расписание, специально подобранные программы и спортивные секции помогут детям в этом возрасте развиваться с пользой для здоровья.</p>--}}
-{{--<p>Teen карта продается без ограничений.&nbsp;Не требуется обязательное наличие взрослой карты.</p>--}}
-{{--<p><a class="showprivilege" data-uk-toggle="{target:'#card-teen', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="11" class="cards_fdbc">узнать цену</span></span></p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<div>--}}
-{{--<ol class="uk-grid uk-grid-width-1-1">--}}
-{{--<li><b>Содоступ в 2 клуба</b><br>возможность посещения 2-х клубов сети FITRON</li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--<div class="uk-width-medium-2-3">--}}
-{{--<ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">--}}
-{{--<li><b>Персональные вводные тренировки (3 шт.)</b></li>--}}
-{{--<li><b>Секция на выбор&nbsp;(1 шт.)</b></li>--}}
-{{--<li><b>Гостевые визиты (3 шт.)</b></li>--}}
-{{--<li><b>Полотенце</b></li>--}}
-{{--<li><b>Привилегии от партнёров.</b></li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div id="card-kids" class="club-card-container">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image">--}}
-{{--<div class="image-kids">--}}
-{{--@if(in_array(12, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>Kids</b></p>--}}
-{{--<p>Детские клубные карты открывают двери в мир фитнеса и здорового образа жизни детям от 3-х &nbsp;до 12лет. Детский клуб FITRON — это всестороннее развития Вашего ребенка с широким спектр фитнес-программ, спортивных секций, а также занятий, направленных на формирование творческих и интеллектуальных способностей ребенка.</p>--}}
-{{--<p>Детская карта продается без ограничений.&nbsp;Не требуется обязательное наличие взрослой карты.</p>--}}
-{{--<p><a class="showprivilege" data-uk-toggle="{target:'#card-kids', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="12" class="cards_fdbc">узнать цену</span></span></p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<div>--}}
-{{--<ol class="uk-grid uk-grid-width-1-1">--}}
-{{--<li><b>Содоступ в 4 клуба РФГ FITRON</b><br>возможность посещения 2-х клубов сети FITRON и 2-х клубов сети ФизКульт в г. Ростове-на-Дону</li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--<div class="uk-width-medium-2-3">--}}
-{{--<ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">--}}
-{{--<li><b>Вводный инструктаж (1 шт.)</b></li>--}}
-{{--<li><b>Платный урок на выбор (1 шт.)</b></li>--}}
-{{--<li><b>Гостевые визиты (3 шт.)</b></li>--}}
-{{--<li><b>Полотенце</b></li>--}}
-{{--<li><b>Привилегии от партнёров.</b></li>--}}
-{{--</ol>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div id="card-corporate" class="club-card-container">--}}
-{{--<div class="container">--}}
-{{--<div class="pagecontent">--}}
-{{--<div class="uk-grid uk-grid-width-1-1">--}}
-{{--<div class="image-cont uk-width-medium-1-3">--}}
-{{--<div class="card-image">--}}
-{{--<div class="image-allinone">--}}
-{{--@if(in_array(13, $params['special_type_cards_ids']))--}}
-{{--<div class="card_akchii"><a href="/special">АКЦИЯ</a></div>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="description-cont uk-width-medium-2-3">--}}
-{{--<div class="pagecontent uk-text-center">--}}
-{{--<p class="pageh2"><b>Корпоративные</b></p>--}}
-{{--<p><b>Корпоративный космический день здоровья в FITRON!</b></p>--}}
-{{--<p>Мы приглашаем коллектив Вашей организации на Корпоративный день здоровья!--}}
-{{--Заряд положительных эмоций и позитивного настроения гарантирован!</p>--}}
-{{--<p><a class="showprivilege" data-uk-toggle="{target:'#card-corporate', cls:'opened'}">--}}
-{{--<i class="icon plus-to-minus"></i>Ваши привилегии</a>--}}
-{{--<span class="redbutton"><span data-id="13" class="cards_fdbc">узнать цену</span></span></p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="card-privilege pagecontent">--}}
-{{--<ol class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-top">--}}
-{{--<li>Корпоративные клубные карты позволяют сотрудникам компаний тренироваться в первоклассных комфортных фитнес-клубах РФГ FITRON на специальных условиях</li>--}}
-{{--<li>Возможность выбрать наиболее подходящий для каждого сотрудника клуб из 6 клубов</li>--}}
-{{--<li>Заключение корпоративного контракта возможно при покупке от 10 и более годовых клубных карт</li>--}}
-{{--<li>Чем больше сотрудников приобретает членство в рамках корпоративной программы, тем выгоднее клубная карта для компании и ее сотрудников</li>--}}
-{{--<li>Для компаний, которые частично или полностью оплачивают стоимость членства для своих сотрудников, существуют дополнительные бонусы и привилегии</li>--}}
-{{--</ol>--}}
-{{--<p class="uk-text-small">Привилегии, включённые в клубные карты, могут изменяться в зависимости от вида карты.</p>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="container uk-margin-large-top"></div>--}}
-{{--<div class="redhr"></div>--}}
-{{--@endsection--}}
-
-
-@section('script')
-    {{--<script src="{{ asset('js/uikit.min.js') }}" defer></script>--}}
-    <script>
-        var onloadCaptcha = function(){
-            window.feedback_modal_form_captcha = feedback_modal_form();
-            // window.cards_modal_form_captcha = cards_modal_form();
-        };
-    </script>
-@endsection
-
-{{--@push('modal')--}}
-{{--@includeIf('include.modal.cards')--}}
-{{--@endpush--}}
-
+    <div class="cabinet_page_schedule_clubs table">
+        <div class="cabinet_page_schedule_clubs_head">
+            <div class="schedule_left_width cabinet_page_schedule_clubs_title_prev">
+                <span class="cabinet_page_schedule_clubs_title_prev_rule"></span>
+            </div>
+            <div class="cabinet_page_schedule_screen">
+                <div class="cabinet_page_schedule_view">
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d1">
+                        <span class="cabinet_page_schedule_title_week">Понедельник</span>
+                        <span class="cabinet_page_schedule_title_day">08.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d2">
+                        <span class="cabinet_page_schedule_title_week">Вторник</span>
+                        <span class="cabinet_page_schedule_title_day">09.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d3">
+                        <span class="cabinet_page_schedule_title_week">Среда</span>
+                        <span class="cabinet_page_schedule_title_day">10.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d4">
+                        <span class="cabinet_page_schedule_title_week">Четверг</span>
+                        <span class="cabinet_page_schedule_title_day">11.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d5">
+                        <span class="cabinet_page_schedule_title_week">Пятница</span>
+                        <span class="cabinet_page_schedule_title_day">12.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d6">
+                        <span class="cabinet_page_schedule_title_week">Суббота</span>
+                        <span class="cabinet_page_schedule_title_day">13.12.18</span>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_title_d7">
+                        <span class="cabinet_page_schedule_title_week">Воскресенье</span>
+                        <span class="cabinet_page_schedule_title_day">14.12.18</span>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule_right_width cabinet_page_schedule_clubs_title_next">
+                <span class="cabinet_page_schedule_clubs_title_next_rule"></span>
+            </div>
+        </div>
+        <div class="cabinet_page_schedule_clubs_tr">
+            <input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h8"/>
+            <div class="cabinet_page_schedule_clubs_tr_left">
+                {{--<input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h8"/>--}}
+                <label class="schedule_left_width cabinet_page_schedule_clubs_td td_left" for="cabinet_page_schedule_toogle_h8"><span class="shedule_td_time">08:00</span></label>
+            </div>
+            <div class="cabinet_page_schedule_clubs_screen">
+                <div class="cabinet_page_schedule_clubs_view">
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day1"></div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day2">
+                        <label class="schedule_view_trening_v4" for="cabinet_page_schedule_toogle_h8">
+                            <div class="schedule_view_trening_name">
+                                <a href="{{ route('cabinet.schedule.trainer', ['id_trainer' => 123]) }}">ГП</a>
+                            </div>
+                            <div class="schedule_view_trening_mes">Танцы</div>
+                            <div class="schedule_view_trening_time">08:00-14:00</div>
+                        </label>
+                    </div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day3"></div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day4"></div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day5"></div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day6"></div>
+                    <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day7"></div>
+                </div>
+            </div>
+            <div class="cabinet_page_schedule_clubs_tr_right">
+                <div class="schedule_right_width cabinet_page_schedule_clubs_td td_right">08:00</div>
+            </div>
+        </div>
+            <div class="cabinet_page_schedule_clubs_tr">
+                <input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h10"/>
+                <div class="cabinet_page_schedule_clubs_tr_left">
+                    {{--<input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h10"/>--}}
+                    <label class="schedule_left_width cabinet_page_schedule_clubs_td td_left" for="cabinet_page_schedule_toogle_h10"><span class="shedule_td_time">10:00</span></label>
+                </div>
+                <div class="cabinet_page_schedule_clubs_screen">
+                    <div class="cabinet_page_schedule_clubs_view">
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day1">
+                            <label class="schedule_view_trening_v1" for="cabinet_page_schedule_toogle_h10">
+                                <div class="schedule_view_trening_name">ФитБокс</div>
+                                <div class="schedule_view_trening_time">10:00-12:00</div>
+                                <div class="schedule_view_trening_line">-----------</div>
+                                <div class="schedule_view_trening_mes">Свободно</div>
+                                <div class="schedule_view_trening_count">10 мест</div>
+                            </label>
+                            <label class="schedule_view_trening_v2" for="cabinet_page_schedule_toogle_h10">
+                                <div class="schedule_view_trening_name">Водные</div>
+                                <div class="schedule_view_trening_mes">Кроль</div>
+                                <div class="schedule_view_trening_time">10:00-11:00</div>
+                            </label>
+                        </div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day2"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day3"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day4"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day5"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day6"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day7"></div>
+                    </div>
+                </div>
+                <div class="cabinet_page_schedule_clubs_tr_right">
+                    <div class="schedule_right_width cabinet_page_schedule_clubs_td td_right">10:00</div>
+                </div>
+            </div>
+            <div class="cabinet_page_schedule_clubs_tr">
+                <input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h11"/>
+                <div class="cabinet_page_schedule_clubs_tr_left">
+                    {{--<input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h11"/>--}}
+                    <label class="schedule_left_width cabinet_page_schedule_clubs_td td_left" for="cabinet_page_schedule_toogle_h11"><span class="shedule_td_time">11:00</span></label>
+                </div>
+                <div class="cabinet_page_schedule_clubs_screen">
+                    <div class="cabinet_page_schedule_clubs_view">
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day1">
+                            <label class="schedule_view_trening_v3" for="cabinet_page_schedule_toogle_h11">
+                                <div class="schedule_view_trening_name">Сайкл</div>
+                                <div class="schedule_view_trening_mes">Танцы</div>
+                                <div class="schedule_view_trening_time">11:00-14:00</div>
+                            </label>
+                        </div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day2"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day3">
+                            <label class="schedule_view_trening_v1" for="cabinet_page_schedule_toogle_h11">
+                                <div class="schedule_view_trening_name">ФитБокс</div>
+                                <div class="schedule_view_trening_time">11:00-15:00</div>
+                                <div class="schedule_view_trening_line">-----------</div>
+                                <div class="schedule_view_trening_mes">Свободно</div>
+                                <div class="schedule_view_trening_count">5 мест</div>
+                            </label>
+                        </div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day4"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day5"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day6"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day7"></div>
+                    </div>
+                </div>
+                <div class="cabinet_page_schedule_clubs_tr_right">
+                    <div class="schedule_right_width cabinet_page_schedule_clubs_td td_right">11:00</div>
+                </div>
+            </div>
+            <div class="cabinet_page_schedule_clubs_tr">
+                <input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h12"/>
+                <div class="cabinet_page_schedule_clubs_tr_left">
+                    {{--<input type="checkbox" class="cabinet_page_schedule_toogle" id="cabinet_page_schedule_toogle_h12"/>--}}
+                    <label class="schedule_left_width cabinet_page_schedule_clubs_td td_left" for="cabinet_page_schedule_toogle_h12"><span class="shedule_td_time">12:00</span></label>
+                </div>
+                <div class="cabinet_page_schedule_clubs_screen">
+                    <div class="cabinet_page_schedule_clubs_view">
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day1">
+                            <label class="schedule_view_trening_v4" for="cabinet_page_schedule_toogle_h12">
+                                <div class="schedule_view_trening_name">ГП</div>
+                                <div class="schedule_view_trening_mes">Танцы</div>
+                                <div class="schedule_view_trening_time">12:00-14:00</div>
+                            </label>
+                        </div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day2"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day3"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day4"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day5"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day6"></div>
+                        <div class="schedule_day_width cabinet_page_schedule_clubs_td td_day7"></div>
+                    </div>
+                </div>
+                <div class="cabinet_page_schedule_clubs_tr_right">
+                    <div class="schedule_right_width cabinet_page_schedule_clubs_td td_right">12:00</div>
+                </div>
+            </div>
+    </div>
+</div>
