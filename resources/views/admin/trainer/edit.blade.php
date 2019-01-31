@@ -32,7 +32,7 @@
             FTAdmin.AjaxSend(this.getAttribute('method'), '/admin/trainer/{{$params['trainer']->id}}/', data, FTAdmin.res.content.el);
             return false;
         });
-        document.querySelector('#doings-page_b_canchel').addEventListener('click', function(event){
+        document.querySelector('#trainer-page_b_canchel').addEventListener('click', function(event){
             FTAdmin.AjaxSend('GET', '/admin/trainer/' + FTAdmin.select_table.trainer_type + '/', '', FTAdmin.res.content.el);
             event.preventDefault();
             return false;

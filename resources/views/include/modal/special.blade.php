@@ -226,8 +226,8 @@
 
 <div id="special" class="container_special">
     <input type="checkbox" id="modal_special">
-    <label for="modal_special" id="modal_background" style="z-index: 999;"></label>
-    <div class="modal_content" style="z-index: 1000;">
+    <label for="modal_special" id="modal_background" style="z-index: 899;"></label>
+    <div class="modal_content" style="z-index: 900;">
         <div class="header">
             <div class="top_header">
                 <h2 id="form_special_title">Узнать о тренировки</h2>
@@ -289,7 +289,8 @@
                                 <div>
                                     <input type="checkbox" id="form_special_agree" name="form_special_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
-                                    <a href="/privacy-policy" target="_blank" data-privacy-policy="">персональных данных</a>
+                                    <label for="modal_policy" style="color:red">персональных данных</label>
+                                    {{--<a href="/privacy-policy" target="_blank" data-privacy-policy="">персональных данных</a>--}}
                                 </div>
                                 <div id="form_special_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
                                 <div id="form_special_agree_back_error" class="error" style="opacity:0;"></div>

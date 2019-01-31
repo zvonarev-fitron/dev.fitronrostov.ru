@@ -31,10 +31,13 @@
                 <td>{{$room->id}}</td>
                 <td>{{$room->name}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="rooms-page_checkbox_active_{{$room->id}}" {{($room->active ? 'checked' : '')}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$room->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $room->id,
+                        'class' => 'cb_rooms',
+                        'name' => 'active',
+                        'checked' => $room->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$room->created_at}}</td>
                 <td>{{$room->updated_at}}</td>
@@ -52,6 +55,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_rooms').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/rooms/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#rooms-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/rooms/create', '', FTAdmin.res.content.el);

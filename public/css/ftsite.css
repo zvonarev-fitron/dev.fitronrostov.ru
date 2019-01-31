@@ -70,9 +70,9 @@ a {
     }
 }
 @media (max-width: 959px) and (min-width: 768px) {
-    .uk-hidden-medium {
-        display: none !important;
-    }
+    /*.uk-hidden-medium {*/
+        /*display: none !important;*/
+    /*}*/
     .uk-visible-small {
         display: none!important;
     }
@@ -759,3 +759,13 @@ ol>li>ol, ol>li>ul, ul>li>ol, ul>li>ul {
 .cc_f_pro_l span {
     color: red;
 }
+
+#stickymenu>ul>li a:focus,
+#stickymenu>ul>li a:hover {
+    text-decoration: none;
+}
+#stickymenu>ul>li .sticky_menu_txt {
+    margin-left: -6px;
+    line-height: 23px;
+}
+

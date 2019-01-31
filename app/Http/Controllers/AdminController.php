@@ -41,7 +41,7 @@ class AdminController extends Controller
 
 //        $user = Auth::user();
 
-        $user = User::find(1);
+//        $user = User::find(1);
 
 //        $role = new Role(['title' => 'admin', 'name' => 'Администраторы']);
   //      $r = $user->roles()->create($role);
@@ -49,8 +49,8 @@ class AdminController extends Controller
         //$r = $role->save();
 //        dump($r);
 
-        dump($user);
-        dump($user->roles);
+//        dump($user);
+//        dump($user->roles);
 //        dump(Role::all());
 
         return view('admin');

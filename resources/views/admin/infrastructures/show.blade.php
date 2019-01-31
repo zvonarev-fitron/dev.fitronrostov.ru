@@ -39,10 +39,14 @@
                 </td>
                 <td style="text-align: center">{{$infrastructure->sort}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="trainings-page_checkbox_active_{{$infrastructure->id}}" {{($infrastructure->active ? 'checked' : '')}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$infrastructure->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $infrastructure->id,
+                        'class' =>
+                        'cb_infrastructure',
+                        'name' => 'active',
+                        'checked' => $infrastructure->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$infrastructure->created_at}}</td>
                 <td>{{$infrastructure->updated_at}}</td>
@@ -60,6 +64,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_infrastructure').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/infrastructures/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#infrastructure-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/infrastructures/create', '', FTAdmin.res.content.el);

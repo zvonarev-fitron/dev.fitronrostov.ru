@@ -33,10 +33,14 @@
                 <td>{{$role->title}}</td>
                 <td>{{$role->name}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$role->id}}" {{$role->active ? 'checked' : ''}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$role->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $role->id,
+                        'class' =>
+                        'cb_roles',
+                        'name' => 'active',
+                        'checked' => $role->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$role->created_at}}</td>
                 <td>{{$role->updated_at}}</td>
@@ -44,16 +48,30 @@
         @endforeach
         </tbody>
     </table>
-    <button type="button" id="role-page_b_create" class="btn" title="Добавить пользователя">Добавить</button>
-    <button type="button" id="role-page_b_edit" class="btn" title="Изменить пользователя">Изменить</button>
+    <button type="button" id="role-page_b_create" class="btn" title="Добавить роль">Добавить</button>
+    <button type="button" id="role-page_b_edit" class="btn" title="Изменить роль">Изменить</button>
     <form action="" method="POST" id="role-page_f_delete" style="display: inline-block;">
         @csrf
         @method('DELETE')
-        <button type="submit" id="role-page_b_delete" class="btn" title="Удалить пользователя">Удалить</button>
+        <button type="submit" id="role-page_b_delete" class="btn" title="Удалить роль">Удалить</button>
     </form>
 </div>
 <script>
     (function(){
+
+        document.querySelectorAll('.cb_roles').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/roles/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
+
         document.querySelector('#roles-page_t_index').addEventListener('click', function(event){
             event.stopPropagation();
             if('TD' == event.target.nodeName) {

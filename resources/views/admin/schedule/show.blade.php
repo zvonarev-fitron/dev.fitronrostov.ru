@@ -9,9 +9,35 @@
         margin-top: -18px;
         margin-left: 16px;
     }
+    div.my_form_group_select {
+        margin: 0;
+    }
+    .schedule_admin_copy {
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 40%;
+        padding-bottom: 10px;
+    }
+    #schedule_admin_copy_form,
+    #schedule_admin_erase_form {
+        display: contents;
+    }
 </style>
 <div style="margin-left: 10px; margin-right: 10px;">
     <h2 class="images-name_page"><a href="javascript:void(0)" id="schedule-page_b_calendar">Расписание</a> {{$params['club']->name}} {{$params['date']->format('d')}} {{\App\Helpers\CUtils::RusMonth($params['date']->format('m'))}} {{$params['date']->format('Y')}}</h2>
+    <div class="schedule_admin_copy">
+        <form action="" method="get" id="schedule_admin_copy_form">
+            @csrf
+            @include('include.input.oneselect', ['name' => 'schedule_admin_oneselect_copy', 'select' => '0', 'list' => $params['list_date'], 'text' => 'Выберите дату', 'slot' => ''])
+            <button type="submit" id="schedule-admin_copy_add" class="btn" title="Скопировать тренировки">Скопировать</button>
+        </form>
+        <form action="" method="get" id="schedule_admin_erase_form">
+            @csrf
+            <button type="submit" id="schedule-admin_copy_erase" class="btn" title="Очистить тренировки">Очистить</button>
+        </form>
+    </div>
     <table id="schedule-page_t_index" class="table table-hover header-fixed" title="Двойной клик перейти на редактирование">
         <thead>
         <tr>
@@ -41,10 +67,13 @@
                 <td>{{$params['rooms']->firstWhere('id', $schedule->rooms_id)->name}}</td>
                 <td>{{$schedule->sort}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox schedule-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$schedule->id}}" <?=($schedule->active ? 'checked' : '');?> disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$schedule->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $schedule->id,
+                        'class' => 'cb_schedules',
+                        'name' => 'active',
+                        'checked' => $schedule->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>
                     @if($schedule->pre_entry)
@@ -64,7 +93,7 @@
     </table>
     <button type="button" id="schedule-page_b_create" class="btn" title="Добавить тренировку">Добавить</button>
     <button type="button" id="schedule-page_b_edit" class="btn" title="Изменить тренировку">Изменить</button>
-    <form action="" method="POST" id="image-page_f_delete" style="display: inline-block;">
+    <form action="" method="POST" id="schedule-page_f_delete" style="display: inline-block;">
         @csrf
         @method('DELETE')
         <button type="submit" id="schedule-page_b_delete" class="btn" title="Удалить тренировку">Удалить</button>
@@ -72,11 +101,42 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_schedules').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/schedules/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
+        document.getElementById('schedule_admin_erase_form').addEventListener('submit', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            var data = new FormData(this);
+            if(confirm('Вы уверены?')) {
+                var data = new FormData(this);
+                FTAdmin.AjaxSend('GET', '/admin/schedule/' + FTAdmin.select_table.schedule_club + '/{{$params['date']->format('d-m-Y')}}/erase', data, FTAdmin.res.content.el);
+            }
+        });
+        document.getElementById('schedule_admin_copy_form').addEventListener('submit', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            var select = document.getElementById('schedule_admin_oneselect_copy');
+            if('0' != select.value) {
+                if(confirm('Вы уверены?')) {
+                    var data = new FormData(this);
+                    FTAdmin.AjaxSend('GET', '/admin/schedule/' + FTAdmin.select_table.schedule_club + '/' + select.value + '/{{$params['date']->format('Y-m-d')}}/copy', data, FTAdmin.res.content.el);
+                }
+            }
+        });
         document.querySelector('#schedule-page_b_calendar').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/calendar/' + FTAdmin.select_table.schedule_club + '/', '', FTAdmin.res.content.el);
         });
-
         document.querySelector('#schedule-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/schedule/{{implode('_', $params['id'])}}/create', '', FTAdmin.res.content.el);
@@ -85,12 +145,12 @@
             event.stopPropagation();
             if(0 < FTAdmin.select_table.schedule) FTAdmin.AjaxSend('GET', '/admin/schedule/' + FTAdmin.select_table.schedule + '/edit/', '', FTAdmin.res.content.el);
         });
-        document.querySelector('#schedule-page_b_delete').addEventListener('submit', function(event){
+        document.querySelector('#schedule-page_f_delete').addEventListener('submit', function(event){
             event.stopPropagation();
-            if(0 < FTAdmin.select_table.image){
+            if(0 < FTAdmin.select_table.schedule){
                 var data = new FormData(this);
-//                FTAdmin.AjaxSend(this.getAttribute('method'), '/admin/images/' + FTAdmin.select_table.image, data, FTAdmin.res.content.el);
-                FTAdmin.select_table.image = 0;
+                FTAdmin.AjaxSend(this.getAttribute('method'), '/admin/schedule/' + FTAdmin.select_table.schedule, data, FTAdmin.res.content.el);
+                FTAdmin.select_table.schedule = 0;
             }
             event.preventDefault();
             return false;

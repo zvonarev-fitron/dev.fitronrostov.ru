@@ -108,7 +108,8 @@
                         </div>
                         <div class="cc_f_row_c">
                             <input type="checkbox" id="processing" name="processing" class="cc_f_pro" checked>
-                            <label for="processing" class="cc_f_pro_l">{{ __('Я согласен на обработку') }} <span>{{ __('персональных данных') }}</span></label>
+                            <label for="processing" class="cc_f_pro_l">{{ __('Я согласен на обработку') }} </label>
+                            <label for="modal_policy" style="color:red;">{{ __('персональных данных') }}</label>
                             <span class="cc_f_ps"><span>{{ __('*') }}</span>{{__(' - обязательные для заполнения поля')}}</span>
                         </div>
                         <div class="cc_f_row cc_f_row_btn">

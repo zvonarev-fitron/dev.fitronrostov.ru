@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Helpers\CUtils;
 
 class ScheduleController extends Controller
 {
@@ -149,6 +150,18 @@ class ScheduleController extends Controller
                 $this->params['schedules'][$key] = new \App\Schedule(get_object_vars($sch));
             }
         }
+        $this->params['list_date'] = [];
+        $interval = new \DateInterval('P3M');
+        $eD = new \DateTime($this->params['date']->format('d-m-Y'));
+        $eD->sub($interval);
+        $incterval = new \DateInterval('P1D');
+        $sD = new \DateTime($this->params['date']->format('d-m-Y'));
+        for($sD->sub($incterval); $sD > $eD; $sD->sub($incterval)){
+            $this->params['list_date'][] = [
+                'id' => $sD->format('d-m-Y'),
+                'name' => $sD->format('d') . ' ' . CUtils::RusMonth($sD->format('m')) . ' ' . $sD->format('Y')
+            ];
+        }
         return view('admin.schedule.show', ['params' => $this->params]);
     }
 
@@ -190,6 +203,41 @@ class ScheduleController extends Controller
         }
         return view('admin.schedule.calendar', ['params' => $this->params]);
     }
+
+    public function copy($id, $date, $to)
+    {
+        $show_id = $id . '_' . preg_replace('/\-/', '_', $to);
+        $copy_date = new \DateTime($date);
+        $this->params['schedules'] = DB::select('select * from schedules as t where t.clubs_id=:clubs_id and date_trunc(\'day\', t.start_time)=:todate order by t.start_time asc',
+            ['clubs_id' => $id, 'todate' => $copy_date]);
+        foreach($this->params['schedules'] as $sch){
+            $var = [];
+            $var = [
+                'clubs_id' => $id,
+                'trainings_id' => $sch->trainings_id,
+                'rooms_id' => $sch->rooms_id,
+                'intensities_id' => $sch->intensities_id,
+                'active' => true,
+                'start_time' => $to . ' ' . explode(' ', $sch->start_time)[1],
+                'end_time' => $to . ' ' . explode(' ', $sch->end_time)[1],
+                'duration' => $sch->duration,
+                'pre_entry' => $sch->pre_entry,
+                'paid' => $sch->paid,
+                'show_age' => $sch->show_age
+            ];
+            $new_sch = \App\Schedule::create($var);
+        }
+        return $this->show($show_id);
+    }
+
+    public function erase($id, $date)
+    {
+        $erase_date = new \DateTime($date);
+        $show_id = $id . '_' . $erase_date->format('Y_m_d');
+        $sss = DB::table('schedules')->whereDate('start_time', $erase_date->format('Y-m-d'))->delete();
+        return $this->show($show_id);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -269,8 +317,6 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd($request);
-
         $this->validate($request,[
             'clubs_id' => 'required|integer|not_in:0',
             'training_id' => 'required|integer|not_in:0',

@@ -30,24 +30,19 @@ class SpecialController extends Controller
         if($this->params['special_1']) {
             $this->params['special_1']->price_1 = number_format($this->params['special_1']->price_1, 0, '', ' ');
             $this->params['special_1']->price_2 = number_format($this->params['special_1']->price_2, 0, '', ' ');
+
+            $this->params['special_1']->start_active = (new \DateTime($this->params['special_1']->start_active))->format('d.m');
+            $this->params['special_1']->end_active = (new \DateTime($this->params['special_1']->end_active))->format('d.m.Y');
+
         }
         if($this->params['special_2']) {
             $this->params['special_2']->price_1 = number_format($this->params['special_2']->price_1, 0, '', ' ');
             $this->params['special_2']->price_2 = number_format($this->params['special_2']->price_2, 0, '', ' ');
+
+            $this->params['special_2']->start_active = (new \DateTime($this->params['special_2']->start_active))->format('d.m');
+            $this->params['special_2']->end_active = (new \DateTime($this->params['special_2']->end_active))->format('d.m.Y');
+
         }
-
-        $this->params['special_1']->start_active = (new \DateTime($this->params['special_1']->start_active))->format('d.m');
-        $this->params['special_1']->end_active = (new \DateTime($this->params['special_1']->end_active))->format('d.m.Y');
-
-        $this->params['special_2']->start_active = (new \DateTime($this->params['special_2']->start_active))->format('d.m');
-        $this->params['special_2']->end_active = (new \DateTime($this->params['special_2']->end_active))->format('d.m.Y');
-
-
-
-
-
-
-
 
         $special = \App\Special::where('rassrochka', true)->get();
         $this->params['special_r'] = $special->filter(function(\App\Special $special) use ($date){
@@ -60,23 +55,19 @@ class SpecialController extends Controller
         if($this->params['special_r_1']) {
             $this->params['special_r_1']->price_1 = number_format($this->params['special_r_1']->price_1, 0, '', ' ');
 //        $this->params['special_r_1']->price_2 = number_format($this->params['special_1']->price_2, 0 , '', ' ');
+
+            $this->params['special_r_1']->start_active = (new \DateTime($this->params['special_r_1']->start_active))->format('d.m');
+            $this->params['special_r_1']->end_active = (new \DateTime($this->params['special_r_1']->end_active))->format('d.m.Y');
+
         }
         if($this->params['special_r_2']) {
             $this->params['special_r_2']->price_1 = number_format($this->params['special_r_2']->price_1, 0, '', ' ');
 //        $this->params['special_r_2']->price_2 = number_format($this->params['special_2']->price_2, 0 , '', ' ');
+
+            $this->params['special_r_2']->start_active = (new \DateTime($this->params['special_r_2']->start_active))->format('d.m');
+            $this->params['special_r_2']->end_active = (new \DateTime($this->params['special_r_2']->end_active))->format('d.m.Y');
+
         }
-
-        $this->params['special_r_1']->start_active = (new \DateTime($this->params['special_r_1']->start_active))->format('d.m');
-        $this->params['special_r_1']->end_active = (new \DateTime($this->params['special_r_1']->end_active))->format('d.m.Y');
-
-        $this->params['special_r_2']->start_active = (new \DateTime($this->params['special_r_2']->start_active))->format('d.m');
-        $this->params['special_r_2']->end_active = (new \DateTime($this->params['special_r_2']->end_active))->format('d.m.Y');
-
-
-
-
-
-
 
         return view('special.index', ['params' => $this->params]);
     }

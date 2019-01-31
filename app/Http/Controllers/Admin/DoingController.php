@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+//use App\Doing;
 
 class DoingController extends Controller
 {
@@ -145,4 +147,14 @@ class DoingController extends Controller
         ImageJpeg($dest_img, $file, 80);
         ImageDestroy($dest_img);
     }
+
+    public function changeCB($table, $field, $onoff, $id)
+    {
+        $r = DB::table($table)->where('id', $id)->update([$field => $onoff]);
+        return $r ? json_encode(['ok' => '1']) : json_encode(['errors' => ['Сообщение' => ['Ошибока'], 'field' => [$field], 'onoff' => [$onoff], 'id' => [$id], 'Результ' => $r ] ]);
+
+//        return json_encode(['errors' => ['Сообщение' => ['Ошибка'], 'table' => [$table], 'field' => [$field], 'onoff' => [$onoff], 'id' => [$id], 'Результ' => ['$r'],
+//            ] ]);
+    }
+
 }

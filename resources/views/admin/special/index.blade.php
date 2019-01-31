@@ -44,16 +44,25 @@
                 <td>{{ explode(' ', $special->start_active)[0] }}</td>
                 <td>{{ explode(' ', $special->end_active)[0] }}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_rassrochka_{{$special->id}}" {{$special->rassrochka ? 'checked' : ''}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_rassrochka_{{$special->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $special->id,
+                        'pid' => 'rassrochka',
+                        'class' =>
+                        'cb_special_r',
+                        'name' => 'rassrochka',
+                        'checked' => $special->rassrochka,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$special->id}}" {{$special->active ? 'checked' : ''}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$special->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $special->id,
+                        'class' =>
+                        'cb_special_a',
+                        'name' => 'active',
+                        'checked' => $special->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$special->created_at}}</td>
                 <td>{{$special->updated_at}}</td>
@@ -71,6 +80,30 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_special_a').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/special/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
+        document.querySelectorAll('.cb_special_r').forEach(function(element){
+            document.getElementById('label_rassrochka_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/special/rassrochka/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#roles-page_t_index').addEventListener('click', function(event){
             event.stopPropagation();
             if('TD' == event.target.nodeName) {

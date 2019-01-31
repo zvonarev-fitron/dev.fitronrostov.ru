@@ -12,7 +12,7 @@
 @section('head')
     <div class="bottomright uk-hidden-small">
         <div class="bottomright-inner">
-            <div class="select-club-cont">
+            <div class="select-club-cont" id="schedule_select_club">
                 <div class="title-label">Выберите клуб</div>
                 <div class="select-club">
                     <div class="select">

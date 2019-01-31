@@ -41,10 +41,13 @@
                 </td>
                 <td style="text-align: center">{{$training->sort}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="trainings-page_checkbox_active_{{$training->id}}" <?=($training->active ? 'checked' : '');?> disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$training->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $training->id,
+                        'class' => 'cb_trainings',
+                        'name' => 'active',
+                        'checked' => $training->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$training->created_at}}</td>
                 <td>{{$training->updated_at}}</td>
@@ -62,6 +65,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_trainings').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/trainings/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#training-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/trainings/create', '', FTAdmin.res.content.el);

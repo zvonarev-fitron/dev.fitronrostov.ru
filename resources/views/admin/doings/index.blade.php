@@ -23,7 +23,7 @@
                 <th scope="row">{{$doing->id}}</th>
                 <td>{{(new \DateTime($doing->start_date))->format('d.m.Y')}} - {{(new \DateTime($doing->end_date))->format('d.m.Y')}}</td>
                 <td>{{$doing->name}}</td>
-                <td>@include('include.input.checkbox', ['id' => $doing->id, 'name' => 'active', 'checked' => $doing->active, 'disabled' => 1, 'style' => 'margin-top: -16px; margin-left: 16px;'])</td>
+                <td>@include('include.input.checkbox', ['id' => $doing->id, 'class' => 'cb_doings', 'name' => 'active', 'checked' => $doing->active, 'disabled' => 0, 'style' => 'margin-top: -16px; margin-left: 16px;'])</td>
                 <td>{{$doing->sort}}</td>
                 <td>{{$doing->created_at}}</td>
                 <td>{{$doing->updated_at}}</td>
@@ -41,6 +41,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_doings').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/doings/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#doings-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/doings/create', '', FTAdmin.res.content.el);
@@ -68,7 +80,7 @@
             event.stopPropagation();
             FTAdmin.select_table.doing = parseInt(event.target.parentElement.firstElementChild.innerHTML, 10);
 
-            console.log(FTAdmin.select_table.doing);
+//            console.log(FTAdmin.select_table.doing);
 
             FTAdmin.TableTrClearSelect('#doings-page_t_index', 'doing');
         });

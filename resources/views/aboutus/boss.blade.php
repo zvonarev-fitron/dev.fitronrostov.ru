@@ -33,7 +33,7 @@
                 <div class="uk-visible-small pagenav-mobile"><span class="uk-navbar-toggle"></span> Разделы</div>
                 <ul class="uk-nav uk-nav-side uk-hidden-small pagenav-left">
                     <li><a href="{{route('mission')}}">Миссия</a></li>
-                    <li class="uk-active"><a href="{{route('boss')}}">Руководство</a></li>
+                    {{--<li class="uk-active"><a href="{{route('boss')}}">Руководство</a></li>--}}
                     <li><a href="{{route('vacancies')}}">Вакансии</a></li>
                     <li><a href="{{route('press')}}">Пресса</a></li>
                     <li><a href="{{route('franchise')}}">Франчайзинг</a></li>

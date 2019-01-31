@@ -6,6 +6,7 @@ use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 class RoleController extends Controller
@@ -130,5 +131,11 @@ class RoleController extends Controller
           dd($e->getMessage());
         }
         return $this->index();
+    }
+
+    public function changeCB($field, $onoff, $id)
+    {
+        $r = DB::table('roles')->where('id', $id)->update([$field => $onoff]);
+        return $r ? json_encode(['ok' => '1']) : json_encode(['errors' => ['Сообщение' => ['Ошибока'], 'field' => [$field], 'onoff' => [$onoff], 'id' => [$id], 'Результ' => $r ] ]);
     }
 }

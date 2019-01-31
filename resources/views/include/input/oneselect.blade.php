@@ -1,4 +1,4 @@
-<div class="form-group select-gr_bl">
+<div class="form-group select-gr_bl my_form_group_select">
     <label for="{{$name}}">{{$slot}}</label>
     <select class="form-control" id="{{$name}}" name="{{$name}}">
         @isset($text)

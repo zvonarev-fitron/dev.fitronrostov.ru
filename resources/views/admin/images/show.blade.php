@@ -46,10 +46,14 @@
                 <td>{{$image->start_time}}</td>
                 <td>{{$image->end_time}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$image->id}}" <?=($image->active ? 'checked' : '');?> disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$image->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $image->id,
+                        'class' =>
+                        'cb_images',
+                        'name' => 'active',
+                        'checked' => $image->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td style="text-align: center">{{$image->sort}}</td>
                 <td>{{$image->created_at}}</td>
@@ -68,6 +72,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_images').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/images/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#image-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/images/create', '', FTAdmin.res.content.el);

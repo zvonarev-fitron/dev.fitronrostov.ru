@@ -333,7 +333,11 @@
             @endforeach
             FTAdmin.res.room.clubs['{{$club->id}}'] = {id: 'room_club_{{$club->id}}'}
         @endforeach
-            FTAdmin.Init();
+        @can('admin')
+            FTAdmin.Init(true);
+        @else
+            FTAdmin.Init(false);
+        @endcan
         @if('slider' == $params['code'])
             FTAdmin.res.sliders.el.click();
         @elseif('fitnes' == $params['code'])

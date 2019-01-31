@@ -105,10 +105,10 @@ else{
             },
         },
 
-        Init: function(){
+        Init: function(admin = true){
             this.res.content.el = document.querySelector('#' + this.res.content.id);
-
             //Инициализация левого меню
+        if(admin) {
             //Пользователи
             this.res.user.el = document.querySelector('#' + this.res.user.id);
             this.res.user.el.classList.add(this.res.class_menu_left);
@@ -117,6 +117,7 @@ else{
             this.res.role.el = document.querySelector('#' + this.res.role.id);
             this.res.role.el.classList.add(this.res.class_menu_left);
             this.handlers.roles(this.res.role.el, this.res.content.el, this.res.class_active);
+        }
             //Клубы
             this.res.club.el = document.querySelector('#' + this.res.club.id);
             this.res.club.el.classList.add(this.res.class_menu_left);
@@ -295,7 +296,6 @@ else{
 //                        event.stopPropagation();
 //                        console.log(event.target);
                          if(FTAdmin.LeftMenuActive(event.target, active)){
-                             console.log(event.target);
                              ids = event.target.id.split('_');
                              FTAdmin.select_table.trainer_club = ids[1];
                              FTAdmin.select_table.trainer_type = ids[1] + '_' + ids[2];
@@ -442,6 +442,54 @@ else{
                 });
             },
         },
+        AjaxCheckBox: function(method, action, token, checkbox, ajax=false){
+            var xhr = new XMLHttpRequest();
+            var th = this;
+            var data = new FormData();
+
+            xhr.open(method, action, true);
+
+            //xhr.setRequestHeader('X-REQUEST-WITH', 'XMLHttpRequest');
+            if(token){
+                xhr.setRequestHeader('X-CSRF-Token', token);
+                data.append("_token", token);
+            }
+
+            if(ajax) xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+            xhr.onload = function(){
+                if(xhr.readyState == 4 && xhr.status == 404){
+                    //console.log('Ошибка загрузки страницы(404) ' + xhr.responseText);
+                    alert('Ошибка загрузки страницы(404)');
+                }
+                if(xhr.readyState == 4 && xhr.status == 422){
+                    console.log('Ошибка загрузки страницы(422) ' + xhr.responseText);
+                    alert('Ошибка загрузки страницы(422)');
+                }
+                if(xhr.readyState == 4 && xhr.status == 405){
+                    console.log('Ошибка загрузки страницы(405) ' + xhr.responseText);
+                    alert('Ошибка загрузки страницы(405)');
+                }
+                if(xhr.readyState == 4 && xhr.status == 500){
+                    console.log('Ошибка загрузки страницы(500) ' + JSON.parse(xhr.responseText));
+                    alert('Ошибка загрузки страницы(500)');
+                }
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var objText = JSON.parse(xhr.responseText);
+                    if(objText.hasOwnProperty('ok') && '1' == objText.ok){
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    else {
+                        //th.MessageErrors(xhr.responseText);
+                        console.log(objText);
+                    }
+                }
+            };
+            xhr.onerror = function(){
+                console.log('Неизвестная ошибка');
+            };
+            xhr.send(data);
+        },
         AjaxSend: function(method, action, data, content, ajax=false){
             var xhr = new XMLHttpRequest();
             var th = this;
@@ -468,7 +516,7 @@ else{
                 if(xhr.readyState == 4 && xhr.status == 200){
                     content.innerHTML = xhr.responseText;
                     var scripts = content.getElementsByTagName('script');
-                    for(var i = 0; i < scripts.length; i++) eval(scripts[i].innerHTML);
+                    for (var i = 0; i < scripts.length; i++) eval(scripts[i].innerHTML);
                 }
             };
             xhr.onerror = function(){

@@ -26,9 +26,10 @@
 @section('main')
     <div class="container">
         <div class="schedule_download_btn_fitnes">
-            <a href="javascript:void(0)" class="schedule_download_btn_a">
-                <span class="schedule_download_btn_a_span">Получить бесплатный гостевой визит</span>
-            </a>
+            <span class="redbutton"><label for="modal_guest_visit">Получить бесплатный гостевой визит</label></span>
+            {{--<a href="javascript:void(0)" class="schedule_download_btn_a">--}}
+                {{--<span class="schedule_download_btn_a_span">Получить бесплатный гостевой визит</span>--}}
+            {{--</a>--}}
         </div>
         <div class="fitnes-uslugi-trenery uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-10 uk-margin-top">
             <div class="uk-width-medium-3-10" id="types_clubs_trainers_menu">
@@ -78,6 +79,10 @@
     </div>
     <div class="redhr"></div>
 @endsection
+
+@push('modal')
+    @includeIf('include.modal.guestvisit')
+@endpush
 
 @section('script')
 <script>

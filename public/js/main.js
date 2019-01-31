@@ -108,25 +108,20 @@ $(function() {
         });
     }
 
-    document.getElementById('select_club').addEventListener('click', function(event){
-        var $thiscont = this.querySelector('.select-club');
+    document.getElementById('select_club').addEventListener('click', function(event){ sClub(this); });
+    document.getElementById('footer_select_club').addEventListener('click', function(event){ sClub(this); });
+    document.getElementById('schedule_select_club').addEventListener('click', function(event){ sClub(this); });
+    function sClub(self)
+    {
+        var $thiscont = self.querySelector('.select-club');
         if($thiscont.classList.contains('select-open')){
             $thiscont.classList.remove('select-open');
         }
         else {
             $thiscont.classList.add('select-open');
         }
-    });
+    }
 
-    document.getElementById('footer_select_club').addEventListener('click', function(event){
-        var $thiscont = this.querySelector('.select-club');
-        if($thiscont.classList.contains('select-open')){
-            $thiscont.classList.remove('select-open');
-        }
-        else {
-            $thiscont.classList.add('select-open');
-        }
-    });
 
     // $(".select-club .select").on('click', function () {
     //     var $thiscont = $(this).closest('.select-club');
@@ -179,22 +174,22 @@ $(function() {
     //     return false;
     // });
     //
-    // $("[data-privacy-policy]").on('click',function(e) {clickPrivacyPolicy(e)});
+    $("[data-privacy-policy]").on('click',function(e) {clickPrivacyPolicy(e)});
 
-    // function clickPrivacyPolicy(e){
-    //     e.preventDefault();
-    //     if ($("#privacy-policy-ajax .uk-overflow-container").html() == '') {
-    //         $('#privacy-policy-ajax .uk-position-cover').show();
-    //         $.ajax({
-    //             'url': '/privacy-policy',
-    //             'success': function (data) {
-    //                 $('#privacy-policy-ajax .uk-position-cover').hide();
-    //                 $("#privacy-policy-ajax .uk-overflow-container").html(data);
-    //             }
-    //         });
-    //     }
-        // var modal = UIkit.modal("#privacy-policy-ajax", {'modal' : false});
-//        modal.show();
-//        return false;
-//    }
+    function clickPrivacyPolicy(e){
+        e.preventDefault();
+        if ($("#privacy-policy-ajax .uk-overflow-container").html() == '') {
+            $('#privacy-policy-ajax .uk-position-cover').show();
+            $.ajax({
+                'url': '/privacy-policy',
+                'success': function (data) {
+                    $('#privacy-policy-ajax .uk-position-cover').hide();
+                    $("#privacy-policy-ajax .uk-overflow-container").html(data);
+                }
+            });
+        }
+        var modal = UIkit.modal("#privacy-policy-ajax", {'modal' : false});
+       modal.show();
+       return false;
+   }
 });

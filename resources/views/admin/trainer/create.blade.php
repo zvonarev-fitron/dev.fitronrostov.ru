@@ -29,11 +29,13 @@
 <script>
     (function(){
         document.querySelector('#trainer-page_f_store').addEventListener('submit', function(event){
+            event.stopPropagation();
+            event.preventDefault();
             document.querySelector('#trainer-page_clubs_id').value = FTAdmin.select_table.trainer_club;
             document.querySelector('#trainer-page_type_trainer_id').value = FTAdmin.select_table.trainer_type.split('_')[1];
+            document.querySelector('#description').innerHTML = CKEDITOR.instances['description'].getData();
             var data = new FormData(this);
             FTAdmin.AjaxSend(this.getAttribute('method'), this.getAttribute('action'), data, FTAdmin.res.content.el);
-            event.preventDefault();
             return false;
         });
         document.querySelector('#trainer-page_b_canchel').addEventListener('click', function(event){

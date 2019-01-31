@@ -39,10 +39,13 @@
                 <td>{{$trainer->name}}</td>
                 <td>{{$trainer->code}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$trainer->id}}" {{$trainer->active ? 'checked' : ''}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$trainer->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $trainer->id,
+                        'class' => 'cb_trainer',
+                        'name' => 'active',
+                        'checked' => $trainer->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$trainer->created_at}}</td>
                 <td>{{$trainer->updated_at}}</td>
@@ -60,6 +63,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_trainer').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/trainers/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#trainer-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '{{route('trainer.create')}}', '', FTAdmin.res.content.el);
@@ -83,8 +98,6 @@
             FTAdmin.select_table.trainer = parseInt(event.target.parentElement.firstElementChild.innerHTML, 10);
             if(0 < FTAdmin.select_table.trainer) FTAdmin.AjaxSend('GET', '/admin/trainer/' + FTAdmin.select_table.trainer + '/edit/', '', FTAdmin.res.content.el);
         });
-
-
         document.querySelector('#trainer-page_t_index').addEventListener('click', function(event){
             event.stopPropagation();
             if('TD' == event.target.nodeName) {

@@ -1116,6 +1116,8 @@ footer .copyright a {
     height: 59px;
 }
 #stickymenu ul {
+    display: flex;
+    justify-content: space-between;
     padding: 0;
     list-style: none;
 }
@@ -1132,12 +1134,15 @@ footer .copyright a {
 #stickymenu>ul>li:first-child {
     border-left: none;
 }
-#stickymenu>ul>li a {
+#stickymenu>ul>li a,
+#stickymenu>ul>li label {
     color: #ffffff;
 }
-#stickymenu>ul>li a .mobile-text {
+#stickymenu>ul>li a .mobile-text,
+#stickymenu>ul>li label .mobile-text {
     font-size: 10px;
 }
+
 #stickymenu>ul>li ul {
     display: none;
 }
@@ -3327,7 +3332,7 @@ ol.secondol {
         height: 100%;
         position: absolute;
         right: -29px;
-        margin-top: -2px;
+        /*margin-top: -2px;*/
     }
     #topleftblock .navtitle {
         float: left;
@@ -4606,6 +4611,7 @@ ol.secondol {
         margin-top: -127px !important;
     }
     #stickymenu>ul {
+        display: block;
     }
     #stickymenu>ul>li {
         position: relative;

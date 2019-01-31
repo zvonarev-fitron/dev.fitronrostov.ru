@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -220,4 +221,12 @@ class UserController extends Controller
         $user->delete();
         return $this->index();
     }
+
+    public function changeCB($field, $onoff, $id)
+    {
+        $r = DB::table('users')->where('id', $id)->update([$field => $onoff]);
+        return $r ? json_encode(['ok' => '1']) : json_encode(['errors' => ['Сообщение' => ['Ошибока'], 'field' => [$field], 'onoff' => [$onoff], 'id' => [$id], 'Результ' => $r ] ]);
+    }
+
+
 }

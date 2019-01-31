@@ -35,7 +35,10 @@
                         <div class="pagecontent uk-text-center">
                             <p class="pageh2"><b>Индивидуальные</b></p>
                             <p>Индивидуальные клубные карты открывают доступ в космические фитнес клубы в любое удобное для Вас время в Часы работы клуба. Они включают в себя неограниченное пользование возможностями клуба. Посещение более 50 специально разработанных групповых программ. Доступ к насыщенной спортивной жизни сети FITRON, занятиям Outdoor.</p>
-                            <p><a class="showprivilege" data-uk-toggle="{target:'#card-individual', cls:'opened'}"><i class="icon plus-to-minus"></i>Ваши привилегии</a> <span data-href="https://fitron.club/ajax-form/?id=11&title=%D0%A3%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+%D1%86%D0%B5%D0%BD%D1%83+%D0%98%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D0%BA%D0%B0%D1%80%D1%82%D1%8B" data-contact-ajax class="redbutton"><span>узнать цену</span></span></p>
+                            <p><a class="showprivilege" data-uk-toggle="{target:'#card-individual', cls:'opened'}">
+                                    <i class="icon plus-to-minus"></i>Ваши привилегии</a>
+                                <span data-href="https://fitron.club/ajax-form/?id=11&title=%D0%A3%D0%B7%D0%BD%D0%B0%D1%82%D1%8C+%D1%86%D0%B5%D0%BD%D1%83+%D0%98%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D0%BA%D0%B0%D1%80%D1%82%D1%8B" data-contact-ajax class="redbutton">
+                                    <span>узнать цену</span></span></p>
                         </div>
                     </div>
                 </div>

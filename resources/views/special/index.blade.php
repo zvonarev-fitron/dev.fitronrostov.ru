@@ -42,7 +42,7 @@
         <div class="special_head_title">
             <span class="special_head_title_txt">Лучшие Акции Месяца!</span>
         </div>
-@if (1 < count($params['special']))
+@if (0 < count($params['special']))
         <div class="special_main">
             @if($params['special_1'])
             <div class="special_main_first"
@@ -124,7 +124,7 @@
         </div>
 @endif
 
-@if (1 < count($params['special_r']))
+@if (0 < count($params['special_r']))
     <div class="special_main">
         @if($params['special_r_1'])
             <div class="special_main_first"

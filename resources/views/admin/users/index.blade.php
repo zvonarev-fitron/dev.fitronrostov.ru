@@ -41,10 +41,14 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->lastname}}</td>
                 <td>
-                    <div class="custom-control custom-checkbox images-page_div_active">
-                        <input type="checkbox" class="custom-control-input" id="images-page_checkbox_active_{{$user->id}}" {{$user->active ? 'checked' : ''}} disabled>
-                        <label class="custom-control-label" for="images-page_checkbox_active_{{$user->id}}"></label>
-                    </div>
+                    @include('include.input.checkbox', [
+                        'id' => $user->id,
+                        'class' =>
+                        'cb_users',
+                        'name' => 'active',
+                        'checked' => $user->active,
+                        'disabled' => 0,
+                        'style' => 'margin-top: -16px; margin-left: 16px;'])
                 </td>
                 <td>{{$user->created_at}}</td>
                 <td>{{$user->updated_at}}</td>
@@ -62,6 +66,21 @@
 </div>
 <script>
     (function(){
+
+        document.querySelectorAll('.cb_users').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/users/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
+
+
         document.querySelector('#users-page_t_index').addEventListener('click', function(event){
             event.stopPropagation();
             if('TD' == event.target.nodeName) {

@@ -139,7 +139,7 @@
     outline:none;
     width:98%
 }
-.container_modal_query_trainer .group_tag .group_tag_row .group_tag_input.form_query_trainer_name,
+/*.container_modal_query_trainer .group_tag .group_tag_row .group_tag_input.form_query_trainer_name,*/
 .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input.form_query_trainer_text{
     width:99%
 }
@@ -173,6 +173,20 @@
     display:block;
     transform:skew(24deg)
 }
+.container_modal_query_trainer .group_tag .group_tag_row .group_tag_input select {
+    color: red;
+    background-color: #f9f9fb;
+    border: none;
+    border-top: 2px solid #0f3b89;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: 46px;
+    outline: none;
+    width: 280px;
+}
+
+
+
 @media only screen and (max-width:700px){
     .container_modal_query_trainer #modal_query_trainer:checked~.modal_content{
         width:300px
@@ -204,15 +218,19 @@
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button .button_submit span{
         transform:none;
     }
+
+
+
+
 }
 </style>
 <div id="feedback" class="container_modal_query_trainer">
     <input type="checkbox" id="modal_query_trainer">
-    <label for="modal_query_trainer" id="modal_background" style="z-index: 999;"></label>
-    <div class="modal_content"  style="z-index: 1000;">
+    <label for="modal_query_trainer" id="modal_background" style="z-index: 899;"></label>
+    <div class="modal_content"  style="z-index: 900;">
         <div class="header">
             <div class="top_header">
-                <h2>Хочу у Вас работать!</h2>
+                <h2>Задать вопрос тренеру</h2>
                 <label for="modal_query_trainer" id="modal_close_query_trainer"><i class="fas fa-times"></i></label>
             </div>
             <div class="content_form">
@@ -223,6 +241,16 @@
                                 <label for="form_query_trainer_name">Представтесь</label>
                                 <input type="text" id="form_query_trainer_name" name="form_query_trainer_name" class="" />
                                 <div class="error" style="display:none;">Необходимо заполнить «Представьтесь».</div>
+                            </div>
+                            <div class="group_tag_input">
+                                <label for="form_query_trainer_club">Выберите клуб</label>
+                                <select type="text" id="form_query_trainer_club" name="form_query_trainer_club">
+                                    <option selected value="{{ $params['select_club']->id }}#{{ $params['select_club']->name }}">{{ $params['select_club']->name }}</option>
+                                    @foreach($params['clubs'] as $club)
+                                        <option value="{{ $club->id }}#{{ $club->name }}">{{ $club->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="error" style="opacity:0;">Необходимо выбрать клуб</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
@@ -246,20 +274,15 @@
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
-                                <input type="checkbox" name="ContactForm[agree]" value="1" aria-invalid="true"><span>Я согласен (-а) на обработку</span><a href="#" target="_blank" data-privacy-policy="">персональных данных</a>
+                                <input type="checkbox" name="ContactForm[agree]" value="1" aria-invalid="true">
+                                <span>Я согласен (-а) на обработку</span>
+                                <label for="modal_policy" style="color:red">персональных данных</label>
+                                {{--<a href="#" target="_blank" data-privacy-policy="">персональных данных</a>--}}
                                 <div class="error" style="display: none;">Необходимо согласиться на обработку персональных данных</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
-                            <div class="group_tag_msg">
-                                <div>Максимальный размер загружаемого файла - 4Мб</div>
-                                <div>Форматы: jpg, doc, docx, pdf, txt, odt, pages</div>
-                            </div>
-                        </div>
-                        <div class="group_tag_row">
                             <div class="group_tag_button">
-                                <input type="file" id="form_query_trainer_file" style="display: none;">
-                                <button type="button" class="button_file" onClick="document.getElementById('form_query_trainer_file').click();"><span>Прикрепить файл</span></button>
                                 <button class="button_submit" type="submit"><span>Отправить</span></button>
                             </div>
                         </div>

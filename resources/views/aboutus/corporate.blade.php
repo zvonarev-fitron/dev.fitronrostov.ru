@@ -33,7 +33,7 @@
                 <div class="uk-visible-small pagenav-mobile"><span class="uk-navbar-toggle"></span> Разделы</div>
                 <ul class="uk-nav uk-nav-side uk-hidden-small pagenav-left">
                     <li><a href="{{route('mission')}}">Миссия</a></li>
-                    <li><a href="{{route('boss')}}">Руководство</a></li>
+                    {{--<li><a href="{{route('boss')}}">Руководство</a></li>--}}
                     <li><a href="{{route('vacancies')}}">Вакансии</a></li>
                     <li><a href="{{route('press')}}">Пресса</a></li>
                     <li><a href="{{route('franchise')}}">Франчайзинг</a></li>
@@ -106,16 +106,10 @@
                         <li>Дополнительные скидки при продлении членства</li>
                         <li>Индивидуальный менеджер</li>
                     </ul>
-                    <div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-large-top corporate-logos">
-                        <div>
-                            <img src="/images/logo-wc.png" alt="World Class - сеть фитнес-клубов">
-                        </div>
-                        <div>
-                            <img src="/images/logo-fc.png" alt="ФизКульт - сеть фитнес-клубов">
-                        </div>
-                        <div>
-                            <img src="/images/logo-fitron.png" alt="FITRON - сеть фитнес-клубов">
-                        </div>
+                    <div class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3 uk-margin-large-top corporate-logos" style="display:flex;justify-content:space-evenly;">
+                        <div><img src="/images/logo-wc.png" alt="World Class - сеть фитнес-клубов"></div>
+                        {{--<div><img src="/images/logo-fc.png" alt="ФизКульт - сеть фитнес-клубов"></div>--}}
+                        <div><img src="/images/logo-fitron.png" alt="FITRON - сеть фитнес-клубов"></div>
                     </div>
                 </div>
             </div>

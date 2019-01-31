@@ -211,8 +211,8 @@
 
 <div class="container_vacancies">
     <input type="checkbox" id="modal_vacancies">
-    <label for="modal_vacancies" id="modal_background" style="z-index: 999;"></label>
-    <div class="modal_content" style="z-index: 1000;">
+    <label for="modal_vacancies" id="modal_background" style="z-index: 899;"></label>
+    <div class="modal_content" style="z-index: 900;">
         <div class="header">
             <div class="top_header">
                 <h2>Хочу у вас работать</h2>
@@ -262,7 +262,8 @@
                                 <div>
                                     <input type="checkbox" id="form_vacancies_agree" name="form_vacancies_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
-                                    <a href="/privacy-policy" target="_blank">персональных данных</a>
+                                    <label for="modal_policy" style="color:red">персональных данных</label>
+                                    {{--<a href="/privacy-policy" target="_blank">персональных данных</a>--}}
                                 </div>
                                 <div id="form_vacancies_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
                                 <div id="form_vacancies_agree_back_error" class="error" style="opacity:0;"></div>

@@ -275,7 +275,7 @@
                         <b class="footer-header">О компании</b>
                         <hr>
                         <a href="{{route('mission')}}">Миссия</a>
-                        <br><a href="{{route('boss')}}">Руководство</a>
+                        {{--<br><a href="{{route('boss')}}">Руководство</a>--}}
                         <br><a href="{{route('vacancies')}}">Вакансии</a>
                         <br><a href="{{route('press')}}">Пресса</a>
                         <br><a href="{{route('uncos')}}">Новости</a>
@@ -322,7 +322,7 @@
 </div>
 
 <div class="uk-sticky-placeholder">
-    <div id="stickymenu" data-uk-sticky-bottom="{media: '(max-width: 1023px)}" style="bottom: 0px; width: 1263px; position: fixed;" class="uk-sticky-init uk-active">
+    <div id="stickymenu" data-uk-sticky-bottom="{media: '(max-width: 1023px)}" style="bottom: 0px; /*width: 1263px;*/ position: fixed;" class="uk-sticky-init uk-active">
         <ul>
             <li class="has-sub">
                 <a href="{{ route('special_index') }}">
@@ -337,8 +337,7 @@
             </li>
             <li class="has-sub">
                 <a href="{{route('vacancies')}}">
-                    {{--<i class="fas fa-briefcase" style="font-size: 150%;"></i>--}}
-                    <span style="margin-left: -6px;">JOB</span>
+                    <span class="sticky_menu_txt">JOB</span>
                     <span class="mobile-text"><br>Вакансии</span>
                 </a>
                 <ul>
@@ -348,48 +347,41 @@
                 </ul>
             </li>
             <li class="has-sub">
-                <a href="javascript:void(0)" data-href="https://fitron.club/ajax-form/?id=4&amp;title=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81+%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D1%83" data-contact-ajax="">
+                <label style="cursor: pointer;" class="callme" for="modal_query_trainer">
                     <i class="fas fa-question" style="font-size: 150%;"></i>
                     <span class="mobile-text"><br>Спросить</span>
-                </a>
+                </label>
                 <ul>
                     <li class="last">
                         <label style="cursor: pointer;" class="callme" for="modal_query_trainer">Вопрос тренеру</label>
-                        {{--<a href="javascript:;" data-href="https://fitron.club/ajax-form/?id=4&amp;title=%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81+%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80%D1%83" data-contact-ajax="">Вопрос тренеру</a>--}}
                     </li>
                 </ul>
             </li>
             <li class="has-sub">
-                <label style="cursor: pointer;" class="callme_a" for="modal_feedback"><i class="fas fa-phone-volume" style="font-size: 150%;"></i></label>
-
-                {{--<a href="javascript:;" data-href="https://fitron.club/ajax-form/?id=24&amp;title=%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9+%D0%B7%D0%B2%D0%BE%D0%BD%D0%BE%D0%BA" data-contact-ajax="">--}}
-                    {{--<i class="fas fa-phone-volume" style="font-size: 150%;"></i>--}}
-                    {{--<span style="margin-left: -12px; margin-top: -11px; display: block">ОБР.<br>звонок</span>--}}
-                    {{--<span class="mobile-text"><br>Звонок</span>--}}
-                {{--</a>--}}
+                <label style="cursor: pointer;" class="callme" for="modal_feedback">
+                    <i class="fas fa-phone-volume" style="font-size: 150%;"></i>
+                    <span class="mobile-text"><br>Звонок</span>
+                </label>
                 <ul>
                     <li class="last">
                         <label style="cursor: pointer;" class="callme" for="modal_feedback">Обратный звонок</label>
-                        {{--<a href="javascript:;" data-href="https://fitron.club/ajax-form/?id=24&amp;title=%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9+%D0%B7%D0%B2%D0%BE%D0%BD%D0%BE%D0%BA" data-contact-ajax="">Обратный звонок</a>--}}
                     </li>
                 </ul>
             </li>
             <li class="has-sub">
-                <a href="https://fitron.club/cards/">
+                <a href="http://space.fitron.club/blog">
                     <i class="fas fa-user" style="font-size: 150%;"></i>
-                    {{--<span style="margin-left: -4px; display: block">БЛОГ</span>--}}
                     <span class="mobile-text"><br>Карта</span>
                 </a>
                 <ul>
                     <li class="last">
-                        <a href="/">БЛОГ</a>
+                        <a href="http://space.fitron.club/blog">БЛОГ</a>
                     </li>
                 </ul>
             </li>
             <li class="has-sub">
                 <a href="{{route('cards')}}">
                     <i class="far fa-credit-card" style="font-size: 150%;"></i>
-                    {{--<span style="margin-left: -12px; margin-top: -11px; display: block">купить<br>кл. карту</span>--}}
                     <span class="mobile-text"><br>Карта</span>
                 </a>
                 <ul>
@@ -401,8 +393,12 @@
         </ul>
     </div>
 </div>
+
 @include('include.modal.feedback') {{--modal_feedback--}}
-{{--@include('include.modal.query_trainer') --}}{{--modal_query_trainer--}}
+@include('include.modal.query_trainer'){{--modal_query_trainer--}}
+
+@include('include.modal.privacypolicy')
+
 
 @stack('modal')
 

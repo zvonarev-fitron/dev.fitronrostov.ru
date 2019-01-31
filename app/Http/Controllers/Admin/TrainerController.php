@@ -86,7 +86,7 @@ class TrainerController extends Controller
     public function show($id)
     {
         $ids = explode('_', $id);
-        $this->params['trainers'] = \App\Trainer::where([['clubs_id', '=', $ids[0]],['type_trainers_id', '=', $ids[1]]])->get();
+        $this->params['trainers'] = \App\Trainer::where([['clubs_id', '=', $ids[0]],['type_trainers_id', '=', $ids[1]]])->orderBy('name')->get();
         return view('admin.trainer.show', ['params' => $this->params]);
     }
 
@@ -122,6 +122,7 @@ class TrainerController extends Controller
         }
         $trainer->name = $request->name;
         $trainer->code = $request->code;
+        $trainer->active = (isset($request->active) ? true: false);
         $trainer->youtube = $request->youtube;
         $trainer->seo_h1 = $request->seo_h1;
         $trainer->seo_title = $request->seo_title;

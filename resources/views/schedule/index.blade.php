@@ -42,14 +42,15 @@
                                     @endforeach
                                 @endisset
                                 </div>
-                                <div>
+                                <div id="schedule_select_club">
                                     <div class="select-club">
                                         <div class="select">
                                             <span id="schedule_chung_span" class="label" data-id="{{$params['select_club']->id}}" data-code="{{$params['select_club']->code}}">{{$params['select_club']->name}}</span>
                                         </div>
                                         <div class="another-clubs" id="schedule_another_club">
                                             @foreach($params['clubs'] as $club)
-                                            <a href="javascript:void(0);" data-id="{{$club->id}}" data-code="{{$club->code}}" class="another-club" data-pjax="0">{{$club->name}}</a>
+                                            {{--<a href="javascript:void(0);" data-id="{{$club->id}}" data-code="{{$club->code}}" class="another-club" data-pjax="0">{{$club->name}}</a>--}}
+                                            <div data-id="{{$club->id}}" data-code="{{$club->code}}" class="another-club" data-pjax="0">{{$club->name}}</div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -57,7 +58,8 @@
                             </div>
                         </div>
                         <div class="uk-width-medium-2-10">
-                            <a target="_blank" href="#" class="redbutton"><span>Получить бесплатный гостевой визит</span></a>
+                            <span class="redbutton"><label for="modal_guest_visit">Получить бесплатный гостевой визит</label></span>
+                            {{--<a target="_blank" href="#" class="redbutton"><span>Получить бесплатный гостевой визит</span></a>--}}
                             {{--<a target="_blank" href="{{route('schedule.pdf')}}" class="redbutton"><span>скачать расписание</span></a>--}}
                         </div>
                     </div>
@@ -147,6 +149,10 @@
     </div>
     <div class="redhr"></div>
 @endsection
+
+@push('modal')
+    @includeIf('include.modal.guestvisit')
+@endpush
 
 @section('script')
 <script>

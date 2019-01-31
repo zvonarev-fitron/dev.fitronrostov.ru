@@ -69,7 +69,7 @@ Route::get('cards', 'CardsController@index')->middleware('firstvisit')->name('ca
 //О нас
 Route::prefix('/aboutus/')->middleware('firstvisit')->group(function(){
     Route::get('mission', 'AboutusController@mission')->name('mission');
-    Route::get('boss', 'AboutusController@boss')->name('boss');
+//    Route::get('boss', 'AboutusController@boss')->name('boss');
     Route::get('vacancies', 'AboutusController@vacancies')->name('vacancies');
     Route::get('press', 'AboutusController@press')->name('press');
     Route::get('frachise', 'AboutusController@franchise')->name('franchise');
@@ -128,8 +128,6 @@ Route::prefix('cabinet')->middleware(['web', 'auth'])->group(function(){
     Route::prefix('schedule')->group(function(){
         Route::get('/', 'CabinetController@schedule')->name('cabinet.schedule');
         Route::get('{id_trainer}', 'CabinetController@schedule_trainer')->name('cabinet.schedule.trainer');
-
-
     });
 
     Route::prefix('calendar')->group(function(){
@@ -175,6 +173,8 @@ Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(f
     Route::get('/trainer/type/itogo/{code}/', 'Admin\TrainerController@type_trainer')->name('type_trainer_itogo');
     Route::get('/calendar/{id}', 'Admin\ScheduleController@calendar')->name('calendar');
     Route::get('/schedule/{id}/create', 'Admin\ScheduleController@create')->name('sch_create');
+    Route::get('/schedule/{id}/{date}/{to}/copy', 'Admin\ScheduleController@copy')->name('sch_copy');
+    Route::get('/schedule/{id}/{date}/erase', 'Admin\ScheduleController@erase')->name('sch_erase');
 
     Route::resources([
         'pages' => 'Admin\PageController',
@@ -194,3 +194,5 @@ Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(f
         'special' => 'Admin\SpecialController'
     ]);
 });
+
+Route::post('cb/{table}/{field}/{onoff}/{id}', 'Admin\DoingController@changeCB')->middleware('can:adminpanel')->name('cb');

@@ -8,7 +8,8 @@
     z-index: 1001;
 }
 
-@media (max-width: 767px){
+/*@media (max-width: 767px){*/
+@media (max-width: 959px){
     #modal_menu:checked~.menu-container {
         background-color:#f9f9fb;
         left:0;

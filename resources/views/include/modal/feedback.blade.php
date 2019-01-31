@@ -178,8 +178,8 @@
 
 <div id="feedback" class="container_feedback">
     <input type="checkbox" id="modal_feedback">
-    <label for="modal_feedback" id="modal_background" style="z-index: 999;"></label>
-    <div class="modal_content" style="z-index: 1000;">
+    <label for="modal_feedback" id="modal_background" style="z-index: 899;"></label>
+    <div class="modal_content" style="z-index: 900;">
         <div class="header">
             <div class="top_header">
                 <h2>Обратный звонок</h2>
@@ -191,12 +191,14 @@
                     @csrf
                     <div class="group_tag">
                         <div class="group_tag_row">
+
                             <div class="group_tag_input">
                                 <label for="form_feedback_name">Представтесь</label>
                                 <input type="text" id="form_feedback_name" name="form_feedback_name" />
                                 <div id="form_feedback_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
                                 <div id="form_feedback_name_back_error" class="error" style="opacity:0;"></div>
                             </div>
+
                             <div class="group_tag_input">
                                 <label for="form_feedback_club">Выберите клуб</label>
                                 <select type="text" id="form_feedback_club" name="form_feedback_club">
@@ -231,7 +233,8 @@
                                 <div>
                                     <input type="checkbox" id="form_feedback_agree" name="form_feedback_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
-                                    <a href="/privacy-policy" target="_blank">персональных данных</a>
+                                    <label for="modal_policy" style="color:red">персональных данных</label>
+                                    {{--<a href="/privacy-policy" target="_blank">персональных данных</a>--}}
                                 </div>
                                 <div id="form_feedback_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
                                 <div id="form_feedback_agree_back_error" class="error" style="opacity:0;"></div>
