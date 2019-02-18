@@ -64,11 +64,11 @@
         color:#333;
         transform:rotate(1turn)
     }
-    .container_modal_guest_visit .modal_content .header .top_header{
+    .container_modal_guest_visit .modal_content .header_guestvisit .top_header_guestvisit{
         margin-bottom:25px
     }
-    .container_modal_guest_visit .modal_content .header .top_header h2{
-        margin:0;
+    .container_modal_guest_visit .modal_content .header_guestvisit .top_header_guestvisit h2{
+        margin:0 30px;
         text-align:center
     }
     .container_modal_guest_visit .group_tag{
@@ -94,10 +94,10 @@
     .container_modal_guest_visit .group_tag .group_tag_row .group_tag_checkbox a{
         color:red
     }
-    .container_modal_guest_visit .group_tag .group_tag_row .group_tag_msg{
-        margin-bottom:25px;
-        color: #0f3b89;
-    }
+    /*.container_modal_guest_visit .group_tag .group_tag_row .group_tag_msg{*/
+        /*margin-bottom:25px;*/
+        /*color: #0f3b89;*/
+    /*}*/
     .container_modal_guest_visit .group_tag .group_tag_row .group_tag_input{
         width:285px
     }
@@ -184,23 +184,20 @@
         outline: none;
         width: 280px;
     }
-
-
-
     @media only screen and (max-width:700px){
         .container_modal_guest_visit #modal_guest_visit:checked~.modal_content{
-            width:300px
+            width:300px;
+            top:1%;
+            bottom:1%;
+            overflow-y: auto;
         }
         .container_modal_guest_visit .group_tag .group_tag_row{
-            align-items:flex-start;
+            align-items:center;
             display:flex;
             flex-direction:column
         }
         .container_modal_guest_visit .group_tag .group_tag_row .group_tag_checkbox{
             display:block
-        }
-        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_msg{
-            margin:5px
         }
         .container_modal_guest_visit .group_tag .group_tag_row .group_tag_checkbox,
         .container_modal_guest_visit .group_tag .group_tag_row .group_tag_input label{
@@ -211,25 +208,32 @@
         }
         .container_modal_guest_visit .group_tag .group_tag_row .group_tag_button .button_file,
         .container_modal_guest_visit .group_tag .group_tag_row .group_tag_button .button_submit{
-            transform:none;
             width:149px
         }
-        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_button .button_file span,
-        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_button .button_submit span{
-            transform:none;
+    }
+    @media only screen and (max-width:410px) {
+        .container_modal_guest_visit #modal_guest_visit:checked~.modal_content{
+            padding: 10px 0;
         }
-
-
-
-
+        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_input input,
+        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_input select {
+            width: 100%;
+        }
+        .container_modal_guest_visit .group_tag .group_tag_row .group_tag_input {
+            width: 100%;
+        }
+        .container_modal_guest_visit .group_tag {
+            width: 90%;
+            margin: auto;
+        }
     }
 </style>
 <div id="feedback" class="container_modal_guest_visit">
     <input type="checkbox" id="modal_guest_visit">
     <label for="modal_guest_visit" id="modal_background" style="z-index: 899;"></label>
     <div class="modal_content"  style="z-index: 900;">
-        <div class="header">
-            <div class="top_header">
+        <div class="header_guestvisit">
+            <div class="top_header_guestvisit">
                 <h2>Получить бесплатный гостевой визит</h2>
                 <label for="modal_guest_visit" id="modal_close_guest_visit"><i class="fas fa-times"></i></label>
             </div>
@@ -238,7 +242,7 @@
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input form_guest_visit_name">
-                                <label for="form_guest_visit_name">Представтесь</label>
+                                <label for="form_guest_visit_name">Представьтесь</label>
                                 <input type="text" id="form_guest_visit_name" name="form_guest_visit_name" class="" />
                                 <div class="error" style="display:none;">Необходимо заполнить «Представьтесь».</div>
                             </div>

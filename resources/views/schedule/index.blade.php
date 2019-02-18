@@ -159,6 +159,8 @@
     var onloadCaptcha = function(){
         window.feedback_modal_form_captcha = feedback_modal_form();
     };
+
+
     $(".table-viewport").on("scroll",function(){
         $(".headtablecont table").css("left","-"+$(this).scrollLeft()+"px");
     });
@@ -170,6 +172,7 @@
         e.preventDefault();
         $(".table-viewport").animate({scrollLeft: "-="+$("th.dayhead").outerWidth()}, 800);
     });
+
     (function(){
         document.querySelectorAll('.schedule_a_age').forEach(function(element){
             element.addEventListener('click', function(event){

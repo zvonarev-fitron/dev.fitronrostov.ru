@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Helpers\CUtils;
 
 
 
@@ -44,6 +45,7 @@ class ImageController extends Controller
         $path = '';
         if($request->hasFile('upload')) {
             $path = Storage::url($request->file('upload')->store('/FTUploads'));
+            CUtils::ImageResize(storage_path('app/public') . $path, 1076, 576);
         }
         \App\Image::create([
             'slider_id' => $request->slider_id,
@@ -97,6 +99,7 @@ class ImageController extends Controller
         if($request->hasFile('upload')) {
             Storage::delete($image->image);
             $image->image = Storage::url($request->file('upload')->store('FTUploads'));
+            CUtils::ImageResize(storage_path('app/public') . $image->image, 1076, 576);
         }
         $image->url = $request->url;
         $image->title = $request->title;

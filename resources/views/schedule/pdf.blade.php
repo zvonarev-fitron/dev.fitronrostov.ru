@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <title>Фитнес клуб FITRON - низкие цены на абонементы на занятия в тренажерном зале в Ростове-на-Дону</title>
     {{--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">--}}
     {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">--}}
@@ -10,13 +11,16 @@
     {{--<link href="{{ asset('css/base/fa-regular-400.woff.css.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('css/base/fa-solid-900.woff.css.css') }}" rel="stylesheet">--}}
 <style>
-    html {
-        /*font-family: DejaVu Sans, sans-serif;*/
+    /*html {*/
+        /*font-family: DejaVuSans;*/
+        /*font-style:normal;*/
+        /*font-weight:400;*/
+    /*}*/
+
+    body {
         font-family: DejaVu Sans, sans-serif;
-        font-style:normal;
-        font-weight:400;
-        /*font-family: DejaVu Sans;*/
     }
+
     .headtable {
         width: 720px;
     }
@@ -25,7 +29,6 @@
         background-color: blue;
         color: white;
     }
-
     .head_div .left{
         width: 30%;
         display: inline-block;
@@ -39,16 +42,13 @@
         vertical-align: top;
         text-align: right;
     }
-
     .dayhead {
         width: 10%;
     }
-
     .dayhead div {
         font-size: 10px;
         text-align: center;
     }
-
     .head_table {
         width: 100%;
         border-collapse: collapse;
@@ -60,77 +60,56 @@
     .head_table th div{
         color: blue;
     }
-
     #schedules_table {
         width: 100%;
         border-collapse: collapse;
     }
-
     #schedules_table td {
         width: 10%;
         border:1px solid grey;
         vertical-align: top;
     }
-
     .event {
         font-size: 10px;
     }
-
     .event .time {
         color: blue;
     }
-
     .event .name {
         color: red;
     }
-
     .event .place {
         color: black;
     }
-
     .icon-paid {
         display: inline-block;
-        /*vertical-align: text-bottom;*/
     }
-
     @page{
         size: A4 portrait;
         margin-top: 140px;
     }
-
     .teacherPage {
         page: teacher;
         page-break-after: always;
     }
-
     header {
         position: fixed;
         top: -94px;
         left: 0px;
         right: 0px;
         height: 90px;
-
-        /** Extra personal styles **/
-        /*background-color: #03a9f4;*/
-        /*color: white;*/
-        /*text-align: center;*/
-        /*line-height: 35px;*/
     }
-
     footer {
         position: fixed;
         bottom: 0px;
         left: 0px;
         right: 0px;
         height: 50px;
-
-        /** Extra personal styles **/
         background-color: #03a9f4;
         color: white;
         text-align: center;
         line-height: 35px;
     }
-
     .crearfix{
         height: 100px;
     }
@@ -139,6 +118,9 @@
         content: "";
         clear: both;
     }
+
+
+
 </style>
 </head>
 <body>

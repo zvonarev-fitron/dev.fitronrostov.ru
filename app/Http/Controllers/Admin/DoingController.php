@@ -79,6 +79,8 @@ class DoingController extends Controller
     public function edit($id)
     {
         $params['doing'] = \App\Doing::find($id);
+        $params['doing']->start_date = explode(' ', $params['doing']->start_date)[0];
+        $params['doing']->end_date = explode(' ', $params['doing']->end_date)[0];
         return view('admin.doings.edit', compact('params'));
     }
 

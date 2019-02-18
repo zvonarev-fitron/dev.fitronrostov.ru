@@ -17,7 +17,9 @@ use Maatwebsite\Excel\Facades\Excel;
 //Route::get('welcome', function(){return view('welcome');});
 
 Route::get('/', 'HomeController@index')->middleware('firstvisit')->name('index');
-Route::get('/wowslider/{id}/{club}', 'HomeController@wowslider')->name('wowslider');
+
+Route::get('/wowslider/{id}/{club}', 'WowSliderController@index')->name('wowslider');
+//Route::get('/wowslider/{id}/{club}', 'HomeController@wowslider')->name('wowslider');
 
 //События
 //Route::prefix('doing')->group(function(){
@@ -76,6 +78,7 @@ Route::prefix('/aboutus/')->middleware('firstvisit')->group(function(){
     Route::get('corporate', 'AboutusController@corporate')->name('corporate');
     Route::get('payment', 'AboutusController@payment')->name('payment');
 });
+
 
 //Расписание
 Route::prefix('/schedule/')->middleware('firstvisit')->group(function(){

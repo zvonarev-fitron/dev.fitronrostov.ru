@@ -28,7 +28,7 @@
                 <td>{{$new->title}}</td>
                 <td>{{$new->code}}</td>
                 <td>{{(new \DateTime($new->date))->format('d.m.Y')}}</td>
-                <td>@include('include.input.checkbox', ['id' => $new->id, 'name' => 'active', 'checked' => $new->active, 'disabled' => 1, 'style' => 'margin-top: -16px; margin-left: 16px;'])</td>
+                <td>@include('include.input.checkbox', ['id' => $new->id, 'class' => 'cb_new', 'name' => 'active', 'checked' => $new->active, 'disabled' => 0, 'style' => 'margin-top: -16px; margin-left: 16px;'])</td>
                 <td>{{$new->sort}}</td>
                 <td>{{$new->created_at}}</td>
                 <td>{{$new->updated_at}}</td>
@@ -46,6 +46,18 @@
 </div>
 <script>
     (function(){
+        document.querySelectorAll('.cb_new').forEach(function(element){
+            document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
+                event.preventDefault();
+                var cb = document.getElementById(this.getAttribute('for'));
+                var path = '/cb/news/active/';
+                path += (!cb.checked ? '1/' : '0/');
+                path += cb.dataset.id;
+                // console.log(path);
+                FTAdmin.AjaxCheckBox('POST', path , '{!! csrf_token() !!}', cb, true);
+                event.preventDefault();
+            });
+        });
         document.querySelector('#uncos-page_b_create').addEventListener('click', function(event){
             event.stopPropagation();
             FTAdmin.AjaxSend('GET', '/admin/uncos/create', '', FTAdmin.res.content.el);

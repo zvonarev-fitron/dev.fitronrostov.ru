@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
             else if(scrolledY > topPage && max){
                 header.classList.add('uk-active');
-                header.style = 'position: fixed; top: 0px; width: ' + header.offsetWidth + 'px; z-index: 10; border-bottom: 1px solid #ff0033;';
+                header.style = 'position: fixed; top: 0px; width: ' + header.offsetWidth + 'px; z-index: 10000; border-bottom: 1px solid #ff0033;';
                 min = true;
                 max = false;
             }
@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 }
                 else if(scrolledY > topHeadTableCont && maxTw){
                     $tw.classList.add('uk-active');
-                    $tw.style = 'position: fixed; top: 87px; width: ' + $tw.offsetWidth + 'px;';
+                    // $tw.style = 'position: fixed; top: 87px; width: ' + $tw.offsetWidth + 'px;';
+                    $tw.style = 'position: fixed; top: 49px; width: ' + $tw.offsetWidth + 'px;';
                     minTw = true;
                     maxTw = false;
                 }

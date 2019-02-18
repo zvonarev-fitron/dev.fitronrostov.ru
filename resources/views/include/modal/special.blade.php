@@ -64,7 +64,7 @@
         color:#333;
         transform:rotate(1turn)
     }
-    .container_special .modal_content .header .title_header{
+    .container_special .modal_content .header_special .title_header_special{
         color: red;
         background-color: #eff5f9;
         margin-top: 5px;
@@ -72,15 +72,15 @@
         font-size: 17px;
         text-align: center;
     }
-    .container_special .modal_content .header .form_of_back{
+    .container_special .modal_content .header_special .form_of_back{
         color: deeppink;
         background-color: gainsboro;
         text-align: center;
         font-size: 20px;
         line-height: 30px;
     }
-    .container_special .modal_content .header .top_header h2{
-        margin:0;
+    .container_special .modal_content .header_special .top_header_special h2{
+        margin:0 18px;
         text-align:center
     }
     .container_special .group_tag{
@@ -211,10 +211,12 @@
     }
     @media only screen and (max-width:700px){
         .container_special #modal_special:checked~.modal_content{
-            width:300px
+            width:300px;
+            top:1%;
+            bottom:1%;
         }
         .container_special .group_tag .group_tag_row{
-            align-items:flex-start;
+            align-items:center;
             display:flex;
             flex-direction:column
         }
@@ -222,18 +224,34 @@
             display:block
         }
     }
+    @media only screen and (max-width:410px) {
+        .container_special #modal_special:checked~.modal_content{
+            padding: 10px 0;
+        }
+        .container_special .group_tag .group_tag_row .group_tag_input input,
+        .container_special .group_tag .group_tag_row .group_tag_input select {
+            width: 100%;
+        }
+        .container_special .group_tag .group_tag_row .group_tag_input {
+            width: 100%;
+        }
+        .container_special .group_tag {
+            width: 90%;
+            margin:auto;
+        }
+    }
 </style>
 
 <div id="special" class="container_special">
     <input type="checkbox" id="modal_special">
     <label for="modal_special" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content" style="z-index: 900;">
-        <div class="header">
-            <div class="top_header">
+    <div class="modal_content" style="z-index: 900;overflow-y: auto;">
+        <div class="header_special">
+            <div class="top_header_special">
                 <h2 id="form_special_title">Узнать о тренировки</h2>
                 <label for="modal_special" id="modal_close_special"><i class="fas fa-times"></i></label>
             </div>
-            <div id="form_special_ok_back" style="opacity: 0;" class="form_of_back" class="title_header"></div>
+            <div id="form_special_ok_back" style="opacity: 0;" class="form_of_back" class="title_header_special"></div>
             <div class="content_form">
                 <form action="{{ route('join_special') }}" method="post" id="special_fdbc_modal" enctype="multipart/form-data">
                     @csrf
@@ -242,7 +260,7 @@
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input">
-                                <label for="form_special_name">Представтесь</label>
+                                <label for="form_special_name">Представьтесь</label>
                                 <input type="text" id="form_special_name" name="form_special_name" />
                                 <div id="form_special_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
                                 <div id="form_special_name_back_error" class="error" style="opacity:0;"></div>
@@ -391,7 +409,7 @@
         if(!(form_special_name_error + form_special_phone_error + form_special_email_error + form_special_agree_error + form_special_text_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestheader_special('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');

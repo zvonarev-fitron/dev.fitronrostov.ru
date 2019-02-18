@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Helpers\LoadHeader;
+use App\Helpers\CUtils;
 use Illuminate\Support\Facades\DB;
 use Jenssegers\Agent\Agent;
+//use App\User;
 
 class HomeController extends Controller
 {
@@ -29,18 +31,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $agent = new Agent();
-//        $device = $agent->device();
-//        $platform = $agent->platform();
-//        $browser = $agent->browser();
-//        dump($device);
-//        dump($platform);
-//        dump($browser);
-//
-//        dump($agent->isDesktop());
-//        dump($agent->isPhone());
-//        dd($agent->isRobot());
-
         $this->params['todate'] = new \DateTime();
 //        $this->params['date'] = new \DateTime(date('Y-m-d'));
         $this->params['trainings'] = \App\Training::all();
@@ -51,11 +41,35 @@ class HomeController extends Controller
             return new \App\Schedule(get_object_vars($obj));
         }, $schedules));
 
-//        dump($this->params);
+        $this->params['doings'] = \App\Doing::where('active', '1')->orderBy('sort')->get();
+        $img = [];
+        foreach($this->params['images'] as $image){
+            $img[$image->id] = [
+                'src' => $image->image,
+                'slider_id' =>$image->slider_id
+            ];
+        }
+        $this->params['main_slider'] = json_encode($img);
+        $img = [];
+        foreach($this->params['doings'] as $doings){
+            $date = new \DateTime($doings->start_date);
+            $img[] = [
+                'id' => $doings->id,
+                'name' => $doings->name,
+                'title' => $doings->title,
+                'subtitle' => $doings->subtitle,
+                'day' =>  $date->format('d'),
+                'month' => CUtils::RusMonthChisl($date->format('m')),
+                'url' => route('doing', ['code' => $doings->url]),
+                'src' => $doings->image
+            ];
+        }
+        $this->params['main-events'] = json_encode($img);
 
         return view('home.index', ['params' => $this->params]);
     }
 
+    //Перенесен в WowSliderController
     public function wowslider($id, $club)
     {
 //        $this->params['date'] = new \DateTime(date('Y-m-d'));
@@ -95,4 +109,42 @@ class HomeController extends Controller
         }
     }
 
+    public function proba()
+    {
+        $this->params['todate'] = new \DateTime();
+//        $this->params['date'] = new \DateTime(date('Y-m-d'));
+        $this->params['trainings'] = \App\Training::all();
+        $this->params['categories'] = \App\Category::all();
+        $this->params['rooms'] = \App\Room::all();
+        $schedules = DB::select('select * from schedules as t where t.active=true and date_trunc(\'day\', t.start_time)=:todate order by t.start_time', ['todate' => $this->params['date']]);
+        $this->params['schedules'] = collect(array_map(function($obj){
+            return new \App\Schedule(get_object_vars($obj));
+        }, $schedules));
+
+        $this->params['doings'] = \App\Doing::where('active', '1')->orderBy('sort')->get();
+        $img = [];
+        foreach($this->params['images'] as $image){
+            $img[$image->id] = [
+                'src' => $image->image,
+                'slider_id' =>$image->slider_id
+            ];
+        }
+        $this->params['main_slider'] = json_encode($img);
+        $img = [];
+        foreach($this->params['doings'] as $doings){
+            $date = new \DateTime($doings->start_date);
+            $img[] = [
+                'id' => $doings->id,
+                'name' => $doings->name,
+                'title' => $doings->title,
+                'subtitle' => $doings->subtitle,
+                'day' =>  $date->format('d'),
+                'month' => CUtils::RusMonthChisl($date->format('m')),
+                'url' => route('doing', ['code' => $doings->url]),
+                'src' => $doings->image
+            ];
+        }
+        $this->params['main-events'] = json_encode($img);
+        return view('home.proba', ['params' => $this->params]);
+    }
 }

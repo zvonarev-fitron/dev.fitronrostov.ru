@@ -10,6 +10,16 @@
     @include('include.input.text', ['name' => 'map_x', 'slot' => 'Координаты X', 'value' => $params['club']->map_x])
     @include('include.input.text', ['name' => 'map_y', 'slot' => 'Координаты Y', 'value' => $params['club']->map_y])
     @include('include.input.preview_file', ['name' => 'market_image', 'slot' => 'Изображение маркета', 'value' => $params['club']->market_image])
+
+
+
+
+
+
+
+
+
+
     @include('include.input.text', ['name' => 'created_at', 'slot' => 'Создан', 'value' => $params['club']->created_at, 'disabled' => true])
     @include('include.input.text', ['name' => 'updated_at', 'slot' => 'Изменен', 'value' => $params['club']->updated_at, 'disabled' => true])
     <button type="submit" class="btn btn-default">Сохранить</button>

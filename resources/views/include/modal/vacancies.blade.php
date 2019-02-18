@@ -17,7 +17,8 @@
     }
     .container_vacancies .modal_content{
         transform:scale(0);
-        transition:transform .5s
+        transition:transform .5s;
+        z-index: 900;
     }
     .container_vacancies #modal_vacancies{
         display:none
@@ -64,7 +65,7 @@
         color:#333;
         transform:rotate(1turn)
     }
-    .container_vacancies .modal_content .header .title_header{
+    .container_vacancies .modal_content .header_vacancies .title_header_vacancies{
         color: red;
         background-color: #eff5f9;
         margin-top: 5px;
@@ -72,7 +73,7 @@
         font-size: 17px;
         text-align: center;
     }
-    .container_vacancies .modal_content .header .top_header h2{
+    .container_vacancies .modal_content .header_vacancies .top_header_vacancies h2{
         margin:0;
         text-align:center
     }
@@ -196,15 +197,36 @@
     }
     @media only screen and (max-width:700px){
         .container_vacancies #modal_vacancies:checked~.modal_content{
-            width:300px
+            width:300px;
+            top:1%;
+            bottom:1%;
         }
         .container_vacancies .group_tag .group_tag_row{
-            align-items:flex-start;
+            align-items:center;
             display:flex;
             flex-direction:column
         }
         .container_vacancies .group_tag .group_tag_row .group_tag_checkbox{
             display:block
+        }
+        .container_vacancies .group_tag .group_tag_row .group_tag_input.group_tag_input_second {
+            margin-left: 0;
+        }
+        .container_vacancies .group_tag .button_file {
+            margin: 15px 0;
+        }
+        .container_vacancies .modal_content {
+            z-index: 900;
+            overflow-y: auto;
+        }
+    }
+    @media only screen and (max-width:410px) {
+        .container_vacancies #modal_vacancies:checked~.modal_content {
+            padding: 10px 0;
+        }
+        .container_vacancies .group_tag {
+            width: 90%;
+            margin: auto;
         }
     }
 </style>
@@ -212,20 +234,20 @@
 <div class="container_vacancies">
     <input type="checkbox" id="modal_vacancies">
     <label for="modal_vacancies" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content" style="z-index: 900;">
-        <div class="header">
-            <div class="top_header">
+    <div class="modal_content">
+        <div class="header_vacancies">
+            <div class="top_header_vacancies">
                 <h2>Хочу у вас работать</h2>
                 <label for="modal_vacancies" id="modal_close_vacancies"><i class="fas fa-times"></i></label>
             </div>
-            <div id="form_ok_vacancies_back" style="opacity: 0;" class="title_header"></div>
+            <div id="form_ok_vacancies_back" style="opacity: 0;" class="title_header_vacancies"></div>
             <div class="content_form">
                 <form action="{{ route('join_vacancies') }}" method="post" id="vacancies_fdbc_modal" enctype="multipart/form-data">
                     @csrf
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input">
-                                <label for="form_vacancies_name">Представтесь</label>
+                                <label for="form_vacancies_name">Представьтесь</label>
                                 <input type="text" id="form_vacancies_name" name="form_vacancies_name" />
                                 <div id="form_vacancies_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
                                 <div id="form_vacancies_name_back_error" class="error" style="opacity:0;"></div>
@@ -365,7 +387,7 @@
         if(!(form_vacancies_name_error + form_vacancies_phone_error + form_vacancies_email_error + form_vacancies_agree_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestheader_vacancies('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');

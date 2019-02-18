@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Schedule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -230,11 +231,21 @@ class ScheduleController extends Controller
         return $this->show($show_id);
     }
 
+    /**
+     * Очистка дня от всех занятий
+     *
+     * @param $id
+     * @param $date
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
     public function erase($id, $date)
     {
         $erase_date = new \DateTime($date);
         $show_id = $id . '_' . $erase_date->format('Y_m_d');
-        $sss = DB::table('schedules')->whereDate('start_time', $erase_date->format('Y-m-d'))->delete();
+        $sch = Schedule::whereDate('start_time', $erase_date->format('Y-m-d'))->get();
+        foreach($sch as $schedule) $schedule->delete();
+//        $sss = DB::table('schedules')->whereDate('start_time', $erase_date->format('Y-m-d'))->delete();
         return $this->show($show_id);
     }
 

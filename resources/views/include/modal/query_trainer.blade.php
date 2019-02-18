@@ -64,11 +64,11 @@
     color:#333;
     transform:rotate(1turn)
 }
-.container_modal_query_trainer .modal_content .header .top_header{
+.container_modal_query_trainer .modal_content .header_trainer .top_header_trainer{
     margin-bottom:25px
 }
-.container_modal_query_trainer .modal_content .header .top_header h2{
-    margin:0;
+.container_modal_query_trainer .modal_content .header_trainer .top_header_trainer h2{
+    margin:0 18px;
     text-align:center
 }
 .container_modal_query_trainer .group_tag{
@@ -125,9 +125,9 @@
     padding:10px;
     width:280px
 }
-.container_modal_query_trainer .group_tag .group_tag_row .group_tag_input input#form_query_trainer_name{
-    width:98%
-}
+/*.container_modal_query_trainer .group_tag .group_tag_row .group_tag_input input#form_query_trainer_name{*/
+    /*width:98%*/
+/*}*/
 .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input textarea{
     background-color:#f9f9fb;
     border:none;
@@ -158,16 +158,6 @@
     display:block;
     transform:skew(24deg)
 }
-.container_modal_query_trainer .group_tag .button_file{
-    background:#fff;
-    border:1px solid #f03;
-    cursor:pointer;
-    display:inline-block;
-    padding:10px;
-    text-align:center;
-    transform:skew(-24deg);
-    width:180px
-}
 .container_modal_query_trainer .group_tag .button_file span{
     color:#f03;
     display:block;
@@ -184,23 +174,20 @@
     outline: none;
     width: 280px;
 }
-
-
-
 @media only screen and (max-width:700px){
     .container_modal_query_trainer #modal_query_trainer:checked~.modal_content{
-        width:300px
+        width:300px;
+        top:1%;
+        bottom:1%;
+        overflow-y: auto;
     }
     .container_modal_query_trainer .group_tag .group_tag_row{
-        align-items:flex-start;
+        align-items:center;
         display:flex;
         flex-direction:column
     }
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_checkbox{
         display:block
-    }
-    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_msg{
-        margin:5px
     }
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_checkbox,
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input label{
@@ -209,27 +196,37 @@
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button{
         display:flex
     }
-    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button .button_file,
     .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button .button_submit{
-        transform:none;
+        /*transform:none;*/
         width:149px
     }
-    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button .button_file span,
-    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_button .button_submit span{
-        transform:none;
-    }
-
-
-
-
 }
+
+@media only screen and (max-width:410px) {
+    .container_modal_query_trainer #modal_query_trainer:checked~.modal_content{
+        padding: 10px 0;
+    }
+    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input input,
+    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input select,
+    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input,
+    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input.form_query_trainer_text,
+    .container_modal_query_trainer .group_tag .group_tag_row .group_tag_input textarea {
+        width: 100%;
+    }
+    .container_modal_query_trainer .group_tag .group_tag_row {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+
 </style>
 <div id="feedback" class="container_modal_query_trainer">
     <input type="checkbox" id="modal_query_trainer">
     <label for="modal_query_trainer" id="modal_background" style="z-index: 899;"></label>
     <div class="modal_content"  style="z-index: 900;">
-        <div class="header">
-            <div class="top_header">
+        <div class="header_trainer">
+            <div class="top_header_trainer">
                 <h2>Задать вопрос тренеру</h2>
                 <label for="modal_query_trainer" id="modal_close_query_trainer"><i class="fas fa-times"></i></label>
             </div>
@@ -238,7 +235,7 @@
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input form_query_trainer_name">
-                                <label for="form_query_trainer_name">Представтесь</label>
+                                <label for="form_query_trainer_name">Представьтесь</label>
                                 <input type="text" id="form_query_trainer_name" name="form_query_trainer_name" class="" />
                                 <div class="error" style="display:none;">Необходимо заполнить «Представьтесь».</div>
                             </div>

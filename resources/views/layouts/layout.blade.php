@@ -56,15 +56,16 @@
     <div class="menu-container">
         <ul class="menu" style="visibility: visible; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
             @foreach($params['pages'] as $page)
+                @unless(21 == $page['id'])
                 <li {!!($params['main_page_id'] == $page['id'] ? 'class="active"' : '')!!}>
                     <a href="{{0 < strlen($page->trek) ? $page->trek : url($page->code)}}"><span>{{$page->menu}}</span></a>
                 </li>
+                @endunless
             @endforeach
-            <li><a href="javascript:;" style="color: #ff0033;">Перезвоните мне</a></li>
+            {{--<li><a href="javascript:;" style="color: #ff0033;">Перезвоните мне</a></li>--}}
             <li><a href="tel:+78633109571" class="phone comagic_phone2">+7 (863) 310-9571</a></li>
         </ul>
     </div>
-
     <div class="header">
         <div class="header_top_fon">
             <div class="header_top">
@@ -322,7 +323,7 @@
 </div>
 
 <div class="uk-sticky-placeholder">
-    <div id="stickymenu" data-uk-sticky-bottom="{media: '(max-width: 1023px)}" style="bottom: 0px; /*width: 1263px;*/ position: fixed;" class="uk-sticky-init uk-active">
+    <div id="stickymenu" data-uk-sticky-bottom="{media: '(max-width: 1023px)}" style="bottom: 0px; /*width: 1263px;*/ position: fixed; z-index:1000;" class="uk-sticky-init uk-active">
         <ul>
             <li class="has-sub">
                 <a href="{{ route('special_index') }}">
@@ -371,7 +372,7 @@
             <li class="has-sub">
                 <a href="http://space.fitron.club/blog">
                     <i class="fas fa-user" style="font-size: 150%;"></i>
-                    <span class="mobile-text"><br>Карта</span>
+                    <span class="mobile-text"><br>блог</span>
                 </a>
                 <ul>
                     <li class="last">
@@ -396,56 +397,10 @@
 
 @include('include.modal.feedback') {{--modal_feedback--}}
 @include('include.modal.query_trainer'){{--modal_query_trainer--}}
-
 @include('include.modal.privacypolicy')
 
-
 @stack('modal')
-
-<!-- Scripts -->
-{{--<script src="{{ asset('js/all.js') }}" defer></script>--}}
-
-<script type="text/javascript" src="/js/slider/modernizr.custom.46884.js"></script>
-<script type="text/javascript" src="/js/slider/jquery.slicebox.js"></script>
-<script type="text/javascript">
-    $(function() {
-        var Page = (function() {
-            var $navArrows = $( '#nav-arrows' ).hide(),
-                $shadow = $( '#shadow' ).hide(),
-                slicebox = $( '#sb-slider' ).slicebox( {
-                    onReady : function() {
-                        $navArrows.show();
-                        $shadow.show();
-                    },
-                    interval: 7000,
-                    autoplay : true,
-                    cuboidsRandom : true,
-                    cuboidsCount : 10,
-                    perspective : 1200,
-                    orientation : 'r',
-                    cuboidsRandom : true,
-                    disperseFactor : 30
-                } ),
-                init = function() {
-                    initEvents();
-                },
-                initEvents = function() {
-                    // add navigation events
-                    $navArrows.children( ':first' ).on( 'click', function() {
-                        slicebox.next();
-                        return false;
-                    } );
-                    $navArrows.children( ':last' ).on( 'click', function() {
-                        slicebox.previous();
-                        return false;
-                    } );
-                };
-            return { init : init };
-        })();
-        Page.init();
-    });
-</script>
-
+@stack('script-slider')
 
 <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD26YUuv-fjY4NmUXuFK88na-ZGQVe5Ddk&amp;callback=initialize"></script>
 <script type="text/javascript">

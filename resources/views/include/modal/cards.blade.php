@@ -64,18 +64,18 @@
         color:#333;
         transform:rotate(1turn)
     }
-    .container_cards .modal_content .header .top_header{
+    .container_cards .modal_content .header_cards .top_header_cards{
         margin-bottom:25px
     }
-    .container_cards .modal_content .header .form_of_back{
-        color: deeppink;
-        background-color: gainsboro;
-        text-align: center;
-        font-size: 20px;
-        line-height: 30px;
-    }
-    .container_cards .modal_content .header .top_header h2{
-        margin:0;
+    /*.container_cards .modal_content .header_cards .form_of_back{*/
+        /*color: deeppink;*/
+        /*background-color: gainsboro;*/
+        /*text-align: center;*/
+        /*font-size: 20px;*/
+        /*line-height: 30px;*/
+    /*}*/
+    .container_cards .modal_content .header_cards .top_header_cards h2{
+        margin:0 35px;
         text-align:center
     }
     .container_cards .group_tag{
@@ -117,10 +117,10 @@
         display:flex;
         justify-content:space-around
     }
-    .container_vacancies .group_tag .group_tag_row.file{
-        display:flex;
-        justify-content: flex-start;
-    }
+    /*.container_vacancies .group_tag .group_tag_row.file{*/
+        /*display:flex;*/
+        /*justify-content: flex-start;*/
+    /*}*/
     .container_cards .group_tag .group_tag_row .group_tag_checkbox{
         align-self:center;
         display:flex;
@@ -202,27 +202,54 @@
         flex-direction: column;
         align-items: center;
     }
+    .container_cards .modal_content {
+        z-index: 900;
+        overflow-y: auto;
+    }
     @media only screen and (max-width:700px){
         .container_cards #modal_cards:checked~.modal_content{
-            width:300px
+            width:300px;
+            top: 1%;
+            bottom: 1%;
         }
         .container_cards .group_tag .group_tag_row{
-            align-items:flex-start;
+            align-items:center;
             display:flex;
             flex-direction:column
         }
         .container_cards .group_tag .group_tag_row .group_tag_checkbox{
             display:block
         }
+        .container_cards .modal_content .header_cards .top_header_cards h2{
+            font-size: 12px;
+        }
+        .container_cards .group_tag .button_file {
+            margin: 15px 0;
+        }
+    }
+    @media only screen and (max-width:410px) {
+        .container_cards #modal_cards:checked~.modal_content{
+            padding: 10px 0;
+        }
+        .container_cards .group_tag .group_tag_row .group_tag_input input,
+        .container_cards .group_tag .group_tag_row .group_tag_input select {
+            width: 100%;
+        }
+        .container_cards .group_tag .group_tag_row .group_tag_input {
+            width: 100%;
+        }
+        .container_cards .group_tag {
+            width: 90%;
+            margin: auto;
+        }
     }
 </style>
-
 <div id="cards" class="container_cards">
     <input type="checkbox" id="modal_cards">
     <label for="modal_cards" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content" style="z-index: 900;">
-        <div class="header">
-            <div class="top_header">
+    <div class="modal_content">
+        <div class="header_cards">
+            <div class="top_header_cards">
                 <h2 id="form_cards_title"></h2>
                 <label for="modal_cards" id="modal_close_cards"><i class="fas fa-times"></i></label>
             </div>
@@ -234,7 +261,7 @@
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input">
-                                <label for="form_cards_name">Представтесь</label>
+                                <label for="form_cards_name">Представьтесь</label>
                                 <input type="text" id="form_cards_name" name="form_cards_name" />
                                 <div id="form_cards_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
                                 <div id="form_cards_name_back_error" class="error" style="opacity:0;"></div>
@@ -399,7 +426,7 @@
         if(!(form_cards_name_error + form_cards_phone_error + form_cards_email_error + form_cards_agree_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestheader_cards('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');

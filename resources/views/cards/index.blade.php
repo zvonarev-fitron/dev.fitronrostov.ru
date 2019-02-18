@@ -62,7 +62,7 @@
                         </div>
                         <div class="uk-width-medium-2-3">
                             <ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">
-                                <li><b>Персональные вводные тренировки (3 шт.)</b></li>
+                                <li><b>Персональные вводные тренировки (2 шт.)</b></li>
                                 <li><b>Секция на выбор&nbsp;(1 шт.)</b></li>
                                 <li><b>Гостевые визиты (3 шт.)</b></li>
                                 <li><b>Полотенце</b></li>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="uk-width-medium-2-3">
                             <ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">
-                                <li><b>Персональные вводные тренировки (3 шт.)</b></li>
+                                <li><b>Персональные вводные тренировки (2 шт.)</b></li>
                                 <li><b>Персональные тренировки на выбор (5 шт.)</b></li>
                                 <li><b>Секция на выбор&nbsp;(1 шт.)</b></li>
                                 <li><b>10% скидка на персональные тренировки</b></li>
@@ -157,7 +157,7 @@
                         </div>
                         <div class="uk-width-medium-2-3">
                             <ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">
-                                <li><b>Персональные вводные тренировки (3 шт.)</b></li>
+                                <li><b>Персональные вводные тренировки (2 шт.)</b></li>
                                 <li><b>Секция на выбор&nbsp;(1 шт.)</b></li>
                                 <li><b>Гостевые визиты (3 шт.)</b></li>
                                 <li><b>Привилегии от партнёров.</b></li>
@@ -203,7 +203,7 @@
                         </div>
                         <div class="uk-width-medium-2-3">
                             <ol class="secondol uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-3">
-                                <li><b>Персональные вводные тренировки (3 шт.)</b></li>
+                                <li><b>Персональные вводные тренировки (2 шт.)</b></li>
                                 <li><b>Секция на выбор&nbsp;(1 шт.)</b></li>
                                 <li><b>Гостевые визиты (3 шт.)</b></li>
                                 <li><b>Полотенце</b></li>

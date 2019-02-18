@@ -30,45 +30,59 @@
 @endsection
 @section('slider')
     <div id="main-slider">
-    <div class="wrapper">
-        <ul id="sb-slider" class="sb-slider">
-            @foreach($params['images'] as $image)
-                <li>
-                    <a href="{{ route('uncos') }}">
-                        <img src="{{$image->image}}" alt="{{$image->title}}"/></a>
-                    <div class="sb-description">
-                        <div class="slider-text">
-                            <a href="{{$image->url}}" rel="nofollow">
-                                <b>{{$image->title}}</b>
-                            </a>
-                            <br>{{$image->text}}<br><br>
-                            <a href="{{$image->url}}" class="more">узнать больше</a>
-                        </div>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
-        <div id="shadow" class="shadow"></div>
-        <div id="nav-arrows" class="nav-arrows">
-            <a href="#">Next</a>
-            <a href="#">Previous</a>
-        </div>
-    </div><!-- /wrapper -->
+
+        <main-carrousel v-bind:items="{{ $params['main_slider'] }}"></main-carrousel>
+
+    {{--<div class="wrapper">--}}
+        {{--<ul id="sb-slider" class="sb-slider">--}}
+            {{--@foreach($params['images'] as $image)--}}
+                {{--<li>--}}
+                    {{--<a href="{{ route('uncos') }}">--}}
+                        {{--<img src="{{$image->image}}" alt="{{$image->title}}"/></a>--}}
+                    {{--<div class="sb-description">--}}
+                        {{--<div class="slider-text">--}}
+                            {{--<a href="{{$image->url}}" rel="nofollow">--}}
+                                {{--<b>{{$image->title}}</b>--}}
+                            {{--</a>--}}
+                            {{--<br>{{$image->text}}<br><br>--}}
+                            {{--<a href="{{$image->url}}" class="more">узнать больше</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</li>--}}
+            {{--@endforeach--}}
+        {{--</ul>--}}
+        {{--<div id="shadow" class="shadow"></div>--}}
+        {{--<div id="nav-arrows" class="nav-arrows">--}}
+            {{--<a href="#">Next</a>--}}
+            {{--<a href="#">Previous</a>--}}
+        {{--</div>--}}
+    {{--</div><!-- /wrapper -->--}}
+
+
+
 </div>
 @endsection
 @section('schedule')
     <div id="main-events-schedule">
-    <div id="main-events">
-        <div class="main-events-cont">
-            <div class="events-top">
-                <div class="uk-slidenav-position" data-uk-slider="{infinite: false}">
-                    <iframe src="/wowslider/1/1/" scrolling="no" style="width:1000px;height:654px;max-width:100%;overflow:hidden;border:none;padding:0;margin:0 auto;display:block;" marginheight="0" marginwidth="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="main-schedule">
+    {{--<div id="main-events">--}}
+        {{--<div class="main-events-cont">--}}
+            {{--<div class="events-top">--}}
+                {{--<div class="uk-slidenav-position" data-uk-slider="{infinite: false}">--}}
+                    {{--<iframe src="/wowslider/1/1/" scrolling="no" style="width:1000px;height:654px;max-width:100%;overflow:hidden;border:none;padding:0;margin:0 auto;display:block;" marginheight="0" marginwidth="0"></iframe>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+        <div id="main-events">
+            {{--<iframe src="/wowslider/1/1/" scrolling="no" style="width:1000px;height:654px;max-width:100%;overflow:hidden;border:none;padding:0;margin:0 auto;display:block;" marginheight="0" marginwidth="0"></iframe>--}}
+            <main-db-carrousel v-bind:width="500" v-bind:items="{{ $params['main-events'] }}"></main-db-carrousel>
+
+        </div>
+
+
+    <div id="main-schedule" style="position: relative;">
         <p class="caption"><b>Расписание</b></p>
         <div class="select-club">
             <div class="select">
@@ -191,7 +205,7 @@
                                         <li>FITRON Миллениум на Соборном,</li>
                                         <li>FITRON Орбита на Северном,</li>
                                         <li>FITRON Газетный,</li>
-                                        <li>ФизКульт ТЦ «Горизонт»,</li>
+                                        <li>FITRON Горизонт.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -225,7 +239,7 @@
                         <div class="uk-width-3-4">
                             <div class="uk-panel">
                                 <p class="head">Мировые стандарты</p><p>
-                                </p><p>Высокие мировые стандарты сервиса от Ростовской Фитнес Группы FITRON</p>
+                                </p><p>Высокие мировые стандарты сервиса от FITRON</p>
                             </div>
                         </div>
                     </div>
@@ -267,6 +281,9 @@
     </div>
 @endsection
 @section('script')
+    <script type="text/javascript" src="/js/sliders/mainslider.js"></script>
+    {{--<script type="text/javascript" src="/js/slider/modernizr.custom.46884.js"></script>--}}
+    {{--<script type="text/javascript" src="/js/slider/jquery.slicebox.js"></script>--}}
 <script>
     var onloadCaptcha = function(){
         window.feedback_modal_form_captcha = feedback_modal_form();
@@ -319,3 +336,44 @@
     });
 </script>
 @endsection
+
+{{--@push('script-slider')--}}
+    {{--<script type="text/javascript">--}}
+        {{--$(function() {--}}
+            {{--var Page = (function() {--}}
+                {{--var $navArrows = $( '#nav-arrows' ).hide(),--}}
+                    {{--$shadow = $( '#shadow' ).hide(),--}}
+                    {{--slicebox = $( '#sb-slider' ).slicebox( {--}}
+                        {{--onReady : function() {--}}
+                            {{--$navArrows.show();--}}
+                            {{--$shadow.show();--}}
+                        {{--},--}}
+                        {{--interval: 7000,--}}
+                        {{--autoplay : true,--}}
+                        {{--cuboidsRandom : true,--}}
+                        {{--cuboidsCount : 10,--}}
+                        {{--perspective : 1200,--}}
+                        {{--orientation : 'r',--}}
+                        {{--cuboidsRandom : true,--}}
+                        {{--disperseFactor : 30--}}
+                    {{--} ),--}}
+                    {{--init = function() {--}}
+                        {{--initEvents();--}}
+                    {{--},--}}
+                    {{--initEvents = function() {--}}
+                        {{--// add navigation events--}}
+                        {{--$navArrows.children( ':first' ).on( 'click', function() {--}}
+                            {{--slicebox.next();--}}
+                            {{--return false;--}}
+                        {{--} );--}}
+                        {{--$navArrows.children( ':last' ).on( 'click', function() {--}}
+                            {{--slicebox.previous();--}}
+                            {{--return false;--}}
+                        {{--} );--}}
+                    {{--};--}}
+                {{--return { init : init };--}}
+            {{--})();--}}
+            {{--Page.init();--}}
+        {{--});--}}
+    {{--</script>--}}
+{{--@endpush--}}

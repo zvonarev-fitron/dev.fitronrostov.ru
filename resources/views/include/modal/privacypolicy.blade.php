@@ -1,10 +1,4 @@
 <style>
-
-
-
-
-
-
     .container_policy label{
         cursor:pointer;
         transition:all .25s
@@ -14,7 +8,7 @@
         cursor:pointer;
         height:0;
         opacity:0;
-        overflow:hidden;
+        /*overflow:hidden;*/
         visibility:hidden;
         width:0
     }
@@ -55,7 +49,7 @@
         transform:scale(1);
         transition:transform .5s;
         visibility:visible;
-        width:1120px;
+        width:92vw;
     }
     .container_policy #modal_policy:checked~.modal_content #modal_close_feedback{
         color:rgba(51,51,51,.4);
@@ -71,23 +65,23 @@
         transform:rotate(1turn)
     }
 
-    .container_policy .modal_content .top_header {
+    .container_policy .modal_content .top_header_privacypolicy {
         display: flex;
         justify-content: flex-end;
         padding-bottom: 10px;
     }
 
-    .container_policy .modal_content .header .top_header{
+    .container_policy .modal_content .header_privacypolicy .top_header_privacypolicy{
         margin-bottom:25px
     }
-    .container_policy .modal_content .header .form_of_back{
+    .container_policy .modal_content .header_privacypolicy .form_of_back{
         color: deeppink;
         background-color: gainsboro;
         text-align: center;
         font-size: 20px;
         line-height: 30px;
     }
-    .container_policy .modal_content .header .top_header h2{
+    .container_policy .modal_content .header_privacypolicy .top_header_privacypolicy h2{
         margin:0;
         text-align:center
     }
@@ -174,33 +168,42 @@
         align-items: center;
         display: flex;
     }
+    .container_policy .modal_content {
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
     @media only screen and (max-width:700px){
         .container_policy #modal_policy:checked~.modal_content{
-            width:300px
+            top:1%;
+            bottom:1%;
+            left:1%;
+            right:1%;
+            width:auto;
         }
-        .container_policy .group_tag .group_tag_row{
-            align-items:flex-start;
-            display:flex;
-            flex-direction:column
-        }
-        .container_policy .group_tag .group_tag_row .group_tag_checkbox{
-            display:block
-        }
+        /*.container_policy .group_tag .group_tag_row{*/
+            /*align-items:center;*/
+            /*display:flex;*/
+            /*flex-direction:column*/
+        /*}*/
+        /*.container_policy .group_tag .group_tag_row .group_tag_checkbox{*/
+            /*display:block*/
+        /*}*/
     }
 </style>
 
 <div id="privacypolicy" class="container_policy">
     <input type="checkbox" id="modal_policy">
     <label for="modal_policy" id="modal_background" style="z-index: 999;"></label>
-    <div class="modal_content" style="z-index: 1000;">
-        <div class="top_header">
+    <div class="modal_content">
+        <div class="top_header_privacypolicy">
             {{--<h2>Обратный звонок</h2>--}}
             <label for="modal_policy" id="modal_close_policy"><i class="fas fa-times"></i></label>
         </div>
 
-<div class="uk-modal-dialog uk-modal-dialog-large" style="overflow: auto;">
+<div class="uk-modal-dialog uk-modal-dialog-large">
     <a class="uk-modal-close uk-close"></a>
-    <div class="uk-modal-header">
+    <div class="uk-modal-header_privacypolicy">
         <p class="uk-text-center"><b class="uk-text-uppercase">Политика защиты и обработки персональных данных</b></p>
     </div>
     {{--<div class="uk-position-cover" style="z-index: -1; display: none;">--}}

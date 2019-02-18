@@ -104,6 +104,16 @@ class CUtils
     }
 
     /**
+     * @param $n - Номер месяца с 1 .. 12
+     */
+    public static function RusMonthChisl($n)
+    {
+        $n = --$n;
+        $rus_month = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'];
+        return isset($rus_month[$n]) ? $rus_month[$n] : 'Неизветный номер месяца - ' . $n;
+    }
+
+    /**
      * @param $w - Номер недели
      * @return string
      */
