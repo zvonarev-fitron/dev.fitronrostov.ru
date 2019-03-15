@@ -164,8 +164,8 @@
 @media only screen and (max-width:700px){
     .container_feedback #modal_feedback:checked~.modal_content{
         width:300px;
-        top:1%;
-        bottom: 1%;
+        top:6%;
+        bottom:8%;
     }
     .container_feedback .group_tag .group_tag_row{
         align-items:center;
@@ -196,8 +196,8 @@
 
 <div id="feedback" class="container_feedback">
     <input type="checkbox" id="modal_feedback">
-    <label for="modal_feedback" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content" style="z-index: 900;overflow-y: auto;">
+    <label for="modal_feedback" id="modal_background" style="z-index: 1001;"></label>
+    <div class="modal_content" style="z-index: 1002;overflow-y: auto;">
         <div class="header_feedback">
             <div class="top_header_feedback">
                 <h2>Обратный звонок</h2>

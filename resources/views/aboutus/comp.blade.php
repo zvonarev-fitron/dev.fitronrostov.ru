@@ -13,13 +13,16 @@
 @section('pagehead')
     <div id="pagehead" style="background: url(/images/bg2.jpg) no-repeat center;background-size: cover;">
         <div class="container">
-            <h1>{{$params['page']->menu}}</h1>
-            <ul class="uk-breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a href="/" itemprop="url"><span itemprop="name">Главная</span></a>
+            <h1>Реквизиты {{ $params['club']->name }}</h1>
+            <ul class="uk-breadcrumb">
+                <li>
+                    <a href="/"><span>Главная</span></a>
                 </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="uk-active">
-                    <span itemprop="name">{{$params['page']->menu}}</span>
+                <li>
+                    <a href="{{ route('franchise') }}"><span>Франчайзинг</span></a>
+                </li>
+                <li class="uk-active">
+                    <span>Реквизиты {{ $params['club']->name }}</span>
                 </li>
             </ul>
         </div>
@@ -36,32 +39,25 @@
                     {{--<li><a href="{{route('boss')}}">Руководство</a></li>--}}
                     {{--<li><a href="{{route('vacancies')}}">Вакансии</a></li>--}}
                     <li><a href="{{route('press')}}">Пресса</a></li>
-                    <li class="uk-active"><a href="{{route('franchise')}}">Франчайзинг</a></li>
+                    <li><a href="{{route('franchise')}}">Франчайзинг</a></li>
                     <li><a href="{{route('corporate')}}">Корпоративным клиентам</a></li>
                     <li><a href="{{route('payment')}}">Способы оплаты</a></li>
                 </ul>
             </div>
             <div class="uk-width-medium-7-10">
-                <div class="pagecontent franchise uk-margin-top uk-margin-large-bottom">
-                    <p class="pageh2">Наши франчайзи:</p>
-                    <table>
+                <div class="pagecontent franchise-requisites uk-margin-top uk-margin-large-bottom">
+                    <p class="pageh2">Реквизиты {{ $params['club']->name }}</p>
+                    <table class="comp_club_t">
                         <tbody>
-                        @foreach($params['all_clubs'] as $club)
-                        <tr>
-                            <td><b>{{ $club->name }}</b></td>
-                            <td>{{ $club->address }}<br>
-                                <a href="{{ route('franchise_comp', $club->code) }}">{{ $club->comp->name }}</a><br>
-                                <a href="{{ route('franchise_price', $club->code) }}">прайс-лист клуба</a>
-                            </td>
-                            <td class="uk-hidden-small">
-                                @if($club->small_map_image)
-                                <a href="{{ $club->small_map_url ?? 'javascript:void'  }}" target="_blank" rel="nofollow">
-                                    <img src="{{ $club->small_map_image }}" alt="">
-                                </a>
-                                @endif
-                            </td>
-                        </tr>
-                        @endforeach
+                        <tr><td style="white-space: nowrap;">Наименование компании</td><td>{{ $params['comp']->name }}</td></tr>
+                        <tr><td>ОГРН</td><td>{{ $params['comp']->ogrnip }}</td></tr>
+                        <tr><td>ИНН</td><td>{{ $params['comp']->inn }}</td></tr>
+                        <tr><td>Телефон</td><td><b>{{ $params['comp']->phone }}</b></td></tr>
+                        <tr><td>Факс</td><td><b>{{ $params['comp']->fax }}</b></td></tr>
+                        <tr><td>Режим работы:</td><td>{{ $params['comp']->work }}</td></tr>
+                        <tr><td>Физический адрес:</td><td>{{ $params['comp']->fact_addr }}</td></tr>
+                        <tr><td>Юридический адрес:</td><td>{{ $params['comp']->legal_addr }}</td></tr>
+                        <tr><td>e-mail:</td><td><b>{{ $params['comp']->email }}</b></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -78,3 +74,4 @@
         }
     </script>
 @endsection
+

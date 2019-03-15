@@ -12,6 +12,7 @@ else{
         },
         select_table: {
             club: 0,
+            comp: 0,
             page: 0,
             sliders: 0,
             slider: 0,
@@ -30,7 +31,8 @@ else{
             schedule_club: 0,
             schedule: 0,
             user: 0,
-            role: 0
+            role: 0,
+            price_club: 0
         },
         res: {
             class_menu_left: 'FTAdmin-menu_panel_left',
@@ -44,9 +46,17 @@ else{
                 id: 'menu_roles',
                 select_class: 'user-tr_click__select'
             },
+            comp: {
+                id: 'menu_comp',
+                select_class: 'comp-tr_click__select'
+            },
             club: {
                 id: 'menu_clubs',
                 select_class: 'club-tr_click__select'
+            },
+            price_club: {
+                id: 'menu_price',
+                select_class: 'price_club-tr_click__select'
             },
             page: {
                 id: 'menu_pages',
@@ -122,6 +132,10 @@ else{
             this.res.club.el = document.querySelector('#' + this.res.club.id);
             this.res.club.el.classList.add(this.res.class_menu_left);
             this.handlers.clubs(this.res.club.el, this.res.content.el, this.res.class_active);
+            //Предприятия
+            this.res.comp.el = document.querySelector('#' + this.res.comp.id);
+            this.res.comp.el.classList.add(this.res.class_menu_left);
+            this.handlers.comp(this.res.comp.el, this.res.content.el, this.res.class_active);
             //Страницы
             this.res.page.el = document.querySelector('#' + this.res.page.id);
             this.res.page.el.classList.add(this.res.class_menu_left);
@@ -173,7 +187,6 @@ else{
             if(0 < els.length) for(var i = 0; i < els.length; i++) els[i].classList.remove(this.res.class_active);
             if(el) el.classList.add(this.res.class_active);
         },
-
         LeftMenuActive: function(el, act){
             var result = true;      //false;
             if(!el.classList.contains(act)) {
@@ -182,7 +195,6 @@ else{
             }
             return result;
         },
-
         TableTrClearSelect: function(tbl, mn ){
             var els = document.querySelectorAll(tbl + ' tr');
             var cl = this.res[mn].select_class;
@@ -196,7 +208,6 @@ else{
                 }
             }
         },
-
         //Обработчики
         handlers: {
             //Пользователи
@@ -223,6 +234,16 @@ else{
                     event.stopPropagation();
                     if(FTAdmin.LeftMenuActive(event.target, active)){
                         FTAdmin.AjaxSend('GET', '/admin/clubs/', '', content);
+                    }
+                });
+            },
+            //Предприятия
+            comp: function(el, content, active){
+                el.addEventListener('click', function(event){
+                    event.stopPropagation();
+                    if(FTAdmin.LeftMenuActive(event.target, active)){
+//                        content.innerHTML = '<h1>Предприятия</h1>';
+                        FTAdmin.AjaxSend('GET', '/admin/comps/', '', content);
                     }
                 });
             },

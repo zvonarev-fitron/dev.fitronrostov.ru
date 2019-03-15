@@ -169,7 +169,7 @@
         display: flex;
     }
     .container_policy .modal_content {
-        z-index: 1000;
+        z-index: 1005;
         overflow-y: auto;
     }
 
@@ -194,7 +194,7 @@
 
 <div id="privacypolicy" class="container_policy">
     <input type="checkbox" id="modal_policy">
-    <label for="modal_policy" id="modal_background" style="z-index: 999;"></label>
+    <label for="modal_policy" id="modal_background" style="z-index: 1004;"></label>
     <div class="modal_content">
         <div class="top_header_privacypolicy">
             {{--<h2>Обратный звонок</h2>--}}

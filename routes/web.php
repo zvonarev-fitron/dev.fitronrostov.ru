@@ -16,6 +16,8 @@ use Maatwebsite\Excel\Facades\Excel;
 
 //Route::get('welcome', function(){return view('welcome');});
 
+Route::get('phone', 'PhoneController@phone');
+
 Route::get('/', 'HomeController@index')->middleware('firstvisit')->name('index');
 
 Route::get('/wowslider/{id}/{club}', 'WowSliderController@index')->name('wowslider');
@@ -72,9 +74,15 @@ Route::get('cards', 'CardsController@index')->middleware('firstvisit')->name('ca
 Route::prefix('/aboutus/')->middleware('firstvisit')->group(function(){
     Route::get('mission', 'AboutusController@mission')->name('mission');
 //    Route::get('boss', 'AboutusController@boss')->name('boss');
-    Route::get('vacancies', 'AboutusController@vacancies')->name('vacancies');
+//    Route::get('vacancies', 'AboutusController@vacancies')->name('vacancies');
     Route::get('press', 'AboutusController@press')->name('press');
-    Route::get('frachise', 'AboutusController@franchise')->name('franchise');
+
+    Route::prefix('/frachise/')->group(function(){
+        Route::get('/', 'AboutusController@franchise')->name('franchise');
+        Route::get('comp/{code}/', 'AboutusController@comp')->name('franchise_comp');
+        Route::get('price/{code}/', 'AboutusController@price')->name('franchise_price');
+    });
+
     Route::get('corporate', 'AboutusController@corporate')->name('corporate');
     Route::get('payment', 'AboutusController@payment')->name('payment');
 });
@@ -179,6 +187,9 @@ Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(f
     Route::get('/schedule/{id}/{date}/{to}/copy', 'Admin\ScheduleController@copy')->name('sch_copy');
     Route::get('/schedule/{id}/{date}/erase', 'Admin\ScheduleController@erase')->name('sch_erase');
 
+    Route::put('/price/club/{id_club}/edit/', 'Admin\ClubController@price_edit')->name('price_club_edit');
+    Route::delete('/price/club/{id_club}/{id_price}/', 'Admin\ClubController@price_delete')->name('price_club_delete');
+
     Route::resources([
         'pages' => 'Admin\PageController',
         'clubs' => 'Admin\ClubController',
@@ -194,7 +205,8 @@ Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(f
         'schedule' => 'Admin\ScheduleController',
         'users' => 'Admin\UserController',
         'roles' => 'Admin\RoleController',
-        'special' => 'Admin\SpecialController'
+        'special' => 'Admin\SpecialController',
+        'comps' => 'Admin\CompController'
     ]);
 });
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Helpers\LoadHeader;
+use App\Club;
+use App\Comp;
+use App\PriceClubs;
 
 class AboutusController extends Controller
 {
@@ -49,6 +52,24 @@ class AboutusController extends Controller
         $this->params['page']->menu = 'Франчайзинг';
         $this->params['page']->code = 'franchise';
         return view('aboutus.franchise', ['params' => $this->params]);
+    }
+
+    public function comp($code)
+    {
+        $this->params['club'] = $this->params['all_clubs']->firstWhere('code', $code);
+        $this->params['comp'] = $this->params['club']->comp;
+        return view('aboutus.comp', ['params' => $this->params]);
+    }
+
+    public function price($code)
+    {
+        $this->params['club'] = $this->params['all_clubs']->firstWhere('code', $code);
+        $price_sort_level = $this->params['club']->price_clubs->sortBy('level_ps');
+        $this->params['price'] = [];
+        foreach($price_sort_level as $price){
+            $this->params['price'][] = $price;
+        }
+        return view('aboutus.price', ['params' => $this->params]);
     }
 
     public function corporate()

@@ -1,6 +1,8 @@
 <div class="form-group select-gr_bl my_form_group_select">
-    <label for="{{$name}}">{{$slot}}</label>
-    <select class="form-control" id="{{$name}}" name="{{$name}}">
+    @isset($slot)
+    <label for="{{ $name }}">{{ $slot }}</label>
+    @endisset
+    <select class="form-control" id="{{ $name }}" name="{{ $name }}">
         @isset($text)
             <option {{ 0 == $select ? 'selected' : ''}} value="0">{{ $text }}</option>
         @endisset

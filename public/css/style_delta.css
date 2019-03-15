@@ -17,7 +17,7 @@
         position:fixed;
         right:0;
         transition:top .5s ease .5s;
-        z-index: 1001;
+        z-index: 1002;
         top:0;
     }
 }

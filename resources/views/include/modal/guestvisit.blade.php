@@ -187,8 +187,8 @@
     @media only screen and (max-width:700px){
         .container_modal_guest_visit #modal_guest_visit:checked~.modal_content{
             width:300px;
-            top:1%;
-            bottom:1%;
+            top:6%;
+            bottom:8%;
             overflow-y: auto;
         }
         .container_modal_guest_visit .group_tag .group_tag_row{

@@ -18,7 +18,7 @@
     .container_vacancies .modal_content{
         transform:scale(0);
         transition:transform .5s;
-        z-index: 900;
+        z-index: 1002;
     }
     .container_vacancies #modal_vacancies{
         display:none
@@ -46,7 +46,7 @@
         pointer-events:auto;
         position:fixed;
         right:0;
-        top:5%;
+        top:8%;
         transform:scale(1);
         transition:transform .5s;
         visibility:visible;
@@ -198,8 +198,8 @@
     @media only screen and (max-width:700px){
         .container_vacancies #modal_vacancies:checked~.modal_content{
             width:300px;
-            top:1%;
-            bottom:1%;
+            top:6%;
+            bottom:8%;
         }
         .container_vacancies .group_tag .group_tag_row{
             align-items:center;
@@ -216,7 +216,7 @@
             margin: 15px 0;
         }
         .container_vacancies .modal_content {
-            z-index: 900;
+            z-index: 1002;
             overflow-y: auto;
         }
     }
@@ -233,7 +233,7 @@
 
 <div class="container_vacancies">
     <input type="checkbox" id="modal_vacancies">
-    <label for="modal_vacancies" id="modal_background" style="z-index: 899;"></label>
+    <label for="modal_vacancies" id="modal_background" style="z-index: 1001;"></label>
     <div class="modal_content">
         <div class="header_vacancies">
             <div class="top_header_vacancies">

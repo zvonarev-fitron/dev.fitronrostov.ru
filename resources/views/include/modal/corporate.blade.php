@@ -45,7 +45,7 @@
         pointer-events:auto;
         position:fixed;
         right:0;
-        top:5%;
+        top:16%;
         transform:scale(1);
         transition:transform .5s;
         visibility:visible;
@@ -199,8 +199,8 @@
     @media only screen and (max-width:700px){
         .container_corporate #modal_corporate:checked~.modal_content{
             width:300px;
-            top:1%;
-            bottom:1%;
+            top:6%;
+            bottom:8%;
         }
         .container_corporate .group_tag .group_tag_row{
             align-items:center;

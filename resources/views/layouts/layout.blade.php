@@ -38,9 +38,8 @@
 
 </head>
 <body>
-
+<a href="tel:+78633109571" id="phone_send"><phone-send></phone-send></a>
 <div id="maincont">
-
     <input type="checkbox" id="modal_menu" style="display: none;">
     <i id="modal_background_delta_0"></i>
     <i id="modal_background_delta_1"></i>
@@ -277,7 +276,7 @@
                         <hr>
                         <a href="{{route('mission')}}">Миссия</a>
                         {{--<br><a href="{{route('boss')}}">Руководство</a>--}}
-                        <br><a href="{{route('vacancies')}}">Вакансии</a>
+                        {{--<br><a href="{{route('vacancies')}}">Вакансии</a>--}}
                         <br><a href="{{route('press')}}">Пресса</a>
                         <br><a href="{{route('uncos')}}">Новости</a>
                         <br><a href="{{route('gallery')}}">Галерея</a>
@@ -336,17 +335,17 @@
                     </li>
                 </ul>
             </li>
-            <li class="has-sub">
-                <a href="{{route('vacancies')}}">
-                    <span class="sticky_menu_txt">JOB</span>
-                    <span class="mobile-text"><br>Вакансии</span>
-                </a>
-                <ul>
-                    <li class="last">
-                        <a href="{{route('vacancies')}}">Вакансии</a>
-                    </li>
-                </ul>
-            </li>
+            {{--<li class="has-sub">--}}
+                {{--<a href="{{route('vacancies')}}">--}}
+                    {{--<span class="sticky_menu_txt">JOB</span>--}}
+                    {{--<span class="mobile-text"><br>Вакансии</span>--}}
+                {{--</a>--}}
+                {{--<ul>--}}
+                    {{--<li class="last">--}}
+                        {{--<a href="{{route('vacancies')}}">Вакансии</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li class="has-sub">
                 <label style="cursor: pointer;" class="callme" for="modal_query_trainer">
                     <i class="fas fa-question" style="font-size: 150%;"></i>
@@ -509,6 +508,7 @@
 {{--<script src="{{ asset('js/mobile-menu.js') }}" defer></script>--}}
 
 <script src="{{ asset('js/site.js') }}" defer></script>
+<script src="{{ asset('/js/work/phonesend.js') }}" defer></script>
 @yield('script')
 </body>
 </html>

@@ -34,7 +34,7 @@
                 <ul class="uk-nav uk-nav-side uk-hidden-small pagenav-left">
                     <li><a href="{{route('mission')}}">Миссия</a></li>
                     {{--<li><a href="{{route('boss')}}">Руководство</a></li>--}}
-                    <li><a href="{{route('vacancies')}}">Вакансии</a></li>
+                    {{--<li><a href="{{route('vacancies')}}">Вакансии</a></li>--}}
                     <li><a href="{{route('press')}}">Пресса</a></li>
                     <li><a href="{{route('franchise')}}">Франчайзинг</a></li>
                     <li class="uk-active"><a href="{{route('corporate')}}">Корпоративным клиентам</a></li>

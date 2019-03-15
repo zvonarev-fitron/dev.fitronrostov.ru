@@ -171,7 +171,6 @@
         outline:none;
         width:280px
     }
-
     .container_training .group_tag .group_tag_row .group_tag_input textarea{
         background-color:#f9f9fb;
         border:none;
@@ -212,8 +211,8 @@
     @media only screen and (max-width:700px){
         .container_training #modal_training:checked~.modal_content{
             width:300px;
-            top:1%;
-            bottom: 1%;
+            top:6%;
+            bottom:8%;
         }
         .container_training .group_tag .group_tag_row{
             align-items:center;

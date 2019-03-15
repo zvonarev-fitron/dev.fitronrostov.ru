@@ -212,8 +212,8 @@
     @media only screen and (max-width:700px){
         .container_special #modal_special:checked~.modal_content{
             width:300px;
-            top:1%;
-            bottom:1%;
+            top:6%;
+            bottom:8%;
         }
         .container_special .group_tag .group_tag_row{
             align-items:center;
@@ -244,8 +244,8 @@
 
 <div id="special" class="container_special">
     <input type="checkbox" id="modal_special">
-    <label for="modal_special" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content" style="z-index: 900;overflow-y: auto;">
+    <label for="modal_special" id="modal_background" style="z-index: 1001;"></label>
+    <div class="modal_content" style="z-index: 1002;overflow-y: auto;">
         <div class="header_special">
             <div class="top_header_special">
                 <h2 id="form_special_title">Узнать о тренировки</h2>

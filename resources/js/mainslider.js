@@ -1,4 +1,5 @@
-window.Vue = require('vue');
+if(typeof window.Vue === "undefined") window.Vue = require('vue');
+//window.Vue = require('vue');
 
 // Vue.component('main-carrousel', require('./components/sliders/carrousel'));
 

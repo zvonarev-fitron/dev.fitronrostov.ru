@@ -16,6 +16,9 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/all.css">
+
     <link rel="stylesheet" type="text/css" href="/html/admin/css/jPushMenu.css">
     <link rel="stylesheet" type="text/css" href="/html/admin/css/admin.css">
 
@@ -40,6 +43,9 @@
         @endcan
         <li class="nav-item">
             <a class="nav-link" id="menu_clubs" href="javascript:void(0)">Клубы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu_comp" href="javascript:void(0)">Предприятия</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="menu_pages" href="javascript:void(0)">Страницы</a>

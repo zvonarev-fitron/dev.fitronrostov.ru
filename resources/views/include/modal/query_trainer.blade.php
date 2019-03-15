@@ -177,8 +177,8 @@
 @media only screen and (max-width:700px){
     .container_modal_query_trainer #modal_query_trainer:checked~.modal_content{
         width:300px;
-        top:1%;
-        bottom:1%;
+        top:6%;
+        bottom:8%;
         overflow-y: auto;
     }
     .container_modal_query_trainer .group_tag .group_tag_row{
@@ -218,13 +218,11 @@
         margin: auto;
     }
 }
-
-
 </style>
 <div id="feedback" class="container_modal_query_trainer">
     <input type="checkbox" id="modal_query_trainer">
-    <label for="modal_query_trainer" id="modal_background" style="z-index: 899;"></label>
-    <div class="modal_content"  style="z-index: 900;">
+    <label for="modal_query_trainer" id="modal_background" style="z-index: 1001;"></label>
+    <div class="modal_content"  style="z-index: 1002;">
         <div class="header_trainer">
             <div class="top_header_trainer">
                 <h2>Задать вопрос тренеру</h2>

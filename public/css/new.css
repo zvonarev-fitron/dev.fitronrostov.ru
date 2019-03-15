@@ -2019,3 +2019,43 @@
 .cps_trainer_body {
     margin-bottom: 15px;
 }
+
+.comp_club_t {
+    font-size: 14px;
+}
+.comp_club_t tr {
+    height: 35px;
+}
+
+@media (min-width: 768px){
+    .uk-width-medium-3-5,
+    .uk-width-medium-6-10 {
+        width: 60%;
+    }
+    .uk-width-medium-2-5,
+    .uk-width-medium-4-10 {
+        width: 40%;
+    }
+}
+
+#phone_send {
+    display: none;
+}
+@media (max-width: 960px){
+    #phone_send {
+        display: block;
+        position: fixed;
+        top: 100px;
+        right: 25px;
+        z-index: 1001;
+    }
+}
+@media (max-width: 767px){
+    #phone_send {
+        display: block;
+        position: fixed;
+        top: 75px;
+        right: 5px;
+        z-index: 1001;
+    }
+}

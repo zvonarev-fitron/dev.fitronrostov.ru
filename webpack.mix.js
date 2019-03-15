@@ -5,20 +5,21 @@ mix.options({
         port: '3030',
     },
 })
-    .webpackConfig({
-        devtool: "inline-source-map"
-    })
+//    .webpackConfig({
+//        devtool: "inline-source-map"
+//    })
     // .copyDirectory('resources/images', 'public/images')
     //
     // .js('packages/login/resources/js/auth/login.js', 'public/js/auth')
     // .js('resources/js/tableExample.js', 'public/js')
     // .js('resources/js/selectExample.js', 'public/js')
     // .js('resources/js/enso.js', 'public/js')
-    .js('resources/js/mainslider.js', 'public/js/sliders')
+//    .js('resources/js/mainslider.js', 'public/js/sliders')
+    .js('resources/js/phonesend.js', 'public/js/work')
 
     // .sass('packages/login/resources/sass/auth/login.scss', 'public/css/auth')
     // .sass('resources/sass/enso.scss', 'public/css')
-    .sourceMaps();
+//    .sourceMaps();
 
 
 // .sass('resources/sass/themes/light.scss', 'public/themes/light/bulma.min.css')
