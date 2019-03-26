@@ -24,6 +24,7 @@ class FitnesController extends Controller
     {
         $this->params['categories'] = \App\Category::all()->sortBy('sort');
         $this->params['category'] = $this->params['categories']->where('url', $code)->first();
+        if(!$this->params['category']) abort('404');
         $this->params['trainings'] = $this->params['category']->trainings->sortBy('sort');
         $this->params['code'] = $code;
         return view('fitnes-uslugi.uslugi', ['params' => $this->params]);
@@ -33,7 +34,9 @@ class FitnesController extends Controller
     {
         $this->params['categories'] = \App\Category::all()->sortBy('sort');
         $this->params['category'] = $this->params['categories']->where('url', $code)->first();
+        if(!$this->params['category']) abort('404');
         $this->params['training'] = \App\Training::where('url', $url)->first();
+        if(!$this->params['training']) abort('404');
         $this->params['code'] = $code;
         $this->params['url'] = $url;
         return view('fitnes-uslugi.training', ['params' => $this->params]);

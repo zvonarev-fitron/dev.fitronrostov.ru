@@ -9,6 +9,7 @@
     <input type="hidden" name="intensity_id" id="intensity_id" value="0"/>
     @include('include.input.dropdown', ['id' => 'training', 'data_id' => '0', 'list' => $params['list_trainings'], 'text' => 'Выберите занятие', 'slot' => 'Занятие'])
     @include('include.input.dropdown', ['id' => 'room', 'data_id' => '0', 'list' => $params['list_rooms'], 'text' => 'Выберите место', 'slot' => 'Место'])
+    {{--@include('include.input.dropdown', ['id' => 'trainer', 'data_id' => '0', 'list' => $params['list_trainings'], 'text' => 'Выберите тренера', 'slot' => 'Тренер'])--}}
     <div class="input-group" id="group_time_sed">
     @include('include.input.time', ['name' => 'start_time_d', 'slot' => 'Время начала', 'style' => 'width:150px;height:40px;margin-right:30px;'])
     @include('include.input.number', ['name' => 'duration', 'slot' => 'Длительность', 'style' => 'width:150px;height:40px;margin-right:30px;', 'min' => '1'])
@@ -36,7 +37,7 @@
         };
 
         FTAdmin.schedule_date.day = '{{$params['date']->format('d')}}';
-        FTAdmin.schedule_date.month = '{{$params['date']->format('m')}}';
+        FTAdmin.schedule_date.month = '{{$params['date']->format('m') - 1}}';
         FTAdmin.schedule_date.year = '{{$params['date']->format('Y')}}';
 
         document.querySelector('#start_time_d').addEventListener('keydown', function(event){if(13 == event.keyCode){event.preventDefault(); document.querySelector('#duration').focus();}});
@@ -61,10 +62,10 @@
             event.preventDefault();
             var st = document.querySelector('#start_time_d');
             var ds = new Date(FTAdmin.schedule_date.year, FTAdmin.schedule_date.month, FTAdmin.schedule_date.day, st.value.split(':')[0], st.value.split(':')[1], 0, 0);
-            document.querySelector('#start_time').value = ds.getFullYear() + '-' + ds.getMonth() + '-' + ds.getDate() + ' ' + ds.getHours() + ':' +  ds.getMinutes() + ':' + ds.getSeconds();
+            document.querySelector('#start_time').value = ds.getFullYear() + '-' + (1 + ds.getMonth()) + '-' + ds.getDate() + ' ' + ds.getHours() + ':' +  ds.getMinutes() + ':' + ds.getSeconds();
             var et = document.querySelector('#end_time_d');
             var de = new Date(FTAdmin.schedule_date.year, FTAdmin.schedule_date.month, FTAdmin.schedule_date.day, et.value.split(':')[0], et.value.split(':')[1], 0, 0);
-            document.querySelector('#end_time').value = de.getFullYear() + '-' + de.getMonth() + '-' + de.getDate() + ' ' + de.getHours() + ':' +  de.getMinutes() + ':' + de.getSeconds();
+            document.querySelector('#end_time').value = de.getFullYear() + '-' + (1 + de.getMonth()) + '-' + de.getDate() + ' ' + de.getHours() + ':' +  de.getMinutes() + ':' + de.getSeconds();
             //document.querySelector('#duration').value = document.querySelector('#duration_d').value;
             document.querySelector('#room_id').value = document.querySelector('#room').dataset.id;
             document.querySelector('#intensity_id').value = document.querySelector('#intensity').dataset.id;

@@ -107,7 +107,6 @@ else{
                 clubs: {},
                 select_class: 'room-tr_click__select'
             },
-
             schedule: {
                 id: 'menu_schedule',
                 clubs: {},
@@ -121,65 +120,95 @@ else{
         if(admin) {
             //Пользователи
             this.res.user.el = document.querySelector('#' + this.res.user.id);
-            this.res.user.el.classList.add(this.res.class_menu_left);
-            this.handlers.users(this.res.user.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.user.el) {
+                this.res.user.el.classList.add(this.res.class_menu_left);
+                this.handlers.users(this.res.user.el, this.res.content.el, this.res.class_active);
+            }
             //Роли
             this.res.role.el = document.querySelector('#' + this.res.role.id);
-            this.res.role.el.classList.add(this.res.class_menu_left);
-            this.handlers.roles(this.res.role.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.role.el) {
+                this.res.role.el.classList.add(this.res.class_menu_left);
+                this.handlers.roles(this.res.role.el, this.res.content.el, this.res.class_active);
+            }
         }
             //Клубы
             this.res.club.el = document.querySelector('#' + this.res.club.id);
-            this.res.club.el.classList.add(this.res.class_menu_left);
-            this.handlers.clubs(this.res.club.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.club.el) {
+                this.res.club.el.classList.add(this.res.class_menu_left);
+                this.handlers.clubs(this.res.club.el, this.res.content.el, this.res.class_active);
+            }
             //Предприятия
             this.res.comp.el = document.querySelector('#' + this.res.comp.id);
-            this.res.comp.el.classList.add(this.res.class_menu_left);
-            this.handlers.comp(this.res.comp.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.comp.el) {
+                this.res.comp.el.classList.add(this.res.class_menu_left);
+                this.handlers.comp(this.res.comp.el, this.res.content.el, this.res.class_active);
+            }
             //Страницы
             this.res.page.el = document.querySelector('#' + this.res.page.id);
-            this.res.page.el.classList.add(this.res.class_menu_left);
-            this.handlers.pages(this.res.page.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.page.el) {
+                this.res.page.el.classList.add(this.res.class_menu_left);
+                this.handlers.pages(this.res.page.el, this.res.content.el, this.res.class_active);
+            }
             //Фитнес программы
             this.res.fitne.el = document.querySelector('#' + this.res.fitne.id);
-            this.res.fitne.el.classList.add(this.res.class_menu_left);
-            this.handlers.fitnes(this.res.fitne.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.fitne.el) {
+                this.res.fitne.el.classList.add(this.res.class_menu_left);
+                this.handlers.fitnes(this.res.fitne.el, this.res.content.el, this.res.class_active);
+            }
             //Расписание
             this.res.schedule.el = document.querySelector('#' + this.res.schedule.id);
-            this.res.schedule.el.classList.add(this.res.class_menu_left);
-            this.handlers.schedule(this.res.schedule.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.schedule.el) {
+                this.res.schedule.el.classList.add(this.res.class_menu_left);
+                this.handlers.schedule(this.res.schedule.el, this.res.content.el, this.res.class_active);
+            }
             //Инфраструктура
             this.res.infrastructure.el = document.querySelector('#' + this.res.infrastructure.id);
-            this.res.infrastructure.el.classList.add(this.res.class_menu_left);
-            this.handlers.infrastructures(this.res.infrastructure.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.infrastructure.el) {
+                this.res.infrastructure.el.classList.add(this.res.class_menu_left);
+                this.handlers.infrastructures(this.res.infrastructure.el, this.res.content.el, this.res.class_active);
+            }
             //Слайдеры
             this.res.sliders.el = document.querySelector('#' + this.res.sliders.id);
-            this.res.sliders.el.classList.add(this.res.class_menu_left);
-            this.handlers.sliders(this.res.sliders.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.sliders.el) {
+                this.res.sliders.el.classList.add(this.res.class_menu_left);
+                this.handlers.sliders(this.res.sliders.el, this.res.content.el, this.res.class_active);
+            }
             //События
             this.res.doing.el = document.querySelector('#' + this.res.doing.id);
-            this.res.doing.el.classList.add(this.res.class_menu_left);
-            this.handlers.doings(this.res.doing.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.doing.el) {
+                this.res.doing.el.classList.add(this.res.class_menu_left);
+                this.handlers.doings(this.res.doing.el, this.res.content.el, this.res.class_active);
+            }
             //Блог
             this.res.blog.el = document.querySelector('#' + this.res.blog.id);
-            this.res.blog.el.classList.add(this.res.class_menu_left);
-            this.handlers.blogs(this.res.blog.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.blog.el) {
+                this.res.blog.el.classList.add(this.res.class_menu_left);
+                this.handlers.blogs(this.res.blog.el, this.res.content.el, this.res.class_active);
+            }
             //Новости
             this.res.uncos.el = document.querySelector('#' + this.res.uncos.id);
-            this.res.uncos.el.classList.add(this.res.class_menu_left);
-            this.handlers.uncos(this.res.uncos.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.uncos.el) {
+                this.res.uncos.el.classList.add(this.res.class_menu_left);
+                this.handlers.uncos(this.res.uncos.el, this.res.content.el, this.res.class_active);
+            }
             //Акции
             this.res.special.el = document.querySelector('#' + this.res.special.id);
-            this.res.special.el.classList.add(this.res.class_menu_left);
-            this.handlers.special(this.res.special.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.special.el) {
+                this.res.special.el.classList.add(this.res.class_menu_left);
+                this.handlers.special(this.res.special.el, this.res.content.el, this.res.class_active);
+            }
             //Тренеры
             this.res.trainer.el = document.querySelector('#' + this.res.trainer.id);
-            this.res.trainer.el.classList.add(this.res.class_menu_left);
-            this.handlers.trainer(this.res.trainer.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.trainer.el) {
+                this.res.trainer.el.classList.add(this.res.class_menu_left);
+                this.handlers.trainer(this.res.trainer.el, this.res.content.el, this.res.class_active);
+            }
             //Место
             this.res.room.el = document.querySelector('#' + this.res.room.id);
-            this.res.room.el.classList.add(this.res.class_menu_left);
-            this.handlers.room(this.res.room.el, this.res.content.el, this.res.class_active);
+            if(!!this.res.room.el) {
+                this.res.room.el.classList.add(this.res.class_menu_left);
+                this.handlers.room(this.res.room.el, this.res.content.el, this.res.class_active);
+            }
         },
 
         LeftMenuActiveClearAll: function(el){

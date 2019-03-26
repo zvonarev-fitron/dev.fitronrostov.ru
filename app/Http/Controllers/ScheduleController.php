@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Helpers\LoadHeader;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use Dompdf\Dompdf;
+use Illuminate\Http\Response;
 
 class ScheduleController extends Controller
 {
@@ -220,45 +222,10 @@ class ScheduleController extends Controller
             $this->params['col'] = date('H', $min_time) - 1;
         }
 
-        //return view('schedule.pdf', ['params' => $this->params]);
-//        loadFile('http://www.github.com')
-//        $pdf = PDF::loadFile('http://yandex.ru')->setOption('encoding', 'UTF-8')->setPaper('a4')->setOrientation('landscape')->setOption('margin-bottom', 0);   //->save('myfile4.pdf');
+//        return view('schedule.pdf', ['params' => $this->params]);
 
-
-//        $pdf = PDF::loadView('schedule.pdf', ['params' => $this->params]);
-
-        $pdf = PDF::loadView('schedule.file');
-
-//        return view('schedule.file');
-
-
-        //$pdf = App::make('dompdf.wrapper');
-//        $pdf = PDF::loadHTML('<h1>Test</h1>');
-//        return $pdf->stream()->header('Content-Type','application/pdf');
-
-//        dump($pdf);
-
-
-//        $pdf->render();
-        //$pdf->setPaper('L', 'landscape');
-
-//        $pdf->setOptions(['dpi' => 96, 'defaultFont' => 'sans-serif']);
-
-//        $pdf = PDF::loadHTML('<h1 style="font-family: \'Arial\'; background: red; color: blue;">Русский</h1><h1 style="font-family: Courier New; background: red; color: blue;">English</h1>')->setOption('encoding', 'UTF-8')->setPaper('a4')->setOrientation('landscape')->setOption('margin-bottom', 0);   //->save('myfile4.pdf');
-       // dd($pdf->stream());
-
-
-//        $pdf = PDF::loadHtml('Helloy world');
-
-//        return $pdf->download('pdf.pdf');
-
-//        return $pdf->output();
-            return $pdf->stream();
-
-//            ->header('Content-Type','application/pdf');
-
-//        return $pdf->download('myfile4.pdf');
-
+        $pdf = PDF::loadView('schedule.pdf', ['params' => $this->params]);
+        return $pdf->stream();
 
     }
 }

@@ -3,7 +3,7 @@
     cursor:pointer;
     transition:all .25s
 }
-.container_feedback #modal_background,
+.container_feedback #modal_background_feedback,
 .container_feedback .modal_content{
     cursor:pointer;
     height:0;
@@ -12,7 +12,7 @@
     visibility:hidden;
     width:0
 }
-.container_feedback #modal_background{
+.container_feedback #modal_background_feedback{
     transition:height .25s
 }
 .container_feedback .modal_content{
@@ -22,7 +22,7 @@
 .container_feedback #modal_feedback{
     display:none
 }
-.container_feedback #modal_feedback:checked~#modal_background{
+.container_feedback #modal_feedback:checked~#modal_background_feedback{
     background-color:hsla(0,0%,50.2%,.8);
     height:100%;
     left:0;
@@ -82,8 +82,10 @@
     text-align:center
 }
 .container_feedback .group_tag .error{
-    color:#f03;
-    font-size:12px
+    color: #f03;
+    font-size: 10px;
+    text-align: left;
+    opacity: 0;
 }
 .container_feedback .group_tag .group_tag_row{
     display:flex;
@@ -193,10 +195,9 @@
     }
 }
 </style>
-
 <div id="feedback" class="container_feedback">
     <input type="checkbox" id="modal_feedback">
-    <label for="modal_feedback" id="modal_background" style="z-index: 1001;"></label>
+    <label for="modal_feedback" id="modal_background_feedback" style="z-index: 1001;"></label>
     <div class="modal_content" style="z-index: 1002;overflow-y: auto;">
         <div class="header_feedback">
             <div class="top_header_feedback">
@@ -209,14 +210,11 @@
                     @csrf
                     <div class="group_tag">
                         <div class="group_tag_row">
-
                             <div class="group_tag_input">
                                 <label for="form_feedback_name">Представьтесь</label>
                                 <input type="text" id="form_feedback_name" name="form_feedback_name" />
-                                <div id="form_feedback_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
-                                <div id="form_feedback_name_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_feedback_name_back_error" class="error">Необходимо заполнить «Представьтесь»</div>
                             </div>
-
                             <div class="group_tag_input">
                                 <label for="form_feedback_club">Выберите клуб</label>
                                 <select type="text" id="form_feedback_club" name="form_feedback_club">
@@ -225,26 +223,24 @@
                                     <option value="{{ $club->id }}#{{ $club->name }}">{{ $club->name }}</option>
                                     @endforeach
                                 </select>
-                                <div class="error" style="opacity:0;">Необходимо выбрать клуб</div>
+                                <div id="form_feedback_name_club_error" class="error">Необходимо выбрать клуб</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input">
                                 <label for="form_feedback_phone">Телефон</label>
                                 <input type="tel" id="form_feedback_phone" name="form_feedback_phone" placeholder="+7 (___)___- ____" />
-                                <div id="form_feedback_phone_error" class="error" style="opacity:0;">Необходимо заполнить Телефон</div>
-                                <div id="form_feedback_phone_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_feedback_phone_back_error" class="error">Необходимо заполнить Телефон</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_feedback_email">Email</label>
                                 <input type="email" id="form_feedback_email" name="form_feedback_email" />
-                                <div id="form_feedback_email_error" class="error" style="opacity:0;">Необходимо заполнить «Email».</div>
-                                <div id="form_feedback_email_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_feedback_email_back_error" class="error">Необходимо заполнить «Email»</div>
                             </div>
                         </div>
                         <div class="group_tag_row group_captcha">
                             <div id="form_feedback_captcha"></div>
-                            <div id="form_feedback_captcha_back_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
+                            <div id="form_feedback_captcha_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
@@ -252,13 +248,11 @@
                                     <input type="checkbox" id="form_feedback_agree" name="form_feedback_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
                                     <label for="modal_policy" style="color:red">персональных данных</label>
-                                    {{--<a href="/privacy-policy" target="_blank">персональных данных</a>--}}
                                 </div>
-                                <div id="form_feedback_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
-                                <div id="form_feedback_agree_back_error" class="error" style="opacity:0;"></div>
                             </div>
                         </div>
-                        <button id="form_feedback_submit_button" class="button_submit" type="submit" disabled><span>Отправить</span></button>
+                        <div id="form_feedback_agree_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
+                        <button id="form_feedback_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                     </div>
                 </form>
             </div>
@@ -282,16 +276,34 @@
     var recaptchaExpiredCallback_feedback = function(){ document.getElementById('form_feedback_submit_button').setAttribute("disabled", 'true'); };
     var recaptchaErrorCallback_feedback = function(){ document.getElementById('form_feedback_submit_button').setAttribute("disabled", 'true'); };
 
-    document.getElementById('modal_close_feedback').addEventListener('click', function(event){
-        event.preventDefault();
-        document.getElementById(this.getAttribute('for')).checked = false;
+    function cleanFeedBackForm(event)
+    {
         document.getElementById('form_feedback_name').value = null;
         document.getElementById('form_feedback_phone').value = null;
         document.getElementById('form_feedback_email').value = null;
         document.getElementById('form_feedback_agree').checked = false;
+
         var form_feedback_ok_back = document.getElementById('form_feedback_ok_back');
         form_feedback_ok_back.innerText = null;
         form_feedback_ok_back.style.opacity = 0;
+
+        document.getElementById('form_feedback_captcha_back_error').style.opacity = 0;
+        document.getElementById('form_feedback_name_back_error').style.opacity = 0;
+        document.getElementById('form_feedback_phone_back_error').style.opacity = 0;
+        document.getElementById('form_feedback_email_back_error').style.opacity = 0;
+        document.getElementById('form_feedback_agree_back_error').style.opacity = 0;
+    }
+
+    document.getElementById('modal_close_feedback').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanFeedBackForm(event)
+    });
+
+    document.getElementById('modal_background_feedback').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanFeedBackForm(event)
     });
 
     document.getElementById('fdbc_modal').addEventListener('submit', function(event){
@@ -314,15 +326,15 @@
         var form_feedback_email_error = +!(data.has('form_feedback_email') && !!data.get('form_feedback_email'));
         var form_feedback_agree_error = +!(data.has('form_feedback_agree') || !!data.get('form_feedback_agree'));
 
-        document.getElementById('form_feedback_name_error').style.opacity = form_feedback_name_error;
-        document.getElementById('form_feedback_phone_error').style.opacity = form_feedback_phone_error;
-        document.getElementById('form_feedback_email_error').style.opacity = form_feedback_email_error;
-        document.getElementById('form_feedback_agree_error').style.opacity = form_feedback_agree_error;
+        document.getElementById('form_feedback_name_back_error').style.opacity = form_feedback_name_error;
+        document.getElementById('form_feedback_phone_back_error').style.opacity = form_feedback_phone_error;
+        document.getElementById('form_feedback_email_back_error').style.opacity = form_feedback_email_error;
+        document.getElementById('form_feedback_agree_back_error').style.opacity = form_feedback_agree_error;
 
         if(!(form_feedback_name_error + form_feedback_phone_error + form_feedback_email_error + form_feedback_agree_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestheader_feedback('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');
@@ -371,9 +383,10 @@
                             var form_feedback_ok_back = document.getElementById('form_feedback_ok_back');
                             form_feedback_ok_back.innerText = objRezult[i];
                             form_feedback_ok_back.style.opacity = 1;
+                            console.log(objRezult);
                         }
                     }
-                    grecaptcha.reset(feedback_modal_form_captcha);
+//                    grecaptcha.reset(feedback_modal_form_captcha);
                     document.getElementById('form_feedback_submit_button').setAttribute("disabled", 'true');
 //                    console.log(objRezult);
                 }

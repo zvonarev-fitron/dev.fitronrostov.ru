@@ -87,7 +87,6 @@ Route::prefix('/aboutus/')->middleware('firstvisit')->group(function(){
     Route::get('payment', 'AboutusController@payment')->name('payment');
 });
 
-
 //Расписание
 Route::prefix('/schedule/')->middleware('firstvisit')->group(function(){
     Route::get('/', 'ScheduleController@index')->name('schedule');
@@ -111,6 +110,9 @@ Route::prefix('join')->group(function(){
     Route::post('join', 'JoinController@join')->name('join_join');
     Route::post('corporate', 'JoinController@corporate')->name('join_corporate');
     Route::post('special', 'JoinController@special')->name('join_special');
+    Route::post('signup', 'JoinController@signup')->name('join_sign_up');
+    Route::get('contact', 'JoinController@contact')->name('join_contact');
+    Route::post('guestvisit', 'JoinController@guestvisit')->name('join_guest_visit');
 });
 
 //ПОЛИТИКА ЗАЩИТЫ И ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ
@@ -174,7 +176,7 @@ Route::prefix('cabinet')->middleware(['web', 'auth'])->group(function(){
 });
 
 //Административная панель
-Route::prefix('/admin/')->middleware(['web', 'auth', 'can:adminpanel'])->group(function(){
+Route::prefix('/admin/')->middleware(['web', 'auth', 'can:cabinet_to_admin'])->group(function(){
 //Route::prefix('/admin/')->group(function(){
     Route::get('/', 'Admin\AdminController@index')->name('admin');
     Route::get('/slider/', 'Admin\AdminController@slider')->name('slider');

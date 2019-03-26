@@ -72,6 +72,9 @@ class ScheduleController extends Controller
             }
         }
         $this->params['list_trainings'] = $list_trainings;
+
+//        dd($this->params['list_trainings']);
+
         return view('admin.schedule.create', ['params' => $this->params]);
     }
 
@@ -151,17 +154,30 @@ class ScheduleController extends Controller
                 $this->params['schedules'][$key] = new \App\Schedule(get_object_vars($sch));
             }
         }
+
         $this->params['list_date'] = [];
         $interval = new \DateInterval('P3M');
+
         $eD = new \DateTime($this->params['date']->format('d-m-Y'));
         $eD->sub($interval);
+
         $incterval = new \DateInterval('P1D');
         $sD = new \DateTime($this->params['date']->format('d-m-Y'));
+
+        $this->params['sch_list'] = DB::select("select date_trunc('day', t.start_time) as trunc_day from schedules as t where t.clubs_id=:clubs_id and t.start_time<:sD and t.start_time>:eD group by trunc_day;",
+            ['clubs_id' => $this->params['club']->id, 'sD' => $sD->format('Y-m-d'), 'eD' => $eD->format('Y-m-d')]);
+
+        $this->params['sss_lll'] = [];
+        foreach($this->params['sch_list'] as $obj){
+            $this->params['sss_lll'][] = $obj->trunc_day;
+        }
         for($sD->sub($incterval); $sD > $eD; $sD->sub($incterval)){
-            $this->params['list_date'][] = [
-                'id' => $sD->format('d-m-Y'),
-                'name' => $sD->format('d') . ' ' . CUtils::RusMonth($sD->format('m')) . ' ' . $sD->format('Y')
-            ];
+            if(in_array($sD->format('Y-m-d 00:00:00'), $this->params['sss_lll'])) {
+                $this->params['list_date'][] = [
+                    'id' => $sD->format('d-m-Y'),
+                    'name' => $sD->format('d') . ' ' . CUtils::RusMonth($sD->format('m')) . ' ' . $sD->format('Y')
+                ];
+            }
         }
         return view('admin.schedule.show', ['params' => $this->params]);
     }
@@ -373,6 +389,7 @@ class ScheduleController extends Controller
                 ]);
             }
         }
+
         $schedule->save();
         $date = new \DateTime($request->start_time);
         $id = $request->clubs_id . '_' . $date->format('Y') . '_' . $date->format('m') . '_' . $date->format('d');

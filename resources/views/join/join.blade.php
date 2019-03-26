@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="group_tag_row" style="text-align: center;">
-                            <button id="form_join_submit_button" class="button_submit" type="submit" disabled><span>Отправить</span></button>
+                            <button id="form_join_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                         </div>
                     </div>
                 </form>
@@ -114,9 +114,15 @@
         };
         jQuery(function($){$("#form_join_phone").mask("+7(999) 999-9999");});
 
-        var recaptchaCallback_join = function(){ document.getElementById('form_join_submit_button').removeAttribute("disabled"); };
-        var recaptchaExpiredCallback_join = function(){ document.getElementById('form_join_submit_button').setAttribute("disabled", 'true'); };
-        var recaptchaErrorCallback_join = function(){ document.getElementById('form_join_submit_button').setAttribute("disabled", 'true'); };
+        var recaptchaCallback_join = function(){
+            document.getElementById('form_join_submit_button').removeAttribute("disabled");
+            };
+        var recaptchaExpiredCallback_join = function(){
+            document.getElementById('form_join_submit_button').setAttribute("disabled", 'true');
+        };
+        var recaptchaErrorCallback_join = function(){
+            document.getElementById('form_join_submit_button').setAttribute("disabled", 'true');
+        };
 
         document.getElementById('join_fdbc').addEventListener('submit', function(event){
             event.preventDefault();
@@ -205,13 +211,13 @@
                                 form_join_ok_back.style.opacity = 1;
                             }
                         }
-                        grecaptcha.reset(join_modal_form_captcha);
+//                        grecaptcha.reset(join_modal_form_captcha);
                         document.getElementById('form_join_submit_button').setAttribute("disabled", 'true');
-//                        console.log(objRezult);
+                        console.log(objRezult);
                     }
                 };
                 xhr.onerror = function () {
-                    console.log('Ошибка');
+                    console.log('Неизвестная ошибка');
                 };
                 xhr.send(data);
             }

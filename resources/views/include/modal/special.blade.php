@@ -3,7 +3,7 @@
         cursor:pointer;
         transition:all .25s
     }
-    .container_special #modal_background,
+    .container_special #modal_background_special,
     .container_special .modal_content{
         cursor:pointer;
         height:0;
@@ -12,7 +12,7 @@
         visibility:hidden;
         width:0
     }
-    .container_special #modal_background{
+    .container_special #modal_background_special{
         transition:height .25s
     }
     .container_special .modal_content{
@@ -22,7 +22,7 @@
     .container_special #modal_special{
         display:none
     }
-    .container_special #modal_special:checked~#modal_background{
+    .container_special #modal_special:checked~#modal_background_special{
         background-color:hsla(0,0%,50.2%,.8);
         height:100%;
         left:0;
@@ -45,7 +45,7 @@
         pointer-events:auto;
         position:fixed;
         right:0;
-        top:5%;
+        top:10%;
         transform:scale(1);
         transition:transform .5s;
         visibility:visible;
@@ -118,6 +118,7 @@
         color: #f03;
         font-size: 10px;
         text-align: left;
+        opacity: 0;
     }
     .container_special .group_tag .group_tag_row{
         display:flex;
@@ -244,11 +245,11 @@
 
 <div id="special" class="container_special">
     <input type="checkbox" id="modal_special">
-    <label for="modal_special" id="modal_background" style="z-index: 1001;"></label>
+    <label for="modal_special" id="modal_background_special" style="z-index: 1001;"></label>
     <div class="modal_content" style="z-index: 1002;overflow-y: auto;">
         <div class="header_special">
             <div class="top_header_special">
-                <h2 id="form_special_title">Узнать о тренировки</h2>
+                <h2 id="form_special_title"></h2>
                 <label for="modal_special" id="modal_close_special"><i class="fas fa-times"></i></label>
             </div>
             <div id="form_special_ok_back" style="opacity: 0;" class="form_of_back" class="title_header_special"></div>
@@ -256,14 +257,12 @@
                 <form action="{{ route('join_special') }}" method="post" id="special_fdbc_modal" enctype="multipart/form-data">
                     @csrf
                     <input id="form_special_id" name="form_special_id" type="hidden">
-                    {{--<input id="form_special_" name="form_special_id_name" type="hidden">--}}
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input">
                                 <label for="form_special_name">Представьтесь</label>
                                 <input type="text" id="form_special_name" name="form_special_name" />
-                                <div id="form_special_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
-                                <div id="form_special_name_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_special_name_back_error" class="error">Необходимо заполнить «Представьтесь»</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_special_club">Выберите клуб</label>
@@ -273,34 +272,31 @@
                                         <option value="{{ $club->id }}#{{ $club->name }}">{{ $club->name }}</option>
                                     @endforeach
                                 </select>
-                                <div class="error" style="opacity:0;">Необходимо выбрать клуб</div>
+                                <div id="form_special_club_back_error" class="error">Необходимо выбрать клуб</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input flex_width">
                                 <label for="form_special_phone">Телефон</label>
                                 <input type="tel" id="form_special_phone" name="form_special_phone" placeholder="+7 (___)___- ____" />
-                                <div id="form_special_phone_error" class="error" style="opacity:0;">Необходимо заполнить Телефон</div>
-                                <div id="form_special_phone_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_special_phone_back_error" class="error">Необходимо заполнить Телефон</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_special_email">Email</label>
                                 <input type="email" id="form_special_email" name="form_special_email" />
-                                <div id="form_special_email_error" class="error" style="opacity:0;">Необходимо заполнить «Email».</div>
-                                <div id="form_special_email_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_special_email_back_error" class="error">Необходимо заполнить «Email»</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input" style="width: 100%;">
                                 <label for="form_special_text">Сообщение</label>
                                 <textarea name="form_special_text" id="form_special_text" cols="30" rows="5"></textarea>
-                                <div id="form_special_text_error" class="error" style="opacity: 0;">Необходимо написать сообщение</div>
-                                <div id="form_special_text_back_error" class="error" style="opacity: 0;"></div>
+                                <div id="form_special_text_back_error" class="error">Необходимо написать сообщение</div>
                             </div>
                         </div>
                         <div class="group_tag_row group_captcha">
                             <div id="form_special_captcha"></div>
-                            <div id="form_special_captcha_back_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
+                            <div id="form_special_captcha_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
@@ -308,14 +304,12 @@
                                     <input type="checkbox" id="form_special_agree" name="form_special_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
                                     <label for="modal_policy" style="color:red">персональных данных</label>
-                                    {{--<a href="/privacy-policy" target="_blank" data-privacy-policy="">персональных данных</a>--}}
                                 </div>
-                                <div id="form_special_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
-                                <div id="form_special_agree_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_special_agree_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
-                            <button id="form_special_submit_button" class="button_submit" type="submit" disabled><span>Отправить</span></button>
+                            <button id="form_special_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                         </div>
                         <div class="group_tag_row file">
                             <div id="form_special_file_back_error" class="error" style="opacity:0;"></div>
@@ -342,22 +336,22 @@
 
     document.getElementById('special_r_2').addEventListener('click', function(event){
         form_special_title.innerText = 'Купить в рассрочку';
-        form_special_id.value = event.target.dataset.id;
+        form_special_id.value = event.currentTarget.dataset.id;
     });
 
-    document.getElementById('special_r_2').addEventListener('click', function(event){
+    document.getElementById('special_r_1').addEventListener('click', function(event){
         form_special_title.innerText = 'Купить в рассрочку';
-        form_special_id.value = event.target.dataset.id;
+        form_special_id.value = event.currentTarget.dataset.id;
     });
 
     document.getElementById('special_2').addEventListener('click', function(event){
         form_special_title.innerText = 'Уточнить подробности акции';
-        form_special_id.value = event.target.dataset.id;
+        form_special_id.value = event.currentTarget.dataset.id;
     });
 
     document.getElementById('special_1').addEventListener('click', function(event){
         form_special_title.innerText = 'Уточнить подробности акции';
-        form_special_id.value = event.target.dataset.id;
+        form_special_id.value = event.currentTarget.dataset.id;
     });
 
     jQuery(function($){$("#form_special_phone").mask("+7(999) 999-9999");});
@@ -366,17 +360,40 @@
     var recaptchaExpiredCallback_special = function(){ document.getElementById('form_special_submit_button').setAttribute("disabled", 'true'); };
     var recaptchaErrorCallback_special = function(){ document.getElementById('form_special_submit_button').setAttribute("disabled", 'true'); };
 
-    document.getElementById('modal_close_special').addEventListener('click', function(event){
-        event.preventDefault();
-        document.getElementById(this.getAttribute('for')).checked = false;
+    function cleanSpecialForm(event)
+    {
         document.getElementById('form_special_name').value = null;
         document.getElementById('form_special_phone').value = null;
         document.getElementById('form_special_email').value = null;
         document.getElementById('form_special_text').value = null;
         document.getElementById('form_special_agree').checked = false;
+
+        document.getElementById('form_special_submit_button').removeAttribute('disabled');
+
         var form_special_ok_back = document.getElementById('form_special_ok_back');
         form_special_ok_back.innerText = null;
         form_special_ok_back.style.opacity = 0;
+
+        document.getElementById('form_special_captcha_back_error').style.opacity = 0;
+        document.getElementById('form_special_name_back_error').style.opacity = 0;
+        document.getElementById('form_special_phone_back_error').style.opacity = 0;
+        document.getElementById('form_special_email_back_error').style.opacity = 0;
+        document.getElementById('form_special_agree_back_error').style.opacity = 0;
+        document.getElementById('form_special_file_back_error').style.opacity = 0;
+        document.getElementById('form_special_club_back_error').style.opacity = 0;
+        document.getElementById('form_special_text_back_error').style.opacity = 0;
+    }
+
+    document.getElementById('modal_close_special').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanSpecialForm(event);
+    });
+
+    document.getElementById('modal_background_special').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanSpecialForm(event);
     });
 
     document.getElementById('special_fdbc_modal').addEventListener('submit', function(event){
@@ -393,6 +410,10 @@
         form_special_email_back_error.style.opacity = 0;
         var form_special_agree_back_error = document.getElementById('form_special_agree_back_error');
         form_special_agree_back_error.style.opacity = 0;
+        var form_special_text_back_error = document.getElementById('form_special_text_back_error');
+        form_special_text_back_error.style.opacity = 0;
+        var form_special_file_back_error = document.getElementById('form_special_file_back_error');
+        form_special_file_back_error.style.opacity = 0;
 
         var form_special_name_error = +!(data.has('form_special_name') && !!data.get('form_special_name'));
         var form_special_phone_error = +!(data.has('form_special_phone') && !!data.get('form_special_phone'));
@@ -400,16 +421,16 @@
         var form_special_agree_error = +!(data.has('form_special_agree') && !!data.get('form_special_agree'));
         var form_special_text_error = +!(data.has('form_special_text') && !!data.get('form_special_text'));
 
-        document.getElementById('form_special_name_error').style.opacity = form_special_name_error;
-        document.getElementById('form_special_phone_error').style.opacity = form_special_phone_error;
-        document.getElementById('form_special_email_error').style.opacity = form_special_email_error;
-        document.getElementById('form_special_agree_error').style.opacity = form_special_agree_error;
-        document.getElementById('form_special_text_error').style.opacity = form_special_text_error;
+        document.getElementById('form_special_name_back_error').style.opacity = form_special_name_error;
+        document.getElementById('form_special_phone_back_error').style.opacity = form_special_phone_error;
+        document.getElementById('form_special_email_back_error').style.opacity = form_special_email_error;
+        document.getElementById('form_special_agree_back_error').style.opacity = form_special_agree_error;
+        document.getElementById('form_special_text_back_error').style.opacity = form_special_text_error;
 
         if(!(form_special_name_error + form_special_phone_error + form_special_email_error + form_special_agree_error + form_special_text_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestheader_special('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');
@@ -424,6 +445,7 @@
                     alert('<h2>Ошибка загрузки страницы(500)</h2>');
                 }
                 if (xhr.readyState == 4 && xhr.status == 200) {
+                    var form_special_ok_back = document.getElementById('form_special_ok_back');
                     var objRezult = JSON.parse(xhr.responseText);
                     for(var i in objRezult) {
                         if ('error' == i) {
@@ -450,7 +472,6 @@
                                         form_special_agree_back_error.style.opacity = 1;
                                         break;
                                     case 'form_special_id':
-                                        var form_special_ok_back = document.getElementById('form_special_ok_back');
                                         form_special_ok_back.innerText = objRezult[i][j];
                                         form_special_ok_back.style.opacity = 1;
                                         break;
@@ -460,12 +481,12 @@
                             }
                         }
                         if ('ok' == i) {
-                            var form_special_ok_back = document.getElementById('form_special_ok_back');
                             form_special_ok_back.innerText = objRezult[i];
                             form_special_ok_back.style.opacity = 1;
+                            console.log(objRezult);
                         }
                     }
-                    grecaptcha.reset(special_modal_form_captcha);
+//                    grecaptcha.reset(special_modal_form_captcha);
                     document.getElementById('form_special_submit_button').setAttribute("disabled", 'true');
 //                    console.log(objRezult);
                 }

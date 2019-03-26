@@ -35,6 +35,14 @@ class AuthServiceProvider extends ServiceProvider
             return false;
             //abort(404);
         });
+        Gate::define('shedule', function(User $user){
+            foreach($user->roles as $role) if('shedule' == $role->title) return true;
+            return false;
+            //abort(404);
+        });
+        Gate::define('cabinet_to_admin', function(User $user){
+            return $user->can('content') || $user->can('shedule') || $user->can('admin');
+        });
         Gate::define('adminpanel', function(User $user){
             return $user->can('admin') || $user->can('content');
         });

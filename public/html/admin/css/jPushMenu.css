@@ -110,7 +110,7 @@
 
 .cbp-spmenu-push-toright {
     left: 320px;
-    width: 942px;
+    width: calc(100% - 320px);
 }
 
 .cbp-spmenu-push-toleft {

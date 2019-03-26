@@ -33,10 +33,10 @@
         <li class="{{ 'feedback' == $params['active_menu'] ?  'cabinet_container_content_menu_active' : ''}}">
             <a href="{{ route('cabinet.feedback') }}" class="cabinet_container_content_menu_a">Обратная связь</a>
         </li>
-        @can('admin')
-            <li>
-                <a href="{{ route('admin') }}" class="cabinet_container_content_menu_a">Административная панель</a>
-            </li>
+        @can('cabinet_to_admin')
+        <li>
+            <a href="{{ route('admin') }}" class="cabinet_container_content_menu_a">Административная панель</a>
+        </li>
         @endcan
     </ul>
 </div>

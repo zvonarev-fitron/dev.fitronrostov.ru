@@ -3,7 +3,7 @@
         cursor:pointer;
         transition:all .25s
     }
-    .container_training #modal_background,
+    .container_training #modal_background_training,
     .container_training .modal_content{
         cursor:pointer;
         height:0;
@@ -12,7 +12,7 @@
         visibility:hidden;
         width:0
     }
-    .container_training #modal_background{
+    .container_training #modal_background_training{
         transition:height .25s
     }
     .container_training .modal_content{
@@ -22,7 +22,7 @@
     .container_training #modal_training{
         display:none
     }
-    .container_training #modal_training:checked~#modal_background{
+    .container_training #modal_training:checked~#modal_background_training{
         background-color:hsla(0,0%,50.2%,.8);
         height:100%;
         left:0;
@@ -118,6 +118,7 @@
         color: #f03;
         font-size: 10px;
         text-align: left;
+        opacity: 0;
     }
     .container_training .group_tag .group_tag_row{
         display:flex;
@@ -246,7 +247,7 @@
 
 <div id="training" class="container_training">
     <input type="checkbox" id="modal_training">
-    <label for="modal_training" id="modal_background" style="z-index: 899;"></label>
+    <label for="modal_training" id="modal_background_training" style="z-index: 899;"></label>
     <div class="modal_content" style="z-index: 900;overflow-y: auto;">
         <div class="header_training">
             <div class="top_header_training">
@@ -264,8 +265,7 @@
                             <div class="group_tag_input">
                                 <label for="form_training_name">Представьтесь</label>
                                 <input type="text" id="form_training_name" name="form_training_name" />
-                                <div id="form_training_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
-                                <div id="form_training_name_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_training_name_back_error" class="error">Необходимо заполнить «Представьтесь».</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_training_club">Выберите клуб</label>
@@ -275,34 +275,31 @@
                                         <option value="{{ $club->id }}#{{ $club->name }}">{{ $club->name }}</option>
                                     @endforeach
                                 </select>
-                                <div class="error" style="opacity:0;">Необходимо выбрать клуб</div>
+                                <div id="form_training_name_club_error" class="error">Необходимо выбрать клуб</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input flex_width">
                                 <label for="form_training_phone">Телефон</label>
                                 <input type="tel" id="form_training_phone" name="form_training_phone" placeholder="+7 (___)___- ____" />
-                                <div id="form_training_phone_error" class="error" style="opacity:0;">Необходимо заполнить Телефон</div>
-                                <div id="form_training_phone_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_training_phone_back_error" class="error">Необходимо заполнить Телефон</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_training_email">Email</label>
                                 <input type="email" id="form_training_email" name="form_training_email" />
-                                <div id="form_training_email_error" class="error" style="opacity:0;">Необходимо заполнить «Email».</div>
-                                <div id="form_training_email_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_training_email_back_error" class="error">Необходимо заполнить «Email»</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input" style="width: 100%;">
                                 <label for="form_training_text">Сообщение</label>
                                 <textarea name="form_training_text" id="form_training_text" cols="30" rows="5"></textarea>
-                                <div id="form_training_text_error" class="error" style="opacity: 0;">Необходимо написать сообщение</div>
-                                <div id="form_training_text_back_error" class="error" style="opacity: 0;"></div>
+                                <div id="form_training_text_back_error" class="error">Необходимо написать сообщение</div>
                             </div>
                         </div>
                         <div class="group_tag_row group_captcha">
                             <div id="form_training_captcha"></div>
-                            <div id="form_training_captcha_back_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
+                            <div id="form_training_captcha_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
@@ -310,12 +307,10 @@
                                     <input type="checkbox" id="form_training_agree" name="form_training_agree" value="1">
                                     <span>Я согласен (-а) на обработку </span>
                                     <label for="modal_policy" style="color:red">персональных данных</label>
-                                    {{--<a href="/privacy-policy" target="_blank" data-privacy-policy="">персональных данных</a>--}}
                                 </div>
-                                <div id="form_training_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
-                                <div id="form_training_agree_back_error" class="error" style="opacity:0;"></div>
                             </div>
                         </div>
+                        <div id="form_training_agree_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         <p class="message">
                             Максимальный размер загружаемого файла - 4Мб
                             Форматы: jpg, doc, docx, pdf, txt, odt, pages
@@ -323,10 +318,10 @@
                         <div class="group_tag_row">
                             <label for="form_training_file" class="button_file"><span>Прикрепить файл</span></label>
                             <input id="form_training_file" type="file" name="form_training_file" style="display: none;">
-                            <button id="form_training_submit_button" class="button_submit" type="submit" disabled><span>Отправить</span></button>
+                            <button id="form_training_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                         </div>
                         <div class="group_tag_row file">
-                            <div id="form_training_file_back_error" class="error" style="opacity:0;"></div>
+                            <div id="form_training_file_back_error" class="error"></div>
                         </div>
                     </div>
                 </form>
@@ -358,16 +353,41 @@
     var recaptchaExpiredCallback_training = function(){ document.getElementById('form_training_submit_button').setAttribute("disabled", 'true'); };
     var recaptchaErrorCallback_training = function(){ document.getElementById('form_training_submit_button').setAttribute("disabled", 'true'); };
 
-    document.getElementById('modal_close_training').addEventListener('click', function(event){
-        event.preventDefault();
-        document.getElementById(this.getAttribute('for')).checked = false;
+    function cleanTrainingForm(event)
+    {
+        document.getElementById('form_training_text').value = '';
         document.getElementById('form_training_name').value = null;
         document.getElementById('form_training_phone').value = null;
         document.getElementById('form_training_email').value = null;
+        document.getElementById('form_training_file').value = null;
         document.getElementById('form_training_agree').checked = false;
+
+        document.getElementById('form_training_submit_button').removeAttribute("disabled");
+
         var form_training_ok_back = document.getElementById('form_training_ok_back');
         form_training_ok_back.innerText = null;
         form_training_ok_back.style.opacity = 0;
+
+        document.getElementById('form_training_name_back_error').style.opacity = 0;
+        document.getElementById('form_training_name_club_error').style.opacity = 0;
+        document.getElementById('form_training_phone_back_error').style.opacity = 0;
+        document.getElementById('form_training_email_back_error').style.opacity = 0;
+        document.getElementById('form_training_text_back_error').style.opacity = 0;
+        document.getElementById('form_training_captcha_back_error').style.opacity = 0;
+        document.getElementById('form_training_agree_back_error').style.opacity = 0;
+        document.getElementById('form_training_file_back_error').style.opacity = 0;
+    }
+
+    document.getElementById('modal_close_training').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanTrainingForm(event);
+    });
+
+    document.getElementById('modal_background_training').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanTrainingForm(event);
     });
 
     document.getElementById('training_fdbc_modal').addEventListener('submit', function(event){
@@ -386,6 +406,8 @@
         form_training_agree_back_error.style.opacity = 0;
         var form_training_file_back_error = document.getElementById('form_training_file_back_error');
         form_training_file_back_error.style.opacity = 0;
+        var form_training_text_back_error = document.getElementById('form_training_text_back_error');
+        form_training_text_back_error.style.opacity = 0;
 
         var form_training_name_error = +!(data.has('form_training_name') && !!data.get('form_training_name'));
         var form_training_phone_error = +!(data.has('form_training_phone') && !!data.get('form_training_phone'));
@@ -393,16 +415,18 @@
         var form_training_agree_error = +!(data.has('form_training_agree') && !!data.get('form_training_agree'));
         var form_training_text_error = +!(data.has('form_training_text') && !!data.get('form_training_text'));
 
-        document.getElementById('form_training_name_error').style.opacity = form_training_name_error;
-        document.getElementById('form_training_phone_error').style.opacity = form_training_phone_error;
-        document.getElementById('form_training_email_error').style.opacity = form_training_email_error;
-        document.getElementById('form_training_agree_error').style.opacity = form_training_agree_error;
-        document.getElementById('form_training_text_error').style.opacity = form_training_text_error;
+        document.getElementById('form_training_name_back_error').style.opacity = form_training_name_error;
+        document.getElementById('form_training_phone_back_error').style.opacity = form_training_phone_error;
+        document.getElementById('form_training_email_back_error').style.opacity = form_training_email_error;
+        document.getElementById('form_training_agree_back_error').style.opacity = form_training_agree_error;
+        document.getElementById('form_training_text_back_error').style.opacity = form_training_text_error;
+
+        var form_training_ok_back = document.getElementById('form_training_ok_back');
 
         if(!(form_training_name_error + form_training_phone_error + form_training_email_error + form_training_agree_error + form_training_text_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestheader_training('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');
@@ -418,6 +442,9 @@
                 }
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var objRezult = JSON.parse(xhr.responseText);
+
+                    console.log(objRezult);
+
                     for(var i in objRezult) {
                         if ('error' == i) {
                             for (var j in objRezult[i]) {
@@ -442,12 +469,16 @@
                                         form_training_agree_back_error.innerText = objRezult[i][j][0];
                                         form_training_agree_back_error.style.opacity = 1;
                                         break;
+                                    case 'form_training_text':
+                                        form_training_text_back_error.innerText = objRezult[i][j][0];
+                                        form_training_text_back_error.style.opacity = 1;
+                                        break;
                                     case 'form_training_file':
                                         form_training_file_back_error.innerText = objRezult[i][j];
                                         form_training_file_back_error.style.opacity = 1;
                                         break;
                                     case 'form_training_id':
-                                        var form_training_ok_back = document.getElementById('form_training_ok_back');
+//                                        var form_training_ok_back = document.getElementById('form_training_ok_back');
                                         form_training_ok_back.innerText = objRezult[i][j];
                                         form_training_ok_back.style.opacity = 1;
                                         break;
@@ -457,12 +488,13 @@
                             }
                         }
                         if ('ok' == i) {
-                            var form_training_ok_back = document.getElementById('form_training_ok_back');
+//                            var form_training_ok_back = document.getElementById('form_training_ok_back');
                             form_training_ok_back.innerText = objRezult[i];
                             form_training_ok_back.style.opacity = 1;
+                            console.log(objRezult);
                         }
                     }
-                    grecaptcha.reset(training_modal_form_captcha);
+//                    grecaptcha.reset(training_modal_form_captcha);
                     document.getElementById('form_training_submit_button').setAttribute("disabled", 'true');
 //                    console.log(objRezult);
                 }

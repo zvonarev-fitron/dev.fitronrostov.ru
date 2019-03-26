@@ -65,6 +65,7 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
         else{
+            return back()->withErrors(['msg' => 'Не верные данные для авторизации. Проверьте правильность ввода.'])->withInput();
             dd('Requests1CFitron');         //Удаленная регистрация через 1с
             dd(Requests1CFitron::Send([]));
         }

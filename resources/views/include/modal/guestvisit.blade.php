@@ -3,7 +3,7 @@
         cursor:pointer;
         transition:all .25s
     }
-    .container_modal_guest_visit #modal_background,
+    .container_modal_guest_visit #modal_background_guest_visit,
     .container_modal_guest_visit .modal_content{
         cursor:pointer;
         height:0;
@@ -12,7 +12,7 @@
         visibility:hidden;
         width:0
     }
-    .container_modal_guest_visit #modal_background{
+    .container_modal_guest_visit #modal_background_guest_visit{
         transition:height .25s
     }
     .container_modal_guest_visit .modal_content{
@@ -22,7 +22,7 @@
     .container_modal_guest_visit #modal_guest_visit{
         display:none
     }
-    .container_modal_guest_visit #modal_guest_visit:checked~#modal_background{
+    .container_modal_guest_visit #modal_guest_visit:checked~#modal_background_guest_visit{
         background-color:hsla(0,0%,50.2%,.8);
         height:100%;
         left:0;
@@ -76,7 +76,8 @@
     }
     .container_modal_guest_visit .group_tag .error{
         color:#f03;
-        font-size:12px
+        font-size:12px;
+        opacity: 0;
     }
     .container_modal_guest_visit .group_tag .group_tag_row{
         display:flex;
@@ -85,7 +86,7 @@
     .container_modal_guest_visit .group_tag .group_tag_row .group_tag_checkbox{
         align-self:center;
         display:flex;
-        margin:25px 0
+        margin: 0 0
     }
     .container_modal_guest_visit .group_tag .group_tag_row .group_tag_checkbox span{
         color: #0f3b89;
@@ -230,21 +231,23 @@
 </style>
 <div id="feedback" class="container_modal_guest_visit">
     <input type="checkbox" id="modal_guest_visit">
-    <label for="modal_guest_visit" id="modal_background" style="z-index: 899;"></label>
+    <label for="modal_guest_visit" id="modal_background_guest_visit" style="z-index: 899;"></label>
     <div class="modal_content"  style="z-index: 900;">
         <div class="header_guestvisit">
             <div class="top_header_guestvisit">
                 <h2>Получить бесплатный гостевой визит</h2>
                 <label for="modal_guest_visit" id="modal_close_guest_visit"><i class="fas fa-times"></i></label>
             </div>
+            <div id="form_guest_visit_ok_back" style="opacity: 0;" class="form_guest_visit_of_back"></div>
             <div class="content_form">
-                <form action="aaa">
+                <form action="{{ route('join_guest_visit') }}" method="post" id="form_guest_visit_up">
+                    @csrf
                     <div class="group_tag">
                         <div class="group_tag_row">
                             <div class="group_tag_input form_guest_visit_name">
                                 <label for="form_guest_visit_name">Представьтесь</label>
                                 <input type="text" id="form_guest_visit_name" name="form_guest_visit_name" class="" />
-                                <div class="error" style="display:none;">Необходимо заполнить «Представьтесь».</div>
+                                <div id="form_guest_visit_name_back_error" class="error">Необходимо заполнить «Представьтесь».</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_guest_visit_club">Выберите клуб</label>
@@ -261,35 +264,29 @@
                             <div class="group_tag_input">
                                 <label for="form_guest_visit_phone">Телефон</label>
                                 <input type="tel" id="form_guest_visit_phone" name="form_guest_visit_phone" placeholder="+7 (___)___- ____" />
-                                <div class="error" style="display:none;">Необходимо заполнить Телефон</div>
+                                <div id="form_guest_visit_phone_back_error" class="error">Необходимо заполнить Телефон</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_guest_visit_email">Email</label>
                                 <input type="email" id="form_guest_visit_email" name="form_guest_visit_email" />
-                                <div class="error" style="display:none;">Необходимо заполнить «Email».</div>
+                                <div id="form_guest_visit_email_back_error" class="error">Необходимо заполнить «Email».</div>
                             </div>
                         </div>
-
-                        {{--<div class="group_tag_row">--}}
-                            {{--<div class="group_tag_input form_guest_visit_text">--}}
-                                {{--<label for="form_guest_visit_text">Сообщение</label>--}}
-                                {{--<textarea name="form_guest_visit_text" id="form_guest_visit_text" cols="30" rows="10"></textarea>--}}
-                                {{--<div class="error" style="display:none;">Необходимо выбрать клуб</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
+                        <div class="group_tag_row group_captcha">
+                            <div id="form_guest_visit_captcha"></div>
+                            <div id="form_guest_visit_captcha_back_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
+                        </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
-                                <input type="checkbox" name="ContactForm[agree]" value="1" aria-invalid="true">
+                                <input type="checkbox" name="form_guest_visit_agree" id="form_guest_visit_agree" value="1" aria-invalid="true">
                                 <span>Я согласен (-а) на обработку</span>
                                 <label for="modal_policy" style="color:red">персональных данных</label>
-                                {{--<a href="#" target="_blank" data-privacy-policy="">персональных данных</a>--}}
-                                <div class="error" style="display: none;">Необходимо согласиться на обработку персональных данных</div>
                             </div>
                         </div>
+                        <div id="form_guest_visit_agree_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         <div class="group_tag_row">
                             <div class="group_tag_button">
-                                <button class="button_submit" type="submit"><span>Отправить</span></button>
+                                <button id="form_guest_visit_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                             </div>
                         </div>
                     </div>
@@ -299,5 +296,147 @@
     </div>
 </div>
 <script type="text/javascript">
+    var guest_visit_modal_form = function() {
+        return window.grecaptcha.render('form_guest_visit_captcha', {
+            'sitekey': '6LclVH8UAAAAAD65E-FQC9fUdoijUQ--fdQk6k2I',
+            'theme': 'light',
+            'callback': 'recaptchaCallback_guest_visit',
+            'expired-callback': 'recaptchaExpiredCallback_guest_visit',
+            'error-callback': 'recaptchaErrorCallback_guest_visit'
+        });
+    };
+
+    var recaptchaCallback_guest_visit = function(){ document.getElementById('form_guest_visit_submit_button').removeAttribute("disabled"); };
+    var recaptchaExpiredCallback_guest_visit = function(){ document.getElementById('form_guest_visit_submit_button').setAttribute("disabled", 'true'); };
+    var recaptchaErrorCallback_guest_visit = function(){ document.getElementById('form_guest_visit_submit_button').setAttribute("disabled", 'true'); };
+
     jQuery(function($){ $("#form_guest_visit_phone").mask("+7(999) 999-9999"); });
+
+    document.getElementById('modal_background_guest_visit').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        clearFormGuestVisit(event);
+    });
+
+    document.getElementById('modal_close_guest_visit').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        clearFormGuestVisit(event);
+    });
+
+    function clearFormGuestVisit(event){
+        document.getElementById('form_guest_visit_name').value = null;
+        document.getElementById('form_guest_visit_phone').value = null;
+        document.getElementById('form_guest_visit_email').value = null;
+        document.getElementById('form_guest_visit_agree').checked = false;
+        document.getElementById('form_guest_visit_submit_button').removeAttribute("disabled");
+        var form_guest_visit_ok_back = document.getElementById('form_guest_visit_ok_back');
+        form_guest_visit_ok_back.innerText = null;
+        form_guest_visit_ok_back.style.opacity = 0;
+        document.getElementById('form_guest_visit_name_back_error').style.opacity = 0;
+        document.getElementById('form_guest_visit_phone_back_error').style.opacity = 0;
+        document.getElementById('form_guest_visit_email_back_error').style.opacity = 0;
+        document.getElementById('form_guest_visit_agree_back_error').style.opacity = 0;
+    }
+
+    document.getElementById('form_guest_visit_up').addEventListener('submit', function(event){
+        event.preventDefault();
+        var data = new FormData(this);
+
+        var form_guest_visit_captcha_back_error = document.getElementById('form_guest_visit_captcha_back_error');
+        form_guest_visit_captcha_back_error.style.opacity = 0;
+        var form_guest_visit_name_back_error = document.getElementById('form_guest_visit_name_back_error');
+        form_guest_visit_name_back_error.style.opacity = 0;
+        var form_guest_visit_phone_back_error = document.getElementById('form_guest_visit_phone_back_error');
+        form_guest_visit_phone_back_error.style.document = 0;
+        var form_guest_visit_email_back_error = document.getElementById('form_guest_visit_email_back_error');
+        form_guest_visit_email_back_error.style.opacity = 0;
+        var form_guest_visit_agree_back_error = document.getElementById('form_guest_visit_agree_back_error');
+        form_guest_visit_agree_back_error.style.opacity = 0;
+
+        var form_guest_visit_name_error = +!(data.has('form_guest_visit_name') && !!data.get('form_guest_visit_name'));
+        var form_guest_visit_phone_error = +!(data.has('form_guest_visit_phone') && !!data.get('form_guest_visit_phone'));
+        var form_guest_visit_email_error = +!(data.has('form_guest_visit_email') && !!data.get('form_guest_visit_email'));
+        var form_guest_visit_agree_error = +!(data.has('form_guest_visit_agree') || !!data.get('form_guest_visit_agree'));
+
+        document.getElementById('form_guest_visit_name_back_error').style.opacity = form_guest_visit_name_error;
+        document.getElementById('form_guest_visit_phone_back_error').style.opacity = form_guest_visit_phone_error;
+        document.getElementById('form_guest_visit_email_back_error').style.opacity = form_guest_visit_email_error;
+        document.getElementById('form_guest_visit_agree_back_error').style.opacity = form_guest_visit_agree_error;
+
+        if(!(form_guest_visit_name_error + form_guest_visit_phone_error + form_guest_visit_email_error + form_guest_visit_agree_error)){
+            var xhr = new XMLHttpRequest();
+            xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onload = function(){
+                if (xhr.readyState == 4 && xhr.status == 404) {
+                    alert('<h2>Ошибка загрузки страницы(404)</h2>');
+                }
+                if (xhr.readyState == 4 && xhr.status == 422) {
+                    alert('<h2>Ошибка загрузки страницы(422)</h2>');
+                }
+                if (xhr.readyState == 4 && xhr.status == 405) {
+                    alert('<h2>Ошибка загрузки страницы(405)</h2>');
+                }
+                if (xhr.readyState == 4 && xhr.status == 419) {
+                    alert('<h2>Ошибка загрузки страницы(419)</h2>');
+                }
+                if (xhr.readyState == 4 && xhr.status == 500) {
+                    alert('<h2>Ошибка загрузки страницы(500)</h2>');
+                }
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var objRezult = JSON.parse(xhr.responseText);
+                    for(var i in objRezult) {
+                        if ('error' == i) {
+                            for (var j in objRezult[i]) {
+                                switch (j) {
+                                    case 'g-recaptcha-response':
+                                        form_sign_up_captcha_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_captcha_back_error.style.opacity = 1;
+                                        break;
+                                    case 'form_guest_visit_name':
+                                        form_sign_up_name_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_name_back_error.style.opacity = 1;
+                                        break;
+                                    case 'form_guest_visit_phone':
+                                        form_sign_up_phone_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_phone_back_error.style.opacity = 1;
+                                        break;
+                                    case 'form_guest_visit_email':
+                                        form_sign_up_email_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_email_back_error.style.opacity = 1;
+                                        break;
+                                    case 'form_guest_visit_club':
+                                        form_sign_up_club_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_club_back_error.style.opacity = 1;
+                                        break;
+                                    case 'form_guest_visit_agree':
+                                        form_sign_up_agree_back_error.innerText = objRezult[i][j][0];
+                                        form_sign_up_agree_back_error.style.opacity = 1;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+                        if ('ok' == i) {
+                            var form_guest_visit_ok_back = document.getElementById('form_guest_visit_ok_back');
+                            form_guest_visit_ok_back.innerText = objRezult[i];
+                            form_guest_visit_ok_back.style.opacity = 1;
+                            console.log(objRezult);
+                        }
+                    }
+                    //grecaptcha.reset(sign_up_modal_form);
+                    document.getElementById('form_guest_visit_submit_button').setAttribute("disabled", 'true');
+                    //console.log(objRezult);
+                }
+            };
+            xhr.onerror = function () {
+                console.log('Ошибка');
+            };
+            xhr.send(data);
+        }
+        return false;
+    });
+
 </script>

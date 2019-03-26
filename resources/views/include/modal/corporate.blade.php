@@ -3,7 +3,7 @@
         cursor:pointer;
         transition:all .25s
     }
-    .container_corporate #modal_background,
+    .container_corporate #modal_background_corporate,
     .container_corporate .modal_content{
         cursor:pointer;
         height:0;
@@ -12,7 +12,7 @@
         visibility:hidden;
         width:0
     }
-    .container_corporate #modal_background{
+    .container_corporate #modal_background_corporate{
         transition:height .25s
     }
     .container_corporate .modal_content{
@@ -22,7 +22,7 @@
     .container_corporate #modal_corporate{
         display:none
     }
-    .container_corporate #modal_corporate:checked~#modal_background{
+    .container_corporate #modal_corporate:checked~#modal_background_corporate{
         background-color:hsla(0,0%,50.2%,.8);
         height:100%;
         left:0;
@@ -103,9 +103,10 @@
         transform:skew(24deg)
     }
     .container_corporate .group_tag .error{
-        color:#f03;
-        font-size:10px;
+        color: #f03;
+        font-size: 10px;
         text-align: left;
+        opacity: 0;
     }
     .container_corporate .group_tag .group_tag_row{
         display:flex;
@@ -234,7 +235,7 @@
 
 <div id="corporate" class="container_corporate">
     <input type="checkbox" id="modal_corporate">
-    <label for="modal_corporate" id="modal_background" style="z-index: 899;"></label>
+    <label for="modal_corporate" id="modal_background_corporate" style="z-index: 899;"></label>
     <div class="modal_content" style="z-index: 900;overflow-y: auto">
         <div class="header_corporate">
             <div class="top_header_corporate">
@@ -251,8 +252,7 @@
                             <div class="group_tag_input">
                                 <label for="form_corporate_name">Представьтесь</label>
                                 <input type="text" id="form_corporate_name" name="form_corporate_name" />
-                                <div id="form_corporate_name_error" class="error" style="opacity:0;">Необходимо заполнить «Представьтесь».</div>
-                                <div id="form_corporate_name_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_corporate_name_back_error" class="error">Необходимо заполнить «Представьтесь»</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_corporate_club">Выберите клуб</label>
@@ -262,34 +262,31 @@
                                         <option value="{{ $club->id }}#{{ $club->name }}">{{ $club->name }}</option>
                                     @endforeach
                                 </select>
-                                <div class="error" style="opacity:0;">Необходимо выбрать клуб</div>
+                                <div id="form_corporate_club_back_error" class="error">Необходимо выбрать клуб</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input">
                                 <label for="form_corporate_phone">Телефон</label>
                                 <input type="tel" id="form_corporate_phone" name="form_corporate_phone" placeholder="+7 (___)___- ____" />
-                                <div id="form_corporate_phone_error" class="error" style="opacity:0;">Необходимо заполнить Телефон</div>
-                                <div id="form_corporate_phone_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_corporate_phone_back_error" class="error">Необходимо заполнить Телефон</div>
                             </div>
                             <div class="group_tag_input">
                                 <label for="form_corporate_email">Email</label>
                                 <input type="email" id="form_corporate_email" name="form_corporate_email" />
-                                <div id="form_corporate_email_error" class="error" style="opacity:0;">Необходимо заполнить «Email».</div>
-                                <div id="form_corporate_email_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_corporate_email_back_error" class="error">Необходимо заполнить «Email»</div>
                             </div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_input" style="width: 100%;">
                                 <label for="form_corporate_text">Сообщение</label>
                                 <textarea name="form_corporate_text" id="form_corporate_text" cols="30" rows="5"></textarea>
-                                <div id="form_corporate_text_error" class="error" style="opacity: 0;">Необходимо написать сообщение</div>
-                                <div id="form_corporate_text_back_error" class="error" style="opacity: 0;"></div>
+                                <div id="form_corporate_text_back_error" class="error">Необходимо написать сообщение</div>
                             </div>
                         </div>
                         <div class="group_tag_row group_captcha">
                             <div id="form_corporate_captcha"></div>
-                            <div id="form_corporate_captcha_back_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
+                            <div id="form_corporate_captcha_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                         </div>
                         <div class="group_tag_row">
                             <div class="group_tag_checkbox">
@@ -299,8 +296,7 @@
                                     <label for="modal_policy" style="color:red">персональных данных</label>
                                     {{--<a href="/privacy-policy" target="_blank" data-privacy-policy="">персональных данных</a>--}}
                                 </div>
-                                <div id="form_corporate_agree_error" class="error" style="opacity:0;">Необходимо согласиться на обработку персональных данных</div>
-                                <div id="form_corporate_agree_back_error" class="error" style="opacity:0;"></div>
+                                <div id="form_corporate_agree_back_error" class="error">Необходимо согласиться на обработку персональных данных</div>
                             </div>
                         </div>
                         <p class="message">
@@ -310,10 +306,10 @@
                         <div class="group_tag_row">
                             <label for="form_corporate_file" class="button_file"><span>Прикрепить файл</span></label>
                             <input id="form_corporate_file" type="file" name="form_corporate_file" style="display: none;">
-                            <button id="form_corporate_submit_button" class="button_submit" type="submit" disabled><span>Отправить</span></button>
+                            <button id="form_corporate_submit_button" class="button_submit" type="submit"><span>Отправить</span></button>
                         </div>
                         <div class="group_tag_row file">
-                            <div id="form_corporate_file_back_error" class="error" style="opacity:0;"></div>
+                            <div id="form_corporate_file_back_error" class="error"></div>
                         </div>
                     </div>
                 </form>
@@ -366,9 +362,8 @@
         });
     });
 
-    document.getElementById('modal_close_corporate').addEventListener('click', function(event){
-        event.preventDefault();
-        document.getElementById(this.getAttribute('for')).checked = false;
+    function cleanCorporateForm(event)
+    {
         document.getElementById('form_corporate_name').value = null;
         document.getElementById('form_corporate_phone').value = null;
         document.getElementById('form_corporate_email').value = null;
@@ -376,9 +371,32 @@
         document.getElementById('form_corporate_file').value = null;
         document.getElementById('form_corporate_file_back_error').innerText = null;
         document.getElementById('form_corporate_agree').checked = false;
+
+        document.getElementById('form_corporate_submit_button').removeAttribute('disabled');
+
         var form_corporate_ok_back = document.getElementById('form_corporate_ok_back');
         form_corporate_ok_back.innerText = null;
         form_corporate_ok_back.style.opacity = 0;
+
+        document.getElementById('form_corporate_captcha_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_name_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_phone_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_email_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_agree_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_text_back_error').style.opacity = 0;
+        document.getElementById('form_corporate_file_back_error').style.opacity = 0;
+    }
+
+    document.getElementById('modal_close_corporate').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanCorporateForm(event);
+    });
+
+    document.getElementById('modal_background_corporate').addEventListener('click', function(event){
+        event.preventDefault();
+        document.getElementById(this.getAttribute('for')).checked = false;
+        cleanCorporateForm(event);
     });
 
     document.getElementById('corporate_fdbc_modal').addEventListener('submit', function(event){
@@ -406,17 +424,16 @@
         var form_corporate_text_error = +!(data.has('form_corporate_text') && !!data.get('form_corporate_text'));
         var form_corporate_agree_error = +!(data.has('form_corporate_agree') || !!data.get('form_corporate_agree'));
 
-        document.getElementById('form_corporate_name_error').style.opacity = form_corporate_name_error;
-        document.getElementById('form_corporate_phone_error').style.opacity = form_corporate_phone_error;
-        document.getElementById('form_corporate_email_error').style.opacity = form_corporate_email_error;
-        document.getElementById('form_corporate_text_error').style.opacity = form_corporate_text_error;
-        document.getElementById('form_corporate_agree_error').style.opacity = form_corporate_agree_error;
-
+        document.getElementById('form_corporate_name_back_error').style.opacity = form_corporate_name_error;
+        document.getElementById('form_corporate_phone_back_error').style.opacity = form_corporate_phone_error;
+        document.getElementById('form_corporate_email_back_error').style.opacity = form_corporate_email_error;
+        document.getElementById('form_corporate_text_back_error').style.opacity = form_corporate_text_error;
+        document.getElementById('form_corporate_agree_back_error').style.opacity = form_corporate_agree_error;
 
         if(!(form_corporate_name_error + form_corporate_phone_error + form_corporate_email_error + form_corporate_agree_error + form_corporate_text_error)){
             var xhr = new XMLHttpRequest();
             xhr.open(this.getAttribute('method'), this.getAttribute('action'), true);
-            xhr.setRequestheader_corporate('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onload = function(){
                 if (xhr.readyState == 4 && xhr.status == 404) {
                     alert('<h2>Ошибка загрузки страницы(404)</h2>');
@@ -478,11 +495,12 @@
                             var form_corporate_ok_back = document.getElementById('form_corporate_ok_back');
                             form_corporate_ok_back.innerText = objRezult[i];
                             form_corporate_ok_back.style.opacity = 1;
+                            console.log(objRezult);
                         }
                     }
-                    grecaptcha.reset(corporate_modal_form_captcha);
+//                    grecaptcha.reset(corporate_modal_form_captcha);
                     document.getElementById('form_corporate_submit_button').setAttribute("disabled", 'true');
-                    console.log(objRezult);
+//                    console.log(objRezult);
                 }
             };
             xhr.onerror = function () {

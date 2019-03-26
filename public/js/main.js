@@ -114,6 +114,9 @@ $(function() {
     if(footer_select_club) footer_select_club.addEventListener('click', function(event){ sClub(this); });
     var schedule_select_club = document.getElementById('schedule_select_club');
     if(schedule_select_club) schedule_select_club.addEventListener('click', function(event){ sClub(this); });
+    var index_schedule = document.getElementById('index_schedule');
+    if(index_schedule) index_schedule.addEventListener('click', function(event){ sClub(this); });
+
     function sClub(self)
     {
         var $thiscont = self.querySelector('.select-club');

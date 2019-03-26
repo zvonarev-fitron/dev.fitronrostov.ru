@@ -17,7 +17,7 @@
         height: 50px;
         justify-content: space-between;
         align-items: flex-end;
-        width: 40%;
+        width: 100%;
         padding-bottom: 10px;
     }
     #schedule_admin_copy_form,
@@ -31,26 +31,29 @@
         <form action="" method="get" id="schedule_admin_copy_form">
             @csrf
             @include('include.input.oneselect', ['name' => 'schedule_admin_oneselect_copy', 'select' => '0', 'list' => $params['list_date'], 'text' => 'Выберите дату', 'slot' => ''])
-            <button type="submit" id="schedule-admin_copy_add" class="btn" title="Скопировать тренировки">Скопировать</button>
+            <button type="submit" id="schedule-admin_copy_add" class="btn" title="Скопировать тренировки" style="margin-left: 5px">Скопировать</button>
         </form>
         <form action="" method="get" id="schedule_admin_erase_form">
             @csrf
-            <button type="submit" id="schedule-admin_copy_erase" class="btn" title="Очистить тренировки">Очистить</button>
+            <button type="submit" id="schedule-admin_copy_erase" class="btn" title="Очистить тренировки" style="margin-left: 5px">Очистить</button>
         </form>
+        <button id="schedule-admin_to_calendar" class="btn" type="button" title="Перейти в календарь" style="margin-left: auto;">Календарь</button>
     </div>
     <table id="schedule-page_t_index" class="table table-hover header-fixed" title="Двойной клик перейти на редактирование">
         <thead>
         <tr>
-            <th>id</th>
+            <th>#</th>
             <th>Время</th>
             <th>Название</th>
             <th>Возраст</th>
             <th>Место</th>
-            <th>Сортировка</th>
+            <th>Интенсивность</th>
             <th>Статус</th>
-            <th> </th>
+            <th>Запись</th>
+            @can('admin')
             <th>Создан</th>
             <th>Изменен</th>
+            @endcan
         </tr>
         </thead>
         <tbody>
@@ -64,8 +67,8 @@
                        {{$sch_year->name}}&nbsp;
                     @endforeach
                 </td>
-                <td>{{$params['rooms']->firstWhere('id', $schedule->rooms_id)->name}}</td>
-                <td>{{$schedule->sort}}</td>
+                <td>{{ $params['rooms']->firstWhere('id', $schedule->rooms_id)->name }}</td>
+                <td>{{ $schedule->intensity->name }}</td>
                 <td>
                     @include('include.input.checkbox', [
                         'id' => $schedule->id,
@@ -83,10 +86,10 @@
 Платная
                     @endif
                 </td>
-                <td>
-                    {{$schedule->created_at}}
-                </td>
+                @can('admin')
+                <td>{{$schedule->created_at}}</td>
                 <td>{{$schedule->updated_at}}</td>
+                @endcan
             </tr>
         @endforeach
         </tbody>
@@ -101,6 +104,10 @@
 </div>
 <script>
     (function(){
+        document.getElementById('schedule-admin_to_calendar').addEventListener('click', function(event){
+            event.stopPropagation();
+            FTAdmin.AjaxSend('GET', '/admin/calendar/' + FTAdmin.select_table.schedule_club + '/', '', FTAdmin.res.content.el);
+        });
         document.querySelectorAll('.cb_schedules').forEach(function(element){
             document.getElementById('label_active_' + element.dataset.id).addEventListener('click', function(event){
                 event.preventDefault();

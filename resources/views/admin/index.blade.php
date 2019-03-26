@@ -25,7 +25,7 @@
 </head>
 <body>
 <!-- Left menu element-->
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left">
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" style="overflow-y: auto">
     <div class="div_cbp-spmenu-vertical">
         <div class="navbar-brand navbar-brand-center head-left_panel">
             <a class="a_menu-left_panel" href="/"><img class="navbar-brand-logo" src="/images/fitron-logo-mobile.svg" title="Fitron"></a>
@@ -41,6 +41,7 @@
             <a class="nav-link" id="menu_roles" href="javascript:void(0)">Роли</a>
         </li>
         @endcan
+        @can('content')
         <li class="nav-item">
             <a class="nav-link" id="menu_clubs" href="javascript:void(0)">Клубы</a>
         </li>
@@ -62,35 +63,6 @@
                 </div>
             @else
                 <a class="nav-link" id="menu_sliders" href="javascript:void(0)">Слайдеры</a>
-            @endif
-        </li>
-        <li class="nav-item">
-            @if(0 < count($params['categories']))
-                <a class="nav-link collapsed" id="menu_fitnes" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_fitnes">Фитнес-программы</a>
-                <div class="collapse" id="sub_menu_fitnes" aria-expanded="false">
-                    <ul class="flex-column pl-2 nav">
-                        @foreach($params['categories'] as $category)
-                            <li class="nav-item">
-                                @if(isset($params['category_trainings'][$category->id]))
-                                    <a class="nav-link collapsed py-0" id="category_{{$category->id}}" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_sub_menu_category_{{$category->id}}">{{$category->name}}</a>
-                                    <div class="collapse" id="sub_sub_menu_category_{{$category->id}}" aria-expanded="false">
-                                        <ul class="flex-column pl-2 nav">
-                                            @foreach($params['category_trainings'][$category->id] as $training)
-                                                <li class="nav-item">
-                                                    <a class="nav-link py-0" id="training_{{$training->id}}" href="javascript:void(0)">{{$training->name}}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @else
-                                    <a class="nav-link py-0" id="category_{{$category->id}}" href="javascript:void(0)">{{$category->name}}</a>
-                                @endif
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @else
-                <a class="nav-link" id="menu_fitnes" href="javascript:void(0)">Фитнес-программы</a>
             @endif
         </li>
         <li class="nav-item">
@@ -120,6 +92,37 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" id="menu_special" href="javascript:void(0)">Акции</a>
+        </li>
+        @endcan
+        @can('shedule')
+        <li class="nav-item">
+            @if(0 < count($params['categories']))
+                <a class="nav-link collapsed" id="menu_fitnes" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_fitnes">Фитнес-программы</a>
+                <div class="collapse" id="sub_menu_fitnes" aria-expanded="false">
+                    <ul class="flex-column pl-2 nav">
+                        @foreach($params['categories'] as $category)
+                            <li class="nav-item">
+                                @if(isset($params['category_trainings'][$category->id]))
+                                    <a class="nav-link collapsed py-0" id="category_{{$category->id}}" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_sub_menu_category_{{$category->id}}">{{$category->name}}</a>
+                                    <div class="collapse" id="sub_sub_menu_category_{{$category->id}}" aria-expanded="false">
+                                        <ul class="flex-column pl-2 nav">
+                                            @foreach($params['category_trainings'][$category->id] as $training)
+                                                <li class="nav-item">
+                                                    <a class="nav-link py-0" id="training_{{$training->id}}" href="javascript:void(0)">{{$training->name}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @else
+                                    <a class="nav-link py-0" id="category_{{$category->id}}" href="javascript:void(0)">{{$category->name}}</a>
+                                @endif
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @else
+                <a class="nav-link" id="menu_fitnes" href="javascript:void(0)">Фитнес-программы</a>
+            @endif
         </li>
         <li class="nav-item">
             @if(0 < count($params['clubs']))
@@ -152,6 +155,20 @@
         </li>
         <li class="nav-item">
             @if(0 < count($params['clubs']))
+                <a class="nav-link collapsed" id="menu_room" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_room">Место</a>
+                <div class="collapse" id="sub_menu_room" aria-expanded="false">
+                    <ul class="flex-column pl-2 nav">
+                        @foreach($params['clubs'] as $club)
+                            <a class="nav-link py-0" id="room_club_{{$club->id}}" href="javascript:void(0)" >{{$club->name}}</a>
+                        @endforeach
+                    </ul>
+                </div>
+            @else
+                <a class="nav-link" href="javascript:void(0)">Место</a>
+            @endif
+        </li>
+        <li class="nav-item">
+            @if(0 < count($params['clubs']))
                 <a class="nav-link collapsed" id="menu_schedule" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_schedule">Расписание</a>
                 <div class="collapse" id="sub_menu_schedule" aria-expanded="false">
                     <ul class="flex-column pl-2 nav">
@@ -166,20 +183,7 @@
                 <a class="nav-link" id="menu_schedule" href="javascript:void(0)">Расписание</a>
             @endif
         </li>
-        <li class="nav-item">
-            @if(0 < count($params['clubs']))
-                <a class="nav-link collapsed" id="menu_room" href="javascript:void(0)" data-toggle="collapse" data-target="#sub_menu_room">Место</a>
-                <div class="collapse" id="sub_menu_room" aria-expanded="false">
-                    <ul class="flex-column pl-2 nav">
-                        @foreach($params['clubs'] as $club)
-                            <a class="nav-link py-0" id="room_club_{{$club->id}}" href="javascript:void(0)" >{{$club->name}}</a>
-                        @endforeach
-                    </ul>
-                </div>
-            @else
-                <a class="nav-link" href="javascript:void(0)">Место</a>
-            @endif
-        </li>
+        @endcan
     </ul>
 </nav>
 

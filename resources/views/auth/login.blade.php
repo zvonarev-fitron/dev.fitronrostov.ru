@@ -42,6 +42,14 @@
 
 @section('main')
 <section class="container">
+    @if ($errors->has('msg'))
+            <dl class="alert_alert_danger">
+                @foreach ($errors->all() as $error)
+                    <dt>Danger!</dt>
+                    <dd>{{ $error }}</dd>
+                @endforeach
+            </dl>
+    @endif
     <div class="login">
         <h1>{{__('Войти в личный кабинет')}}</h1>
         <form method="post" action="{{ route('login') }}">

@@ -47,7 +47,7 @@ class CabinetController extends Controller
 
 //        return view ('cabinet.index', ['params' => $this->params]);
 
-
+//        dump('index');
 
 //        dd(Auth::user()->can('admin'));
 

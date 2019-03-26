@@ -110,13 +110,15 @@
                                                         <i class="icon-paid" title="Платная"></i>
                                                     @endif
                                                 </div>
-                                                <div class="name"><a class="name" target="_blank" href="{{url('fitnes-uslugi/'. $params['categories']->firstWhere('id', $params['trainings']->firstWhere('id', $sch->trainings_id)->category_id)->url . '/'
+                                                <div class="name">
+                                                    <a class="name" target="_blank" href="{{url('fitnes-uslugi/'. $params['categories']->firstWhere('id', $params['trainings']->firstWhere('id', $sch->trainings_id)->category_id)->url . '/'
 . $params['trainings']->firstWhere('id', $sch->trainings_id)->url)}}">{{$params['trainings']->firstWhere('id', $sch->trainings_id)->name}}</a>
                                                 </div>
                                                 <div class="intensity">Инт.: <span class="middle">{{$params['intensities']->firstWhere('id', $sch->intensities_id)->name}}</span></div>
                                                 <div class="place">Место. {{$params['rooms']->firstWhere('id', $sch->rooms_id)->name}}</div>
                                                 @if($sch->pre_entry)
-                                                <div class="pre_entry">по записи</div>
+                                                {{--<div class="pre_entry">по записи</div>--}}
+                                                <label for="modal_sign_up" class="pre_entry cl_label_sign_up"  data-schedule_id="{{ $sch->id }}">записаться</label>
                                                 @endif
                                             </div>
                                             @endforeach
@@ -152,6 +154,7 @@
 
 @push('modal')
     @includeIf('include.modal.guestvisit')
+    @includeIf('include.modal.sign_up')
 @endpush
 
 @section('script')

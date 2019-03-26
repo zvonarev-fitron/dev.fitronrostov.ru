@@ -930,3 +930,26 @@ ol>li>ol, ol>li>ul, ul>li>ol, ul>li>ul {
     background-color: white;
     z-index: 1000;
 }
+.cc_f .error {
+    color: #f03;
+    font-size: 10px;
+    text-align: left;
+    line-height: 10px;
+    opacity: 0;
+}
+
+.alert_alert_danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    /* padding: .75rem 1.25rem; */
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: flex;
+    justify-content: space-evenly;
+    height: 40px;
+    align-items: center;
+}
+.alert_alert_danger dt {
+    font-weight: 600;
+}

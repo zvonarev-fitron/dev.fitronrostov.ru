@@ -39,7 +39,7 @@
         };
 
         FTAdmin.schedule_date.day = '{{$params['date']->format('d')}}';
-        FTAdmin.schedule_date.month = '{{$params['date']->format('m')}}';
+        FTAdmin.schedule_date.month = '{{$params['date']->format('m') - 1}}';
         FTAdmin.schedule_date.year = '{{$params['date']->format('Y')}}';
 
         document.querySelector('#group_time_sed').addEventListener('change', function(event){
@@ -58,11 +58,17 @@
             event.preventDefault();
 
             var st = document.querySelector('#start_time_d');
-            var ds = new Date(FTAdmin.schedule_date.year, FTAdmin.schedule_date.month, FTAdmin.schedule_date.day, st.value.split(':')[0], st.value.split(':')[1], 0, 0);
-            document.querySelector('#start_time').value = ds.getFullYear() + '-' + ds.getMonth() + '-' + ds.getDate() + ' ' + ds.getHours() + ':' +  ds.getMinutes() + ':' + ds.getSeconds();
+            var ds = new Date(parseInt(FTAdmin.schedule_date.year),
+                parseInt(FTAdmin.schedule_date.month),
+                parseInt(FTAdmin.schedule_date.day),
+                parseInt(st.value.split(':')[0]),
+                parseInt(st.value.split(':')[1]),
+                0, 0);
+
+            document.querySelector('#start_time').value = ds.getFullYear() + '-' + (1 + ds.getMonth()) + '-' + ds.getDate() + ' ' + ds.getHours() + ':' +  ds.getMinutes() + ':' + ds.getSeconds();
             var et = document.querySelector('#end_time_d');
             var de = new Date(FTAdmin.schedule_date.year, FTAdmin.schedule_date.month, FTAdmin.schedule_date.day, et.value.split(':')[0], et.value.split(':')[1], 0, 0);
-            document.querySelector('#end_time').value = de.getFullYear() + '-' + de.getMonth() + '-' + de.getDate() + ' ' + de.getHours() + ':' +  de.getMinutes() + ':' + de.getSeconds();
+            document.querySelector('#end_time').value = de.getFullYear() + '-' + (1 + ds.getMonth()) + '-' + de.getDate() + ' ' + de.getHours() + ':' +  de.getMinutes() + ':' + de.getSeconds();
             //document.querySelector('#duration').value = document.querySelector('#duration_d').value;
 
             document.querySelector('#room_id').value = document.querySelector('#room').dataset.id;
@@ -77,7 +83,7 @@
             event.stopPropagation();
             event.preventDefault();
             FTAdmin.AjaxSend('GET', '/admin/schedule/' + FTAdmin.select_table.schedule_club + '_' + FTAdmin.schedule_date.year + '_' +
-                FTAdmin.schedule_date.month + '_' + FTAdmin.schedule_date.day + '/', '', FTAdmin.res.content.el);
+                (1 + parseInt(FTAdmin.schedule_date.month)) + '_' + FTAdmin.schedule_date.day + '/', '', FTAdmin.res.content.el);
         });
     })();
 </script>

@@ -745,7 +745,7 @@ footer .footer-left .footer-left-top .select-open .another-clubs {
     border-bottom: 5px solid #ff0033;
 }
 #main-schedule .schedule-cont {
-    /*height: 360px;*/
+    height: 360px;
     overflow: hidden;
     margin-bottom: 60px;
 }
@@ -2417,6 +2417,8 @@ ol.secondol {
     background: #bcbcbc;
     color: #ffffff;
     text-align: center;
+    display: block;
+    cursor: pointer;
 }
 #schedulecont .schedule-table .schedule-left, #schedulecont .schedule-table .schedule-right {
     display: block;
@@ -4502,7 +4504,7 @@ ol.secondol {
         margin-right: -50px;
     }
     #main-schedule .schedule-cont {
-        height: 495px;
+        height: 465px;
         margin-top: 0;
     }
     #main-schedule .caption {

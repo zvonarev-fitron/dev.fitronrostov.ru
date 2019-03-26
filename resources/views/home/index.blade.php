@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-
 {{--@section('logo')--}}
     {{--<div id="topleftcont" class="uk-hidden-small">--}}
         {{--<div class="toplefttop"></div>--}}
@@ -30,9 +29,7 @@
 @endsection
 @section('slider')
     <div id="main-slider">
-
         <main-carrousel v-bind:items="{{ $params['main_slider'] }}"></main-carrousel>
-
     {{--<div class="wrapper">--}}
         {{--<ul id="sb-slider" class="sb-slider">--}}
             {{--@foreach($params['images'] as $image)--}}
@@ -57,14 +54,10 @@
             {{--<a href="#">Previous</a>--}}
         {{--</div>--}}
     {{--</div><!-- /wrapper -->--}}
-
-
-
 </div>
 @endsection
 @section('schedule')
     <div id="main-events-schedule">
-
     {{--<div id="main-events">--}}
         {{--<div class="main-events-cont">--}}
             {{--<div class="events-top">--}}
@@ -74,24 +67,22 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
-
         <div id="main-events">
             {{--<iframe src="/wowslider/1/1/" scrolling="no" style="width:1000px;height:654px;max-width:100%;overflow:hidden;border:none;padding:0;margin:0 auto;display:block;" marginheight="0" marginwidth="0"></iframe>--}}
             <main-db-carrousel v-bind:width="500" v-bind:items="{{ $params['main-events'] }}"></main-db-carrousel>
-
         </div>
-
-
     <div id="main-schedule" style="position: relative;">
         <p class="caption"><b>Расписание</b></p>
-        <div class="select-club">
-            <div class="select">
-                <span class="label" data-id="{{$params['select_club']->id}}" data-code="{{$params['select_club']->code}}">{{$params['select_club']->name}}</span>
-            </div>
-            <div class="another-clubs">
-                @foreach($params['clubs'] as $club)
-                    <div class="another-club" data-id="{{$club->id}}" data-code="{{$club->code}}">{{$club->name}}</div>
-                @endforeach
+        <div id="index_schedule">
+            <div class="select-club">
+                <div class="select">
+                    <span class="label" data-id="{{$params['select_club']->id}}" data-code="{{$params['select_club']->code}}">{{$params['select_club']->name}}</span>
+                </div>
+                <div class="another-clubs">
+                    @foreach($params['clubs'] as $club)
+                        <div class="another-club" data-id="{{$club->id}}" data-code="{{$club->code}}">{{$club->name}}</div>
+                    @endforeach
+                </div>
             </div>
         </div>
         <div class="schedule-cont active" id="shedule-cont-{{$params['select_club']->code}}">
@@ -119,15 +110,13 @@
                 </ul>
             </div>
         @endforeach
-
     </div>
     <div class="uk-clearfix"></div>
     <div class="schedule-buttons">
-        <a href="#" class="button-up"><b></b></a>
-        <a href="#" class="button-down"><b></b></a>
+        <a href="#" class="button-up" style="z-index: 1000;"><b></b></a>
+        <a href="#" class="button-down" style="z-index: 1000;"><b></b></a>
         <a href="{{route('schedule')}}" class="button-all">расписание на неделю</a>
     </div>
-
 </div>
 @endsection
 @section('main')

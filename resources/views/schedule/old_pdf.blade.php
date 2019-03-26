@@ -10,131 +10,124 @@
     {{--<link href="{{ asset('css/base/fa-brands.woff.css.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('css/base/fa-regular-400.woff.css.css') }}" rel="stylesheet">--}}
     {{--<link href="{{ asset('css/base/fa-solid-900.woff.css.css') }}" rel="stylesheet">--}}
-<style>
-    /*html {*/
+    <style>
+        /*html {*/
         /*font-family: DejaVuSans;*/
         /*font-style:normal;*/
         /*font-weight:400;*/
-    /*}*/
+        /*}*/
 
-    *{
-        font-family:"DeJaVu Sans Mono",monospace;
-    }
+        body {
+            font-family: DejaVu Sans, sans-serif;
+        }
 
-    /*body {*/
-        /*font-family: DejaVu Sans, sans-serif;*/
-    /*}*/
-    .headtable {
-        width: 720px;
-    }
-    .head_div {
-        width: 100%;
-        background-color: blue;
-        color: white;
-        display: block;
-        border-collapse: collapse;
-        position: relative;
-        height: 65px;
-        border: 1px solid blue;
-    }
-    .head_div .left{
-        background-color: blue;
-        vertical-align: bottom;
-        display: inline-block;
-        width: 30%;
-    }
-    .head_div .right{
-        background-color: blue;
-        width: 68%;
-        display: inline-block;
-        text-align: right;
-    }
-    .dayhead {
-        width: 10%;
-    }
-    .dayhead div {
-        font-size: 10px;
-        text-align: center;
-    }
-    .head_table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .head_table th{
-        background-color: #fafafa;
-        border:1px solid grey;
-    }
-    .head_table th div{
-        color: blue;
-    }
-    #schedules_table {
-        width: 100%;
-        border-collapse: collapse;
-        page-break-before: auto;
-    }
-    #schedules_table td {
-        width: 10%;
-        border:1px solid grey;
-        vertical-align: top;
-    }
-    .event {
-        font-size: 10px;
-    }
-    .event .time {
-        color: blue;
-    }
-    .event .name {
-        color: red;
-    }
-    .event .place {
-        color: black;
-    }
-    .icon-paid {
-        display: inline-block;
-    }
-    @page{
-        /*size: A4 portrait;*/
-        margin: 110px 10px 60px 20px;
-    }
-    .teacherPage {
-        page: teacher;
-        page-break-after: always;
-    }
-    header {
-        position: fixed;
-        top: -101px;
-        left: 0px;
-        right: 0px;
-        height: 90px;
-        /*width: 90%;*/
-    }
-    footer {
-        position: fixed;
-        bottom: -50px;
-        left: 0px;
-        right: 0px;
-        height: 50px;
-        background-color: #03a9f4;
-        color: white;
-        text-align: center;
-        line-height: 25px;
-    }
-    .crearfix{
-        height: 100px;
-    }
-    .clearfix::after {
-        display: block;
-        content: "";
-        clear: both;
-    }
+        .headtable {
+            width: 720px;
+        }
+        .head_div {
+            width: 100%;
+            background-color: blue;
+            color: white;
+        }
+        .head_div .left{
+            width: 30%;
+            display: inline-block;
+            padding-top: 15px;
+        }
+        .head_div .right{
+            width: 69%;
+            display: inline-block;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            vertical-align: top;
+            text-align: right;
+        }
+        .dayhead {
+            width: 10%;
+        }
+        .dayhead div {
+            font-size: 10px;
+            text-align: center;
+        }
+        .head_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .head_table th{
+            background-color: #fafafa;
+            border:1px solid grey;
+        }
+        .head_table th div{
+            color: blue;
+        }
+        #schedules_table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #schedules_table td {
+            width: 10%;
+            border:1px solid grey;
+            vertical-align: top;
+        }
+        .event {
+            font-size: 10px;
+        }
+        .event .time {
+            color: blue;
+        }
+        .event .name {
+            color: red;
+        }
+        .event .place {
+            color: black;
+        }
+        .icon-paid {
+            display: inline-block;
+        }
+        @page{
+            size: A4 portrait;
+            margin-top: 140px;
+        }
+        .teacherPage {
+            page: teacher;
+            page-break-after: always;
+        }
+        header {
+            position: fixed;
+            top: -94px;
+            left: 0px;
+            right: 0px;
+            height: 90px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+            background-color: #03a9f4;
+            color: white;
+            text-align: center;
+            line-height: 35px;
+        }
+        .crearfix{
+            height: 100px;
+        }
+        .clearfix::after {
+            display: block;
+            content: "";
+            clear: both;
+        }
 
-</style>
+
+
+    </style>
 </head>
 <body>
 <header>
     <div class="head_div">
         <div class="left">
-            <img src="{{url('/images/fitron-logo-mobile.svg')}}" />
+            <img src="{{url('/images/fitron-logo-mobile.svg')}}" width="80px" height="45px"/>
         </div>
         <div class="right">
             Расписание {{$params['select_club']->name}}
@@ -171,7 +164,7 @@
                                             @if($sch->paid)
                                                 {{--<i class="fa"><span>&#xf158;</span></i>--}}
                                                 {{--<i class="fas fa-ruble-sign"></i>--}}
-                                                <i class="icon-paid" title="Платная"></i>
+                                                {{--<i class="icon-paid" title="Платная"></i>--}}
                                                 <img src="{{url('/images/money.svg')}}" width="13px" hgeight="10px" class="icon-paid"/>
                                             @endif
                                         </div>
@@ -193,3 +186,4 @@
 </main>
 </body>
 </html>
+
